@@ -1,13 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmcok53rej5sy"]
+[gd_scene load_steps=9 format=3 uid="uid://cmcok53rej5sy"]
 
 [ext_resource type="Script" uid="uid://b8c82e4n8cldl" path="res://player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://chmr6w7f8yykk" path="res://camera_system_manager.gd" id="2_onrkg"]
 [ext_resource type="Script" uid="uid://dxqt83081coqq" path="res://camera_sway.gd" id="3_i3pqv"]
 [ext_resource type="Script" uid="uid://bjfwewfpcvxcm" path="res://Camera/mouse_system.gd" id="4_hqtel"]
+[ext_resource type="Script" uid="uid://dgb4auaqjw2r3" path="res://jump.gd" id="5_sweqy"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_4flbx"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_4flbx"]
+
+[sub_resource type="Curve" id="Curve_sweqy"]
+_limits = [-0.1, 0.1, 0.0, 1.0]
+_data = [Vector2(0, -3.7252903e-09), 0.0, -0.49550545, 0, 0, Vector2(0.3, 0.039999995), 0.0, 0.0, 0, 0, Vector2(1, 1.4901161e-08), 0.0, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_enabled = true
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_4flbx")
@@ -37,3 +44,9 @@ script = ExtResource("4_hqtel")
 [node name="Sway" type="Node" parent="CameraSystems" node_paths=PackedStringArray("player")]
 script = ExtResource("3_i3pqv")
 player = NodePath("../..")
+
+[node name="Jump" type="Node" parent="CameraSystems" node_paths=PackedStringArray("player")]
+script = ExtResource("5_sweqy")
+player = NodePath("../..")
+jump_curve = SubResource("Curve_sweqy")
+metadata/_custom_type_script = "uid://c7k0xr8eeyt5a"

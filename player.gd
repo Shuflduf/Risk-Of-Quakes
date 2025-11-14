@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+signal jumped
+
 @onready var cam: Camera3D = %Camera
 
 const SPEED = 8.0
@@ -16,6 +18,7 @@ func _physics_process(delta: float) -> void:
 
     if Input.is_action_just_pressed("jump") and is_on_floor():
         velocity.y = JUMP_VELOCITY
+        jumped.emit()
 
     var input_dir := Input.get_vector("left", "right", "forward", "backward")
     is_moving = !input_dir.is_zero_approx()
