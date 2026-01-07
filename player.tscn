@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmcok53rej5sy"]
+[gd_scene format=3 uid="uid://cmcok53rej5sy"]
 
 [ext_resource type="Script" uid="uid://b8c82e4n8cldl" path="res://player.gd" id="1_4flbx"]
-[ext_resource type="Script" uid="uid://chmr6w7f8yykk" path="res://camera_system_manager.gd" id="2_onrkg"]
-[ext_resource type="Script" uid="uid://dxqt83081coqq" path="res://camera_sway.gd" id="3_i3pqv"]
+[ext_resource type="Script" uid="uid://chmr6w7f8yykk" path="res://Camera/camera_system_manager.gd" id="2_onrkg"]
+[ext_resource type="Script" uid="uid://do08o48gg3n80" path="res://Camera/sway_system.gd" id="3_i3pqv"]
 [ext_resource type="Script" uid="uid://bjfwewfpcvxcm" path="res://Camera/mouse_system.gd" id="4_hqtel"]
-[ext_resource type="Script" uid="uid://dgb4auaqjw2r3" path="res://jump.gd" id="5_sweqy"]
+[ext_resource type="Script" uid="uid://dgb4auaqjw2r3" path="res://Camera/jump_system.gd" id="5_sweqy"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_4flbx"]
 
@@ -16,36 +16,37 @@ _data = [Vector2(0, -3.7252903e-09), 0.0, -0.49550545, 0, 0, Vector2(0.3, 0.0399
 point_count = 3
 metadata/_snap_enabled = true
 
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" unique_id=1807276841]
 script = ExtResource("1_4flbx")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=50111811]
 shape = SubResource("CylinderShape3D_4flbx")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=214712984]
 mesh = SubResource("CylinderMesh_4flbx")
 
-[node name="Camera" type="Camera3D" parent="."]
+[node name="Camera" type="Camera3D" parent="." unique_id=1588344406]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 
-[node name="DefaultCamTransform" type="Marker3D" parent="."]
+[node name="DefaultCamTransform" type="Marker3D" parent="." unique_id=350284731]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 gizmo_extents = 1.0
 
-[node name="CameraSystems" type="Node3D" parent="." node_paths=PackedStringArray("cam")]
+[node name="CameraSystems" type="Node3D" parent="." unique_id=1164359795 node_paths=PackedStringArray("cam")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 script = ExtResource("2_onrkg")
 cam = NodePath("../Camera")
 
-[node name="Mouse" type="Node" parent="CameraSystems"]
+[node name="Mouse" type="Node" parent="CameraSystems" unique_id=1919438486]
 script = ExtResource("4_hqtel")
 
-[node name="Sway" type="Node" parent="CameraSystems" node_paths=PackedStringArray("player")]
+[node name="Sway" type="Node" parent="CameraSystems" unique_id=190960577 node_paths=PackedStringArray("mouse_system")]
 script = ExtResource("3_i3pqv")
-player = NodePath("../..")
+mouse_system = NodePath("../Mouse")
+metadata/_custom_type_script = "uid://c7k0xr8eeyt5a"
 
-[node name="Jump" type="Node" parent="CameraSystems" node_paths=PackedStringArray("player")]
+[node name="Jump" type="Node" parent="CameraSystems" unique_id=1956178377 node_paths=PackedStringArray("player")]
 script = ExtResource("5_sweqy")
 player = NodePath("../..")
 jump_curve = SubResource("Curve_sweqy")
