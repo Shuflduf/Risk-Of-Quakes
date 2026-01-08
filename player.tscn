@@ -56,18 +56,34 @@ script = ExtResource("5_sweqy")
 [node name="StairHandler" type="Node3D" parent="." unique_id=1295697205]
 script = ExtResource("6_2hs0m")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=557834681]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.6, 0.90000004)
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StairHandler" unique_id=557834681]
+transform = Transform3D(0.70710677, 0.70710677, -3.090862e-08, 0, -4.371139e-08, -1, -0.70710677, 0.70710677, -3.090862e-08, 0.6540738, -0.6, 0.6290738)
 shape = SubResource("SeparationRayShape3D_sweqy")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=1230764938]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 1, -0.6, 0)
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StairHandler" unique_id=1230764938]
+transform = Transform3D(0.70710677, 0.70710677, -3.090862e-08, 0, -4.371139e-08, -1, -0.70710677, 0.70710677, -3.090862e-08, 0.72478443, -0.6, -0.7144291)
 shape = SubResource("SeparationRayShape3D_sweqy")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="." unique_id=370750050]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.6, -1)
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StairHandler" unique_id=370750050]
+transform = Transform3D(0.70710677, 0.70710677, -3.090862e-08, 0, -4.371139e-08, -1, -0.70710677, 0.70710677, -3.090862e-08, -0.6894291, -0.6, -0.7144291)
 shape = SubResource("SeparationRayShape3D_sweqy")
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="." unique_id=1310112954]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1, -0.6, 0)
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StairHandler" unique_id=1310112954]
+transform = Transform3D(0.70710677, 0.70710677, -3.090862e-08, 0, -4.371139e-08, -1, -0.70710677, 0.70710677, -3.090862e-08, -0.6894291, -0.6, 0.69978446)
+shape = SubResource("SeparationRayShape3D_sweqy")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="StairHandler" unique_id=1327909452]
+transform = Transform3D(0, 0.99999994, -4.371139e-08, 0, -4.371138e-08, -1, -0.99999994, 0, -3.5527137e-15, 0.925, -0.6, -0.024999976)
+shape = SubResource("SeparationRayShape3D_sweqy")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="StairHandler" unique_id=39639190]
+transform = Transform3D(0, 0.99999994, -4.371139e-08, 0, -4.371138e-08, -1, -0.99999994, 0, -3.5527137e-15, 0.025000006, -0.6, -1.025)
+shape = SubResource("SeparationRayShape3D_sweqy")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="StairHandler" unique_id=741612696]
+transform = Transform3D(0, 0.99999994, -4.371139e-08, 0, -4.371138e-08, -1, -0.99999994, 0, -3.5527137e-15, -0.97499996, -0.6, -0.024999976)
+shape = SubResource("SeparationRayShape3D_sweqy")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="StairHandler" unique_id=1844107466]
+transform = Transform3D(0, 0.99999994, -4.371139e-08, 0, -4.371138e-08, -1, -0.99999994, 0, -3.5527137e-15, 0.025000006, -0.6, 0.975)
 shape = SubResource("SeparationRayShape3D_sweqy")
