@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://d1i8l7edqjxwc"]
+
+[ext_resource type="Script" uid="uid://blet3lqjodxgl" path="res://Weapons/Rocket Launcher/rocket_launcher.gd" id="1_0xepj"]
+[ext_resource type="PackedScene" uid="uid://c5ajxuv6vttue" path="res://Weapons/Rocket Launcher/rocket.tscn" id="2_qk1ct"]
+[ext_resource type="Script" uid="uid://dfjixm86uiam3" path="res://Weapons/follow_camera.gd" id="2_s108g"]
+
+[node name="RocketLauncher" type="Node3D" unique_id=1990319048]
+script = ExtResource("1_0xepj")
+rocket_scene = ExtResource("2_qk1ct")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=171895065]
+size = Vector3(0.2, 0.2, 1)
+
+[node name="FollowCamera" type="Node" parent="." unique_id=842953509]
+script = ExtResource("2_s108g")
+offset = Vector3(0.31, -0.205, -0.34)

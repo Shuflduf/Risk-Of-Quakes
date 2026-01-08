@@ -3,13 +3,15 @@
 [ext_resource type="Script" uid="uid://b8c82e4n8cldl" path="res://player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://chmr6w7f8yykk" path="res://Camera/camera_system_manager.gd" id="2_onrkg"]
 [ext_resource type="Script" uid="uid://bjfwewfpcvxcm" path="res://Camera/mouse_system.gd" id="4_hqtel"]
-[ext_resource type="PackedScene" uid="uid://ctmmjss35lk0u" path="res://Assets/3D/gun.glb" id="4_sweqy"]
+[ext_resource type="PackedScene" uid="uid://i8x84sh2p2q4" path="res://weapon_system.tscn" id="4_sweqy"]
+[ext_resource type="Script" uid="uid://bhlpfny8uqeu8" path="res://rocket_jump.gd" id="5_sweqy"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_4flbx"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_4flbx"]
 
 [node name="Player" type="CharacterBody3D" unique_id=1807276841]
+collision_layer = 2
 script = ExtResource("1_4flbx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=50111811]
@@ -18,10 +20,6 @@ shape = SubResource("CylinderShape3D_4flbx")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=214712984]
 mesh = SubResource("CylinderMesh_4flbx")
 
-[node name="Camera" type="Camera3D" parent="." unique_id=1588344406]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1.5)
-
 [node name="ThirdPersonPos" type="Marker3D" parent="." unique_id=350284731]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1.5)
 gizmo_extents = 1.0
@@ -29,6 +27,11 @@ gizmo_extents = 1.0
 [node name="DefaultCamPos" type="Marker3D" parent="." unique_id=1695664787]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 gizmo_extents = 1.0
+
+[node name="Camera" type="Camera3D" parent="." unique_id=1588344406]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+fov = 100.0
 
 [node name="CameraSystems" type="Node3D" parent="." unique_id=1164359795 node_paths=PackedStringArray("cam")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
@@ -39,5 +42,8 @@ cam = NodePath("../Camera")
 script = ExtResource("4_hqtel")
 third_person_pos = NodePath("../../ThirdPersonPos")
 
-[node name="gun" parent="." unique_id=1491554485 instance=ExtResource("4_sweqy")]
-transform = Transform3D(0.19468862, 0, 0, 0, 0.19468862, 0, 0, 0, 0.19468862, 0.40604925, 0.5053543, -1.2802241)
+[node name="WeaponSystem" parent="." unique_id=1590952291 node_paths=PackedStringArray("cam") instance=ExtResource("4_sweqy")]
+cam = NodePath("../Camera")
+
+[node name="RocketJump" type="Node" parent="." unique_id=1703434099]
+script = ExtResource("5_sweqy")

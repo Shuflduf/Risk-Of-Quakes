@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://c5ajxuv6vttue"]
+
+[ext_resource type="Script" uid="uid://dd4wrq08d6w0y" path="res://Weapons/Rocket Launcher/rocket.gd" id="1_qpw2b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v0d51"]
+size = Vector3(0.1, 0.1, 1.4)
+
+[sub_resource type="Gradient" id="Gradient_qpw2b"]
+colors = PackedColorArray(1, 0.4666667, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_546xf"]
+gradient = SubResource("Gradient_qpw2b")
+
+[sub_resource type="Curve" id="Curve_2ygv3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xplh5"]
+curve = SubResource("Curve_2ygv3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_euiro"]
+direction = Vector3(0, 1, 0)
+spread = 135.0
+initial_velocity_min = 7.0
+initial_velocity_max = 13.0
+gravity = Vector3(0, -20, 0)
+scale_curve = SubResource("CurveTexture_xplh5")
+color_ramp = SubResource("GradientTexture1D_546xf")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_54py0"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_v081m"]
+material = SubResource("StandardMaterial3D_54py0")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qpw2b"]
+radius = 3.3
+
+[node name="Rocket" type="Node3D" unique_id=1272541276]
+top_level = true
+script = ExtResource("1_qpw2b")
+rocket_speed = 40.0
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=827845194]
+size = Vector3(0.1, 0.1, 0.5)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=2091408223]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=711013596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.45)
+shape = SubResource("BoxShape3D_v0d51")
+
+[node name="ExplodeParticles" type="GPUParticles3D" parent="." unique_id=1857376849]
+emitting = false
+amount = 32
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_euiro")
+draw_pass_1 = SubResource("SphereMesh_v081m")
+
+[node name="BlastRadius" type="Area3D" parent="." unique_id=1066391506]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BlastRadius" unique_id=1385020085]
+shape = SubResource("SphereShape3D_qpw2b")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
