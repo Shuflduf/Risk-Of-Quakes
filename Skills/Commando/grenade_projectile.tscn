@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cobplceq36dyx"]
+
+[ext_resource type="Script" uid="uid://f0vf0t1sftbm" path="res://Skills/Commando/grenade_projectile.gd" id="1_5m32m"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3qp86"]
+bounce = 0.7
+
+[sub_resource type="SphereMesh" id="SphereMesh_3qp86"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5m32m"]
+radius = 0.2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_m21px"]
+radius = 3.0
+
+[node name="RigidBody3D" type="RigidBody3D" unique_id=1101875099]
+top_level = true
+collision_layer = 4
+collision_mask = 9
+physics_material_override = SubResource("PhysicsMaterial_3qp86")
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_5m32m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=149211356]
+transform = Transform3D(0.28416047, 0, 0, 0, 0.28416047, 0, 0, 0, 0.28416047, 0, 0, 0)
+mesh = SubResource("SphereMesh_3qp86")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1394130719]
+shape = SubResource("SphereShape3D_5m32m")
+
+[node name="ExplosionRadius" type="Area3D" parent="." unique_id=1283837044]
+collision_layer = 0
+collision_mask = 10
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExplosionRadius" unique_id=1293939286]
+shape = SubResource("SphereShape3D_m21px")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

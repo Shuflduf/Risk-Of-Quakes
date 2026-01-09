@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bnhkfym5al36a"]
+
+[ext_resource type="Script" uid="uid://ct8ob7jk4oixa" path="res://Skills/Commando/grenade_skill.gd" id="1_f5iu5"]
+[ext_resource type="PackedScene" uid="uid://cobplceq36dyx" path="res://Skills/Commando/grenade_projectile.tscn" id="2_cnelf"]
+
+[node name="GrenadeSkill" type="Node" unique_id=701401869]
+script = ExtResource("1_f5iu5")
+nade_scene = ExtResource("2_cnelf")

@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c2pbtdi5r7367" path="res://Skills/Commando/tactical_slide.tscn" id="3_ddyhx"]
 [ext_resource type="PackedScene" uid="uid://d1k5aq2qsihu1" path="res://Skills/Commando/double_tap.tscn" id="3_sio5s"]
 [ext_resource type="PackedScene" uid="uid://bqn60kr4ecdy6" path="res://Skills/Commando/phase_round.tscn" id="4_bg7u2"]
+[ext_resource type="PackedScene" uid="uid://bnhkfym5al36a" path="res://Skills/Commando/grenade_skill.tscn" id="5_sio5s"]
 
 [node name="SkillSystem" type="Node3D" unique_id=1590952291]
 script = ExtResource("1_ddyhx")
@@ -14,3 +15,5 @@ script = ExtResource("1_ddyhx")
 
 [node name="PhaseRound" parent="." unique_id=1011272410 node_paths=PackedStringArray("double_tap") instance=ExtResource("4_bg7u2")]
 double_tap = NodePath("../DoubleTap")
+
+[node name="GrenadeSkill" parent="." unique_id=701401869 instance=ExtResource("5_sio5s")]
