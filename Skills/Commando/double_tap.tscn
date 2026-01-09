@@ -34,7 +34,7 @@ vertex_color_use_as_albedo = true
 [sub_resource type="SphereMesh" id="SphereMesh_b3wow"]
 material = SubResource("StandardMaterial3D_0br72")
 
-[node name="Akimbos" type="Node3D" unique_id=1077974154 node_paths=PackedStringArray("akimbos")]
+[node name="DoubleTap" type="Node3D" unique_id=1077974154 node_paths=PackedStringArray("akimbos")]
 script = ExtResource("1_ryp3h")
 akimbos = [NodePath("gun"), NodePath("gun2")]
 
