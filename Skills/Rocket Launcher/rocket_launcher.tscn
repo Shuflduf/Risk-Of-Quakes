@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://d1i8l7edqjxwc"]
 
-[ext_resource type="Script" uid="uid://blet3lqjodxgl" path="res://Weapons/Rocket Launcher/rocket_launcher.gd" id="1_0xepj"]
-[ext_resource type="PackedScene" uid="uid://c5ajxuv6vttue" path="res://Weapons/Rocket Launcher/rocket.tscn" id="2_qk1ct"]
-[ext_resource type="Script" uid="uid://dfjixm86uiam3" path="res://Weapons/follow_camera.gd" id="2_s108g"]
+[ext_resource type="Script" uid="uid://blet3lqjodxgl" path="res://Skills/Rocket Launcher/rocket_launcher.gd" id="1_0xepj"]
+[ext_resource type="PackedScene" uid="uid://c5ajxuv6vttue" path="res://Skills/Rocket Launcher/rocket.tscn" id="2_qk1ct"]
+[ext_resource type="Script" uid="uid://dfjixm86uiam3" path="res://Skills/follow_camera.gd" id="2_s108g"]
 
 [node name="RocketLauncher" type="Node3D" unique_id=1990319048]
 script = ExtResource("1_0xepj")

@@ -7,7 +7,7 @@ extends Node3D
 var current_cooldown = 0.0
 var next_gun_index = 0
 
-@onready var hitscan: Node = $Hitscan
+@onready var hitscan: Node = get_parent().ray
 
 func shoot():
 	current_cooldown = shoot_cooldown
@@ -15,15 +15,15 @@ func shoot():
 	next_gun_index += 1
 	next_gun_index %= akimbos.size()
 	
-	if hitscan.ray.is_colliding():
+	if hitscan.is_colliding():
 		var new_particles: GPUParticles3D = $ImpactParticles.duplicate()
 		add_child(new_particles)
-		new_particles.global_position = hitscan.ray.get_collision_point()
-		new_particles.quaternion = Quaternion(Vector3.UP, hitscan.ray.get_collision_normal())
+		new_particles.global_position = hitscan.get_collision_point()
+		new_particles.quaternion = Quaternion(Vector3.UP, hitscan.get_collision_normal())
 		new_particles.restart()
 		new_particles.finished.connect(func(): new_particles.queue_free())
 		
-		var hitbox = hitscan.ray.get_collider()
+		var hitbox = hitscan.get_collider()
 		if hitbox.name == &"Hitbox":
 			hitbox.hit(4.0)
 

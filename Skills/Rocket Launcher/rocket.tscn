@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c5ajxuv6vttue"]
 
-[ext_resource type="Script" uid="uid://dd4wrq08d6w0y" path="res://Weapons/Rocket Launcher/rocket.gd" id="1_qpw2b"]
+[ext_resource type="Script" uid="uid://dd4wrq08d6w0y" path="res://Skills/Rocket Launcher/rocket.gd" id="1_qpw2b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v0d51"]
 size = Vector3(0.1, 0.1, 1.4)

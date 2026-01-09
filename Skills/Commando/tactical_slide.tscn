@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c2pbtdi5r7367"]
+
+[ext_resource type="Script" uid="uid://gjm4w5a4qsec" path="res://Skills/Commando/tactical_slide.gd" id="1_b7xyd"]
+
+[node name="TacticalSlide" type="Node" unique_id=1071647213]
+script = ExtResource("1_b7xyd")
