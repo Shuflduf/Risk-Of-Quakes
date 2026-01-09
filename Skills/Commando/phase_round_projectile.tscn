@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://dv0nhmu74dx4x"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vsyh1"]
+shading_mode = 0
+albedo_color = Color(0.26999998, 0.7931667, 1, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_vsyh1"]
+material = SubResource("StandardMaterial3D_vsyh1")
+inner_radius = 0.7
+rings = 16
+ring_segments = 8
+
+[sub_resource type="Animation" id="Animation_8t77f"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("00")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, -1.5)
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("01")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, -0.9)
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("02")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+tracks/3/type = "position_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("03")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0, 0, 0.3)
+tracks/4/type = "position_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("04")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0, 0, 0.90000004)
+
+[sub_resource type="Animation" id="Animation_vsyh1"]
+resource_name = "loop"
+length = 0.15
+loop_mode = 1
+step = 0.05
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("00")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, -1.5, 0.15, 1, 0, 0, -0.9)
+tracks/1/type = "scale_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("00")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.01, 0.01, 0.01, 0.15, 1, 0.65, 0.65, 0.65)
+tracks/2/type = "position_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("01")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0.0001, 1, 0, 0, -0.9, 0.15, 1, 0, 0, -0.29999995)
+tracks/3/type = "scale_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("01")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, 0.65, 0.65, 0.65, 0.15, 1, 1, 1, 1)
+tracks/4/type = "position_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("02")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0, 0, -0.3, 0.15, 1, 0, 0, 0.3)
+tracks/5/type = "scale_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("02")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, 1, 1, 1, 0.15, 1, 0.64, 0.64, 0.64)
+tracks/6/type = "position_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("03")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, 0, 0, 0.3, 0.15, 1, 0, 0, 0.90000004)
+tracks/7/type = "scale_3d"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("03")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = PackedFloat32Array(0, 1, 0.64000005, 0.64000005, 0.64000005, 0.15, 1, 0.38400003, 0.38400003, 0.38400003)
+tracks/8/type = "position_3d"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("04")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = PackedFloat32Array(0, 1, 0, 0, 0.90000004, 0.15, 1, 0, 0, 1.5)
+tracks/9/type = "scale_3d"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("04")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = PackedFloat32Array(0, 1, 0.384, 0.384, 0.384, 0.15, 1, 0.001, 0.001, 0.001)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8t77f"]
+_data = {
+&"RESET": SubResource("Animation_8t77f"),
+&"loop": SubResource("Animation_vsyh1")
+}
+
+[node name="PhaseRoundProjectile" type="Node3D" unique_id=468448743]
+
+[node name="00" type="MeshInstance3D" parent="." unique_id=685647273]
+transform = Transform3D(0.41239405, 0, 0, 0, -1.8026316e-08, -0.41239405, 0, 0.41239405, -1.8026316e-08, 0, 0, -1.5)
+mesh = SubResource("TorusMesh_vsyh1")
+
+[node name="01" type="MeshInstance3D" parent="." unique_id=758849250]
+transform = Transform3D(0.87005925, 0, 0, 0, -3.8031498e-08, -0.87005925, 0, 0.87005925, -3.8031498e-08, 0, 0, -0.9)
+mesh = SubResource("TorusMesh_vsyh1")
+
+[node name="02" type="MeshInstance3D" parent="." unique_id=580396138]
+transform = Transform3D(0.7736533, 0, 0, 0, -3.381746e-08, -0.7736533, 0, 0.7736533, -3.381746e-08, 0, 0, 0)
+mesh = SubResource("TorusMesh_vsyh1")
+
+[node name="03" type="MeshInstance3D" parent="." unique_id=1124922035]
+transform = Transform3D(0.4790424, 0, 0, 0, -2.093961e-08, -0.4790424, 0, 0.4790424, -2.093961e-08, 0, 0, 0.3)
+mesh = SubResource("TorusMesh_vsyh1")
+
+[node name="04" type="MeshInstance3D" parent="." unique_id=602260641]
+transform = Transform3D(0.14319229, 0, 0, 0, -6.2591337e-09, -0.14319229, 0, 0.14319229, -6.2591337e-09, 0, 0, 0.90000004)
+mesh = SubResource("TorusMesh_vsyh1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=55920519]
+libraries/ = SubResource("AnimationLibrary_8t77f")
+autoplay = &"loop"
