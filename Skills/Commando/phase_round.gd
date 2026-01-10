@@ -11,16 +11,19 @@ var hold_duration = 0.0
 
 func _physics_process(delta: float) -> void:
 	current_cooldown -= delta
-	if Input.is_action_pressed(&"secondary") and current_cooldown <= 0.0:
+	if Input.is_action_just_pressed(&"secondary") and current_cooldown <= 0.0:
 		hold_duration += delta
 		double_tap.current_cooldown = INF
 		for i in double_tap.guns.size():
 			var gun: Node3D = double_tap.guns[i]
 			var left_side = i % 2 == 0
 			var side_mult = 1.0 if left_side else -1.0
-			gun.position.x = 0.2 * side_mult
-			gun.position.y = i * 0.1
-			gun.rotation.x = (-PI * side_mult) / 2.5
+			#gun.position.x = 0.2 * side_mult
+
+			var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
+			tween.tween_property(gun, ^"position:x", 0.2 * side_mult, 0.4).set_trans(Tween.TRANS_BACK)
+			tween.parallel().tween_property(gun, ^"position:y", i * 0.1, 0.4).set_trans(Tween.TRANS_BACK)
+			tween.parallel().tween_property(gun, ^"rotation:x", (-PI * side_mult) / 2.5, 0.2).set_trans(Tween.TRANS_EXPO)
 	
 	if Input.is_action_just_released(&"secondary") and hold_duration > 0.0:
 		current_cooldown = use_cooldown
@@ -35,11 +38,17 @@ func _physics_process(delta: float) -> void:
 		#await get_tree().create_timer(0.1).timeout
 		for i in double_tap.guns.size():
 			var gun: Node3D = double_tap.guns[i]
-			gun.rotation.z = deg_to_rad(20.0)
+			var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
+			tween.tween_property(gun, ^"rotation:z", deg_to_rad(20.0), 0.1).set_trans(Tween.TRANS_EXPO)
+			#tween.tween_property(gun, ^"rotation:z", 0.0, 0.2).set_trans(Tween.TRANS_CUBIC)
+			#tween.tween_interval(0.1)
+			tween.tween_property(gun, ^"transform", double_tap.og_gun_transforms[i], 0.3).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+			#gun.rotation.z = deg_to_rad(20.0)
 		
-		await get_tree().create_timer(0.5).timeout
-		for i in double_tap.guns.size():
-			var gun: Node3D = double_tap.guns[i]
-			gun.transform = double_tap.og_gun_transforms[i]
+		#await get_tree().create_timer(0.5).timeout
+		#for i in double_tap.guns.size():
+			#var gun: Node3D = double_tap.guns[i]
+			#gun.transform = double_tap.og_gun_transforms[i]
+			
 		double_tap.current_cooldown = 0.0
 			#gun.rotate_object_local(Vector3.UP, deg_to_rad(10.0))
