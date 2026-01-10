@@ -14,12 +14,16 @@ enum SkillSlot {
 }
 
 func primary():
-	var target_skill = skills[SkillSlot.PRIMARY]
-	if target_skill:
-		target_skill.use()
+	call_skill(SkillSlot.PRIMARY)
 
 func secondary():
-	var target_skill = skills[SkillSlot.SECONDARY]
+	call_skill(SkillSlot.SECONDARY)
+
+func utility():
+	call_skill(SkillSlot.UTILITY)
+
+func call_skill(skill: SkillSlot):
+	var target_skill = skills[skill]
 	if target_skill:
 		target_skill.use()
 

@@ -16,3 +16,6 @@ func _physics_process(_delta: float) -> void:
 		
 	if Input.is_action_pressed(&"secondary"):
 		skills.secondary()
+	
+	if Input.is_action_pressed(&"utility"):
+		skills.utility()
