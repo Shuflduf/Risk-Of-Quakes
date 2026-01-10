@@ -14,7 +14,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="Fight Engine"
+config/name="Risk Of Quakes"
 run/main_scene="uid://bq60rtas7e3is"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
