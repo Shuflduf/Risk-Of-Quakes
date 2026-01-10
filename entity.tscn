@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b8c82e4n8cldl" path="res://entity.gd" id="1_4flbx"]
 [ext_resource type="PackedScene" uid="uid://i8x84sh2p2q4" path="res://skill_system.tscn" id="2_2hs0m"]
-[ext_resource type="Script" uid="uid://bhlpfny8uqeu8" path="res://rocket_jump.gd" id="5_sweqy"]
+[ext_resource type="PackedScene" uid="uid://b1k3dv3hnfjvc" path="res://hitbox.tscn" id="4_03rkj"]
 [ext_resource type="Script" uid="uid://jbebb4hi27xp" path="res://stair_handler.gd" id="6_2hs0m"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_4flbx"]
@@ -12,8 +12,11 @@
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_sweqy"]
 length = 0.4
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_pimh3"]
+
 [node name="Entity" type="CharacterBody3D" unique_id=1807276841]
 collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_4flbx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=50111811]
@@ -29,17 +32,13 @@ fov = 100.0
 
 [node name="Hitscan" type="RayCast3D" parent="Camera" unique_id=1297929075]
 target_position = Vector3(0, 0, -1000)
-collision_mask = 11
+collision_mask = 5
 collide_with_areas = true
 
-[node name="SkillSystem" parent="." unique_id=1590952291 node_paths=PackedStringArray("cam", "ray", "player", "cam_systems") instance=ExtResource("2_2hs0m")]
+[node name="SkillSystem" parent="." unique_id=1590952291 node_paths=PackedStringArray("cam", "ray", "player") instance=ExtResource("2_2hs0m")]
 cam = NodePath("../Camera")
 ray = NodePath("../Camera/Hitscan")
 player = NodePath("..")
-cam_systems = NodePath("")
-
-[node name="RocketJump" type="Node" parent="." unique_id=1703434099]
-script = ExtResource("5_sweqy")
 
 [node name="StairHandler" type="Node3D" parent="." unique_id=1295697205]
 script = ExtResource("6_2hs0m")
@@ -75,3 +74,8 @@ shape = SubResource("SeparationRayShape3D_sweqy")
 [node name="CollisionShape3D9" type="CollisionShape3D" parent="StairHandler" unique_id=1844107466]
 transform = Transform3D(0, 0.99999994, -4.371139e-08, 0, -4.371138e-08, -1, -0.99999994, 0, -3.5527137e-15, 0.025000006, -0.6, 0.975)
 shape = SubResource("SeparationRayShape3D_sweqy")
+
+[node name="Hitbox" parent="." unique_id=1948627840 instance=ExtResource("4_03rkj")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" unique_id=827155171]
+shape = SubResource("CylinderShape3D_pimh3")

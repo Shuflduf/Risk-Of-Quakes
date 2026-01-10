@@ -8,11 +8,10 @@ extends Node3D
 var current_cooldown = 0.0
 var next_gun_index = 0
 
-@onready var hitscan: Node = get_parent().ray
+@onready var hitscan: RayCast3D = get_parent().ray
 @onready var og_gun_transforms: Array = guns.map(func(gun): return gun.transform)
 
 func shoot():
-	
 	current_cooldown = shoot_cooldown
 	guns[next_gun_index].transform = og_gun_transforms[next_gun_index]
 	var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
@@ -32,6 +31,7 @@ func shoot():
 		new_particles.finished.connect(func(): new_particles.queue_free())
 		
 		var hitbox = hitscan.get_collider()
+		print(hitbox)
 		if hitbox.name == &"Hitbox":
 			hitbox.hit(4.0)
 

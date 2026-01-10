@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://chmr6w7f8yykk" path="res://Camera/camera_system_manager.gd" id="2_onrkg"]
 [ext_resource type="Script" uid="uid://bjfwewfpcvxcm" path="res://Camera/mouse_system.gd" id="4_hqtel"]
 [ext_resource type="Script" uid="uid://b78j5vtu0kl5i" path="res://Camera/camera_offset.gd" id="5_1jxqw"]
+[ext_resource type="Script" uid="uid://bhlpfny8uqeu8" path="res://rocket_jump.gd" id="5_sweqy"]
 
 [node name="Player" unique_id=1807276841 instance=ExtResource("1_4flbx")]
 
@@ -23,10 +24,13 @@ script = ExtResource("4_hqtel")
 [node name="Offset" type="Node" parent="CameraSystems" index="1" unique_id=375580789]
 script = ExtResource("5_1jxqw")
 
+[node name="Hitscan" parent="Camera" parent_id_path=PackedInt32Array(1588344406) index="0" unique_id=1297929075]
+collision_mask = 3
+
 [node name="SkillSystem" parent="." index="5" unique_id=1590952291 node_paths=PackedStringArray("cam_systems")]
 cam_systems = NodePath("../CameraSystems")
 
-[node name="UI" type="Control" parent="." index="8" unique_id=1162473960]
+[node name="UI" type="Control" parent="." index="7" unique_id=1162473960]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,3 +51,6 @@ offset_right = 2.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="RocketJump" type="Node" parent="." index="8" unique_id=1195640900]
+script = ExtResource("5_sweqy")

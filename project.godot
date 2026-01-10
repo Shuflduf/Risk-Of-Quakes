@@ -82,6 +82,6 @@ special={
 [layer_names]
 
 3d_physics/layer_1="World"
-3d_physics/layer_2="Player"
-3d_physics/layer_3="Projectile"
-3d_physics/layer_4="Map Objects"
+3d_physics/layer_2="Entity"
+3d_physics/layer_3="Hitbox"
+3d_physics/layer_4="Hurtbox"

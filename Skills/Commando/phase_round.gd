@@ -7,6 +7,7 @@ extends Node
 var current_cooldown = 0.0
 var hold_duration = 0.0
 
+@onready var player: CharacterBody3D = get_parent().player
 @onready var cam: Camera3D = get_parent().cam
 
 func _physics_process(delta: float) -> void:
@@ -33,6 +34,7 @@ func _physics_process(delta: float) -> void:
 		new_projectile.global_rotation = cam.global_rotation
 		new_projectile.global_position = cam.global_position
 		new_projectile.speed = clamp(hold_duration, 1.0, 3.0) * 15.0
+		new_projectile.player_owner = player
 		hold_duration = 0.0
 		
 		#await get_tree().create_timer(0.1).timeout

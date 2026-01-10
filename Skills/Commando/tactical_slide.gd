@@ -6,7 +6,7 @@ extends Node
 var current_cooldown = 0.0
 @onready var cam: Camera3D = get_parent().cam
 @onready var player: CharacterBody3D = get_parent().player
-@onready var cam_offset = get_parent().cam_systems.get_node_or_null(^"Offset")
+@onready var cam_offset = get_parent().cam_systems.get_node_or_null(^"Offset") if get_parent().cam_systems else null
 
 var slide_initiated = false
 
