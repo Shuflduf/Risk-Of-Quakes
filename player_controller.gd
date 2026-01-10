@@ -11,5 +11,8 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_pressed(&"jump") and player.is_on_floor() and player.jump_enabled:
 		player.wish_jump = true
 	
-	if Input.is_action_pressed("primary"):
+	if Input.is_action_pressed(&"primary"):
 		skills.primary()
+		
+	if Input.is_action_pressed(&"secondary"):
+		skills.secondary()

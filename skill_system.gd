@@ -15,8 +15,13 @@ enum SkillSlot {
 
 func primary():
 	var target_skill = skills[SkillSlot.PRIMARY]
-	target_skill.use()
-	
+	if target_skill:
+		target_skill.use()
+
+func secondary():
+	var target_skill = skills[SkillSlot.SECONDARY]
+	if target_skill:
+		target_skill.use()
 
 #func _ready() -> void:
 	#for weapon in get_children():
