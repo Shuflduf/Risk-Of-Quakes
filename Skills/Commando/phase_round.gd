@@ -1,6 +1,6 @@
 extends Node
 
-signal used
+signal used(started: bool)
 
 @export var phase_round_projectile: PackedScene
 @export var double_tap: Node3D
@@ -40,10 +40,11 @@ func use():
 
 func hold():
 	print("FUCK")
+	used.emit(true)
 	for i in double_tap.guns.size():
 		var gun: Node3D = double_tap.guns[i]
-		var left_side = i % 2 == 0
-		var side_mult = 1.0 if left_side else -1.0
+		var right_side = i % 2 == 0
+		var side_mult = -1.0 if right_side else 1.0
 		#gun.position.x = 0.2 * side_mult
 
 		var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
@@ -56,7 +57,7 @@ func release():
 	current_cooldown = use_cooldown
 	
 	var new_projectile: Node3D = phase_round_projectile.instantiate()
-	add_child(new_projectile)
+	get_tree().root.add_child(new_projectile)
 	new_projectile.global_rotation = cam.global_rotation
 	new_projectile.global_position = cam.global_position
 	new_projectile.speed = clamp(hold_duration, 1.0, 3.0) * 15.0
@@ -73,4 +74,4 @@ func release():
 		tween.tween_property(gun, ^"transform", double_tap.og_gun_transforms[i], 0.3).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 
 	double_tap.current_cooldown = 0.0
-	used.emit()
+	used.emit(false)

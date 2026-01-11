@@ -36,13 +36,13 @@ material = SubResource("StandardMaterial3D_0br72")
 
 [node name="DoubleTap" type="Node3D" unique_id=1077974154 node_paths=PackedStringArray("guns")]
 script = ExtResource("1_ryp3h")
-guns = [NodePath("gun"), NodePath("gun2")]
+guns = [NodePath("LeftGun"), NodePath("RightGun")]
 
-[node name="gun" parent="." unique_id=111516115 instance=ExtResource("2_8jxxv")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.3, 0, 0)
-
-[node name="gun2" parent="." unique_id=1099589396 instance=ExtResource("2_8jxxv")]
+[node name="LeftGun" parent="." unique_id=1099589396 instance=ExtResource("2_8jxxv")]
 transform = Transform3D(-4.371139e-08, 0, 0.99999994, 0, 0.99999994, 0, -1, 0, -4.3711385e-08, -0.3, 0, 0)
+
+[node name="RightGun" parent="." unique_id=111516115 instance=ExtResource("2_8jxxv")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.3, 0, 0)
 
 [node name="FollowCamera" type="Node" parent="." unique_id=1687726780]
 script = ExtResource("3_ms0oe")

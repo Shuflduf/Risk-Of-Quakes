@@ -18,7 +18,7 @@ func use():
 		return
 		
 	var new_nade: RigidBody3D = nade_scene.instantiate()
-	add_child(new_nade)
+	get_tree().root.add_child(new_nade)
 	new_nade.global_position = cam.global_position
 	new_nade.linear_velocity = player.velocity + (-cam.basis.z.normalized() * 15.0)
 	current_cooldown = skill_cooldown

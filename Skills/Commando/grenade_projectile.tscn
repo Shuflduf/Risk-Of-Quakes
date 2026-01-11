@@ -42,5 +42,8 @@ shape = SubResource("SphereShape3D_m21px")
 one_shot = true
 autostart = true
 
+[node name="RightHand2" type="Marker3D" parent="." unique_id=1993609633]
+transform = Transform3D(1.0000002, -4.121148e-13, -6.252776e-13, 0, 1.0000005, 5.9604645e-08, 0, -2.9802322e-08, 1.0000005, -0.272694, 0.08481836, 0.57754385)
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="ExplodeTimer" to="." method="_on_explode_timer_timeout"]
