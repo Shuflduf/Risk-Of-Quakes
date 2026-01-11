@@ -18,6 +18,7 @@ top_level = true
 collision_layer = 4
 collision_mask = 9
 physics_material_override = SubResource("PhysicsMaterial_3qp86")
+continuous_cd = true
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_5m32m")
