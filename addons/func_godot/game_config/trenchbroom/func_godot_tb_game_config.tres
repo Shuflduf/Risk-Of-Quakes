@@ -10,3 +10,4 @@
 [resource]
 script = ExtResource("2_ns6ah")
 game_name = "RiskOfQuakes"
+textures_root_folder = "Maps\\Textures"
