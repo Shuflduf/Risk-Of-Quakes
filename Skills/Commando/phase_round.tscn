@@ -5,4 +5,5 @@
 
 [node name="PhaseRound" type="Node" unique_id=1011272410]
 script = ExtResource("1_scfu1")
+skill_name = "Phase Round"
 phase_round_projectile = ExtResource("2_ms6ia")

@@ -2,6 +2,7 @@ extends Node3D
 
 signal used(gun_index: int)
 
+@export var skill_name: String
 @export var shoot_cooldown = 0.3
 @export var guns: Array[Node3D]
 @export var kick_strength_deg = 20.0
@@ -28,7 +29,7 @@ func use():
 	
 	if hitscan.is_colliding():
 		var new_particles: GPUParticles3D = $ImpactParticles.duplicate()
-		add_child(new_particles)
+		get_tree().root.add_child(new_particles)
 		new_particles.global_position = hitscan.get_collision_point()
 		new_particles.quaternion = Quaternion(Vector3.UP, hitscan.get_collision_normal())
 		new_particles.restart()

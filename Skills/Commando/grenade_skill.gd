@@ -2,6 +2,7 @@ extends Node
 
 signal used
 
+@export var skill_name: String
 @export var nade_scene: PackedScene
 @export var skill_cooldown = 1.0
 

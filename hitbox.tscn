@@ -9,7 +9,6 @@ monitoring = false
 script = ExtResource("1_orx6n")
 
 [node name="BaseText" type="Label3D" parent="." unique_id=600225738]
-top_level = true
 visible = false
 billboard = 1
 double_sided = false

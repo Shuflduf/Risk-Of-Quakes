@@ -4,7 +4,7 @@ extends Node3D
 @export var ray: RayCast3D
 @export var player: CharacterBody3D
 @export var cam_systems: Node
-@export var skills: Dictionary[SkillSlot, Node]
+@export var skill_list: Dictionary[SkillSlot, Node]
 
 enum SkillSlot {
 	PRIMARY,
@@ -27,7 +27,7 @@ func special():
 
 
 func call_skill(skill: SkillSlot):
-	var target_skill = skills[skill]
+	var target_skill = skill_list[skill]
 	if target_skill:
 		target_skill.use()
 

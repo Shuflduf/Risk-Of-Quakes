@@ -2,6 +2,7 @@ extends Node
 
 signal used
 
+@export var skill_name: String
 @export var ability_cooldown = 1.0
 @export var dip_curve: Curve
 

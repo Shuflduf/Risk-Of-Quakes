@@ -2,6 +2,7 @@ extends Node
 
 signal used(started: bool)
 
+@export var skill_name: String
 @export var phase_round_projectile: PackedScene
 @export var double_tap: Node3D
 @export var use_cooldown = 1.0

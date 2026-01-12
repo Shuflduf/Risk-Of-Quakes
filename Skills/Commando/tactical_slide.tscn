@@ -9,4 +9,5 @@ point_count = 4
 
 [node name="TacticalSlide" type="Node" unique_id=1071647213]
 script = ExtResource("1_b7xyd")
+skill_name = "Tactical Slide"
 dip_curve = SubResource("Curve_b7xyd")

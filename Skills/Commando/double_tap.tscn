@@ -36,6 +36,7 @@ material = SubResource("StandardMaterial3D_0br72")
 
 [node name="DoubleTap" type="Node3D" unique_id=1077974154 node_paths=PackedStringArray("guns")]
 script = ExtResource("1_ryp3h")
+skill_name = "Double Tap"
 guns = [NodePath("LeftGun"), NodePath("RightGun")]
 
 [node name="LeftGun" parent="." unique_id=1099589396 instance=ExtResource("2_8jxxv")]
@@ -49,7 +50,6 @@ script = ExtResource("3_ms0oe")
 offset = Vector3(0, -0.275, -0.06)
 
 [node name="ImpactParticles" type="GPUParticles3D" parent="." unique_id=1636332519]
-top_level = true
 emitting = false
 amount = 16
 lifetime = 0.3

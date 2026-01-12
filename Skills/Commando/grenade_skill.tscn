@@ -5,4 +5,5 @@
 
 [node name="GrenadeSkill" type="Node" unique_id=701401869]
 script = ExtResource("1_f5iu5")
+skill_name = "Grenade"
 nade_scene = ExtResource("2_cnelf")

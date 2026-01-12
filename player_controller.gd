@@ -2,13 +2,22 @@ extends Node
 
 @export var cam: Camera3D
 @export var skills: Node3D
+@export var cam_systems: CameraSystemManager
+@export var ui: Control
 
 @onready var player: CharacterBody3D = get_parent()
 @onready var skin: Node3D = $"../Skin"
 
 func _ready() -> void:
-	skills.skills[skills.SkillSlot.PRIMARY].used.connect(skin.primary)
-	skills.skills[skills.SkillSlot.SECONDARY].used.connect(skin.secondary)
+	cam_systems.default_cam_transform = cam_systems.default_cam_transform.rotated(Vector3.UP, player.rotation.y)
+	player.rotation.y = 0.0
+	
+	for i in skills.skill_list:
+		ui.add_skill(skills.skill_list[i].skill_name)
+	skills.skill_list[skills.SkillSlot.PRIMARY].used.connect(skin.primary)
+	skills.skill_list[skills.SkillSlot.SECONDARY].used.connect(skin.secondary)
+	
+	
 
 func _physics_process(_delta: float) -> void:
 	var input_dir = Input.get_vector(&"left", &"right", &"forward", &"backward").rotated(-cam.rotation.y)
