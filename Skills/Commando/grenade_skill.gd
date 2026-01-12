@@ -1,10 +1,9 @@
-extends Node
+extends Skill
 
 signal used
 
 @export var skill_name: String
 @export var nade_scene: PackedScene
-@export var skill_cooldown = 1.0
 
 @onready var cam: Camera3D = get_parent().cam
 @onready var player: CharacterBody3D = get_parent().player
@@ -22,5 +21,5 @@ func use():
 	get_tree().root.add_child(new_nade)
 	new_nade.global_position = cam.global_position
 	new_nade.linear_velocity = player.velocity + (-cam.basis.z.normalized() * 15.0)
-	current_cooldown = skill_cooldown
+	current_cooldown = info.cooldown
 	used.emit()

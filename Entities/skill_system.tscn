@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://i8x84sh2p2q4"]
 
-[ext_resource type="Script" uid="uid://ywyl357brhen" path="res://skill_system.gd" id="1_ddyhx"]
+[ext_resource type="Script" uid="uid://ywyl357brhen" path="res://Entities/skill_system.gd" id="1_ddyhx"]
 
 [node name="SkillSystem" type="Node3D" unique_id=1590952291]
 script = ExtResource("1_ddyhx")

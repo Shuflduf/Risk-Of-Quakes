@@ -1,11 +1,9 @@
-extends Node
+extends Skill
 
 signal used(started: bool)
 
-@export var skill_name: String
 @export var phase_round_projectile: PackedScene
 @export var double_tap: Node3D
-@export var use_cooldown = 1.0
 
 var current_cooldown = 0.0
 var hold_duration = 0.0
@@ -55,7 +53,7 @@ func hold():
 
 
 func release():
-	current_cooldown = use_cooldown
+	current_cooldown = info.cooldown
 	
 	var new_projectile: Node3D = phase_round_projectile.instantiate()
 	get_tree().root.add_child(new_projectile)

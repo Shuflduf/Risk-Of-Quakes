@@ -2,8 +2,16 @@
 
 [ext_resource type="Script" uid="uid://cr8fqcdpni5fm" path="res://Skills/Commando/double_tap.gd" id="1_ryp3h"]
 [ext_resource type="PackedScene" uid="uid://ctmmjss35lk0u" path="res://Assets/3D/gun.glb" id="2_8jxxv"]
+[ext_resource type="Script" uid="uid://j2byq4temsrs" path="res://Classes/skill_info.gd" id="2_58ufm"]
 [ext_resource type="Script" uid="uid://dfjixm86uiam3" path="res://Skills/follow_camera.gd" id="3_ms0oe"]
 [ext_resource type="Script" uid="uid://b57ewqt8y3w8" path="res://Skills/hitscan.gd" id="4_y6gsx"]
+
+[sub_resource type="Resource" id="Resource_7wb11"]
+script = ExtResource("2_58ufm")
+skill_name = "Double Tap"
+cooldown = 0.3
+description = "gun"
+metadata/_custom_type_script = "uid://j2byq4temsrs"
 
 [sub_resource type="Gradient" id="Gradient_kcbf8"]
 colors = PackedColorArray(1, 0.8000001, 0, 1, 1, 0, 0, 1)
@@ -36,8 +44,8 @@ material = SubResource("StandardMaterial3D_0br72")
 
 [node name="DoubleTap" type="Node3D" unique_id=1077974154 node_paths=PackedStringArray("guns")]
 script = ExtResource("1_ryp3h")
-skill_name = "Double Tap"
 guns = [NodePath("LeftGun"), NodePath("RightGun")]
+info = SubResource("Resource_7wb11")
 
 [node name="LeftGun" parent="." unique_id=1099589396 instance=ExtResource("2_8jxxv")]
 transform = Transform3D(-4.371139e-08, 0, 0.99999994, 0, 0.99999994, 0, -1, 0, -4.3711385e-08, -0.3, 0, 0)

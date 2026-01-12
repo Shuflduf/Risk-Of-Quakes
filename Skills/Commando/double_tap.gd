@@ -1,9 +1,8 @@
-extends Node3D
+extends Skill
 
 signal used(gun_index: int)
 
-@export var skill_name: String
-@export var shoot_cooldown = 0.3
+#@export var skill_name: String
 @export var guns: Array[Node3D]
 @export var kick_strength_deg = 20.0
 @export var kick_strength_m = 0.05
@@ -17,13 +16,13 @@ var next_gun_index = 0
 func use():
 	if current_cooldown > 0.0:
 		return
-	current_cooldown = shoot_cooldown
+	current_cooldown = info.cooldown
 	guns[next_gun_index].transform = og_gun_transforms[next_gun_index]
 	var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
 	tween.tween_property(guns[next_gun_index], ^"rotation:z", deg_to_rad(kick_strength_deg), 0.05).set_trans(Tween.TRANS_EXPO)
 	tween.parallel().tween_property(guns[next_gun_index], ^"position:z", kick_strength_m, 0.05).set_trans(Tween.TRANS_EXPO)
-	tween.tween_property(guns[next_gun_index], ^"rotation:z", 0.0, shoot_cooldown * 2.0).set_trans(Tween.TRANS_CUBIC)
-	tween.parallel().tween_property(guns[next_gun_index], ^"position:z", 0.0, shoot_cooldown * 2.0).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(guns[next_gun_index], ^"rotation:z", 0.0, info.cooldown * 2.0).set_trans(Tween.TRANS_CUBIC)
+	tween.parallel().tween_property(guns[next_gun_index], ^"position:z", 0.0, info.cooldown * 2.0).set_trans(Tween.TRANS_CUBIC)
 	next_gun_index += 1
 	next_gun_index %= guns.size()
 	

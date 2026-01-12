@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://bq60rtas7e3is"]
 
-[ext_resource type="PackedScene" uid="uid://cnveompyv8nf" path="res://player.tscn" id="2_fj7yv"]
-[ext_resource type="PackedScene" uid="uid://ba7lx70tapam4" path="res://target.tscn" id="4_aqk2v"]
-[ext_resource type="PackedScene" uid="uid://cmcok53rej5sy" path="res://entity.tscn" id="5_036b0"]
+[ext_resource type="PackedScene" uid="uid://cnveompyv8nf" path="res://Entities/player.tscn" id="2_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://ba7lx70tapam4" path="res://Entities/target.tscn" id="4_aqk2v"]
+[ext_resource type="PackedScene" uid="uid://cmcok53rej5sy" path="res://Entities/entity.tscn" id="5_036b0"]
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="6_pkg7o"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="7_gbfbk"]
 [ext_resource type="Material" uid="uid://b5si568ocg0or" path="res://Maps/Textures/Light/texture_06.tres" id="7_ioo17"]

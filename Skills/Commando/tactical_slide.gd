@@ -1,9 +1,7 @@
-extends Node
+extends Skill
 
 signal used
 
-@export var skill_name: String
-@export var ability_cooldown = 1.0
 @export var dip_curve: Curve
 
 @onready var cam: Camera3D = get_parent().cam
@@ -13,14 +11,13 @@ signal used
 var current_cooldown = 0.0
 var slide_initiated = false
 
-
 func _physics_process(delta: float) -> void:
 	current_cooldown -= delta
 	
-	if cam_offset and slide_initiated and (ability_cooldown - current_cooldown < dip_curve.max_domain):
-		cam_offset.offset.y = dip_curve.sample_baked(ability_cooldown - current_cooldown)
+	if cam_offset and slide_initiated and (info.cooldown - current_cooldown < dip_curve.max_domain):
+		cam_offset.offset.y = dip_curve.sample_baked(info.cooldown - current_cooldown)
 	
-	if ability_cooldown - current_cooldown + 0.5 > dip_curve.max_domain and slide_initiated:
+	if info.cooldown - current_cooldown + 0.5 > dip_curve.max_domain and slide_initiated:
 		player.jump_enabled = true
 
 	
@@ -28,7 +25,7 @@ func use():
 	if current_cooldown > 0.0:
 		return
 		
-	current_cooldown = ability_cooldown
+	current_cooldown = info.cooldown
 	var boost_dir = Vector3(-sin(cam.rotation.y), 0.0, -cos(cam.rotation.y)) if player.wish_dir.is_zero_approx() else player.wish_dir
 	if player.is_on_floor():
 		player.velocity += boost_dir * 15.0

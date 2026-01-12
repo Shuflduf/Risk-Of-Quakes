@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ba7lx70tapam4"]
 
-[ext_resource type="PackedScene" uid="uid://b1k3dv3hnfjvc" path="res://hitbox.tscn" id="1_t2jmu"]
+[ext_resource type="PackedScene" uid="uid://b1k3dv3hnfjvc" path="res://Entities/hitbox.tscn" id="1_t2jmu"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_3hr3o"]
 height = 0.1

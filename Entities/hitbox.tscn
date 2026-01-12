@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b1k3dv3hnfjvc"]
 
-[ext_resource type="Script" uid="uid://c6tj4g7ume4s7" path="res://hitbox.gd" id="1_orx6n"]
+[ext_resource type="Script" uid="uid://c6tj4g7ume4s7" path="res://Entities/hitbox.gd" id="1_orx6n"]
 
 [node name="Hitbox" type="Area3D" unique_id=1948627840]
 collision_layer = 4

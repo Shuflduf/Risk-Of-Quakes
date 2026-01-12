@@ -1,13 +1,21 @@
 [gd_scene format=3 uid="uid://c2pbtdi5r7367"]
 
 [ext_resource type="Script" uid="uid://gjm4w5a4qsec" path="res://Skills/Commando/tactical_slide.gd" id="1_b7xyd"]
+[ext_resource type="Script" uid="uid://j2byq4temsrs" path="res://Classes/skill_info.gd" id="2_2wfe4"]
 
 [sub_resource type="Curve" id="Curve_b7xyd"]
 _limits = [-2.0, 0.0, 0.0, 0.5]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.20264319, -0.7191012), -2.0404487, -2.0404487, 0, 0, Vector2(0.3502203, -0.65168536), 1.400308, 1.400308, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0]
 point_count = 4
 
+[sub_resource type="Resource" id="Resource_sfp1g"]
+script = ExtResource("2_2wfe4")
+skill_name = "Tactical Slide"
+cooldown = 1.0
+description = "mmnm big jump"
+metadata/_custom_type_script = "uid://j2byq4temsrs"
+
 [node name="TacticalSlide" type="Node" unique_id=1071647213]
 script = ExtResource("1_b7xyd")
-skill_name = "Tactical Slide"
 dip_curve = SubResource("Curve_b7xyd")
+info = SubResource("Resource_sfp1g")

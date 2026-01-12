@@ -2,8 +2,17 @@
 
 [ext_resource type="Script" uid="uid://ct8ob7jk4oixa" path="res://Skills/Commando/grenade_skill.gd" id="1_f5iu5"]
 [ext_resource type="PackedScene" uid="uid://cobplceq36dyx" path="res://Skills/Commando/grenade_projectile.tscn" id="2_cnelf"]
+[ext_resource type="Script" uid="uid://j2byq4temsrs" path="res://Classes/skill_info.gd" id="3_627hx"]
+
+[sub_resource type="Resource" id="Resource_qm2jv"]
+script = ExtResource("3_627hx")
+skill_name = "Grenade"
+cooldown = 1.0
+description = "bomb"
+metadata/_custom_type_script = "uid://j2byq4temsrs"
 
 [node name="GrenadeSkill" type="Node" unique_id=701401869]
 script = ExtResource("1_f5iu5")
 skill_name = "Grenade"
 nade_scene = ExtResource("2_cnelf")
+info = SubResource("Resource_qm2jv")

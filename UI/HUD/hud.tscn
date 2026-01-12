@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://74qf12w4v0kl"]
 
-[ext_resource type="Script" uid="uid://segxv8kytfn5" path="res://ui.gd" id="1_fyqef"]
-[ext_resource type="Texture2D" uid="uid://ttgegqer2pj5" path="res://icon.svg" id="2_m6e0p"]
-[ext_resource type="Texture2D" uid="uid://yp751p4hbjrl" path="res://Assets/References/ror2.png" id="3_27fn8"]
+[ext_resource type="Script" uid="uid://segxv8kytfn5" path="res://UI/HUD/hud.gd" id="1_npsft"]
+[ext_resource type="Texture2D" uid="uid://yp751p4hbjrl" path="res://Assets/References/ror2.png" id="2_xkess"]
+[ext_resource type="Texture2D" uid="uid://ttgegqer2pj5" path="res://icon.svg" id="3_i8lye"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27fn8"]
 content_margin_left = 2.0
@@ -24,23 +24,24 @@ bg_color = Color(0, 0, 0, 0)
 border_width_top = 2
 border_color = Color(0.75686276, 0.95686275, 1, 1)
 
-[node name="UI" type="Control" unique_id=545074785]
+[node name="HUD" type="Control" unique_id=545074785]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_fyqef")
+script = ExtResource("1_npsft")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=53749635]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_27fn8")
+texture = ExtResource("2_xkess")
 expand_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1421910340]
@@ -74,23 +75,23 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 
-[node name="Control" type="Control" parent="MarginContainer/HBoxContainer" unique_id=1505998829]
+[node name="SkillUI" type="Control" parent="MarginContainer/HBoxContainer" unique_id=1505998829]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/Control" unique_id=1987731159]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/SkillUI" unique_id=1987731159]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_m6e0p")
+texture = ExtResource("3_i8lye")
 expand_mode = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/Control" unique_id=942441904]
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/SkillUI" unique_id=942441904]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -104,7 +105,7 @@ value = 2.73
 fill_mode = 3
 show_percentage = false
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/Control" unique_id=652716000]
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/SkillUI" unique_id=652716000]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
