@@ -4,7 +4,7 @@ extends Node
 # all skills should have a used signal, with any params it wants
 # signal used
 
-@export var info: SkillInfo
+signal enabled_changed
 
 enum SkillSlot {
 	PRIMARY,
@@ -12,3 +12,10 @@ enum SkillSlot {
 	UTILITY,
 	SPECIAL,
 }
+
+@export var info: SkillInfo
+
+var enabled: bool = true:
+	set(new_val):
+		enabled = new_val
+		enabled_changed.emit()

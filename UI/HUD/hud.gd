@@ -15,8 +15,12 @@ func skill_used(slot: Skill.SkillSlot):
 	registered_skills[slot].use()
 	print(slot)
 
-func disable_skill(slot: Skill.SkillSlot):
-	print(slot)
+func toggle_skill(on: bool, slot: Skill.SkillSlot):
+	if on:
+		registered_skills[slot].enable()
+	else:
+		registered_skills[slot].disable()
 
-func enable_skill(slot: Skill.SkillSlot):
-	print(slot)
+#func enable_skill(slot: Skill.SkillSlot):
+	#registered_skills[slot].enable()
+	#print(slot)

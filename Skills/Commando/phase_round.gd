@@ -35,7 +35,7 @@ func use():
 	if !held_down:
 		hold()
 		held_down = true
-		double_tap.current_cooldown = INF
+		double_tap.enabled = false
 
 func hold():
 	print("FUCK")
@@ -72,5 +72,6 @@ func release():
 		#tween.tween_interval(0.1)
 		tween.tween_property(gun, ^"transform", double_tap.og_gun_transforms[i], 0.3).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
 
-	double_tap.current_cooldown = 0.0
+	double_tap.enabled = true
+	double_tap.current_cooldown = double_tap.info.cooldown
 	used.emit(false)

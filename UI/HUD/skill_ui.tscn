@@ -54,11 +54,11 @@ grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_27fn8")
 theme_override_styles/fill = SubResource("StyleBoxFlat_nltto")
 step = 1.0
-value = 16.0
 fill_mode = 3
 show_percentage = false
 
 [node name="Countdown" type="Label" parent="." unique_id=524124661]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

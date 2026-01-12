@@ -13,12 +13,13 @@ func _ready() -> void:
 	player.rotation.y = 0.0
 	
 	for slot in skills.skill_list:
-		hud.add_skill(skills.skill_list[slot].info, slot)
-		skills.skill_list[slot].used.connect(func(..._args): hud.skill_used(slot))
+		var target_skill = skills.skill_list[slot]
+		hud.add_skill(target_skill.info, slot)
+		target_skill.used.connect(func(..._args): hud.skill_used(slot))
+		target_skill.enabled_changed.connect(func(): hud.toggle_skill(target_skill.enabled, slot))
 	skills.skill_list[Skill.SkillSlot.PRIMARY].used.connect(skin.primary)
 	skills.skill_list[Skill.SkillSlot.SECONDARY].used.connect(skin.secondary)
-	
-	
+
 
 func _physics_process(_delta: float) -> void:
 	var input_dir = Input.get_vector(&"left", &"right", &"forward", &"backward").rotated(-cam.rotation.y)

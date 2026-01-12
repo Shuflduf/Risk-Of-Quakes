@@ -4,7 +4,7 @@ extends Node3D
 @export var ray: RayCast3D
 @export var player: CharacterBody3D
 @export var cam_systems: Node
-@export var skill_list: Dictionary[Skill.SkillSlot, Node]
+@export var skill_list: Dictionary[Skill.SkillSlot, Skill]
 
 func primary():
 	call_skill(Skill.SkillSlot.PRIMARY)
@@ -21,7 +21,7 @@ func special():
 
 func call_skill(skill: Skill.SkillSlot):
 	var target_skill = skill_list[skill]
-	if target_skill:
+	if target_skill and target_skill.enabled:
 		target_skill.use()
 
 #func _ready() -> void:

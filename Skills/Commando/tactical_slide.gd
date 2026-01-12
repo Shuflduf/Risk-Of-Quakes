@@ -17,7 +17,7 @@ func _physics_process(delta: float) -> void:
 	if cam_offset and slide_initiated and (info.cooldown - current_cooldown < dip_curve.max_domain):
 		cam_offset.offset.y = dip_curve.sample_baked(info.cooldown - current_cooldown)
 	
-	if info.cooldown - current_cooldown + 0.5 > dip_curve.max_domain and slide_initiated:
+	if info.cooldown - current_cooldown + 0.3 > dip_curve.max_domain and slide_initiated:
 		player.jump_enabled = true
 
 	
