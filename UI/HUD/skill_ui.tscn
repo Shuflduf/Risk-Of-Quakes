@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://dikfcgyf224xy"]
+
+[ext_resource type="Script" uid="uid://dg864u4aki3jt" path="res://UI/HUD/skill_ui.gd" id="1_2ymfy"]
+[ext_resource type="Texture2D" uid="uid://ttgegqer2pj5" path="res://icon.svg" id="1_v5mns"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27fn8"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 0, 0, 0.7764706)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nltto"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 0, 0, 0)
+border_width_top = 2
+border_color = Color(0.75686276, 0.95686275, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2ymfy"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+
+[node name="SkillUI" type="Control" unique_id=1232027453]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+script = ExtResource("1_2ymfy")
+
+[node name="SkillIcon" type="TextureRect" parent="." unique_id=2084242914]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_v5mns")
+expand_mode = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=33339902]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_27fn8")
+theme_override_styles/fill = SubResource("StyleBoxFlat_nltto")
+step = 1.0
+value = 16.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Countdown" type="Label" parent="." unique_id=524124661]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 48
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=300710774]
+one_shot = true
+
+[node name="Panel" type="Panel" parent="." unique_id=925035364]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2ymfy")

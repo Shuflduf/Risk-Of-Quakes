@@ -14,6 +14,7 @@ func _ready() -> void:
 	
 	for slot in skills.skill_list:
 		hud.add_skill(skills.skill_list[slot].info, slot)
+		skills.skill_list[slot].used.connect(func(..._args): hud.skill_used(slot))
 	skills.skill_list[Skill.SkillSlot.PRIMARY].used.connect(skin.primary)
 	skills.skill_list[Skill.SkillSlot.SECONDARY].used.connect(skin.secondary)
 	

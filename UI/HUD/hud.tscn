@@ -1,28 +1,8 @@
 [gd_scene format=3 uid="uid://74qf12w4v0kl"]
 
 [ext_resource type="Script" uid="uid://segxv8kytfn5" path="res://UI/HUD/hud.gd" id="1_npsft"]
+[ext_resource type="PackedScene" uid="uid://dikfcgyf224xy" path="res://UI/HUD/skill_ui.tscn" id="2_te8l2"]
 [ext_resource type="Texture2D" uid="uid://yp751p4hbjrl" path="res://Assets/References/ror2.png" id="2_xkess"]
-[ext_resource type="Texture2D" uid="uid://ttgegqer2pj5" path="res://icon.svg" id="3_i8lye"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27fn8"]
-content_margin_left = 2.0
-content_margin_top = 2.0
-content_margin_right = 2.0
-content_margin_bottom = 2.0
-bg_color = Color(0, 0, 0, 0.7764706)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nltto"]
-content_margin_left = 2.0
-content_margin_top = 2.0
-content_margin_right = 2.0
-content_margin_bottom = 2.0
-bg_color = Color(0, 0, 0, 0)
-border_width_top = 2
-border_color = Color(0.75686276, 0.95686275, 1, 1)
 
 [node name="HUD" type="Control" unique_id=545074785]
 layout_mode = 3
@@ -32,6 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_npsft")
+skill_ui = ExtResource("2_te8l2")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=53749635]
 visible = false
@@ -70,51 +51,8 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1157584868]
+[node name="SkillsContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1157584868]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
-
-[node name="SkillUI" type="Control" parent="MarginContainer/HBoxContainer" unique_id=1505998829]
-custom_minimum_size = Vector2(70, 70)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/SkillUI" unique_id=1987731159]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_i8lye")
-expand_mode = 1
-
-[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/HBoxContainer/SkillUI" unique_id=942441904]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/background = SubResource("StyleBoxFlat_27fn8")
-theme_override_styles/fill = SubResource("StyleBoxFlat_nltto")
-max_value = 4.0
-value = 2.73
-fill_mode = 3
-show_percentage = false
-
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/SkillUI" unique_id=652716000]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 5
-theme_override_font_sizes/font_size = 48
-text = "3"
-horizontal_alignment = 1
-vertical_alignment = 1

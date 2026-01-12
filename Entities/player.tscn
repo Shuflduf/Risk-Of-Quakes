@@ -19,14 +19,25 @@ bottom_radius = 0.3
 
 [node name="Player" unique_id=1807276841 instance=ExtResource("1_4flbx")]
 
-[node name="MeshInstance3D" parent="." index="1" unique_id=214712984]
+[node name="TestMesh" parent="." index="1" unique_id=214712984]
 visible = false
 mesh = SubResource("CylinderMesh_n7ghd")
 
 [node name="Camera" parent="." index="2" unique_id=1588344406]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 
-[node name="SkillSystem" parent="." index="3" unique_id=1590952291 node_paths=PackedStringArray("cam_systems", "skill_list")]
+[node name="CameraSystems" type="Node3D" parent="." index="3" unique_id=672014216 node_paths=PackedStringArray("cam")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+script = ExtResource("2_onrkg")
+cam = NodePath("../Camera")
+
+[node name="Mouse" type="Node" parent="CameraSystems" index="0" unique_id=278154113]
+script = ExtResource("4_hqtel")
+
+[node name="Offset" type="Node" parent="CameraSystems" index="1" unique_id=375580789]
+script = ExtResource("5_1jxqw")
+
+[node name="SkillSystem" parent="." index="4" unique_id=1590952291 node_paths=PackedStringArray("cam_systems", "skill_list")]
 cam_systems = NodePath("../CameraSystems")
 skill_list = {
 0: NodePath("DoubleTap"),
@@ -44,24 +55,13 @@ double_tap = NodePath("../DoubleTap")
 
 [node name="GrenadeSkill" parent="SkillSystem" index="3" unique_id=701401869 instance=ExtResource("8_urp6f")]
 
-[node name="Skin" parent="." index="6" unique_id=486238766 instance=ExtResource("2_nvl01")]
+[node name="Skin" parent="." index="7" unique_id=486238766 instance=ExtResource("2_nvl01")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
-[node name="DefaultCamPos" type="Marker3D" parent="." index="7" unique_id=1737197406]
+[node name="DefaultCamPos" type="Marker3D" parent="." index="8" unique_id=1737197406]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 gizmo_extents = 1.0
-
-[node name="CameraSystems" type="Node3D" parent="." index="8" unique_id=672014216 node_paths=PackedStringArray("cam")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
-script = ExtResource("2_onrkg")
-cam = NodePath("../Camera")
-
-[node name="Mouse" type="Node" parent="CameraSystems" index="0" unique_id=278154113]
-script = ExtResource("4_hqtel")
-
-[node name="Offset" type="Node" parent="CameraSystems" index="1" unique_id=375580789]
-script = ExtResource("5_1jxqw")
 
 [node name="HUD" parent="." index="9" unique_id=545074785 instance=ExtResource("10_ivps1")]
 
