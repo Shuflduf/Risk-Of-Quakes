@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cvswsfmdd2rxu"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_lnl80"]
+radius = 0.3
+height = 0.6
+
+[node name="Node3D" type="Node3D" unique_id=219741615]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1588134794]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=961329993]
+mesh = SubResource("SphereMesh_lnl80")
