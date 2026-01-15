@@ -15,6 +15,7 @@ func _ready() -> void:
 	for slot in skills.skill_list:
 		var target_skill = skills.skill_list[slot]
 		hud.add_skill(target_skill.info, slot)
+		hud.toggle_skill(target_skill.enabled, slot)
 		target_skill.cooldown_started.connect(func(): hud.skill_used(slot))
 		target_skill.enabled_changed.connect(func(): hud.toggle_skill(target_skill.enabled, slot))
 	skills.skill_list[Skill.SkillSlot.PRIMARY].used.connect(skin.primary)
