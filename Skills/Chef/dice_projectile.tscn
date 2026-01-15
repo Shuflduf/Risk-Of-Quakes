@@ -13,6 +13,7 @@ script = ExtResource("1_ew4ln")
 transform = Transform3D(0.9793712, 0, -0.20206943, -0.20206943, -4.371139e-08, -0.9793712, -8.832735e-09, 1, -4.2809674e-08, 0, 0.07008749, -0.07268332)
 
 [node name="Collision" type="Area3D" parent="." unique_id=936910924]
+collision_layer = 0
 input_ray_pickable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Collision" unique_id=1044090472]

@@ -43,5 +43,4 @@ func _physics_process(delta: float) -> void:
 
 func _on_collision_body_entered(_body: Node3D) -> void:
 	if state == State.Going:
-	#target_position = global_position
 		state = State.Staying
