@@ -2,26 +2,83 @@
 
 [ext_resource type="Script" uid="uid://5ipivmpdo7yb" path="res://Classes/bundle.gd" id="1_6fih4"]
 [ext_resource type="PackedScene" uid="uid://74qf12w4v0kl" path="res://UI/HUD/hud.tscn" id="2_1tmi8"]
+[ext_resource type="Script" uid="uid://chmr6w7f8yykk" path="res://Camera/camera_system_manager.gd" id="2_uvxjm"]
 [ext_resource type="Script" uid="uid://bhlpfny8uqeu8" path="res://Entities/rocket_jump.gd" id="3_bqhgn"]
+[ext_resource type="Script" uid="uid://bjfwewfpcvxcm" path="res://Camera/mouse_system.gd" id="3_l0aat"]
 [ext_resource type="Script" uid="uid://bxs1a8jmo002p" path="res://Entities/player_controller.gd" id="4_0yle1"]
+[ext_resource type="Script" uid="uid://c7k0xr8eeyt5a" path="res://Camera/camera_system.gd" id="4_uoaoi"]
+[ext_resource type="PackedScene" uid="uid://i8x84sh2p2q4" path="res://Entities/skill_system.tscn" id="5_xk08s"]
+[ext_resource type="Script" uid="uid://jbebb4hi27xp" path="res://Entities/stair_handler.gd" id="10_an4eu"]
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_qi0ee"]
+length = 0.4
 
 [node name="Bundle" type="Node" unique_id=180519784]
 script = ExtResource("1_6fih4")
 metadata/_custom_type_script = "uid://5ipivmpdo7yb"
 
-[node name="DefaultCamPos" type="Marker3D" parent="." unique_id=672854263]
-unique_name_in_owner = true
+[node name="Camera" type="Camera3D" parent="." unique_id=1997856217]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
-gizmo_extents = 1.0
+fov = 100.0
+
+[node name="CameraSystems" type="Node3D" parent="." unique_id=351007655 node_paths=PackedStringArray("cam")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+script = ExtResource("2_uvxjm")
+cam = NodePath("../Camera")
+
+[node name="Mouse" type="Node" parent="CameraSystems" unique_id=1697354133 node_paths=PackedStringArray("player")]
+script = ExtResource("3_l0aat")
+player = NodePath("")
+
+[node name="TacticalSlide" type="Node" parent="CameraSystems" unique_id=523597135]
+script = ExtResource("4_uoaoi")
+metadata/_custom_type_script = "uid://c7k0xr8eeyt5a"
+
+[node name="SkillSystem" parent="." unique_id=1590952291 instance=ExtResource("5_xk08s")]
+
+[node name="StairHandler" type="Node3D" parent="." unique_id=981475695]
+script = ExtResource("10_an4eu")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StairHandler" unique_id=1267106132]
+transform = Transform3D(0.70710677, 0.70710677, -3.090862e-08, 0, -4.371139e-08, -1, -0.70710677, 0.70710677, -3.090862e-08, 0.6540738, -0.6, 0.6290738)
+shape = SubResource("SeparationRayShape3D_qi0ee")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StairHandler" unique_id=1546699076]
+transform = Transform3D(0.70710677, 0.70710677, -3.090862e-08, 0, -4.371139e-08, -1, -0.70710677, 0.70710677, -3.090862e-08, 0.72478443, -0.6, -0.7144291)
+shape = SubResource("SeparationRayShape3D_qi0ee")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StairHandler" unique_id=31487915]
+transform = Transform3D(0.70710677, 0.70710677, -3.090862e-08, 0, -4.371139e-08, -1, -0.70710677, 0.70710677, -3.090862e-08, -0.6894291, -0.6, -0.7144291)
+shape = SubResource("SeparationRayShape3D_qi0ee")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StairHandler" unique_id=1335212745]
+transform = Transform3D(0.70710677, 0.70710677, -3.090862e-08, 0, -4.371139e-08, -1, -0.70710677, 0.70710677, -3.090862e-08, -0.6894291, -0.6, 0.69978446)
+shape = SubResource("SeparationRayShape3D_qi0ee")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="StairHandler" unique_id=1127851997]
+transform = Transform3D(0, 0.99999994, -4.371139e-08, 0, -4.371138e-08, -1, -0.99999994, 0, -3.5527137e-15, 0.925, -0.6, -0.024999976)
+shape = SubResource("SeparationRayShape3D_qi0ee")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="StairHandler" unique_id=2121596419]
+transform = Transform3D(0, 0.99999994, -4.371139e-08, 0, -4.371138e-08, -1, -0.99999994, 0, -3.5527137e-15, 0.025000006, -0.6, -1.025)
+shape = SubResource("SeparationRayShape3D_qi0ee")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="StairHandler" unique_id=1126106052]
+transform = Transform3D(0, 0.99999994, -4.371139e-08, 0, -4.371138e-08, -1, -0.99999994, 0, -3.5527137e-15, -0.97499996, -0.6, -0.024999976)
+shape = SubResource("SeparationRayShape3D_qi0ee")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="StairHandler" unique_id=1783860799]
+transform = Transform3D(0, 0.99999994, -4.371139e-08, 0, -4.371138e-08, -1, -0.99999994, 0, -3.5527137e-15, 0.025000006, -0.6, 0.975)
+shape = SubResource("SeparationRayShape3D_qi0ee")
 
 [node name="HUD" parent="." unique_id=545074785 instance=ExtResource("2_1tmi8")]
 
-[node name="RocketJump" type="Node" parent="." unique_id=1975081313]
+[node name="RocketJump" type="Node" parent="." unique_id=2099745339]
 script = ExtResource("3_bqhgn")
 
-[node name="PlayerController" type="Node" parent="." unique_id=1554116701 node_paths=PackedStringArray("cam", "skills", "cam_systems", "hud")]
+[node name="PlayerController" type="Node" parent="." unique_id=1287518945 node_paths=PackedStringArray("cam", "skills", "cam_systems", "hud")]
 script = ExtResource("4_0yle1")
-cam = NodePath("")
-skills = NodePath("")
-cam_systems = NodePath("")
-hud = NodePath("")
+cam = NodePath("../Camera")
+skills = NodePath("../SkillSystem")
+cam_systems = NodePath("../CameraSystems")
+hud = NodePath("../HUD")
