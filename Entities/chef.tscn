@@ -2,9 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://cmcok53rej5sy" path="res://Entities/entity.tscn" id="1_7eqma"]
 [ext_resource type="Script" uid="uid://chmr6w7f8yykk" path="res://Camera/camera_system_manager.gd" id="2_k64cb"]
+[ext_resource type="PackedScene" uid="uid://cerduindsrq4" path="res://Characters/chef_rig.tscn" id="2_sodo0"]
 [ext_resource type="Script" uid="uid://bjfwewfpcvxcm" path="res://Camera/mouse_system.gd" id="3_sodo0"]
 [ext_resource type="PackedScene" uid="uid://i8x84sh2p2q4" path="res://Entities/skill_system.tscn" id="5_w7d7t"]
 [ext_resource type="Script" uid="uid://jbebb4hi27xp" path="res://Entities/stair_handler.gd" id="6_o52uj"]
+[ext_resource type="PackedScene" uid="uid://cyna2mbrxrcqv" path="res://Skills/Chef/dice.tscn" id="6_sodo0"]
 [ext_resource type="PackedScene" uid="uid://74qf12w4v0kl" path="res://UI/HUD/hud.tscn" id="7_uejro"]
 [ext_resource type="Script" uid="uid://bhlpfny8uqeu8" path="res://Entities/rocket_jump.gd" id="8_6a2is"]
 [ext_resource type="Script" uid="uid://bxs1a8jmo002p" path="res://Entities/player_controller.gd" id="9_xc7ek"]
@@ -14,11 +16,18 @@ length = 0.4
 
 [node name="Chef" unique_id=1807276841 instance=ExtResource("1_7eqma")]
 
-[node name="Camera" type="Camera3D" parent="." index="3" unique_id=1997856217]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+[node name="TestMesh" parent="." index="1" unique_id=214712984]
+visible = false
+
+[node name="ChefRig" parent="." index="3" unique_id=2092065129 node_paths=PackedStringArray("hand_handles") instance=ExtResource("2_sodo0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+hand_handles = []
+
+[node name="Camera" type="Camera3D" parent="." index="4" unique_id=1997856217]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90000004, 0)
 fov = 100.0
 
-[node name="CameraSystems" type="Node3D" parent="." index="4" unique_id=351007655 node_paths=PackedStringArray("cam")]
+[node name="CameraSystems" type="Node3D" parent="." index="5" unique_id=351007655 node_paths=PackedStringArray("cam")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 script = ExtResource("2_k64cb")
 cam = NodePath("../Camera")
@@ -27,11 +36,13 @@ cam = NodePath("../Camera")
 script = ExtResource("3_sodo0")
 player = NodePath("../..")
 
-[node name="SkillSystem" parent="." index="5" unique_id=1590952291 node_paths=PackedStringArray("cam", "cam_systems") instance=ExtResource("5_w7d7t")]
+[node name="SkillSystem" parent="." index="6" unique_id=1590952291 node_paths=PackedStringArray("cam", "cam_systems") instance=ExtResource("5_w7d7t")]
 cam = NodePath("../Camera")
 cam_systems = NodePath("../CameraSystems")
 
-[node name="StairHandler" type="Node3D" parent="." index="6" unique_id=981475695]
+[node name="Dice" parent="SkillSystem" index="0" unique_id=479791051 instance=ExtResource("6_sodo0")]
+
+[node name="StairHandler" type="Node3D" parent="." index="7" unique_id=981475695]
 script = ExtResource("6_o52uj")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StairHandler" index="0" unique_id=1267106132]
@@ -66,14 +77,15 @@ shape = SubResource("SeparationRayShape3D_qi0ee")
 transform = Transform3D(0, 0.99999994, -4.371139e-08, 0, -4.371138e-08, -1, -0.99999994, 0, -3.5527137e-15, 0.025000006, -0.6, 0.975)
 shape = SubResource("SeparationRayShape3D_qi0ee")
 
-[node name="HUD" parent="." index="7" unique_id=545074785 instance=ExtResource("7_uejro")]
+[node name="HUD" parent="." index="8" unique_id=545074785 instance=ExtResource("7_uejro")]
 
-[node name="RocketJump" type="Node" parent="." index="8" unique_id=2099745339]
+[node name="RocketJump" type="Node" parent="." index="9" unique_id=2099745339]
 script = ExtResource("8_6a2is")
 
-[node name="PlayerController" type="Node" parent="." index="9" unique_id=1287518945 node_paths=PackedStringArray("cam", "skills", "cam_systems", "hud")]
+[node name="PlayerController" type="Node" parent="." index="10" unique_id=1287518945 node_paths=PackedStringArray("cam", "skills", "cam_systems", "hud", "skin")]
 script = ExtResource("9_xc7ek")
 cam = NodePath("../Camera")
 skills = NodePath("../SkillSystem")
 cam_systems = NodePath("../CameraSystems")
 hud = NodePath("../HUD")
+skin = NodePath("../ChefRig")

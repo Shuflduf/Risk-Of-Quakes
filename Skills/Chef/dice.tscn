@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cyna2mbrxrcqv"]
+
+[ext_resource type="PackedScene" uid="uid://b7xsfsac7sbex" path="res://Assets/3D/cleaver.glb" id="1_abfgf"]
+[ext_resource type="Script" uid="uid://idsduysfl1lu" path="res://Skills/Chef/dice.gd" id="1_dgyjc"]
+[ext_resource type="Script" uid="uid://dfjixm86uiam3" path="res://Skills/follow_camera.gd" id="2_dgyjc"]
+[ext_resource type="Script" uid="uid://j2byq4temsrs" path="res://Classes/skill_info.gd" id="2_jmdqv"]
+
+[sub_resource type="Resource" id="Resource_chbxf"]
+script = ExtResource("2_jmdqv")
+skill_name = "Dice"
+cooldown = 0.2
+metadata/_custom_type_script = "uid://j2byq4temsrs"
+
+[node name="Dice" type="Node3D" unique_id=479791051]
+script = ExtResource("1_dgyjc")
+info = SubResource("Resource_chbxf")
+
+[node name="cleaver" parent="." unique_id=1685095157 instance=ExtResource("1_abfgf")]
+transform = Transform3D(0.6732836, 0, 0.7393845, 0, 1, 0, -0.7393845, 0, 0.6732836, -0.07012236, 0, 0.03646362)
+
+[node name="FollowCamera" type="Node" parent="." unique_id=1942022677]
+script = ExtResource("2_dgyjc")
+offset = Vector3(0.68, -0.15, -0.51)

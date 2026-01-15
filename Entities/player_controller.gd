@@ -18,8 +18,7 @@ func _ready() -> void:
 		target_skill.cooldown_started.connect(func(): hud.skill_used(slot))
 		target_skill.enabled_changed.connect(func(): hud.toggle_skill(target_skill.enabled, slot))
 	if skin:
-		skills.skill_list[Skill.SkillSlot.PRIMARY].used.connect(skin.primary)
-		skills.skill_list[Skill.SkillSlot.SECONDARY].used.connect(skin.secondary)
+		skin.connect_skills(skills.skill_list)
 
 
 func _physics_process(_delta: float) -> void:
