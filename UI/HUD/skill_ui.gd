@@ -28,6 +28,5 @@ func disable():
 
 func enable():
 	enabled = true
-	#countdown.hide()
-	#progress_bar.value = 0
-	#progress_bar.show()
+	# could be a very bad idea
+	timer.stop()

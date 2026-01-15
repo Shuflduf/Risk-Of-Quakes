@@ -1,10 +1,18 @@
 extends Node3D
 
+@export var special_pickups_enabled = true
+
 @export var cam: Camera3D
 @export var ray: RayCast3D
 @export var player: CharacterBody3D
 @export var cam_systems: Node
 @export var skill_list: Dictionary[Skill.SkillSlot, Skill]
+
+func _ready() -> void:
+	var target_skill = skill_list.get(Skill.SkillSlot.SPECIAL)
+	if target_skill and special_pickups_enabled:
+		target_skill.enabled = false
+		target_skill.cooldown_started.connect(func(): target_skill.enabled = false)
 
 func primary():
 	call_skill(Skill.SkillSlot.PRIMARY)
@@ -23,6 +31,17 @@ func call_skill(skill: Skill.SkillSlot):
 	var target_skill = skill_list[skill]
 	if target_skill and target_skill.enabled:
 		target_skill.use()
+
+
+func give_special():
+	if !special_pickups_enabled:
+		return
+	var target_skill = skill_list[Skill.SkillSlot.SPECIAL]
+	if target_skill:
+		target_skill.enabled = true
+		target_skill.cooldown = 0.0
+		
+
 
 #func _ready() -> void:
 	#for weapon in get_children():

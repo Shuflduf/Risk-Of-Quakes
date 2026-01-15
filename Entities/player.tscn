@@ -12,10 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://bqn60kr4ecdy6" path="res://Skills/Commando/phase_round.tscn" id="7_ivps1"]
 [ext_resource type="PackedScene" uid="uid://bnhkfym5al36a" path="res://Skills/Commando/grenade_skill.tscn" id="8_urp6f"]
 [ext_resource type="PackedScene" uid="uid://74qf12w4v0kl" path="res://UI/HUD/hud.tscn" id="10_ivps1"]
+[ext_resource type="Script" uid="uid://dkohss1s5j6do" path="res://Entities/special_pickup_handler.gd" id="13_klb6e"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_n7ghd"]
 top_radius = 0.3
 bottom_radius = 0.3
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4flbx"]
 
 [node name="Player" unique_id=1807276841 instance=ExtResource("1_4flbx")]
 
@@ -74,3 +77,15 @@ cam = NodePath("../Camera")
 skills = NodePath("../SkillSystem")
 cam_systems = NodePath("../CameraSystems")
 hud = NodePath("../HUD")
+
+[node name="SpecialPickupHandler" type="Area3D" parent="." index="12" unique_id=1536298671 node_paths=PackedStringArray("skill_system")]
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+script = ExtResource("13_klb6e")
+skill_system = NodePath("../SkillSystem")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SpecialPickupHandler" index="0" unique_id=1134975016]
+shape = SubResource("CylinderShape3D_4flbx")
+
+[connection signal="area_entered" from="SpecialPickupHandler" to="SpecialPickupHandler" method="_on_area_entered"]

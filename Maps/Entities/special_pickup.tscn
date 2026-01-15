@@ -1,12 +1,28 @@
 [gd_scene format=3 uid="uid://cvswsfmdd2rxu"]
 
+[ext_resource type="Script" uid="uid://dxdb7vrubqqn7" path="res://Maps/Entities/special_pickup.gd" id="1_n3sqk"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lnl80"]
+
 [sub_resource type="SphereMesh" id="SphereMesh_lnl80"]
 radius = 0.3
 height = 0.6
 
-[node name="Node3D" type="Node3D" unique_id=219741615]
+[node name="SpecialPickup" type="Area3D" unique_id=1907330596]
+collision_layer = 16
+collision_mask = 0
+monitoring = false
+script = ExtResource("1_n3sqk")
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1588134794]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1757787569]
+shape = SubResource("SphereShape3D_lnl80")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=961329993]
 mesh = SubResource("SphereMesh_lnl80")
+skeleton = NodePath("")
+
+[node name="Timer" type="Timer" parent="." unique_id=1627333644]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
