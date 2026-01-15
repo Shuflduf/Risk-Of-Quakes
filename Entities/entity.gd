@@ -27,7 +27,6 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
-
 func _process_movement(delta: float):
 	if is_on_floor():
 		if wish_jump:

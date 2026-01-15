@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://i8x84sh2p2q4" path="res://Entities/skill_system.tscn" id="5_w7d7t"]
 [ext_resource type="Script" uid="uid://jbebb4hi27xp" path="res://Entities/stair_handler.gd" id="6_o52uj"]
 [ext_resource type="PackedScene" uid="uid://cyna2mbrxrcqv" path="res://Skills/Chef/dice.tscn" id="6_sodo0"]
+[ext_resource type="PackedScene" uid="uid://7k1ucijkxlra" path="res://Skills/Chef/roll.tscn" id="6_w7d7t"]
 [ext_resource type="PackedScene" uid="uid://bnhkfym5al36a" path="res://Skills/Commando/grenade_skill.tscn" id="7_q1f32"]
 [ext_resource type="PackedScene" uid="uid://74qf12w4v0kl" path="res://UI/HUD/hud.tscn" id="7_uejro"]
 [ext_resource type="Script" uid="uid://bhlpfny8uqeu8" path="res://Entities/rocket_jump.gd" id="8_6a2is"]
@@ -38,13 +39,16 @@ cam = NodePath("../Camera")
 cam_systems = NodePath("../CameraSystems")
 skill_list = {
 0: NodePath("Dice"),
+2: NodePath("Roll"),
 3: NodePath("GrenadeSkill")
 }
 player = NodePath("..")
 
 [node name="Dice" parent="SkillSystem" index="0" unique_id=479791051 instance=ExtResource("6_sodo0")]
 
-[node name="GrenadeSkill" parent="SkillSystem" index="1" unique_id=701401869 instance=ExtResource("7_q1f32")]
+[node name="Roll" parent="SkillSystem" index="1" unique_id=1856380844 instance=ExtResource("6_w7d7t")]
+
+[node name="GrenadeSkill" parent="SkillSystem" index="2" unique_id=701401869 instance=ExtResource("7_q1f32")]
 
 [node name="StairHandler" type="Node3D" parent="." index="6" unique_id=981475695]
 script = ExtResource("6_o52uj")
