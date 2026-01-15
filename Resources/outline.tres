@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bg2fg4v3sjvsr"]
+
+[resource]
+cull_mode = 1
+shading_mode = 0
+grow = true
+grow_amount = 0.01
+distance_fade_mode = 2
+distance_fade_min_distance = 0.1
+distance_fade_max_distance = 0.3

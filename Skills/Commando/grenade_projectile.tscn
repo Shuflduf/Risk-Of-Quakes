@@ -5,7 +5,16 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3qp86"]
 bounce = 0.7
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o6t3d"]
+shading_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.26666668, 0.2901961, 0.1882353, 1)
+distance_fade_min_distance = 0.1
+distance_fade_max_distance = 0.3
+
 [sub_resource type="SphereMesh" id="SphereMesh_3qp86"]
+material = SubResource("StandardMaterial3D_o6t3d")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_5m32m"]
 radius = 0.2
