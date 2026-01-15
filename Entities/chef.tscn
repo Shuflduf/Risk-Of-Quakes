@@ -33,13 +33,14 @@ cam = NodePath("../Camera")
 script = ExtResource("3_sodo0")
 player = NodePath("../..")
 
-[node name="SkillSystem" parent="." index="5" unique_id=1590952291 node_paths=PackedStringArray("cam", "cam_systems", "skill_list") instance=ExtResource("5_w7d7t")]
+[node name="SkillSystem" parent="." index="5" unique_id=1590952291 node_paths=PackedStringArray("cam", "cam_systems", "skill_list", "player") instance=ExtResource("5_w7d7t")]
 cam = NodePath("../Camera")
 cam_systems = NodePath("../CameraSystems")
 skill_list = {
 0: NodePath("Dice"),
 3: NodePath("GrenadeSkill")
 }
+player = NodePath("..")
 
 [node name="Dice" parent="SkillSystem" index="0" unique_id=479791051 instance=ExtResource("6_sodo0")]
 

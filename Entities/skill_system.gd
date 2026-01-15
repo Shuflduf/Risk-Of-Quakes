@@ -5,8 +5,7 @@ extends Node3D
 @export var cam: Camera3D
 @export var cam_systems: Node
 @export var skill_list: Dictionary[Skill.SkillSlot, Skill]
-
-@onready var player: CharacterBody3D = get_parent()
+@export var player: CharacterBody3D
 
 func _ready() -> void:
 	#print(player)

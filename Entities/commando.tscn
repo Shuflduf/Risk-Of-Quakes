@@ -45,9 +45,8 @@ player = NodePath("../..")
 script = ExtResource("10_ns4yp")
 metadata/_custom_type_script = "uid://c7k0xr8eeyt5a"
 
-[node name="SkillSystem" parent="." index="5" unique_id=1590952291 node_paths=PackedStringArray("cam", "player", "cam_systems", "skill_list") instance=ExtResource("2_4p2me")]
+[node name="SkillSystem" parent="." index="5" unique_id=1590952291 node_paths=PackedStringArray("cam", "cam_systems", "skill_list", "player") instance=ExtResource("2_4p2me")]
 cam = NodePath("../Camera")
-player = NodePath("..")
 cam_systems = NodePath("../CameraSystems")
 skill_list = {
 0: NodePath("DoubleTap"),
@@ -55,6 +54,7 @@ skill_list = {
 2: NodePath("TacticalSlide"),
 3: NodePath("GrenadeSkill")
 }
+player = NodePath("..")
 
 [node name="DoubleTap" parent="SkillSystem" index="0" unique_id=1077974154 instance=ExtResource("5_dvany")]
 
