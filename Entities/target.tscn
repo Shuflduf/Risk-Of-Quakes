@@ -16,6 +16,7 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0
 mesh = SubResource("CylinderMesh_3hr3o")
 
 [node name="Hitbox" parent="." unique_id=1948627840 instance=ExtResource("1_t2jmu")]
+takes_knockback = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hitbox" unique_id=1644924613]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)

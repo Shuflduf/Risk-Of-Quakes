@@ -25,7 +25,6 @@ radius = 3.0
 [node name="RigidBody3D" type="RigidBody3D" unique_id=1101875099]
 top_level = true
 collision_layer = 0
-collision_mask = 9
 physics_material_override = SubResource("PhysicsMaterial_3qp86")
 continuous_cd = true
 contact_monitor = true
@@ -41,7 +40,7 @@ shape = SubResource("SphereShape3D_5m32m")
 
 [node name="ExplosionRadius" type="Area3D" parent="." unique_id=1283837044]
 collision_layer = 8
-collision_mask = 6
+collision_mask = 4
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ExplosionRadius" unique_id=1293939286]

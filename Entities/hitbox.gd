@@ -1,5 +1,6 @@
 extends Area3D
 
+@export var takes_knockback = true
 @onready var player_owner: Node3D = get_parent()
 
 func hit(damage: float):
@@ -14,3 +15,8 @@ func hit(damage: float):
 	tween.tween_property(new_damage_text, ^"position:y", 2.0, 0.5).as_relative()
 	tween.tween_callback(new_damage_text.queue_free)
 	prints(name, damage)
+
+func knockback(vec: Vector3):
+	if !takes_knockback:
+		return
+	player_owner.velocity += vec
