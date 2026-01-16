@@ -17,6 +17,7 @@
 length = 0.4
 
 [node name="Chef" unique_id=1807276841 instance=ExtResource("1_7eqma")]
+safe_margin = 0.036
 
 [node name="TestMesh" parent="." index="1" unique_id=214712984]
 visible = false
@@ -47,7 +48,6 @@ player = NodePath("..")
 [node name="Dice" parent="SkillSystem" index="0" unique_id=479791051 instance=ExtResource("6_sodo0")]
 
 [node name="Roll" parent="SkillSystem" index="1" unique_id=1856380844 instance=ExtResource("6_w7d7t")]
-skill_duration = null
 
 [node name="GrenadeSkill" parent="SkillSystem" index="2" unique_id=701401869 instance=ExtResource("7_q1f32")]
 

@@ -9,6 +9,15 @@ skill_name = "Roll"
 cooldown = 4.0
 metadata/_custom_type_script = "uid://j2byq4temsrs"
 
-[node name="Roll" type="Node" unique_id=1856380844]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_phdxp"]
+height = 0.3
+radius = 0.7
+
+[node name="Roll" type="Area3D" unique_id=863177595]
+collision_layer = 0
 script = ExtResource("1_phdxp")
 info = SubResource("Resource_d7w4j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1476121669]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0)
+shape = SubResource("CylinderShape3D_phdxp")

@@ -35,14 +35,7 @@ func _physics_process(delta: float) -> void:
 	cooldown -= delta
 	if active:
 		if !player.wish_dir.is_zero_approx():
-			var wish_angle = current_direction.dot(player.wish_dir.rotated(Vector3.UP, PI / 2.0))
-			var angle_to = current_direction.angle_to(player.wish_dir)
-			prints(wish_angle, angle_to)
-			#if angle_to <= PI / 1.9:
-			print("MOVING")
-			#current_direction = current_direction.rotated(Vector3.UP, wish_angle * delta * 10.0)
 			current_direction = current_direction.slerp(player.wish_dir, delta * 2.0)
-		#if wish_angle > 0.0
 			
 		player.velocity.x = current_direction.x * movement_speed
 		player.velocity.z = current_direction.z * movement_speed
@@ -53,7 +46,8 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed(&"jump") and !used_jump:
 			player.velocity.y = jump_height
 			used_jump = true
+		if self.call(&"has_overlapping_bodies"):
+			player.velocity.y += delta * 20.0
 
 func calculate_speed(base_speed: float):
 	movement_speed = max(10.0, base_speed + 2.0)
-	print(movement_speed)
