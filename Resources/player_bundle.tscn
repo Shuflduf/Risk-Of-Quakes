@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://74qf12w4v0kl" path="res://UI/HUD/hud.tscn" id="2_1tmi8"]
 [ext_resource type="Script" uid="uid://chmr6w7f8yykk" path="res://Camera/camera_system_manager.gd" id="2_uvxjm"]
-[ext_resource type="Script" uid="uid://bhlpfny8uqeu8" path="res://Entities/rocket_jump.gd" id="3_bqhgn"]
 [ext_resource type="Script" uid="uid://bjfwewfpcvxcm" path="res://Camera/mouse_system.gd" id="3_l0aat"]
 [ext_resource type="Script" uid="uid://bxs1a8jmo002p" path="res://Entities/player_controller.gd" id="4_0yle1"]
 [ext_resource type="PackedScene" uid="uid://i8x84sh2p2q4" path="res://Entities/skill_system.tscn" id="5_xk08s"]
@@ -63,9 +62,6 @@ transform = Transform3D(0, 0.99999994, -4.371139e-08, 0, -4.371138e-08, -1, -0.9
 shape = SubResource("SeparationRayShape3D_qi0ee")
 
 [node name="HUD" parent="." unique_id=545074785 instance=ExtResource("2_1tmi8")]
-
-[node name="RocketJump" type="Node" parent="." unique_id=2099745339]
-script = ExtResource("3_bqhgn")
 
 [node name="PlayerController" type="Node" parent="." unique_id=1287518945 node_paths=PackedStringArray("cam", "skills", "cam_systems", "hud")]
 script = ExtResource("4_0yle1")
