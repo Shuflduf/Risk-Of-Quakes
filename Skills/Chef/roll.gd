@@ -3,12 +3,14 @@ extends Skill
 signal used
 
 @export var skill_duration = 3.0
+@export var jump_height = 8.0
 
 var cooldown = 0.0
 var active = false
 var current_direction = Vector3.ZERO
 var movement_speed = 0.0
 var elapsed_duration = 0.0
+var used_jump = false
 
 @onready var player: CharacterBody3D = get_parent().player
 @onready var cam_systems: CameraSystemManager = get_parent().cam_systems
@@ -21,10 +23,11 @@ func use():
 	active = true
 	var cam_dir = Vector3(-sin(player.rotation.y), 0.0, -cos(player.rotation.y))
 	var target_vel = player.velocity if !player.wish_dir.is_zero_approx() else cam_dir
-	calculate_speed(Utils.flatten_vec(target_vel).length())
+	calculate_speed(Utils.flatten_vec(player.velocity).length())
 	current_direction = Utils.flatten_vec(target_vel).normalized()
 	cooldown = info.cooldown
 	elapsed_duration = 0.0
+	used_jump = false
 	used.emit()
 	cooldown_started.emit()
 	
@@ -47,7 +50,10 @@ func _physics_process(delta: float) -> void:
 		if elapsed_duration >= 3.0:
 			active = false
 			player.jump_enabled = true
+		if Input.is_action_just_pressed(&"jump") and !used_jump:
+			player.velocity.y = jump_height
+			used_jump = true
 
 func calculate_speed(base_speed: float):
-	movement_speed = max(10.0, base_speed + 5.0)
+	movement_speed = max(10.0, base_speed + 2.0)
 	print(movement_speed)
