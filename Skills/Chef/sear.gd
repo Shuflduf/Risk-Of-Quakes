@@ -1,7 +1,7 @@
 extends Skill
 
 signal revert_abilities
-signal used(activated: bool)
+signal used(activated: bool, boosted: bool)
 
 @export var damage_freqency = 0.1
 
@@ -9,6 +9,7 @@ var cooldown = 0.0
 var damage_cooldown = 0.0
 var active = false
 var boosted = false
+var boost_active = false
 
 @onready var player: CharacterBody3D = get_parent().player
 @onready var particles: GPUParticles3D = $Particles
