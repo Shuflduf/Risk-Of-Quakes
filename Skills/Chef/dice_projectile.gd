@@ -13,6 +13,7 @@ enum State {
 var target_position: Vector3
 var player_owner: CharacterBody3D
 var go_back_target: Node3D
+var from_boost = false
 
 var held_down = true
 var held_time = 0.0
@@ -23,7 +24,8 @@ var state: State = State.GOING
 
 
 func stay():
-	held_down = true
+	if not from_boost:
+		held_down = true
 
 
 func _physics_process(delta: float) -> void:
@@ -32,7 +34,7 @@ func _physics_process(delta: float) -> void:
 	match state:
 		State.GOING:
 			global_position += global_position.direction_to(target_position) * delta * speed
-			if global_position.distance_to(target_position) < 0.1:
+			if global_position.distance_to(target_position) < 0.2:
 				state = State.STAYING
 		State.STAYING:
 			if held_down:

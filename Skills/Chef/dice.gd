@@ -3,6 +3,9 @@ extends Skill
 signal revert_abilities
 signal used(caught: bool)
 
+const BOOST_CLEAVERS = 48
+const BOOST_CLEAVERS_PER_ROW = 16
+
 @export var projectile: PackedScene
 @export var throw_dist = 10.0
 @export var cleaver_count = 3
@@ -27,9 +30,11 @@ func use():
 
 	if boosted:
 		revert_abilities.emit()
-		for i in 16:
-			add_cleaver(cam.global_position + (get_cleaver_target_dir(i) * throw_dist))
-		return
+		for i in BOOST_CLEAVERS:
+			var new_cleaver = add_cleaver(
+				cam.global_position + (get_boost_target_dir(i) * throw_dist)
+			)
+			new_cleaver.from_boost = true
 
 	if active_cleavers.size() < cleaver_count:
 		add_cleaver(cam.global_position + (-cam.global_transform.basis.z * throw_dist))
@@ -53,27 +58,31 @@ func use():
 		current_cooldown = info.cooldown
 
 
-func add_cleaver(target_pos: Vector3):
+func add_cleaver(target_pos: Vector3) -> Node3D:
 	var new_cleaver: Node3D = projectile.instantiate()
+	active_cleavers.append(new_cleaver)
 	new_cleaver.target_position = target_pos
-	new_cleaver.player_owner = get_parent().player
+	new_cleaver.player_owner = player
 	new_cleaver.go_back_target = cam
 	new_cleaver.delete.connect(func(): active_cleavers.erase(new_cleaver))
 	get_tree().root.add_child(new_cleaver)
 	new_cleaver.global_position = cam.global_position
-	active_cleavers.append(new_cleaver)
+	return new_cleaver
 
 
-func get_cleaver_target_dir(index: int) -> Vector3:
-	const HORIZONTAL_SCALE = cos(PI / 4.0)
-	const ANGLE_45 = PI / 4.0
+func get_boost_target_dir(index: int) -> Vector3:
+	const HORIZ_DIFF = PI / 8.0
+	const VERT_DIFF = PI / 6.0
 
-	var angle = ANGLE_45 * index
-	var target_dir = Vector3(sin(angle), 0.0, cos(angle))
-	if index >= 8:
-		target_dir = Vector3(
-			target_dir.x * HORIZONTAL_SCALE, sin(ANGLE_45), target_dir.z * HORIZONTAL_SCALE
-		)
+	var horiz_angle = HORIZ_DIFF * index + player.rotation.y
+
+	@warning_ignore("integer_division")
+	var current_row = index / BOOST_CLEAVERS_PER_ROW
+	var vert_angle = VERT_DIFF * current_row
+	var horiz_scale = cos(vert_angle)
+	var target_dir = Vector3(
+		sin(horiz_angle) * horiz_scale, sin(vert_angle), cos(horiz_angle) * horiz_scale
+	)
 	return target_dir
 
 
