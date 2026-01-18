@@ -2,6 +2,7 @@ extends Node3D
 
 @export var rocket_scene: PackedScene
 
+
 func _unhandled_input(event: InputEvent) -> void:
 	if !visible:
 		return
@@ -11,4 +12,3 @@ func _unhandled_input(event: InputEvent) -> void:
 		add_child(new_rocket)
 		new_rocket.global_position = global_position
 		new_rocket.global_rotation = global_rotation
-		

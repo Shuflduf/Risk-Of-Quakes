@@ -8,9 +8,10 @@ extends Node
 
 @onready var player: CharacterBody3D = get_parent()
 
+
 func _ready() -> void:
 	player.rotation.y = 0.0
-	
+
 	for slot in skills.skill_list:
 		var target_skill = skills.skill_list[slot]
 		hud.add_skill(target_skill.info, slot)
@@ -22,23 +23,25 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	var input_dir = Input.get_vector(&"left", &"right", &"forward", &"backward").rotated(-player.rotation.y)
+	var input_dir = Input.get_vector(&"left", &"right", &"forward", &"backward").rotated(
+		-player.rotation.y
+	)
 	player.wish_dir = Vector3(input_dir.x, 0.0, input_dir.y)
 	if Input.is_action_pressed(&"jump") and player.is_on_floor() and player.jump_enabled:
 		player.wish_jump = true
-	
+
 	if Input.is_action_pressed(&"primary"):
 		skills.primary()
-		
+
 	if Input.is_action_pressed(&"secondary"):
 		skills.secondary()
-	
+
 	if Input.is_action_pressed(&"utility"):
 		skills.utility()
-	
+
 	if Input.is_action_pressed(&"special"):
 		skills.special()
-	
+
 	if skin:
 		skin.visible = get_viewport().get_camera_3d() != cam
 		skin.rotation.y = cam.rotation.y

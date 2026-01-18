@@ -7,6 +7,7 @@ extends Node3D
 
 var explosion_queued = false
 
+
 func _physics_process(delta: float) -> void:
 	if explosion_queued:
 		return
@@ -19,7 +20,7 @@ func _on_area_3d_body_entered(_body: Node3D) -> void:
 	$CSGBox3D.hide()
 	explosion_queued = true
 	explode_particles.restart()
-	
+
 	for body in blast_radius.get_overlapping_bodies():
 		var rocket_jump_node = body.get_node(^"RocketJump")
 		if rocket_jump_node:
@@ -32,7 +33,7 @@ func _on_area_3d_body_entered(_body: Node3D) -> void:
 
 			var knockback = min(damage, 200.0)
 
-			rocket_jump_node.jump(direction_away * knockback)	
-			
+			rocket_jump_node.jump(direction_away * knockback)
+
 	await explode_particles.finished
 	queue_free()

@@ -5,6 +5,7 @@ extends CameraSystem
 
 var time_since_jump = 0.0
 
+
 func _ready() -> void:
 	player.jumped.connect(_on_player_jump)
 

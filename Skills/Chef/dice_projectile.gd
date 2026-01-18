@@ -21,12 +21,14 @@ var state: State = State.Going
 @onready var hurtbox: Area3D = $Hurtbox
 @onready var damage_cooldown: Timer = $DamageCooldown
 
+
 func stay():
 	held_down = true
 
+
 func _physics_process(delta: float) -> void:
 	rotation.y += delta * 30.0
-	
+
 	match state:
 		State.Going:
 			global_position += global_position.direction_to(target_position) * delta * speed
@@ -38,14 +40,15 @@ func _physics_process(delta: float) -> void:
 			else:
 				state = State.Back
 		State.Back:
-			global_position += global_position.direction_to(go_back_target.global_position) * delta * speed
+			global_position += (
+				global_position.direction_to(go_back_target.global_position) * delta * speed
+			)
 			if global_position.distance_to(go_back_target.global_position) < 0.5:
 				queue_free()
 				delete.emit()
-	
-	if held_down: 
+
+	if held_down:
 		held_down = false
-	
 
 
 func _on_collision_body_entered(_body: Node3D) -> void:
@@ -59,9 +62,10 @@ func _on_hurtbox_area_entered(area: Area3D) -> void:
 		hurtbox.set_deferred(&"monitoring", false)
 		damage_cooldown.start()
 
+
 func _on_damage_cooldown_timeout() -> void:
 	hurtbox.monitoring = true
-	
+
 
 func get_damage() -> int:
 	match state:

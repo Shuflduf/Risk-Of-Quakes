@@ -2,9 +2,9 @@
 @icon("res://addons/func_godot/icons/icon_godot_ranger.svg")
 class_name FuncGodotLocalConfig extends Resource
 ## Local machine project wide settings. [color=red]WARNING![/color] Do not create your own! Use the resource in [i]addons/func_godot[/i].
-## 
+##
 ## Local machine project wide settings. Can define global defaults for some FuncGodot properties.
-## [color=red][b]DO NOT CREATE A NEW RESOURCE![/b][/color] This resource works by saving a configuration file to your game's [b][i]user://[/i][/b] folder 
+## [color=red][b]DO NOT CREATE A NEW RESOURCE![/b][/color] This resource works by saving a configuration file to your game's [b][i]user://[/i][/b] folder
 ## and pulling the properties from that config file rather than this resource. Use the premade [b][i]addons/func_godot/func_godot_local_config.tres[/i][/b] instead.
 ## [br][br]
 ## [b]Fgd Output Folder :[/b] Global directory path that [FuncGodotFGDFile] saves to when exported. Overridden when exported from a game configuration resource like [TrenchBroomGameConfig].[br][br]
@@ -23,8 +23,10 @@ enum PROPERTY {
 	#DEFAULT_INVERSE_SCALE
 }
 
-@export_tool_button("Export func_godot settings", "Save") var _save_settings = export_func_godot_settings
-@export_tool_button("Reload func_godot settings", "Reload") var _load_settings = reload_func_godot_settings
+@export_tool_button("Export func_godot settings", "Save")
+var _save_settings = export_func_godot_settings
+@export_tool_button("Reload func_godot settings", "Reload")
+var _load_settings = reload_func_godot_settings
 
 const _CONFIG_PROPERTIES: Array[Dictionary] = [
 	{
@@ -60,56 +62,75 @@ const _CONFIG_PROPERTIES: Array[Dictionary] = [
 var _settings_dict: Dictionary
 var _loaded := false
 
+
 ## Retrieve a setting from the local configuration.
 static func get_setting(name: PROPERTY) -> Variant:
-	var settings: FuncGodotLocalConfig = load("res://addons/func_godot/func_godot_local_config.tres")
+	var settings: FuncGodotLocalConfig = load(
+		"res://addons/func_godot/func_godot_local_config.tres"
+	)
 	settings.reload_func_godot_settings()
-	return settings._settings_dict.get(PROPERTY.keys()[name], '') as Variant
+	return settings._settings_dict.get(PROPERTY.keys()[name], "") as Variant
+
 
 func _get_property_list() -> Array:
 	return _CONFIG_PROPERTIES.duplicate()
 
+
 func _get(property: StringName) -> Variant:
 	var config = _get_config_property(property)
-	if config == null and not config is Dictionary: 
+	if config == null and not config is Dictionary:
 		return null
 	_try_loading()
-	return _settings_dict.get(PROPERTY.keys()[config['func_godot_type']], _get_default_value(config['type']))
+	return _settings_dict.get(
+		PROPERTY.keys()[config["func_godot_type"]], _get_default_value(config["type"])
+	)
+
 
 func _set(property: StringName, value: Variant) -> bool:
 	var config = _get_config_property(property)
-	if config == null and not config is Dictionary: 
+	if config == null and not config is Dictionary:
 		return false
-	_settings_dict[PROPERTY.keys()[config['func_godot_type']]] = value
+	_settings_dict[PROPERTY.keys()[config["func_godot_type"]]] = value
 	return true
-	
+
+
 func _get_default_value(type) -> Variant:
 	match type:
-		TYPE_STRING: return ''
-		TYPE_INT: return 0
-		TYPE_FLOAT: return 0.0
-		TYPE_BOOL: return false
-		TYPE_VECTOR2: return Vector2.ZERO
-		TYPE_VECTOR3: return Vector3.ZERO
-		TYPE_ARRAY: return []
-		TYPE_DICTIONARY: return {}
+		TYPE_STRING:
+			return ""
+		TYPE_INT:
+			return 0
+		TYPE_FLOAT:
+			return 0.0
+		TYPE_BOOL:
+			return false
+		TYPE_VECTOR2:
+			return Vector2.ZERO
+		TYPE_VECTOR3:
+			return Vector3.ZERO
+		TYPE_ARRAY:
+			return []
+		TYPE_DICTIONARY:
+			return {}
 	push_error("Invalid setting type. Returning null")
 	return null
 
+
 func _get_config_property(name: StringName) -> Variant:
 	for config in _CONFIG_PROPERTIES:
-		if config['name'] == name: 
+		if config["name"] == name:
 			return config
 	return null
+
 
 ## Reload this system's configuration settings into the Local Config resource.
 func reload_func_godot_settings() -> void:
 	_loaded = true
 	var path = "user://func_godot_config.json"
 	if not FileAccess.file_exists(path):
-		var application_name: String = ProjectSettings.get('application/config/name')
+		var application_name: String = ProjectSettings.get("application/config/name")
 		application_name = application_name.replace(" ", "_")
-		path = "user://" + application_name  + "_FuncGodotConfig.json"
+		path = "user://" + application_name + "_FuncGodotConfig.json"
 		if not FileAccess.file_exists(path):
 			return
 	var settings = FileAccess.get_file_as_string(path)
@@ -121,13 +142,15 @@ func reload_func_godot_settings() -> void:
 		_settings_dict[key] = settings[key]
 	notify_property_list_changed()
 
+
 func _try_loading() -> void:
 	if not _loaded:
 		reload_func_godot_settings()
 
+
 ## Export the current resource settings to a configuration file in this game's [i]user://[/i] folder.
 func export_func_godot_settings() -> void:
-	if _settings_dict.size() == 0: 
+	if _settings_dict.size() == 0:
 		return
 	var path = "user://func_godot_config.json"
 	var file = FileAccess.open(path, FileAccess.WRITE)

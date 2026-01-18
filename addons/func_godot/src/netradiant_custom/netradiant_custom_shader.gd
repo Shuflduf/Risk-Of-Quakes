@@ -9,4 +9,4 @@ extends Resource
 @export var texture_path: String
 
 ## Array of shader properties to apply to faces using [member texture_path].
-@export var shader_attributes : Array[String] = ["qer_trans 0.4"]
+@export var shader_attributes: Array[String] = ["qer_trans 0.4"]

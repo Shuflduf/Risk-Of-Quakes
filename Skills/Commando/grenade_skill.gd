@@ -10,18 +10,20 @@ signal used
 
 var cooldown = 0.0
 
+
 func _physics_process(delta: float) -> void:
 	cooldown -= delta
-	
+
+
 func use():
 	if cooldown > 0.0:
 		return
-		
+
 	var new_nade: RigidBody3D = nade_scene.instantiate()
 	get_tree().root.add_child(new_nade)
 	new_nade.global_position = cam.global_position
 	new_nade.linear_velocity = player.velocity + (-cam.global_transform.basis.z * 15.0)
 	cooldown = info.cooldown
-	
+
 	used.emit()
 	cooldown_started.emit()

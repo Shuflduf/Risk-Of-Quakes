@@ -3,6 +3,7 @@ extends Node3D
 var speed = 15.0
 var player_owner: CharacterBody3D
 
+
 func _physics_process(delta: float) -> void:
 	transform = transform.translated_local(Vector3.FORWARD * delta * speed)
 
