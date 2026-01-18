@@ -4,6 +4,7 @@ signal used
 
 @export var skill_duration = 2.0
 @export var jump_height = 8.0
+@export var knockback_strength = 10.0
 
 var cooldown = 0.0
 var active = false
@@ -14,6 +15,7 @@ var used_jump = false
 
 @onready var player: CharacterBody3D = get_parent().player
 @onready var cam_systems: CameraSystemManager = get_parent().cam_systems
+@onready var hurtbox: Area3D = $Hurtbox
 
 
 func use():
@@ -55,3 +57,15 @@ func _physics_process(delta: float) -> void:
 
 func calculate_speed(base_speed: float):
 	movement_speed = max(10.0, base_speed + 2.0)
+
+
+func _on_hurtbox_area_entered(hitbox: Area3D) -> void:
+	if hitbox.player_owner == player:
+		return
+	hitbox.hit(8)
+	var knockback_vec = Utils.flatten_vec(
+		player.global_position.direction_to(hitbox.player_owner.global_position)
+	)
+	knockback_vec.y = 1.5
+	knockback_vec *= movement_speed * 0.5
+	hitbox.knockback(knockback_vec)

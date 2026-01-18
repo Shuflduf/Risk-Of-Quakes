@@ -27,9 +27,9 @@ curve = SubResource("Curve_0j1if")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tsylo"]
 lifetime_randomness = 1.0
 direction = Vector3(0, 0, -1)
-spread = 15.0
-initial_velocity_min = 10.0
-initial_velocity_max = 20.0
+spread = 10.0
+initial_velocity_min = 20.0
+initial_velocity_max = 30.0
 gravity = Vector3(0, 0, 0)
 damping_min = 30.000002
 damping_max = 30.000002
@@ -48,11 +48,16 @@ distance_fade_max_distance = 2.0
 [sub_resource type="SphereMesh" id="SphereMesh_0j1if"]
 material = SubResource("StandardMaterial3D_t112e")
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_0j1if"]
+height = 6.5
+radius = 0.6
+
 [node name="Sear" type="Node3D" unique_id=1468404354]
 script = ExtResource("1_tsylo")
 info = SubResource("Resource_5itwv")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1882408000]
+[node name="Particles" type="GPUParticles3D" parent="." unique_id=1882408000]
+emitting = false
 amount = 128
 lifetime = 0.4
 fixed_fps = 60
@@ -62,3 +67,18 @@ draw_pass_1 = SubResource("SphereMesh_0j1if")
 [node name="FollowCamera" type="Node" parent="." unique_id=1099113213]
 script = ExtResource("2_t112e")
 offset = Vector3(0, -0.9, 0)
+
+[node name="Hurtbox" type="Area3D" parent="." unique_id=539710547]
+collision_layer = 8
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox" unique_id=1926505839]
+transform = Transform3D(1, 0, 0, 0, 0, 1.0000001, 0, -1.0000001, 0, 0, 0, -3.25)
+shape = SubResource("CylinderShape3D_0j1if")
+
+[node name="ActiveTimer" type="Timer" parent="." unique_id=371748895]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="ActiveTimer" to="." method="_on_active_timer_timeout"]

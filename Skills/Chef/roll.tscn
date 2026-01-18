@@ -21,3 +21,14 @@ info = SubResource("Resource_d7w4j")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1476121669]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0)
 shape = SubResource("CylinderShape3D_phdxp")
+
+[node name="Hurtbox" type="Area3D" parent="." unique_id=1486763194]
+collision_layer = 8
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox" unique_id=847250789]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0)
+shape = SubResource("CylinderShape3D_phdxp")
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
