@@ -1,7 +1,7 @@
 extends Skill
 
 signal revert_abilities
-signal used(caught: bool)
+signal used(caught: bool, boosted: bool)
 
 const BOOST_CLEAVERS = 48
 const BOOST_CLEAVERS_PER_ROW = 16
@@ -35,9 +35,11 @@ func use():
 				cam.global_position + (get_boost_target_dir(i) * throw_dist)
 			)
 			new_cleaver.from_boost = true
+		used.emit(false, true)
 
 	if active_cleavers.size() < cleaver_count:
 		add_cleaver(cam.global_position + (-cam.global_transform.basis.z * throw_dist))
+		used.emit(false, false)
 
 		model.position.z = 0.5
 		model.rotation.x = deg_to_rad(50.0)
@@ -64,7 +66,11 @@ func add_cleaver(target_pos: Vector3) -> Node3D:
 	new_cleaver.target_position = target_pos
 	new_cleaver.player_owner = player
 	new_cleaver.go_back_target = cam
-	new_cleaver.delete.connect(func(): active_cleavers.erase(new_cleaver))
+	new_cleaver.delete.connect(
+		func():
+			active_cleavers.erase(new_cleaver)
+			used.emit(true, new_cleaver.from_boost)
+	)
 	get_tree().root.add_child(new_cleaver)
 	new_cleaver.global_position = cam.global_position
 	return new_cleaver
