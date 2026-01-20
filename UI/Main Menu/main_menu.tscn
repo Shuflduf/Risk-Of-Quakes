@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://bbdyaukilqsqr"]
+
+[node name="MainMenu" type="Control" unique_id=1731227302]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Connection" type="VBoxContainer" parent="." unique_id=2010914824]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_right = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Host" type="Button" parent="Connection" unique_id=165552656]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Host"
+
+[node name="Connect" type="Button" parent="Connection" unique_id=1413944804]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Connect"
+
+[node name="SpinBox" type="SpinBox" parent="Connection" unique_id=795216974]
+layout_mode = 2
+size_flags_vertical = 8
+max_value = 25565.0
+value = 8264.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=448015125]
+visible = false
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -33.5
+offset_right = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=295813796]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Players"
+
+[node name="PlayerList" type="VBoxContainer" parent="VBoxContainer" unique_id=1265914267]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PlayerList" unique_id=772032727]
+layout_mode = 2
+text = "Shuflduf"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/PlayerList" unique_id=138701801]
+layout_mode = 2
+text = "Duflshuf"
+horizontal_alignment = 1
