@@ -7,6 +7,9 @@ const SPINE_INDEX = 0
 
 var next_hand_index = 0
 
+@onready var particles: GPUParticles3D = $Armature/Skeleton3D/Bone/Particles
+@onready var boost_particles: GPUParticles3D = $Armature/Skeleton3D/Bone/BoostParticles
+
 #@onready var right_hand: Marker3D = $metarig/Skeleton3D/spine_004/RightHand
 #@onready var right_hand_og_trans = right_hand.transform
 
@@ -37,4 +40,5 @@ func primary(caught: bool, boosted: bool, can_shoot_more: bool):
 
 
 func secondary(activated: bool, boosted: bool):
-	print(activated, boosted)
+	var target_particles = boost_particles if boosted else particles
+	target_particles.emitting = activated

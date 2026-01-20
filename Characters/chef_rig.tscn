@@ -271,6 +271,7 @@ draw_pass_1 = SubResource("SphereMesh_0lu8w")
 
 [node name="BoostParticles" type="GPUParticles3D" parent="Armature/Skeleton3D/Bone" parent_id_path=PackedInt32Array(577948154) index="1" unique_id=452535272]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 0.99999994, 0, 8.742278e-08, 0, -1, 0, 0.39999998, 0)
+emitting = false
 amount = 256
 lifetime = 0.4
 fixed_fps = 60
