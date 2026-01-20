@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://bbdyaukilqsqr"]
 
+[ext_resource type="Script" uid="uid://dis2wtdohujjq" path="res://UI/Main Menu/main_menu.gd" id="1_3g31d"]
+[ext_resource type="Script" uid="uid://dljwe8wommn88" path="res://UI/Main Menu/lobby.gd" id="2_v04x6"]
+
 [node name="MainMenu" type="Control" unique_id=1731227302]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_3g31d")
 
 [node name="Connection" type="VBoxContainer" parent="." unique_id=2010914824]
 layout_mode = 1
@@ -30,13 +34,18 @@ layout_mode = 2
 size_flags_vertical = 8
 text = "Connect"
 
-[node name="SpinBox" type="SpinBox" parent="Connection" unique_id=795216974]
+[node name="Port" type="SpinBox" parent="Connection" unique_id=795216974]
 layout_mode = 2
 size_flags_vertical = 8
 max_value = 25565.0
 value = 8264.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=448015125]
+[node name="Username" type="LineEdit" parent="Connection" unique_id=24275305]
+layout_mode = 2
+text = "Shuflduf"
+placeholder_text = "Username"
+
+[node name="Lobby" type="VBoxContainer" parent="." unique_id=448015125]
 visible = false
 layout_mode = 1
 anchors_preset = 13
@@ -48,21 +57,15 @@ offset_right = 33.5
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
+script = ExtResource("2_v04x6")
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=295813796]
+[node name="Label" type="Label" parent="Lobby" unique_id=295813796]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Players"
 
-[node name="PlayerList" type="VBoxContainer" parent="VBoxContainer" unique_id=1265914267]
+[node name="PlayerList" type="VBoxContainer" parent="Lobby" unique_id=1265914267]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/PlayerList" unique_id=772032727]
-layout_mode = 2
-text = "Shuflduf"
-horizontal_alignment = 1
-
-[node name="Label2" type="Label" parent="VBoxContainer/PlayerList" unique_id=138701801]
-layout_mode = 2
-text = "Duflshuf"
-horizontal_alignment = 1
+[connection signal="pressed" from="Connection/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Connection/Connect" to="." method="_on_connect_pressed"]
