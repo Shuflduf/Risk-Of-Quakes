@@ -40,7 +40,6 @@ func use():
 
 
 func hold():
-	print("FUCK")
 	used.emit(true)
 	for i in double_tap.guns.size():
 		var gun: Node3D = double_tap.guns[i]

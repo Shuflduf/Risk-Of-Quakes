@@ -212,20 +212,12 @@ settings/0/end_bone_name = "shoulder_R.003"
 settings/0/end_bone = 4
 settings/0/extend_end_bone = false
 settings/0/joint_count = 4
-settings/0/joints/0/bone = 1
-settings/0/joints/1/bone = 2
-settings/0/joints/2/bone = 3
-settings/0/joints/3/bone = 4
 settings/1/root_bone_name = "shoulder_L"
 settings/1/root_bone = 5
 settings/1/end_bone_name = "shoulder_L.003"
 settings/1/end_bone = 8
 settings/1/extend_end_bone = false
 settings/1/joint_count = 4
-settings/1/joints/0/bone = 5
-settings/1/joints/1/bone = 6
-settings/1/joints/2/bone = 7
-settings/1/joints/3/bone = 8
 settings/0/joints/0/rotation_axis = 3
 settings/0/joints/0/limitation = null
 settings/0/joints/1/rotation_axis = 3
@@ -252,7 +244,7 @@ transform = Transform3D(0.37299567, 0.32644862, 0.8685076, 0.7934468, 0.3729916,
 transform = Transform3D(-5.9604645e-08, 0.9999999, -7.748604e-07, 1, 2.9802322e-08, -7.4505806e-08, -8.940697e-08, -7.636845e-07, -0.99999994, 0.1326403, 0.2872529, 0.0701803)
 
 [node name="shoulder_L_003" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1593193233) index="2" unique_id=713617998]
-transform = Transform3D(0.19716713, -0.027079076, -0.97999597, -0.96004415, 0.197162, -0.19860092, 0.19859591, 0.97999686, 0.012876809, 0.54947555, 0.6691637, 1.144856)
+transform = Transform3D(0.37336826, -0.32646137, -0.86834276, -0.79303104, 0.37336233, -0.4813549, 0.48135015, 0.86834526, -0.11949214, 0.558106, 0.7261272, 0.680932)
 
 [node name="CleaverParent" type="Node3D" parent="Armature/Skeleton3D/shoulder_L_003" index="2" unique_id=1141032398]
 transform = Transform3D(2.0861626e-07, -1.0000001, -7.748604e-07, 1.0000001, 1.7881393e-07, 7.450581e-09, -7.450581e-09, -7.8976154e-07, 1, 1.3161227, -1.3849921, -0.02398336)

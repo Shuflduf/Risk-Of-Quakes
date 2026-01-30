@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Risk Of Quakes"
-run/main_scene="uid://bq60rtas7e3is"
+run/main_scene="uid://cit3ia43oles4"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -31,6 +31,10 @@ enabled=PackedStringArray("res://addons/func_godot/plugin.cfg", "res://addons/go
 [filesystem]
 
 import/blender/enabled=false
+
+[global_group]
+
+"Spawn Point"=""
 
 [input]
 

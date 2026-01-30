@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://cit3ia43oles4"]
+
+[ext_resource type="Script" uid="uid://b55kbeta0mfu" path="res://Game/game.gd" id="1_7raqb"]
+[ext_resource type="PackedScene" uid="uid://bq60rtas7e3is" path="res://world.tscn" id="1_bk3v5"]
+[ext_resource type="PackedScene" uid="uid://bjdtv5jx46vgp" path="res://Entities/chef.tscn" id="2_1r4le"]
+[ext_resource type="Script" uid="uid://dpotj178cse8e" path="res://Game/join_ui.gd" id="4_fwxkx"]
+[ext_resource type="Texture2D" uid="uid://b5dh5wbqgpe8l" path="res://Assets/References/gun.png" id="4_jcm6v"]
+[ext_resource type="PackedScene" uid="uid://cagug61g68di1" path="res://Entities/commando.tscn" id="5_qmv3x"]
+
+[node name="Game" type="Node3D" unique_id=1301038773]
+script = ExtResource("1_7raqb")
+
+[node name="World" parent="." unique_id=2007376966 instance=ExtResource("1_bk3v5")]
+
+[node name="JoinUI" type="Control" parent="." unique_id=638329098]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_fwxkx")
+survivors = Array[PackedScene]([ExtResource("5_qmv3x"), ExtResource("2_1r4le")])
+
+[node name="MarginContainer" type="MarginContainer" parent="JoinUI" unique_id=1525288054]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="HFlowContainer" type="HFlowContainer" parent="JoinUI/MarginContainer" unique_id=1563805198]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="JoinUI/MarginContainer/HFlowContainer" unique_id=1969936734]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("4_jcm6v")
+expand_icon = true
+
+[node name="Button2" type="Button" parent="JoinUI/MarginContainer/HFlowContainer" unique_id=741319872]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+focus_mode = 0
+icon = ExtResource("4_jcm6v")
+expand_icon = true
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1030838074]
+_spawnable_scenes = PackedStringArray("uid://cagug61g68di1", "uid://bjdtv5jx46vgp")
+spawn_path = NodePath("..")
+
+[connection signal="pressed" from="JoinUI/MarginContainer/HFlowContainer/Button" to="JoinUI" method="_on_button_pressed"]
+[connection signal="pressed" from="JoinUI/MarginContainer/HFlowContainer/Button2" to="JoinUI" method="_on_button_2_pressed"]

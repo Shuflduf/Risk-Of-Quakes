@@ -6,7 +6,6 @@
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="7_gbfbk"]
 [ext_resource type="Material" uid="uid://b5si568ocg0or" path="res://Maps/Textures/Light/texture_06.tres" id="7_ioo17"]
 [ext_resource type="Material" uid="uid://cesxd8focfw5m" path="res://Maps/Textures/Dark/texture_07.tres" id="8_ioo17"]
-[ext_resource type="PackedScene" uid="uid://bjdtv5jx46vgp" path="res://Entities/chef.tscn" id="9_ic0uy"]
 [ext_resource type="Material" uid="uid://cfpktuk3b33ko" path="res://Maps/Textures/Orange/texture_08.tres" id="9_ioo17"]
 [ext_resource type="PackedScene" uid="uid://cvswsfmdd2rxu" path="res://Maps/Entities/special_pickup.tscn" id="9_wse8f"]
 
@@ -300,5 +299,13 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 2
 [node name="entity_2_SpecialPickup" parent="Map" unique_id=412678234 instance=ExtResource("9_wse8f")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 2.8551126, -11.25)
 
-[node name="Chef" parent="." unique_id=1807276841 instance=ExtResource("9_ic0uy")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 32.050095, 0, 0)
+[node name="SpawnPoints" type="Node3D" parent="." unique_id=2108562532]
+
+[node name="Marker3D" type="Marker3D" parent="SpawnPoints" unique_id=2034796524 groups=["Spawn Point"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.553772, 0.8, 0)
+
+[node name="Marker3D2" type="Marker3D" parent="SpawnPoints" unique_id=2009640177 groups=["Spawn Point"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.900001, 0)
+
+[node name="Marker3D3" type="Marker3D" parent="SpawnPoints" unique_id=1010244748 groups=["Spawn Point"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.7, 1.3000005, 0)

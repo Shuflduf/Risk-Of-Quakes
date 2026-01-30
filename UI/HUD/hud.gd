@@ -10,12 +10,12 @@ func add_skill(skill_info: SkillInfo, slot: Skill.SkillSlot):
 	%SkillsContainer.add_child(new_skill_ui)
 	registered_skills[slot] = new_skill_ui
 	new_skill_ui.create(skill_info)
-	prints(skill_info.skill_name, slot)
+	#prints(skill_info.skill_name, slot)
 
 
 func skill_used(slot: Skill.SkillSlot):
 	registered_skills[slot].use()
-	print(slot)
+	#print(slot)
 
 
 func toggle_skill(on: bool, slot: Skill.SkillSlot):

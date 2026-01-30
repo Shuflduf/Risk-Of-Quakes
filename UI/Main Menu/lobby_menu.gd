@@ -40,3 +40,7 @@ func _on_disconnect_pressed() -> void:
 func go_back_to_connections():
 	hide()
 	connection.show()
+
+
+func _on_start_game_pressed() -> void:
+	Lobby.load_game("res://Game/game.tscn")

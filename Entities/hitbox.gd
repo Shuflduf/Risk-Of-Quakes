@@ -15,7 +15,7 @@ func hit(damage: float):
 	var tween = get_tree().create_tween()
 	tween.tween_property(new_damage_text, ^"position:y", 2.0, 0.5).as_relative()
 	tween.tween_callback(new_damage_text.queue_free)
-	prints(name, damage)
+	#prints(name, damage)
 
 
 func knockback(vec: Vector3):
