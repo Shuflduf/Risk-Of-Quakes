@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Utils="*uid://cx2gpis71ve34"
+Lobby="*uid://dljwe8wommn88"
 
 [editor_plugins]
 

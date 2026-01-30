@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bbdyaukilqsqr"]
 
 [ext_resource type="Script" uid="uid://dis2wtdohujjq" path="res://UI/Main Menu/main_menu.gd" id="1_3g31d"]
-[ext_resource type="Script" uid="uid://dljwe8wommn88" path="res://UI/Main Menu/lobby.gd" id="2_v04x6"]
+[ext_resource type="Script" uid="uid://do47qleu3ylvd" path="res://UI/Main Menu/lobby_menu.gd" id="2_v04x6"]
 
 [node name="MainMenu" type="Control" unique_id=1731227302]
 layout_mode = 3
@@ -33,12 +33,6 @@ text = "Host"
 layout_mode = 2
 size_flags_vertical = 8
 text = "Connect"
-
-[node name="Port" type="SpinBox" parent="Connection" unique_id=795216974]
-layout_mode = 2
-size_flags_vertical = 8
-max_value = 25565.0
-value = 8264.0
 
 [node name="Username" type="LineEdit" parent="Connection" unique_id=24275305]
 layout_mode = 2
