@@ -13,6 +13,7 @@ var players = {}
 func _ready():
 	multiplayer.peer_connected.connect(_on_player_connected)
 	multiplayer.peer_disconnected.connect(_on_player_disconnected)
+	multiplayer.server_disconnected.connect(_on_server_disconnected)
 
 
 func _on_host_pressed() -> void:
@@ -25,8 +26,10 @@ func _on_host_pressed() -> void:
 
 func _on_connect_pressed() -> void:
 	var peer = ENetMultiplayerPeer.new()
-	peer.create_client(IP_ADDRESS, int(port.value))
+	var err = peer.create_client(IP_ADDRESS, int(port.value))
+	print(err)
 	multiplayer.multiplayer_peer = peer
+	players.clear()
 	players[multiplayer.get_unique_id()] = username.text
 	transition_to_lobby()
 
@@ -39,6 +42,13 @@ func _on_player_connected(id):
 func _on_player_disconnected(id):
 	players.erase(id)
 	lobby.update_players(players)
+
+
+func _on_server_disconnected():
+	multiplayer.multiplayer_peer = OfflineMultiplayerPeer.new()
+	players.clear()
+	lobby.hide()
+	connection.show()
 
 
 @rpc("any_peer", "reliable")
