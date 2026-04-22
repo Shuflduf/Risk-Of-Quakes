@@ -10,5 +10,5 @@ func _ready() -> void:
 func spawn_player(survivor: String, peer_id: int, spawn_pos: Vector3):
 	var new_player = survivors[survivor].instantiate()
 	new_player.position = spawn_pos
-	add_child(new_player)
+	add_child(new_player, true)
 	new_player.set_multiplayer_authority(peer_id)

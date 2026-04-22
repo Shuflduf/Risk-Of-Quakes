@@ -13,7 +13,8 @@ var actual_mouse_sens = MOUSE_SENS_MULTIPLIER * mouse_sens
 
 
 func _ready() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	if is_multiplayer_authority():
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
