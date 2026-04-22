@@ -18,7 +18,6 @@ var jump_enabled = true
 
 func _physics_process(delta: float) -> void:
 	_process_movement(delta)
-
 	move_and_slide()
 
 

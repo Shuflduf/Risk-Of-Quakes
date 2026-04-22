@@ -104,7 +104,7 @@ shape = SubResource("SeparationRayShape3D_0ba7l")
 transform = Transform3D(0, 0.99999994, -4.371139e-08, 0, -4.371138e-08, -1, -0.99999994, 0, -3.5527137e-15, 0.025000006, -0.6, 0.975)
 shape = SubResource("SeparationRayShape3D_0ba7l")
 
-[node name="Skin" parent="." index="7" unique_id=486238766 instance=ExtResource("9_gkpk8")]
+[node name="CommandoRig" parent="." index="7" unique_id=486238766 instance=ExtResource("9_gkpk8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="HUD" parent="." index="8" unique_id=545074785 instance=ExtResource("10_aafxt")]
@@ -115,7 +115,7 @@ cam = NodePath("../Camera")
 skills = NodePath("../SkillSystem")
 cam_systems = NodePath("../CameraSystems")
 hud = NodePath("../HUD")
-skin = NodePath("../Skin")
+skin = NodePath("../CommandoRig")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." index="10" unique_id=1207140375]
 replication_config = SubResource("SceneReplicationConfig_nattx")
