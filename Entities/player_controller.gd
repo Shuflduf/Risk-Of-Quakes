@@ -13,6 +13,7 @@ func _ready() -> void:
 	if !is_multiplayer_authority():
 		set_process_input(false)
 		set_process_unhandled_input(false)
+		set_process_unhandled_key_input(false)
 		cam.current = false
 		return
 		

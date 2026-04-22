@@ -18,12 +18,16 @@ func _ready() -> void:
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
+	if !is_multiplayer_authority():
+		return
+		
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = (
 			Input.MOUSE_MODE_CAPTURED
 			if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE
 			else Input.MOUSE_MODE_VISIBLE
 		)
+		print(Input.mouse_mode)
 
 
 func _input(event: InputEvent) -> void:
