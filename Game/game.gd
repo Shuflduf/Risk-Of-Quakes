@@ -5,15 +5,10 @@ extends Node3D
 func _ready() -> void:
 	Lobby.player_loaded.rpc()
 
-@rpc("call_local")
-func start_game():
-	for peer_id in Lobby.players:
-		print("peer_id: ", peer_id, " survivor: ", Lobby.players[peer_id].get("survivor", "NOT SET"))
-		join_as(survivors[Lobby.players[peer_id]["survivor"]], peer_id)
 
-func join_as(survivor: PackedScene, peer_id):
-	var spawn_pos = get_tree().get_nodes_in_group(&"Spawn Point").pick_random()
-	var new_player = survivor.instantiate()
-	new_player.position = spawn_pos.position
+@rpc("any_peer", "call_local")
+func spawn_player(survivor: String, peer_id: int, spawn_pos: Vector3):
+	var new_player = survivors[survivor].instantiate()
+	new_player.position = spawn_pos
 	add_child(new_player)
 	new_player.set_multiplayer_authority(peer_id)
