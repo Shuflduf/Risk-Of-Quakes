@@ -10,14 +10,17 @@ extends Node
 
 
 func _ready() -> void:
+	print("ready")
+	print(multiplayer.get_unique_id())
 	if !is_multiplayer_authority():
 		set_process_input(false)
 		set_process_unhandled_input(false)
 		set_process_unhandled_key_input(false)
-		cam.current = false
+		#cam.current = false
 		return
-
-	cam.make_current()
+	
+	
+	cam.current = true
 	player.rotation.y = 0.0
 
 	for slot in skills.skill_list:

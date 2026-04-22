@@ -44,7 +44,6 @@ func _on_player_survivor_selected(peer_id: int, _survivor: String):
 
 
 func update_players_list():
-	print(Lobby.players)
 	for label in player_list.get_children():
 		label.queue_free()
 	for id in Lobby.players:

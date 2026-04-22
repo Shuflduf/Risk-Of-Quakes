@@ -13,7 +13,3 @@ survivors = Dictionary[String, PackedScene]({
 })
 
 [node name="World" parent="." unique_id=2007376966 instance=ExtResource("1_bk3v5")]
-
-[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1030838074]
-_spawnable_scenes = PackedStringArray("uid://cagug61g68di1", "uid://bjdtv5jx46vgp")
-spawn_path = NodePath("..")
