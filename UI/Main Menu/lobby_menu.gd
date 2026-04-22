@@ -2,6 +2,7 @@ extends HBoxContainer
 
 @onready var player_list: VBoxContainer = %PlayerList
 @onready var connection_panel: VBoxContainer = %Connection
+@onready var survivor_list: VBoxContainer = %SurvivorList
 
 
 func _ready() -> void:
@@ -11,6 +12,7 @@ func _ready() -> void:
 	Lobby.survivor_selection_started.connect(_on_survivor_selection_started)
 	Lobby.all_survivors_selected.connect(_on_all_survivors_selected)
 	Lobby.player_survivor_selected.connect(_on_player_survivor_selected)
+	survivor_list.survivor_selected.connect(Lobby.select_survivor.rpc)
 
 
 func _on_player_connected(_peer_id: int, _player_info: Dictionary):
@@ -26,7 +28,8 @@ func _on_server_disconnected():
 
 
 func _on_survivor_selection_started():
-	pass
+	survivor_list.show()
+	%StartGame.disabled = true
 
 
 func _on_all_survivors_selected():
@@ -58,4 +61,4 @@ func go_back_to_connections():
 
 
 func _on_start_game_pressed() -> void:
-	Lobby.load_game("res://Game/game.tscn")
+	Lobby.start_survivor_selection.rpc()

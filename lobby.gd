@@ -64,13 +64,13 @@ func remove_multiplayer_peer():
 
 # When the server decides to start the game from a UI scene,
 # do Lobby.load_game.rpc(filepath)
-@rpc("call_local", "reliable")
+@rpc("call_local")
 func load_game(game_scene_path):
 	get_tree().change_scene_to_file(game_scene_path)
 
 
 # Every peer will call this when they have loaded the game scene.
-@rpc("any_peer", "call_local", "reliable")
+@rpc("any_peer", "call_local")
 func player_loaded():
 	if multiplayer.is_server():
 		players_loaded += 1
@@ -85,7 +85,7 @@ func _on_player_connected(id):
 	_register_player.rpc_id(id, player_info)
 
 
-@rpc("any_peer", "reliable")
+@rpc("any_peer")
 func _register_player(new_player_info):
 	var new_player_id = multiplayer.get_remote_sender_id()
 	players[new_player_id] = new_player_info
@@ -115,20 +115,22 @@ func _on_server_disconnected():
 
 @rpc("call_local")
 func start_survivor_selection():
-	if multiplayer.is_server():
-		players_loaded = 0
+	#if multiplayer.is_server():
+	#players_loaded = 0
 
 	survivor_selection_started.emit()
 
 
-@rpc("any_peer")
+@rpc("any_peer", "call_local")
 func select_survivor(survivor: String):
 	var peer_id = multiplayer.get_remote_sender_id()
 	players[peer_id]["survivor"] = survivor
 	player_survivor_selected.emit(peer_id, survivor)
 
 	if multiplayer.is_server():
-		players_loaded += 1
-		if players_loaded == players.size():
+		var ready_players = players.values().reduce(
+			func(accum, v): return accum + (1 if v.has("survivor") else 0), 0
+		)
+		if ready_players == players.size():
 			all_survivors_selected.emit()
-			load_game("res://Game/game.tscn")
+			load_game.rpc("res://Game/game.tscn")

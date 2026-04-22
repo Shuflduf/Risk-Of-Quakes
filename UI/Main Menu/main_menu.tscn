@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dis2wtdohujjq" path="res://UI/Main Menu/main_menu.gd" id="1_3g31d"]
 [ext_resource type="Script" uid="uid://do47qleu3ylvd" path="res://UI/Main Menu/lobby_menu.gd" id="2_v04x6"]
+[ext_resource type="Script" uid="uid://bh40x3odvnh64" path="res://UI/Main Menu/survivor_list.gd" id="3_jri5q"]
 
 [node name="MainMenu" type="Control" unique_id=1731227302]
 layout_mode = 3
@@ -14,7 +15,6 @@ script = ExtResource("1_3g31d")
 
 [node name="Connection" type="VBoxContainer" parent="." unique_id=2010914824]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(171.365, 0)
 layout_mode = 1
 anchors_preset = 13
@@ -43,6 +43,7 @@ placeholder_text = "Username"
 alignment = 1
 
 [node name="Lobby" type="HBoxContainer" parent="." unique_id=1911426648]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,6 +68,7 @@ unique_name_in_owner = true
 layout_mode = 2
 
 [node name="StartGame" type="Button" parent="Lobby/PlayerList" unique_id=1914423849]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Start Game"
 
@@ -75,9 +77,11 @@ layout_mode = 2
 text = "Disconnect"
 
 [node name="SurvivorList" type="VBoxContainer" parent="Lobby" unique_id=1266944899]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_vertical = 4
+script = ExtResource("3_jri5q")
 
 [node name="Commando" type="Button" parent="Lobby/SurvivorList" unique_id=228212333]
 layout_mode = 2
@@ -91,5 +95,5 @@ text = "Chef"
 
 [connection signal="pressed" from="Connection/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Connection/Connect" to="." method="_on_connect_pressed"]
-[connection signal="pressed" from="Lobby/PlayerList/StartGame" to="Lobby/PlayerList" method="_on_start_game_pressed"]
+[connection signal="pressed" from="Lobby/PlayerList/StartGame" to="Lobby" method="_on_start_game_pressed"]
 [connection signal="pressed" from="Lobby/PlayerList/Disconnect" to="Lobby/PlayerList" method="_on_disconnect_pressed"]
