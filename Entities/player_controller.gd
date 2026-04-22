@@ -8,6 +8,10 @@ extends Node
 
 @onready var player: CharacterBody3D = get_parent()
 
+@export var spine_angle = 0.0:
+	set(new_val):
+		spine_angle = new_val
+		skin.set_spine_angle(spine_angle)
 
 func _ready() -> void:
 	print("ready")
@@ -59,5 +63,7 @@ func _physics_process(_delta: float) -> void:
 	if skin:
 		skin.visible = get_viewport().get_camera_3d() != cam
 		skin.rotation.y = cam.rotation.y
-		skin.set_spine_angle(-cam.rotation.x)
+		spine_angle = -cam.rotation.x
+		#skin.set_spine_angle(-cam.rotation.x)
 		skills.visible = !skin.visible
+		

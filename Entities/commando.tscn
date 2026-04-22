@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://74qf12w4v0kl" path="res://UI/HUD/hud.tscn" id="10_aafxt"]
 [ext_resource type="Script" uid="uid://c7k0xr8eeyt5a" path="res://Camera/camera_system.gd" id="10_ns4yp"]
 [ext_resource type="Script" uid="uid://bxs1a8jmo002p" path="res://Entities/player_controller.gd" id="12_yqxnw"]
+[ext_resource type="PackedScene" uid="uid://cv38xi4cuhapu" path="res://Entities/synchronizer.tscn" id="14_ns4yp"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_n7ghd"]
 top_radius = 0.3
@@ -20,11 +21,6 @@ bottom_radius = 0.3
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_0ba7l"]
 length = 0.4
-
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_nattx"]
-properties/0/path = NodePath(".:position")
-properties/0/spawn = true
-properties/0/replication_mode = 1
 
 [node name="Commando" unique_id=1807276841 instance=ExtResource("1_ivr2x")]
 
@@ -117,5 +113,4 @@ cam_systems = NodePath("../CameraSystems")
 hud = NodePath("../HUD")
 skin = NodePath("../CommandoRig")
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." index="10" unique_id=1207140375]
-replication_config = SubResource("SceneReplicationConfig_nattx")
+[node name="MultiplayerSynchronizer" parent="." index="10" unique_id=689391796 instance=ExtResource("14_ns4yp")]

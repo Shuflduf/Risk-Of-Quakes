@@ -6,9 +6,6 @@ const SPINE_INDEX = 1
 @onready var skeleton: Skeleton3D = $metarig/Skeleton3D
 @onready var og_hand_pos: Array = hand_handles.map(func(hand): return hand.position)
 
-#@onready var right_hand: Marker3D = $metarig/Skeleton3D/spine_004/RightHand
-#@onready var right_hand_og_trans = right_hand.transform
-
 
 func connect_skills(skills: Dictionary[Skill.SkillSlot, Skill]):
 	skills[Skill.SkillSlot.PRIMARY].used.connect(primary)

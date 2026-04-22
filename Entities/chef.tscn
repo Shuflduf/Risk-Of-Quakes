@@ -12,14 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://74qf12w4v0kl" path="res://UI/HUD/hud.tscn" id="7_uejro"]
 [ext_resource type="PackedScene" uid="uid://dxsg7shu4na16" path="res://Skills/Chef/yes_chef.tscn" id="8_w7d7t"]
 [ext_resource type="Script" uid="uid://bxs1a8jmo002p" path="res://Entities/player_controller.gd" id="9_xc7ek"]
+[ext_resource type="PackedScene" uid="uid://cv38xi4cuhapu" path="res://Entities/synchronizer.tscn" id="13_o52uj"]
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_qi0ee"]
 length = 0.4
-
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_w7d7t"]
-properties/0/path = NodePath(".:position")
-properties/0/spawn = true
-properties/0/replication_mode = 1
 
 [node name="Chef" unique_id=1807276841 instance=ExtResource("1_7eqma")]
 
@@ -115,5 +111,4 @@ cam_systems = NodePath("../CameraSystems")
 hud = NodePath("../HUD")
 skin = NodePath("../ChefRig")
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." index="10" unique_id=1013925811]
-replication_config = SubResource("SceneReplicationConfig_w7d7t")
+[node name="Synchronizer" parent="." index="10" unique_id=689391796 instance=ExtResource("13_o52uj")]
