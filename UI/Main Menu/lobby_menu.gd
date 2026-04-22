@@ -1,5 +1,7 @@
 extends HBoxContainer
 
+@export var player_label: PackedScene
+
 @onready var player_list: VBoxContainer = %PlayerList
 @onready var connection_panel: VBoxContainer = %Connection
 @onready var survivor_list: VBoxContainer = %SurvivorList
@@ -36,8 +38,9 @@ func _on_all_survivors_selected():
 	pass
 
 
-func _on_player_survivor_selected(peer_id: int, survivor: String):
-	pass
+func _on_player_survivor_selected(peer_id: int, _survivor: String):
+	var names = player_list.get_children()
+	names[names.find_custom(func(v): return v.text == Lobby.players[peer_id]["name"])].selected = true
 
 
 func update_players_list():
@@ -45,7 +48,7 @@ func update_players_list():
 	for label in player_list.get_children():
 		label.queue_free()
 	for id in Lobby.players:
-		var new_label = Label.new()
+		var new_label = player_label.instantiate()
 		new_label.text = Lobby.players[id]["name"]
 		player_list.add_child(new_label)
 

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://vupdm4e1fa0d"]
+
+[ext_resource type="Script" uid="uid://ccwmk5gj6rpxd" path="res://menu_player_name.gd" id="1_ifiu8"]
+
+[node name="MenuPlayerName" type="HBoxContainer" unique_id=407555344]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 24.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+script = ExtResource("1_ifiu8")
+
+[node name="Label" type="Label" parent="." unique_id=1879550528]
+layout_mode = 2
+text = "fkjsdfjsdf"
+
+[node name="CheckBox" type="CheckBox" parent="." unique_id=1347085486]
+layout_mode = 2
+size_flags_horizontal = 10
+disabled = true

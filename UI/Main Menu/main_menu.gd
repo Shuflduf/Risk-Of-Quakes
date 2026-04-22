@@ -4,6 +4,9 @@ extends Control
 @onready var connection: VBoxContainer = $Connection
 @onready var lobby_panel: HBoxContainer = $Lobby
 
+func _ready() -> void:
+	username.text = OS.get_cmdline_args()[2]
+
 
 func _on_host_pressed() -> void:
 	Lobby.player_info["name"] = username.text

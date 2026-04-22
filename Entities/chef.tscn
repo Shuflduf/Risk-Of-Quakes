@@ -16,6 +16,11 @@
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_qi0ee"]
 length = 0.4
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_w7d7t"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
 [node name="Chef" unique_id=1807276841 instance=ExtResource("1_7eqma")]
 
 [node name="TestMesh" parent="." index="1" unique_id=214712984]
@@ -89,11 +94,15 @@ shape = SubResource("SeparationRayShape3D_qi0ee")
 transform = Transform3D(0, 0.99999994, -4.371139e-08, 0, -4.371138e-08, -1, -0.99999994, 0, -3.5527137e-15, 0.025000006, -0.6, 0.975)
 shape = SubResource("SeparationRayShape3D_qi0ee")
 
-[node name="ChefRig" parent="." index="7" unique_id=2092065129 node_paths=PackedStringArray("hand_anims") instance=ExtResource("2_sodo0")]
+[node name="ChefRig" parent="." index="7" unique_id=2092065129 node_paths=PackedStringArray("hand_anims", "cleaver_parents") instance=ExtResource("2_sodo0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 hand_anims = {
 NodePath("RightArm"): &"throw_right",
 NodePath("LeftArm"): &"throw_left"
+}
+cleaver_parents = {
+NodePath("RightArm"): NodePath("Armature/Skeleton3D/shoulder_R_003/CleaverParent"),
+NodePath("LeftArm"): NodePath("Armature/Skeleton3D/shoulder_L_003/CleaverParent")
 }
 
 [node name="HUD" parent="." index="8" unique_id=545074785 instance=ExtResource("7_uejro")]
@@ -105,3 +114,6 @@ skills = NodePath("../SkillSystem")
 cam_systems = NodePath("../CameraSystems")
 hud = NodePath("../HUD")
 skin = NodePath("../ChefRig")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." index="10" unique_id=1013925811]
+replication_config = SubResource("SceneReplicationConfig_w7d7t")

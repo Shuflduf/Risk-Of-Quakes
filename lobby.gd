@@ -115,9 +115,6 @@ func _on_server_disconnected():
 
 @rpc("call_local")
 func start_survivor_selection():
-	#if multiplayer.is_server():
-	#players_loaded = 0
-
 	survivor_selection_started.emit()
 
 
