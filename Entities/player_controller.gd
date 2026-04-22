@@ -16,7 +16,7 @@ func _ready() -> void:
 		set_process_unhandled_key_input(false)
 		cam.current = false
 		return
-		
+
 	cam.make_current()
 	player.rotation.y = 0.0
 
@@ -33,7 +33,7 @@ func _ready() -> void:
 func _physics_process(_delta: float) -> void:
 	if !is_multiplayer_authority():
 		return
-		
+
 	var input_dir = Input.get_vector(&"left", &"right", &"forward", &"backward").rotated(
 		-player.rotation.y
 	)

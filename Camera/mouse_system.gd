@@ -20,18 +20,21 @@ func _ready() -> void:
 func _unhandled_key_input(event: InputEvent) -> void:
 	if !is_multiplayer_authority():
 		return
-		
+
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = (
 			Input.MOUSE_MODE_CAPTURED
 			if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE
 			else Input.MOUSE_MODE_VISIBLE
 		)
-		print(Input.mouse_mode)
 
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED and is_multiplayer_authority():
+	if (
+		event is InputEventMouseMotion
+		and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
+		and is_multiplayer_authority()
+	):
 		var mouse_movement = -event.screen_relative * actual_mouse_sens
 		player.rotation.y += mouse_movement.x
 		rotation_offset.x += mouse_movement.y

@@ -133,6 +133,7 @@ func select_survivor(survivor: String):
 			all_survivors_selected.emit()
 			load_game.rpc("res://Game/game.tscn")
 
+
 @rpc("call_local")
 func start_game():
 	for peer_id in players:

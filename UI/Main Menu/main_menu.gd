@@ -4,6 +4,7 @@ extends Control
 @onready var connection: VBoxContainer = $Connection
 @onready var lobby_panel: HBoxContainer = $Lobby
 
+
 func _ready() -> void:
 	username.text = OS.get_cmdline_args()[2]
 
