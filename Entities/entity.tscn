@@ -11,7 +11,6 @@
 
 [node name="Entity" type="CharacterBody3D" unique_id=1807276841]
 collision_layer = 2
-collision_mask = 3
 safe_margin = 0.01
 script = ExtResource("1_4flbx")
 

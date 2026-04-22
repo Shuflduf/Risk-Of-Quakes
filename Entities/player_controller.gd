@@ -16,7 +16,7 @@ func _ready() -> void:
 		cam.current = false
 		return
 		
-	#cam.make_current()
+	cam.make_current()
 	player.rotation.y = 0.0
 
 	for slot in skills.skill_list:

@@ -6,7 +6,7 @@ func _ready() -> void:
 	Lobby.player_loaded.rpc()
 
 
-@rpc("any_peer", "call_local")
+@rpc("any_peer")
 func spawn_player(survivor: String, peer_id: int, spawn_pos: Vector3):
 	var new_player = survivors[survivor].instantiate()
 	new_player.position = spawn_pos
