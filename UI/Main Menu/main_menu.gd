@@ -2,7 +2,7 @@ extends Control
 
 @onready var username: LineEdit = $Connection/Username
 @onready var connection: VBoxContainer = $Connection
-@onready var lobby: VBoxContainer = $Lobby
+@onready var lobby_panel: HBoxContainer = $Lobby
 
 
 func _on_host_pressed() -> void:
@@ -21,5 +21,5 @@ func _on_connect_pressed() -> void:
 
 func transition_to_lobby():
 	connection.hide()
-	lobby.show()
+	lobby_panel.show()
 	$Lobby/StartGame.visible = multiplayer.is_server()

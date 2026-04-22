@@ -13,6 +13,8 @@ grow_vertical = 2
 script = ExtResource("1_3g31d")
 
 [node name="Connection" type="VBoxContainer" parent="." unique_id=2010914824]
+unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(171.365, 0)
 layout_mode = 1
 anchors_preset = 13
@@ -40,37 +42,54 @@ layout_mode = 2
 placeholder_text = "Username"
 alignment = 1
 
-[node name="Lobby" type="VBoxContainer" parent="." unique_id=448015125]
-visible = false
+[node name="Lobby" type="HBoxContainer" parent="." unique_id=1911426648]
 layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -33.5
-offset_right = 33.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 64
 alignment = 1
 script = ExtResource("2_v04x6")
 
-[node name="Label" type="Label" parent="Lobby" unique_id=295813796]
+[node name="PlayerList" type="VBoxContainer" parent="Lobby" unique_id=448015125]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Lobby/PlayerList" unique_id=295813796]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Players"
 
-[node name="PlayerList" type="VBoxContainer" parent="Lobby" unique_id=1265914267]
+[node name="PlayerList" type="VBoxContainer" parent="Lobby/PlayerList" unique_id=1265914267]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="StartGame" type="Button" parent="Lobby" unique_id=1914423849]
+[node name="StartGame" type="Button" parent="Lobby/PlayerList" unique_id=1914423849]
 layout_mode = 2
 text = "Start Game"
 
-[node name="Disconnect" type="Button" parent="Lobby" unique_id=1751645165]
+[node name="Disconnect" type="Button" parent="Lobby/PlayerList" unique_id=1751645165]
 layout_mode = 2
 text = "Disconnect"
 
+[node name="SurvivorList" type="VBoxContainer" parent="Lobby" unique_id=1266944899]
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Commando" type="Button" parent="Lobby/SurvivorList" unique_id=228212333]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Commando"
+
+[node name="Chef" type="Button" parent="Lobby/SurvivorList" unique_id=1649547048]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Chef"
+
 [connection signal="pressed" from="Connection/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Connection/Connect" to="." method="_on_connect_pressed"]
-[connection signal="pressed" from="Lobby/StartGame" to="Lobby" method="_on_start_game_pressed"]
-[connection signal="pressed" from="Lobby/Disconnect" to="Lobby" method="_on_disconnect_pressed"]
+[connection signal="pressed" from="Lobby/PlayerList/StartGame" to="Lobby/PlayerList" method="_on_start_game_pressed"]
+[connection signal="pressed" from="Lobby/PlayerList/Disconnect" to="Lobby/PlayerList" method="_on_disconnect_pressed"]

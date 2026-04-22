@@ -2,6 +2,10 @@ extends Node
 
 # Autoload named Lobby
 
+signal survivor_selection_started
+signal player_survivor_selected(peer_id: int, survivor: String)
+signal all_survivors_selected
+
 # These signals can be connected to by a UI lobby scene or the game scene.
 signal player_connected(peer_id: int, player_info: Dictionary)
 signal player_disconnected(peer_id: int)
@@ -107,3 +111,24 @@ func _on_server_disconnected():
 	remove_multiplayer_peer()
 	players.clear()
 	server_disconnected.emit()
+
+
+@rpc("call_local")
+func start_survivor_selection():
+	if multiplayer.is_server():
+		players_loaded = 0
+
+	survivor_selection_started.emit()
+
+
+@rpc("any_peer")
+func select_survivor(survivor: String):
+	var peer_id = multiplayer.get_remote_sender_id()
+	players[peer_id]["survivor"] = survivor
+	player_survivor_selected.emit(peer_id, survivor)
+
+	if multiplayer.is_server():
+		players_loaded += 1
+		if players_loaded == players.size():
+			all_survivors_selected.emit()
+			load_game("res://Game/game.tscn")
