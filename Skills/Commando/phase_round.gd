@@ -7,39 +7,46 @@ signal used(started: bool)
 
 var current_cooldown = 0.0
 var hold_duration = 0.0
-var held_down = false
-var use_called_this_frame = false
+var charging = false
 
 @onready var player: CharacterBody3D = get_parent().player
 @onready var cam: Camera3D = get_parent().cam
+
+func start():
+	charging = true
+	hold()
+
+func finish():
+	charging = false
+	release()
+
 
 
 func _physics_process(delta: float) -> void:
 	current_cooldown -= delta
 
-	if held_down && !use_called_this_frame:
-		held_down = false
-		release()
-
-	use_called_this_frame = false
-
-	if held_down:
+	if charging:
 		hold_duration += delta
+	
 
 
-func use():
-	if current_cooldown > 0.0:
-		return
-
-	use_called_this_frame = true
-
-	if !held_down:
-		hold()
-		held_down = true
-		double_tap.enabled = false
+#func use():
+	#if current_cooldown > 0.0:
+		#return
+#
+	#use_called_this_frame = true
+#
+	#if !held_down:
+		#hold()
+		#held_down = true
+		#double_tap.enabled = false
 
 
 func hold():
+	if current_cooldown > 0.0:
+		return
+		
+	double_tap.enabled = false
 	used.emit(true)
 	for i in double_tap.guns.size():
 		var gun: Node3D = double_tap.guns[i]
@@ -58,6 +65,9 @@ func hold():
 
 
 func release():
+	if current_cooldown > 0.0:
+		return
+		
 	current_cooldown = info.cooldown
 
 	var new_projectile: Node3D = phase_round_projectile.instantiate()

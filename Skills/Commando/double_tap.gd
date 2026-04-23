@@ -10,13 +10,24 @@ signal used(gun_index: int)
 
 var current_cooldown = 0.0
 var next_gun_index = 0
+var firing = false
 
 @onready var og_gun_transforms: Array = guns.map(func(gun): return gun.transform)
 @onready var cam: Camera3D = get_parent().cam
 
 
-func use():
-	if current_cooldown > 0.0:
+func start():
+	firing = true
+
+func finish():
+	firing = false
+
+
+func _physics_process(delta: float) -> void:
+	current_cooldown -= delta
+	hitscan.global_position = cam.global_position
+	
+	if current_cooldown > 0.0 or not firing:
 		return
 	current_cooldown = info.cooldown
 	guns[next_gun_index].transform = og_gun_transforms[next_gun_index]
@@ -58,8 +69,3 @@ func use():
 
 	used.emit(next_gun_index)
 	cooldown_started.emit()
-
-
-func _physics_process(delta: float) -> void:
-	current_cooldown -= delta
-	hitscan.global_position = cam.global_position
