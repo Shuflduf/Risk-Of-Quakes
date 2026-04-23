@@ -5,10 +5,6 @@ extends Node
 @export var cam_systems: CameraSystemManager
 @export var hud: Control
 @export var skin: Node3D
-@export var spine_angle = 0.0:
-	set(new_val):
-		spine_angle = new_val
-		skin.set_spine_angle(spine_angle)
 
 @onready var player: CharacterBody3D = get_parent()
 
@@ -20,12 +16,10 @@ func _ready() -> void:
 		set_process_input(false)
 		set_process_unhandled_input(false)
 		set_process_unhandled_key_input(false)
-		#cam.current = false
-		#return
-	else:
+		cam.current = false
+		return
 	
-	
-		cam.current = true
+	cam.current = true
 	player.rotation.y = 0.0
 
 	for slot in skills.skill_list:
@@ -39,6 +33,11 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
+	if skin:
+		skin.visible = get_viewport().get_camera_3d() != cam
+		skills.visible = !skin.visible
+		skin.set_spine_angle(-cam.rotation.x)
+		
 	if !is_multiplayer_authority():
 		return
 
@@ -62,9 +61,4 @@ func _physics_process(_delta: float) -> void:
 		skills.special()
 
 	if skin:
-		skin.visible = get_viewport().get_camera_3d() != cam
 		skin.rotation.y = cam.rotation.y
-		spine_angle = -cam.rotation.x
-		#skin.set_spine_angle(-cam.rotation.x)
-		skills.visible = !skin.visible
-		
