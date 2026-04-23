@@ -10,6 +10,9 @@ properties/1/replication_mode = 1
 properties/2/path = NodePath("PlayerController:spine_angle")
 properties/2/spawn = true
 properties/2/replication_mode = 1
+properties/3/path = NodePath(".:velocity")
+properties/3/spawn = true
+properties/3/replication_mode = 1
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" unique_id=689391796]
 replication_config = SubResource("SceneReplicationConfig_w7d7t")

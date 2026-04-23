@@ -33,9 +33,10 @@ func special():
 
 
 func call_skill(skill: Skill.SkillSlot):
-	var target_skill = skill_list.get(skill)
-	if target_skill and target_skill.enabled:
-		target_skill.use()
+	_activate_ability.rpc(skill)
+	#var target_skill = skill_list.get(skill)
+	#if target_skill and target_skill.enabled:
+		#target_skill.use()
 
 
 func give_special():
@@ -45,6 +46,13 @@ func give_special():
 	if target_skill:
 		target_skill.enabled = true
 		target_skill.cooldown = 0.0
+
+
+@rpc("any_peer", "call_local")
+func _activate_ability(skill: Skill.SkillSlot):
+	var target_skill = skill_list[skill]
+	if target_skill.enabled:
+		target_skill.use()
 
 #func _ready() -> void:
 #for weapon in get_children():

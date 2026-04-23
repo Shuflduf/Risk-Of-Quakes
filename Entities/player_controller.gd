@@ -21,10 +21,11 @@ func _ready() -> void:
 		set_process_unhandled_input(false)
 		set_process_unhandled_key_input(false)
 		#cam.current = false
-		return
+		#return
+	else:
 	
 	
-	cam.current = true
+		cam.current = true
 	player.rotation.y = 0.0
 
 	for slot in skills.skill_list:
