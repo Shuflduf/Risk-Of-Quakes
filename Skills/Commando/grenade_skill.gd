@@ -10,12 +10,15 @@ var cooldown = 0.0
 @onready var cam: Camera3D = get_parent().cam
 @onready var player: CharacterBody3D = get_parent().player
 
+func start():
+	throw()
+
 
 func _physics_process(delta: float) -> void:
 	cooldown -= delta
 
 
-func use():
+func throw():
 	if cooldown > 0.0:
 		return
 

@@ -14,6 +14,9 @@ var slide_initiated = false
 	else null
 )
 
+func start():
+	slide()
+
 
 func _physics_process(delta: float) -> void:
 	current_cooldown -= delta
@@ -25,7 +28,7 @@ func _physics_process(delta: float) -> void:
 		player.jump_enabled = true
 
 
-func use():
+func slide():
 	if current_cooldown > 0.0:
 		return
 

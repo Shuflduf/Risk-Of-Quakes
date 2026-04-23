@@ -21,3 +21,9 @@ var enabled: bool = true:
 	set(new_val):
 		enabled = new_val
 		enabled_changed.emit()
+
+func start():
+	pass
+
+func finish():
+	pass
