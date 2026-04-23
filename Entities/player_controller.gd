@@ -20,6 +20,8 @@ func _ready() -> void:
 	else:
 		cam.current = true
 		player.rotation.y = 0.0
+		hud.update_health(health.health)
+
 
 		for slot in skills.skill_list:
 			var target_skill = skills.skill_list[slot]
