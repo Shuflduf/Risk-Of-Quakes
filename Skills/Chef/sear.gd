@@ -22,7 +22,7 @@ var boost_active = false
 func start():
 	if cooldown > 0.0:
 		return
-		
+
 	if boosted:
 		boost_particles.emitting = true
 		boost_active = true

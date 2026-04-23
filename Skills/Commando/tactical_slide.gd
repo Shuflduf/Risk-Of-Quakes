@@ -14,6 +14,7 @@ var slide_initiated = false
 	else null
 )
 
+
 func start():
 	slide()
 

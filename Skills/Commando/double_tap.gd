@@ -19,6 +19,7 @@ var firing = false
 func start():
 	firing = true
 
+
 func finish():
 	firing = false
 
@@ -26,7 +27,7 @@ func finish():
 func _physics_process(delta: float) -> void:
 	current_cooldown -= delta
 	hitscan.global_position = cam.global_position
-	
+
 	if current_cooldown > 0.0 or not firing:
 		return
 	current_cooldown = info.cooldown

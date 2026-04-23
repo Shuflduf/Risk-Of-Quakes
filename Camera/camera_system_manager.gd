@@ -8,7 +8,7 @@ extends Node
 func _process(_delta: float) -> void:
 	if not is_multiplayer_authority():
 		return
-		
+
 	cam.position = default_cam_transform.origin
 	cam.rotation = default_cam_transform.basis.get_euler()
 	for sys: CameraSystem in get_children():

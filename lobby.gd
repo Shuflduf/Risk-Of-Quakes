@@ -133,10 +133,9 @@ func select_survivor(survivor: String):
 			all_survivors_selected.emit()
 			load_game.rpc("res://Game/game.tscn")
 
-
 #@rpc("call_local")
 #func start_game():
-	#for peer_id in players:
-		#var survivor = players[peer_id]["survivor"]
-		#var spawn_pos = get_tree().get_nodes_in_group(&"Spawn Point").pick_random().position
-		#$/root/Game.spawn_player(survivor, peer_id, spawn_pos)
+#for peer_id in players:
+#var survivor = players[peer_id]["survivor"]
+#var spawn_pos = get_tree().get_nodes_in_group(&"Spawn Point").pick_random().position
+#$/root/Game.spawn_player(survivor, peer_id, spawn_pos)

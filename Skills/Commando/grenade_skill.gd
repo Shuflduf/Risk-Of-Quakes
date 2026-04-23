@@ -10,6 +10,7 @@ var cooldown = 0.0
 @onready var cam: Camera3D = get_parent().cam
 @onready var player: CharacterBody3D = get_parent().player
 
+
 func start():
 	throw()
 

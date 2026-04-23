@@ -15,6 +15,7 @@ var wish_jump = false
 var wish_dir = Vector3.ZERO
 var jump_enabled = true
 
+
 func _physics_process(delta: float) -> void:
 	_process_movement(delta)
 	move_and_slide()

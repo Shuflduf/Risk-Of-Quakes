@@ -22,8 +22,10 @@ var enabled: bool = true:
 		enabled = new_val
 		enabled_changed.emit()
 
+
 func start():
 	pass
+
 
 func finish():
 	pass

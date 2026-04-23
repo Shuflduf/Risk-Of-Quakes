@@ -24,8 +24,10 @@ func _ready() -> void:
 			hud.add_skill(target_skill.info, slot)
 			hud.toggle_skill(target_skill.enabled, slot)
 			target_skill.cooldown_started.connect(func(): hud.skill_used(slot))
-			target_skill.enabled_changed.connect(func(): hud.toggle_skill(target_skill.enabled, slot))
-	
+			target_skill.enabled_changed.connect(
+				func(): hud.toggle_skill(target_skill.enabled, slot)
+			)
+
 	if skin:
 		skin.connect_skills(skills.skill_list)
 
@@ -35,7 +37,7 @@ func _physics_process(_delta: float) -> void:
 		skin.visible = get_viewport().get_camera_3d() != cam
 		skills.visible = !skin.visible
 		skin.set_spine_angle(-cam.rotation.x)
-		
+
 	if !is_multiplayer_authority():
 		return
 
@@ -55,7 +57,7 @@ func _physics_process(_delta: float) -> void:
 		skills.secondary(true)
 	elif Input.is_action_just_released(&"secondary"):
 		skills.secondary(false)
-		
+
 	if Input.is_action_just_pressed(&"utility"):
 		skills.utility(true)
 	elif Input.is_action_just_released(&"utility"):

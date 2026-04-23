@@ -12,12 +12,13 @@ var charging = false
 @onready var player: CharacterBody3D = get_parent().player
 @onready var cam: Camera3D = get_parent().cam
 
+
 func start():
 	hold()
 
+
 func finish():
 	release()
-
 
 
 func _physics_process(delta: float) -> void:
@@ -25,25 +26,24 @@ func _physics_process(delta: float) -> void:
 
 	if charging:
 		hold_duration += delta
-	
 
 
 #func use():
-	#if current_cooldown > 0.0:
-		#return
+#if current_cooldown > 0.0:
+#return
 #
-	#use_called_this_frame = true
+#use_called_this_frame = true
 #
-	#if !held_down:
-		#hold()
-		#held_down = true
-		#double_tap.enabled = false
+#if !held_down:
+#hold()
+#held_down = true
+#double_tap.enabled = false
 
 
 func hold():
 	if current_cooldown > 0.0:
 		return
-	
+
 	charging = true
 	double_tap.enabled = false
 	double_tap.finish()
@@ -67,7 +67,7 @@ func hold():
 func release():
 	if current_cooldown > 0.0 or not charging:
 		return
-	
+
 	charging = false
 	current_cooldown = info.cooldown
 

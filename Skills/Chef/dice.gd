@@ -21,11 +21,14 @@ var firing = false
 
 #@onready var model_rot = model.rotation.x
 
+
 func start():
 	firing = true
 
+
 func finish():
 	firing = false
+
 
 func add_cleaver(target_pos: Vector3) -> Node3D:
 	var new_cleaver: Node3D = projectile.instantiate()
@@ -62,10 +65,10 @@ func get_boost_target_dir(index: int) -> Vector3:
 func _physics_process(delta: float) -> void:
 	current_cooldown -= delta
 	self.visible = active_cleavers.size() < cleaver_count
-	
+
 	if not firing:
 		return
-	
+
 	for cleaver in active_cleavers:
 		cleaver.stay()
 

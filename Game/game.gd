@@ -14,7 +14,7 @@ func _ready() -> void:
 	Lobby.player_loaded.rpc()
 
 	#if !multiplayer.is_server():
-		#request_spawn_state.rpc()
+	#request_spawn_state.rpc()
 
 
 #@rpc("any_peer", "call_local")
@@ -22,11 +22,10 @@ func spawn_player(survivor: String, peer_id: int, spawn_pos: Vector3):
 	var new_player = survivors[survivor].instantiate()
 	new_player.position = spawn_pos
 	new_player.set_multiplayer_authority(peer_id)
-	add_child(new_player, true)	
-
+	add_child(new_player, true)
 
 #@rpc("any_peer")
 #func request_spawn_state():
-	#print("doiskd")
-	#for peer_id in Lobby.players:
-		#spawn_player.rpc(Lobby.players[peer_id]["survivor"], peer_id, Vector3.ZERO)
+#print("doiskd")
+#for peer_id in Lobby.players:
+#spawn_player.rpc(Lobby.players[peer_id]["survivor"], peer_id, Vector3.ZERO)

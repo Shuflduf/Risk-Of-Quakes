@@ -53,6 +53,7 @@ func start_skill(skill: Skill.SkillSlot):
 	if target_skill.enabled:
 		target_skill.start()
 
+
 @rpc("any_peer", "call_local")
 func finish_skill(skill: Skill.SkillSlot):
 	var target_skill = skill_list[skill]
