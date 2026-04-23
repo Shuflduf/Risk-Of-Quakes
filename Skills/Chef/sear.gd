@@ -19,9 +19,10 @@ var boost_active = false
 @onready var boost_hurtbox: Area3D = $BoostHurtbox
 
 
-func use():
+func start():
 	if cooldown > 0.0:
 		return
+		
 	if boosted:
 		boost_particles.emitting = true
 		boost_active = true

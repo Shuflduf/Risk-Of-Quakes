@@ -12,7 +12,7 @@ func _ready() -> void:
 		skill.revert_abilities.connect(disable_funnies)
 
 
-func use():
+func start():
 	if cooldown > 0.0:
 		return
 

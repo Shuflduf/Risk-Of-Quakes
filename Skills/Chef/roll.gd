@@ -24,9 +24,10 @@ var boost_damage_cooldown = 0.0
 @onready var boost_hurtbox: Area3D = $BoostHurtbox
 
 
-func use():
+func start():
 	if cooldown > 0.0:
 		return
+	
 	player.jump_enabled = false
 	active = true
 	var cam_dir = Vector3(-sin(player.rotation.y), 0.0, -cos(player.rotation.y))
@@ -89,7 +90,7 @@ func calculate_speed(base_speed: float):
 func _on_hurtbox_area_entered(hitbox: Area3D) -> void:
 	if hitbox.player_owner == player or not active:
 		return
-	hitbox.hit(8)
+	hitbox.hit(8) # TODO: make this based on speed
 	var knockback_vec = Utils.flatten_vec(
 		player.global_position.direction_to(hitbox.player_owner.global_position)
 	)
