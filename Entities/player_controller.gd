@@ -5,6 +5,7 @@ extends Node
 @export var cam_systems: CameraSystemManager
 @export var hud: Control
 @export var skin: Node3D
+@export var health: HealthSystem
 
 @onready var player: CharacterBody3D = get_parent()
 
@@ -15,6 +16,7 @@ func _ready() -> void:
 		set_process_unhandled_input(false)
 		set_process_unhandled_key_input(false)
 		cam.current = false
+		hud.hide()
 	else:
 		cam.current = true
 		player.rotation.y = 0.0
@@ -27,6 +29,7 @@ func _ready() -> void:
 			target_skill.enabled_changed.connect(
 				func(): hud.toggle_skill(target_skill.enabled, slot)
 			)
+		health.health_changed.connect(hud.update_health)
 
 	if skin:
 		skin.connect_skills(skills.skill_list)

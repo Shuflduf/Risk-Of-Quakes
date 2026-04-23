@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://74qf12w4v0kl" path="res://UI/HUD/hud.tscn" id="10_aafxt"]
 [ext_resource type="Script" uid="uid://c7k0xr8eeyt5a" path="res://Camera/camera_system.gd" id="10_ns4yp"]
 [ext_resource type="Script" uid="uid://bxs1a8jmo002p" path="res://Entities/player_controller.gd" id="12_yqxnw"]
+[ext_resource type="Script" uid="uid://cjqoqvcjtq74o" path="res://Entities/health.gd" id="14_0q6xu"]
 [ext_resource type="PackedScene" uid="uid://cv38xi4cuhapu" path="res://Entities/synchronizer.tscn" id="14_ns4yp"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_n7ghd"]
@@ -27,6 +28,9 @@ length = 0.4
 [node name="TestMesh" parent="." index="1" unique_id=214712984]
 visible = false
 mesh = SubResource("CylinderMesh_n7ghd")
+
+[node name="Hitbox" parent="." index="2" unique_id=1948627840 node_paths=PackedStringArray("health")]
+health = NodePath("../Health")
 
 [node name="Camera" type="Camera3D" parent="." index="3" unique_id=491931993]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
@@ -105,12 +109,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="HUD" parent="." index="8" unique_id=545074785 instance=ExtResource("10_aafxt")]
 
-[node name="PlayerController" type="Node" parent="." index="9" unique_id=884207362 node_paths=PackedStringArray("cam", "skills", "cam_systems", "hud", "skin")]
+[node name="PlayerController" type="Node" parent="." index="9" unique_id=884207362 node_paths=PackedStringArray("cam", "skills", "cam_systems", "hud", "skin", "health")]
 script = ExtResource("12_yqxnw")
 cam = NodePath("../Camera")
 skills = NodePath("../SkillSystem")
 cam_systems = NodePath("../CameraSystems")
 hud = NodePath("../HUD")
 skin = NodePath("../CommandoRig")
+health = NodePath("../Health")
 
-[node name="Synchronizer" parent="." index="10" unique_id=689391796 instance=ExtResource("14_ns4yp")]
+[node name="Health" type="Node" parent="." index="10" unique_id=241449253]
+script = ExtResource("14_0q6xu")
+
+[node name="Synchronizer" parent="." index="11" unique_id=689391796 instance=ExtResource("14_ns4yp")]

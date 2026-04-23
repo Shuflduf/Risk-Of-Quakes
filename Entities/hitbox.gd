@@ -1,10 +1,13 @@
 extends Area3D
 
+@export var health: HealthSystem
 @export var takes_knockback = true
 @onready var player_owner: Node3D = get_parent()
 
 
-func hit(damage: float):
+func hit(damage: int):
+	if health:
+		health.health -= damage
 	var new_damage_text: Label3D = $BaseText.duplicate()
 	get_tree().root.add_child(new_damage_text)
 	new_damage_text.top_level = true
