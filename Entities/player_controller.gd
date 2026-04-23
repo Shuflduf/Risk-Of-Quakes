@@ -52,14 +52,20 @@ func _physics_process(_delta: float) -> void:
 	elif Input.is_action_just_released(&"primary"):
 		skills.primary(false)
 
-	if Input.is_action_pressed(&"secondary"):
-		skills.secondary()
+	if Input.is_action_just_pressed(&"secondary"):
+		skills.secondary(true)
+	elif Input.is_action_just_released(&"secondary"):
+		skills.secondary(false)
+		
+	if Input.is_action_just_pressed(&"utility"):
+		skills.utility(true)
+	elif Input.is_action_just_released(&"utility"):
+		skills.utility(false)
 
-	if Input.is_action_pressed(&"utility"):
-		skills.utility()
-
-	if Input.is_action_pressed(&"special"):
-		skills.special()
+	if Input.is_action_just_pressed(&"special"):
+		skills.special(true)
+	elif Input.is_action_just_released(&"special"):
+		skills.special(false)
 
 	if skin:
 		skin.rotation.y = cam.rotation.y

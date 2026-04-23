@@ -13,6 +13,7 @@ const BOOST_CLEAVERS_PER_ROW = 16
 var current_cooldown = 0.0
 var active_cleavers: Array[Node3D]
 var boosted = false
+var firing = false
 
 @onready var player: CharacterBody3D = get_parent().player
 @onready var cam: Camera3D = get_parent().cam
@@ -20,45 +21,11 @@ var boosted = false
 
 #@onready var model_rot = model.rotation.x
 
+func start():
+	firing = true
 
-func use():
-	for cleaver in active_cleavers:
-		cleaver.stay()
-
-	if current_cooldown > 0.0:
-		return
-
-	if boosted:
-		revert_abilities.emit()
-		for i in BOOST_CLEAVERS:
-			var new_cleaver = add_cleaver(
-				cam.global_position + (get_boost_target_dir(i) * throw_dist)
-			)
-			new_cleaver.from_boost = true
-		used.emit(false, true, false)
-
-	if active_cleavers.size() < cleaver_count:
-		add_cleaver(cam.global_position + (-cam.global_transform.basis.z * throw_dist))
-		used.emit(false, false, active_cleavers.size() + 1 < cleaver_count)
-
-		model.position.z = 0.5
-		model.rotation.x = deg_to_rad(50.0)
-		var tween = get_tree().create_tween()
-
-		#tween.tween_method(model.rotat)
-		tween.tween_property(model, ^"position:z", 0.0, 0.4).set_ease(Tween.EASE_OUT).set_trans(
-			Tween.TRANS_BACK
-		)
-		(
-			tween
-			. parallel()
-			. tween_property(model, ^"rotation:x", 0.0, 0.4)
-			. set_ease(Tween.EASE_OUT)
-			. set_trans(Tween.TRANS_BACK)
-		)
-
-		current_cooldown = info.cooldown
-
+func finish():
+	firing = false
 
 func add_cleaver(target_pos: Vector3) -> Node3D:
 	var new_cleaver: Node3D = projectile.instantiate()
@@ -95,3 +62,43 @@ func get_boost_target_dir(index: int) -> Vector3:
 func _physics_process(delta: float) -> void:
 	current_cooldown -= delta
 	self.visible = active_cleavers.size() < cleaver_count
+	
+	if not firing:
+		return
+	
+	for cleaver in active_cleavers:
+		cleaver.stay()
+
+	if current_cooldown > 0.0:
+		return
+
+	if boosted:
+		revert_abilities.emit()
+		for i in BOOST_CLEAVERS:
+			var new_cleaver = add_cleaver(
+				cam.global_position + (get_boost_target_dir(i) * throw_dist)
+			)
+			new_cleaver.from_boost = true
+		used.emit(false, true, false)
+
+	if active_cleavers.size() < cleaver_count:
+		add_cleaver(cam.global_position + (-cam.global_transform.basis.z * throw_dist))
+		used.emit(false, false, active_cleavers.size() + 1 < cleaver_count)
+
+		model.position.z = 0.5
+		model.rotation.x = deg_to_rad(50.0)
+		var tween = get_tree().create_tween()
+
+		#tween.tween_method(model.rotat)
+		tween.tween_property(model, ^"position:z", 0.0, 0.4).set_ease(Tween.EASE_OUT).set_trans(
+			Tween.TRANS_BACK
+		)
+		(
+			tween
+			. parallel()
+			. tween_property(model, ^"rotation:x", 0.0, 0.4)
+			. set_ease(Tween.EASE_OUT)
+			. set_trans(Tween.TRANS_BACK)
+		)
+
+		current_cooldown = info.cooldown
