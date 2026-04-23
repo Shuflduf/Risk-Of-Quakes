@@ -9,7 +9,6 @@ extends Node3D
 
 
 func _ready() -> void:
-	#print(player)
 	var target_skill = skill_list.get(Skill.SkillSlot.SPECIAL)
 	if target_skill and special_pickups_enabled:
 		target_skill.enabled = false
