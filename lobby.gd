@@ -75,9 +75,9 @@ func player_loaded():
 	if multiplayer.is_server():
 		players_loaded += 1
 		if players_loaded == players.size():
-			#$/root/Game.start_game()
-			start_game.rpc()
-			players_loaded = 0
+			$/root/Game.start_game.rpc()
+			#start_game.rpc()
+			#players_loaded = 0
 
 
 # When a peer connects, send them my player info.
@@ -134,9 +134,9 @@ func select_survivor(survivor: String):
 			load_game.rpc("res://Game/game.tscn")
 
 
-@rpc("call_local")
-func start_game():
-	for peer_id in players:
-		var survivor = players[peer_id]["survivor"]
-		var spawn_pos = get_tree().get_nodes_in_group(&"Spawn Point").pick_random().position
-		$/root/Game.spawn_player.rpc(survivor, peer_id, spawn_pos)
+#@rpc("call_local")
+#func start_game():
+	#for peer_id in players:
+		#var survivor = players[peer_id]["survivor"]
+		#var spawn_pos = get_tree().get_nodes_in_group(&"Spawn Point").pick_random().position
+		#$/root/Game.spawn_player(survivor, peer_id, spawn_pos)

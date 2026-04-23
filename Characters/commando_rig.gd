@@ -14,7 +14,7 @@ func connect_skills(skills: Dictionary[Skill.SkillSlot, Skill]):
 
 func set_spine_angle(new_angle: float):
 	skeleton.set_bone_pose_rotation(
-		SPINE_INDEX, Quaternion.from_euler(Vector3(new_angle, 0.0, 0.0))
+		SPINE_INDEX, Quaternion.from_euler(Vector3(snappedf(new_angle, deg_to_rad(2.0)), 0.0, 0.0))
 	)
 
 

@@ -5,17 +5,17 @@ extends Node
 @export var cam_systems: CameraSystemManager
 @export var hud: Control
 @export var skin: Node3D
-
-@onready var player: CharacterBody3D = get_parent()
-
 @export var spine_angle = 0.0:
 	set(new_val):
 		spine_angle = new_val
 		skin.set_spine_angle(spine_angle)
 
+@onready var player: CharacterBody3D = get_parent()
+
+
 func _ready() -> void:
 	print("ready")
-	print(multiplayer.get_unique_id())
+	prints(multiplayer.get_unique_id(), is_multiplayer_authority())
 	if !is_multiplayer_authority():
 		set_process_input(false)
 		set_process_unhandled_input(false)
