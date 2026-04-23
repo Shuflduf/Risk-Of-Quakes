@@ -15,27 +15,27 @@ func _ready() -> void:
 		target_skill.cooldown_started.connect(func(): target_skill.enabled = false)
 
 
-func primary():
-	call_skill(Skill.SkillSlot.PRIMARY)
+func primary(start: bool):
+	call_skill(Skill.SkillSlot.PRIMARY, start)
 
 
-func secondary():
-	call_skill(Skill.SkillSlot.SECONDARY)
+func secondary(start: bool):
+	call_skill(Skill.SkillSlot.SECONDARY, start)
 
 
-func utility():
-	call_skill(Skill.SkillSlot.UTILITY)
+func utility(start: bool):
+	call_skill(Skill.SkillSlot.UTILITY, start)
 
 
-func special():
-	call_skill(Skill.SkillSlot.SPECIAL)
+func special(start: bool):
+	call_skill(Skill.SkillSlot.SPECIAL, start)
 
 
-func call_skill(skill: Skill.SkillSlot):
-	_activate_ability.rpc(skill)
-	#var target_skill = skill_list.get(skill)
-	#if target_skill and target_skill.enabled:
-		#target_skill.use()
+func call_skill(skill: Skill.SkillSlot, start):
+	if start:
+		start_skill.rpc(skill)
+	else:
+		finish_skill.rpc(skill)
 
 
 func give_special():
@@ -48,10 +48,15 @@ func give_special():
 
 
 @rpc("any_peer", "call_local")
-func _activate_ability(skill: Skill.SkillSlot):
+func start_skill(skill: Skill.SkillSlot):
 	var target_skill = skill_list[skill]
 	if target_skill.enabled:
-		target_skill.use()
+		target_skill.start()
+
+@rpc("any_peer", "call_local")
+func finish_skill(skill: Skill.SkillSlot):
+	var target_skill = skill_list[skill]
+	target_skill.finish()
 
 #func _ready() -> void:
 #for weapon in get_children():
