@@ -10,8 +10,6 @@ extends Node
 
 
 func _ready() -> void:
-	print("ready")
-	prints(multiplayer.get_unique_id(), is_multiplayer_authority())
 	if !is_multiplayer_authority():
 		set_process_input(false)
 		set_process_unhandled_input(false)
@@ -21,12 +19,13 @@ func _ready() -> void:
 		cam.current = true
 		player.rotation.y = 0.0
 
-	for slot in skills.skill_list:
-		var target_skill = skills.skill_list[slot]
-		hud.add_skill(target_skill.info, slot)
-		hud.toggle_skill(target_skill.enabled, slot)
-		target_skill.cooldown_started.connect(func(): hud.skill_used(slot))
-		target_skill.enabled_changed.connect(func(): hud.toggle_skill(target_skill.enabled, slot))
+		for slot in skills.skill_list:
+			var target_skill = skills.skill_list[slot]
+			hud.add_skill(target_skill.info, slot)
+			hud.toggle_skill(target_skill.enabled, slot)
+			target_skill.cooldown_started.connect(func(): hud.skill_used(slot))
+			target_skill.enabled_changed.connect(func(): hud.toggle_skill(target_skill.enabled, slot))
+	
 	if skin:
 		skin.connect_skills(skills.skill_list)
 

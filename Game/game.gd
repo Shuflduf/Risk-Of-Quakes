@@ -14,13 +14,11 @@ func _ready() -> void:
 	Lobby.player_loaded.rpc()
 
 	#if !multiplayer.is_server():
-		#print("sljkd", multiplayer.get_unique_id())
 		#request_spawn_state.rpc()
 
 
 #@rpc("any_peer", "call_local")
 func spawn_player(survivor: String, peer_id: int, spawn_pos: Vector3):
-	print(multiplayer.get_unique_id(), " is now spawning ", peer_id)
 	var new_player = survivors[survivor].instantiate()
 	new_player.position = spawn_pos
 	new_player.set_multiplayer_authority(peer_id)

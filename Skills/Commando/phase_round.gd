@@ -13,11 +13,9 @@ var charging = false
 @onready var cam: Camera3D = get_parent().cam
 
 func start():
-	charging = true
 	hold()
 
 func finish():
-	charging = false
 	release()
 
 
@@ -45,8 +43,10 @@ func _physics_process(delta: float) -> void:
 func hold():
 	if current_cooldown > 0.0:
 		return
-		
+	
+	charging = true
 	double_tap.enabled = false
+	double_tap.finish()
 	used.emit(true)
 	for i in double_tap.guns.size():
 		var gun: Node3D = double_tap.guns[i]
@@ -65,9 +65,10 @@ func hold():
 
 
 func release():
-	if current_cooldown > 0.0:
+	if current_cooldown > 0.0 or not charging:
 		return
-		
+	
+	charging = false
 	current_cooldown = info.cooldown
 
 	var new_projectile: Node3D = phase_round_projectile.instantiate()
