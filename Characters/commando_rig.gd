@@ -2,6 +2,7 @@ extends Node3D
 
 const SPINE_INDEX = 1
 @export var hand_handles: Array[Marker3D]
+@export var phase_round_handles: Array[Marker3D]
 
 @onready var skeleton: Skeleton3D = $metarig/Skeleton3D
 @onready var og_hand_pos: Array = hand_handles.map(func(hand): return hand.position)
@@ -29,24 +30,35 @@ func primary(index: int):
 
 
 func secondary(started: bool):
-	return
-	@warning_ignore("unreachable_code")
 	if started:
 		for i in hand_handles.size():
 			var hand: Marker3D = hand_handles[i]
-			var og_pos = og_hand_pos[i]
-			var left_side = i % 2 == 0
-			var side_mult = 1.0 if left_side else -1.0
+			#var left_side = i % 2 == 0
+			#var side_mult = 1.0 if left_side else -1.0
 			#gun.position.x = 0.2 * side_mult
 
 			var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
-			tween.tween_property(hand, ^"position:x", og_pos.x + (0.08 * side_mult), 0.4).set_trans(
+			tween.tween_property(hand, ^"position:x", phase_round_handles[i].position.x, 0.4).set_trans(
 				Tween.TRANS_BACK
 			)
-			tween.parallel().tween_property(hand, ^"position:z", og_pos.z - 0.1, 0.4).set_trans(
+			tween.parallel().tween_property(hand, ^"position:z", phase_round_handles[i].position.z, 0.4).set_trans(
 				Tween.TRANS_BACK
 			)
-			tween.tween_interval(0.1)
-			tween.tween_callback($metarig/Skeleton3D/TwoBoneIK3D.set_active.bind(false))
-			tween.tween_interval(0.1)
-			tween.tween_callback($metarig/Skeleton3D/TwoBoneIK3D.set_active.bind(true))
+	else:
+		for i in hand_handles.size():
+			var hand: Marker3D = hand_handles[i]
+			#var left_side = i % 2 == 0
+			#var side_mult = 1.0 if left_side else -1.0
+			#gun.position.x = 0.2 * side_mult
+
+			var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
+			tween.tween_property(hand, ^"position:x", og_hand_pos[i].x, 0.4).set_trans(
+				Tween.TRANS_BACK
+			)
+			tween.parallel().tween_property(hand, ^"position:z", og_hand_pos[i].z, 0.4).set_trans(
+				Tween.TRANS_BACK
+			)
+			#tween.tween_interval(0.1)
+			#tween.tween_callback($metarig/Skeleton3D/TwoBoneIK3D.set_active.bind(false))
+			#tween.tween_interval(0.1)
+			#tween.tween_callback($metarig/Skeleton3D/TwoBoneIK3D.set_active.bind(true))
