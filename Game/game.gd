@@ -22,6 +22,7 @@ func spawn_player(survivor: String, peer_id: int, spawn_pos: Vector3):
 	var new_player = survivors[survivor].instantiate()
 	new_player.position = spawn_pos
 	new_player.set_multiplayer_authority(peer_id)
+	new_player.name = "player_%d" % peer_id
 	add_child(new_player)
 
 #@rpc("any_peer")
