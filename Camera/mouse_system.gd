@@ -11,10 +11,9 @@ const MOUSE_SENS_MULTIPLIER = 0.001
 
 var actual_mouse_sens = MOUSE_SENS_MULTIPLIER * mouse_sens
 
-
-func _ready() -> void:
-	if is_multiplayer_authority():
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+#func _ready() -> void:
+#if is_multiplayer_authority():
+#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
@@ -44,3 +43,9 @@ func _input(event: InputEvent) -> void:
 		if third_person:
 			position_offset = third_person_pos.position.rotated(Vector3.UP, rotation_offset.y)
 			position_offset.y = -rotation_offset.x
+	elif (
+		event is InputEventMouseButton
+		and Input.mouse_mode == Input.MOUSE_MODE_VISIBLE
+		and event.button_index == MOUSE_BUTTON_LEFT
+	):
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED

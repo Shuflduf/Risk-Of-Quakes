@@ -10,7 +10,6 @@ var tweens: Array[Tween] = []
 @onready var og_hand_pos: Array = hand_handles.map(func(hand): return hand.position)
 
 
-
 func connect_skills(skills: Dictionary[Skill.SkillSlot, Skill]):
 	skills[Skill.SkillSlot.PRIMARY].used.connect(primary)
 	skills[Skill.SkillSlot.SECONDARY].used.connect(secondary)
@@ -41,11 +40,16 @@ func secondary(started: bool):
 		for i in hand_handles.size():
 			var hand: Marker3D = hand_handles[i]
 			var tween = get_tree().create_tween().set_ease(Tween.EASE_OUT)
-			tween.tween_property(hand, ^"position:x", phase_round_handles[i].position.x, 0.4).set_trans(
-				Tween.TRANS_BACK
+			(
+				tween
+				. tween_property(hand, ^"position:x", phase_round_handles[i].position.x, 0.4)
+				. set_trans(Tween.TRANS_BACK)
 			)
-			tween.parallel().tween_property(hand, ^"position:z", phase_round_handles[i].position.z, 0.4).set_trans(
-				Tween.TRANS_BACK
+			(
+				tween
+				. parallel()
+				. tween_property(hand, ^"position:z", phase_round_handles[i].position.z, 0.4)
+				. set_trans(Tween.TRANS_BACK)
 			)
 	else:
 		for i in hand_handles.size():
