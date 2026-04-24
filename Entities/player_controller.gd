@@ -9,6 +9,7 @@ extends Node
 
 @onready var player: CharacterBody3D = get_parent()
 
+var is_dead = false
 
 func _ready() -> void:
 	if !is_multiplayer_authority():
@@ -31,6 +32,7 @@ func _ready() -> void:
 				func(): hud.toggle_skill(target_skill.enabled, slot)
 			)
 		health.health_changed.connect(hud.update_health)
+		health.health_changed.connect(_on_health_changed)
 
 	if skin:
 		skin.connect_skills(skills.skill_list)
@@ -74,3 +76,14 @@ func _physics_process(_delta: float) -> void:
 
 	if skin:
 		skin.rotation.y = cam.rotation.y
+
+
+func _on_health_changed(new_health: int):
+	if new_health <= 0:
+		is_dead = true
+		get_tree().create_timer(2.0).timeout.connect(respawn)
+
+
+func respawn():
+	is_dead = false
+	health.health = 100
