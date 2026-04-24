@@ -1,6 +1,7 @@
 class_name CameraSystemManager
 extends Node
 
+@export var player: CharacterBody3D
 @export var cam: Camera3D
 @onready var default_cam_transform = cam.transform
 
@@ -14,3 +15,10 @@ func _process(_delta: float) -> void:
 	for sys: CameraSystem in get_children():
 		cam.position += sys.position_offset
 		cam.rotation += sys.rotation_offset
+
+
+func reset_all():
+	player.rotation.y = 0.0
+	for sys: CameraSystem in get_children():
+		sys.rotation_offset = Vector3.ZERO
+		sys.position_offset = Vector3.ZERO

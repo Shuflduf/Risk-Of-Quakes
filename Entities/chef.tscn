@@ -31,9 +31,10 @@ health = NodePath("../Health")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.90000004, 0)
 fov = 100.0
 
-[node name="CameraSystems" type="Node3D" parent="." index="4" unique_id=351007655 node_paths=PackedStringArray("cam")]
+[node name="CameraSystems" type="Node3D" parent="." index="4" unique_id=351007655 node_paths=PackedStringArray("player", "cam")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 script = ExtResource("2_k64cb")
+player = NodePath("..")
 cam = NodePath("../Camera")
 
 [node name="Mouse" type="Node" parent="CameraSystems" index="0" unique_id=1697354133 node_paths=PackedStringArray("player")]

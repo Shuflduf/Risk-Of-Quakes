@@ -37,18 +37,17 @@ health = NodePath("../Health")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
 fov = 100.0
 
-[node name="CameraSystems" type="Node3D" parent="." index="4" unique_id=672014216 node_paths=PackedStringArray("cam")]
+[node name="CameraSystems" type="Node3D" parent="." index="4" unique_id=672014216 node_paths=PackedStringArray("player", "cam")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 script = ExtResource("2_nattx")
+player = NodePath("..")
 cam = NodePath("../Camera")
 
-[node name="Mouse" type="Node" parent="CameraSystems" index="0" unique_id=278154113 node_paths=PackedStringArray("player")]
+[node name="Mouse" type="Node" parent="CameraSystems" index="0" unique_id=278154113]
 script = ExtResource("3_ns4yp")
-player = NodePath("../..")
 
-[node name="KillerFocus" type="Node" parent="CameraSystems" index="1" unique_id=40121046 node_paths=PackedStringArray("player")]
+[node name="KillerFocus" type="Node" parent="CameraSystems" index="1" unique_id=40121046]
 script = ExtResource("5_ve738")
-player = NodePath("../..")
 
 [node name="TacticalSlide" type="Node" parent="CameraSystems" index="2" unique_id=1287877165]
 script = ExtResource("10_ns4yp")

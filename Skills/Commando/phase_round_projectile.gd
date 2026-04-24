@@ -10,4 +10,4 @@ func _physics_process(delta: float) -> void:
 
 func _on_hurtbox_area_entered(area: Area3D) -> void:
 	if area.name == &"Hitbox" and area.get_parent() != player_owner:
-		area.hit(player_owner, roundi(speed / 3.0))
+		area.hit(player_owner, roundi(speed / 2.0))

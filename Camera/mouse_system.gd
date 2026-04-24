@@ -4,7 +4,6 @@ signal screen_move(dist: Vector2)
 
 const MOUSE_SENS_MULTIPLIER = 0.001
 
-@export var player: CharacterBody3D
 @export var third_person: bool
 @export var mouse_sens = 0.8
 @export var third_person_pos: Marker3D
@@ -36,7 +35,7 @@ func _input(event: InputEvent) -> void:
 		and is_multiplayer_authority()
 	):
 		var mouse_movement = -event.screen_relative * actual_mouse_sens
-		player.rotation.y += mouse_movement.x
+		manager.player.rotation.y += mouse_movement.x
 		rotation_offset.x += mouse_movement.y
 		rotation_offset.x = clamp(rotation_offset.x, -PI / 2.0, PI / 2.0)
 		screen_move.emit(mouse_movement)

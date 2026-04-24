@@ -97,3 +97,7 @@ func respawn():
 	health.health = 100
 	var killer_focus_system = cam_systems.get_node(^"KillerFocus")
 	killer_focus_system.killer = null
+	var spawn_pos = get_tree().get_nodes_in_group(&"Spawn Point").pick_random().position
+	player.global_position = spawn_pos
+	cam_systems.reset_all()
+	
