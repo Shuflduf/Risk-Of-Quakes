@@ -1,5 +1,6 @@
 extends RigidBody3D
 
+var player_owner: CharacterBody3D
 
 func _on_body_entered(_body: Object) -> void:
 	linear_velocity /= 2.0
@@ -7,7 +8,7 @@ func _on_body_entered(_body: Object) -> void:
 
 func _on_explode_timer_timeout() -> void:
 	for hitbox in $ExplosionRadius.get_overlapping_areas():
-		hitbox.hit(10.0)
+		hitbox.hit(player_owner, 10)
 		var vec_to_hitbox = hitbox.global_position - global_position
 		var distance = vec_to_hitbox.length()
 		var direction_away = vec_to_hitbox.normalized()

@@ -47,7 +47,7 @@ func _physics_process(delta: float) -> void:
 		var damage = 5 if boost_active else 2
 		for hitbox in target_hurtbox.get_overlapping_areas():
 			if hitbox.player_owner != player:
-				hitbox.hit(damage)
+				hitbox.hit(player, damage)
 				damage_cooldown = damage_freqency
 
 

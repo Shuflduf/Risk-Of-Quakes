@@ -14,6 +14,7 @@ var firing = false
 
 @onready var og_gun_transforms: Array = guns.map(func(gun): return gun.transform)
 @onready var cam: Camera3D = get_parent().cam
+@onready var player: CharacterBody3D = get_parent().player
 
 
 func start():
@@ -66,7 +67,7 @@ func _physics_process(delta: float) -> void:
 
 		var hitbox = hitscan.get_collider()
 		if hitbox.name == &"Hitbox":
-			hitbox.hit(4.0)
+			hitbox.hit(player, 4)
 
 	used.emit(next_gun_index)
 	cooldown_started.emit()

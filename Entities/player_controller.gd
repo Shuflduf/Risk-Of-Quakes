@@ -44,7 +44,7 @@ func _physics_process(_delta: float) -> void:
 		skills.visible = !skin.visible
 		skin.set_spine_angle(-cam.rotation.x)
 
-	if !is_multiplayer_authority():
+	if !is_multiplayer_authority() or is_dead:
 		return
 
 	var input_dir = Input.get_vector(&"left", &"right", &"forward", &"backward").rotated(
@@ -80,10 +80,20 @@ func _physics_process(_delta: float) -> void:
 
 func _on_health_changed(new_health: int):
 	if new_health <= 0:
-		is_dead = true
-		get_tree().create_timer(2.0).timeout.connect(respawn)
+		die.rpc()
 
+@rpc("any_peer", "call_local")
+func die():
+	player.hide()
+	is_dead = true
+	get_tree().create_timer(2.0).timeout.connect(respawn)
+	var killer_focus_system = cam_systems.get_node(^"KillerFocus")
+	killer_focus_system.killer = health.last_attacker
 
+@rpc("any_peer", "call_local")
 func respawn():
+	player.show()
 	is_dead = false
 	health.health = 100
+	var killer_focus_system = cam_systems.get_node(^"KillerFocus")
+	killer_focus_system.killer = null

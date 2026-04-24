@@ -60,7 +60,7 @@ func _on_collision_body_entered(_body: Node3D) -> void:
 
 func _on_hurtbox_area_entered(area: Area3D) -> void:
 	if area.player_owner != player_owner:
-		area.hit(get_damage())
+		area.hit(player_owner, get_damage())
 		hurtbox.set_deferred(&"monitoring", false)
 		damage_cooldown.start()
 

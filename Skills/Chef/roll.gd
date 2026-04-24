@@ -70,7 +70,7 @@ func _physics_process(delta: float) -> void:
 				if hitbox.player_owner == player:
 					continue
 
-				hitbox.hit(6)
+				hitbox.hit(player, 6)
 				var target_player = hitbox.player_owner
 				var target_speed = target_player.velocity.length()
 				var very_fast = target_speed > 10.0
@@ -90,7 +90,7 @@ func calculate_speed(base_speed: float):
 func _on_hurtbox_area_entered(hitbox: Area3D) -> void:
 	if hitbox.player_owner == player or not active:
 		return
-	hitbox.hit(8)  # TODO: make this based on speed
+	hitbox.hit(player, 8)  # TODO: make this based on speed
 	var knockback_vec = Utils.flatten_vec(
 		player.global_position.direction_to(hitbox.player_owner.global_position)
 	)

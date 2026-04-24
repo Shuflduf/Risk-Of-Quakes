@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://jbebb4hi27xp" path="res://Entities/stair_handler.gd" id="3_imxwh"]
 [ext_resource type="Script" uid="uid://bjfwewfpcvxcm" path="res://Camera/mouse_system.gd" id="3_ns4yp"]
 [ext_resource type="PackedScene" uid="uid://d1k5aq2qsihu1" path="res://Skills/Commando/double_tap.tscn" id="5_dvany"]
+[ext_resource type="Script" uid="uid://cb1ih1mfditg1" path="res://Camera/killer_focus.gd" id="5_ve738"]
 [ext_resource type="PackedScene" uid="uid://bqn60kr4ecdy6" path="res://Skills/Commando/phase_round.tscn" id="6_ve738"]
 [ext_resource type="PackedScene" uid="uid://c2pbtdi5r7367" path="res://Skills/Commando/tactical_slide.tscn" id="7_6v6c3"]
 [ext_resource type="PackedScene" uid="uid://bnhkfym5al36a" path="res://Skills/Commando/grenade_skill.tscn" id="8_uq5ye"]
@@ -45,7 +46,11 @@ cam = NodePath("../Camera")
 script = ExtResource("3_ns4yp")
 player = NodePath("../..")
 
-[node name="TacticalSlide" type="Node" parent="CameraSystems" index="1" unique_id=1287877165]
+[node name="KillerFocus" type="Node" parent="CameraSystems" index="1" unique_id=40121046 node_paths=PackedStringArray("player")]
+script = ExtResource("5_ve738")
+player = NodePath("../..")
+
+[node name="TacticalSlide" type="Node" parent="CameraSystems" index="2" unique_id=1287877165]
 script = ExtResource("10_ns4yp")
 metadata/_custom_type_script = "uid://c7k0xr8eeyt5a"
 

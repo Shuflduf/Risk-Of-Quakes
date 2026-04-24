@@ -25,6 +25,7 @@ func throw():
 
 	var new_nade: RigidBody3D = nade_scene.instantiate()
 	get_tree().root.add_child(new_nade)
+	new_nade.player_owner = player
 	new_nade.global_position = cam.global_position
 	new_nade.linear_velocity = player.velocity + (-cam.global_transform.basis.z * 15.0)
 	cooldown = info.cooldown

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://chmr6w7f8yykk" path="res://Camera/camera_system_manager.gd" id="2_k64cb"]
 [ext_resource type="PackedScene" uid="uid://cerduindsrq4" path="res://Characters/chef_rig.tscn" id="2_sodo0"]
 [ext_resource type="Script" uid="uid://bjfwewfpcvxcm" path="res://Camera/mouse_system.gd" id="3_sodo0"]
+[ext_resource type="Script" uid="uid://cb1ih1mfditg1" path="res://Camera/killer_focus.gd" id="4_6a2is"]
 [ext_resource type="PackedScene" uid="uid://i8x84sh2p2q4" path="res://Entities/skill_system.tscn" id="5_w7d7t"]
 [ext_resource type="Script" uid="uid://jbebb4hi27xp" path="res://Entities/stair_handler.gd" id="6_o52uj"]
 [ext_resource type="PackedScene" uid="uid://cyna2mbrxrcqv" path="res://Skills/Chef/dice.tscn" id="6_sodo0"]
@@ -37,6 +38,10 @@ cam = NodePath("../Camera")
 
 [node name="Mouse" type="Node" parent="CameraSystems" index="0" unique_id=1697354133 node_paths=PackedStringArray("player")]
 script = ExtResource("3_sodo0")
+player = NodePath("../..")
+
+[node name="KillerFocus" type="Node" parent="CameraSystems" index="1" unique_id=2106884318 node_paths=PackedStringArray("player")]
+script = ExtResource("4_6a2is")
 player = NodePath("../..")
 
 [node name="SkillSystem" parent="." index="5" unique_id=1590952291 node_paths=PackedStringArray("cam", "cam_systems", "skill_list", "player") instance=ExtResource("5_w7d7t")]
