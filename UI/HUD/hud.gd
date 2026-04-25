@@ -12,7 +12,7 @@ var registered_skills: Dictionary[Skill.SkillSlot, Node]
 @onready var respawn_label: Label = %RespawnLabel
 @onready var skill_info_container: PanelContainer = %SkillInfoContainer
 @onready var skill_title: Label = %SkillTitle
-@onready var skill_description: Label = %SkillDescription
+@onready var skill_description: RichTextLabel = %SkillDescription
 
 var remaining_respawn_time = 0.0
 

@@ -10,7 +10,8 @@ script = ExtResource("3_n0vt0")
 skill_name = "Phase Round"
 cooldown = 4.0
 icon = ExtResource("3_te262")
-description = "big gun"
+description = "Hold down for [b]1-3[/b] seconds to charge speed and damage.
+Release to shoot a projectile dealing [b]8-23[/b] damage, piercing through walls."
 metadata/_custom_type_script = "uid://j2byq4temsrs"
 
 [node name="PhaseRound" type="Node" unique_id=1011272410]

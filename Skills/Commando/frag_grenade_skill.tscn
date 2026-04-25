@@ -10,7 +10,7 @@ script = ExtResource("3_jkhal")
 skill_name = "Frag Grenade"
 cooldown = 6.0
 icon = ExtResource("3_4aovt")
-description = "bomb"
+description = "Throw a greande that explodes in [b]1[/b] second, dealing [b]15[/b] damage and knocking [i]all characters[/i] back."
 metadata/_custom_type_script = "uid://j2byq4temsrs"
 
 [node name="FragGrenadeSkill" type="Node" unique_id=701401869]

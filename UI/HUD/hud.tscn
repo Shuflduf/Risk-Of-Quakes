@@ -88,10 +88,13 @@ horizontal_alignment = 1
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/SkillInfoContainer/MarginContainer/VBoxContainer" unique_id=2048679374]
 layout_mode = 2
 
-[node name="SkillDescription" type="Label" parent="MarginContainer/VBoxContainer/SkillInfoContainer/MarginContainer/VBoxContainer" unique_id=42433014]
+[node name="SkillDescription" type="RichTextLabel" parent="MarginContainer/VBoxContainer/SkillInfoContainer/MarginContainer/VBoxContainer" unique_id=2035730273]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
-text = "ajkdsf"
+bbcode_enabled = true
+text = "Fire two guns at a medium rate, dealing [b]5[/b] damage at any range."
+fit_content = true
 horizontal_alignment = 1
 
 [node name="SkillsContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1157584868]

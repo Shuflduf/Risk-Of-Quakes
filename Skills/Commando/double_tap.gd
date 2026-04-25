@@ -5,8 +5,9 @@ signal used(gun_index: int)
 #@export var skill_name: String
 @export var guns: Array[Node3D]
 @export var kick_strength_deg = 20.0
-@export var kick_strength_m = 0.05
+@export var kick_strength_back = 0.05
 @export var hitscan: RayCast3D
+@export var damage = 5
 
 var current_cooldown = 0.0
 var next_gun_index = 0
@@ -42,7 +43,7 @@ func _physics_process(delta: float) -> void:
 	(
 		tween
 		. parallel()
-		. tween_property(guns[next_gun_index], ^"position:z", kick_strength_m, 0.05)
+		. tween_property(guns[next_gun_index], ^"position:z", kick_strength_back, 0.05)
 		. set_trans(Tween.TRANS_EXPO)
 	)
 	tween.tween_property(guns[next_gun_index], ^"rotation:z", 0.0, info.cooldown * 2.0).set_trans(
@@ -67,7 +68,7 @@ func _physics_process(delta: float) -> void:
 
 		var hitbox = hitscan.get_collider()
 		if hitbox.name == &"Hitbox":
-			hitbox.hit(player, 4)
+			hitbox.hit(player, damage)
 
 	used.emit(next_gun_index)
 	cooldown_started.emit()

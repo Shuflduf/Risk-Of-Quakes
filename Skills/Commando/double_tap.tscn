@@ -11,7 +11,7 @@ script = ExtResource("2_58ufm")
 skill_name = "Double Tap"
 cooldown = 0.3
 icon = ExtResource("2_7wb11")
-description = "gun"
+description = "Fire two guns at a medium rate, dealing [b]5[/b] damage from any range."
 metadata/_custom_type_script = "uid://j2byq4temsrs"
 
 [sub_resource type="Gradient" id="Gradient_kcbf8"]
