@@ -43,6 +43,7 @@ grow_vertical = 2
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="Connection" unique_id=1032384387]
+texture_filter = 1
 custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 texture = ExtResource("3_k0v0h")
