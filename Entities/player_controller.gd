@@ -100,8 +100,10 @@ func die():
 	is_dead = true
 	hud.respawn(5.0)
 	prints(multiplayer.get_unique_id(), multiplayer.get_remote_sender_id())
-	var multiplayer_data = Lobby.players[multiplayer.get_remote_sender_id()]
-	multiplayer_data.deaths += 1
+	Lobby.players[multiplayer.get_remote_sender_id()].deaths += 1
+	var killer_id = health.last_attacker.get_multiplayer_authority()
+	if killer_id:
+		Lobby.players[killer_id].kills += 1
 	Lobby.sync_leaderboard()
 	var killer_focus_system = cam_systems.get_node(^"KillerFocus")
 	killer_focus_system.killer = health.last_attacker
