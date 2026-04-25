@@ -66,7 +66,7 @@ func remove_multiplayer_peer():
 # do Lobby.load_game.rpc(filepath)
 @rpc("call_local")
 func load_game(game_scene_path):
-	current_state = GameState.IN_GAME
+	current_state = Lobby.GameState.IN_GAME
 	get_tree().change_scene_to_file(game_scene_path)
 
 
@@ -77,6 +77,8 @@ func player_loaded():
 		players_loaded += 1
 		if players_loaded == players.size():
 			$/root/Game.start_game.rpc()
+			
+
 			#start_game.rpc()
 			#players_loaded = 0
 
@@ -142,7 +144,8 @@ func join_game_late(survivor: String):
 	var peer_id = multiplayer.get_remote_sender_id()
 	players[peer_id]["survivor"] = survivor
 	prints(multiplayer.get_unique_id(), survivor)
-	$/root/Game.new_player_connected(multiplayer.get_remote_sender_id())
+	if peer_id == multiplayer.get_unique_id():
+		load_game(GAME_SCENE)
 
 func sync_leaderboard():
 	leaderboard_updated.emit()
