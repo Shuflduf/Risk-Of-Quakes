@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cit3ia43oles4"]
 
 [ext_resource type="Script" uid="uid://b55kbeta0mfu" path="res://Game/game.gd" id="1_7raqb"]
-[ext_resource type="PackedScene" uid="uid://bq60rtas7e3is" path="res://world.tscn" id="1_bk3v5"]
+[ext_resource type="PackedScene" uid="uid://bq60rtas7e3is" path="res://Game/world.tscn" id="1_bk3v5"]
 [ext_resource type="PackedScene" uid="uid://bjdtv5jx46vgp" path="res://Entities/chef.tscn" id="2_1r4le"]
 [ext_resource type="PackedScene" uid="uid://cagug61g68di1" path="res://Entities/commando.tscn" id="5_qmv3x"]
 

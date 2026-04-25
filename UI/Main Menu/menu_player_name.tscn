@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://vupdm4e1fa0d"]
 
-[ext_resource type="Script" uid="uid://ccwmk5gj6rpxd" path="res://menu_player_name.gd" id="1_ifiu8"]
+[ext_resource type="Script" uid="uid://ccwmk5gj6rpxd" path="res://UI/Main Menu/menu_player_name.gd" id="1_ifiu8"]
 
 [node name="MenuPlayerName" type="HBoxContainer" unique_id=407555344]
 anchors_preset = 10

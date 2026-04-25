@@ -1,13 +1,13 @@
 [gd_scene format=4 uid="uid://bq60rtas7e3is"]
 
-[ext_resource type="PackedScene" uid="uid://ba7lx70tapam4" path="res://Entities/target.tscn" id="4_aqk2v"]
-[ext_resource type="PackedScene" uid="uid://cmcok53rej5sy" path="res://Entities/entity.tscn" id="5_036b0"]
-[ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="6_pkg7o"]
-[ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="7_gbfbk"]
-[ext_resource type="Material" uid="uid://b5si568ocg0or" path="res://Maps/Textures/Light/texture_06.tres" id="7_ioo17"]
-[ext_resource type="Material" uid="uid://cesxd8focfw5m" path="res://Maps/Textures/Dark/texture_07.tres" id="8_ioo17"]
-[ext_resource type="Material" uid="uid://cfpktuk3b33ko" path="res://Maps/Textures/Orange/texture_08.tres" id="9_ioo17"]
-[ext_resource type="PackedScene" uid="uid://cvswsfmdd2rxu" path="res://Maps/Entities/special_pickup.tscn" id="9_wse8f"]
+[ext_resource type="PackedScene" uid="uid://ba7lx70tapam4" path="res://Entities/target.tscn" id="1_hvno2"]
+[ext_resource type="PackedScene" uid="uid://cmcok53rej5sy" path="res://Entities/entity.tscn" id="2_r7jf0"]
+[ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="3_16ps5"]
+[ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="4_g2b07"]
+[ext_resource type="Material" uid="uid://cfpktuk3b33ko" path="res://Maps/Textures/Orange/texture_08.tres" id="5_71s8c"]
+[ext_resource type="Material" uid="uid://b5si568ocg0or" path="res://Maps/Textures/Light/texture_06.tres" id="6_qvtff"]
+[ext_resource type="Material" uid="uid://cesxd8focfw5m" path="res://Maps/Textures/Dark/texture_07.tres" id="7_1rdhq"]
+[ext_resource type="PackedScene" uid="uid://cvswsfmdd2rxu" path="res://Maps/Entities/special_pickup.tscn" id="8_mihfq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fj7yv"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -29,7 +29,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 540,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcAGAAZABoAGAAaABsAHAAdAB4AHAAeAB8AIAAhACIAIAAiACMAJAAlACYAJAAmACcAKAApACoAKAAqACsALAAtAC4ALAAuAC8AMAAxADIAMAAyADMANAA1ADYANAA2ADcAOAA5ADoAOAA6ADsAPAA9AD4APAA+AD8AQABBAEIAQABCAEMARABFAEYARABGAEcASABJAEoASABKAEsATABNAE4ATABOAE8AUABRAFIAUABSAFMAVABVAFYAVABWAFcAWABZAFoAWABaAFsAXABdAF4AXABeAF8AYABhAGIAYABiAGMAZABlAGYAZABmAGcAaABpAGoAaABqAGsAbABtAG4AbABuAG8AcABxAHIAcAByAHMAdAB1AHYAdAB2AHcAeAB5AHoAeAB6AHsAfAB9AH4AfAB+AH8AgACBAIIAgACCAIMAhACFAIYAhACGAIcAiACJAIoAiACKAIsAjACNAI4AjACOAI8AkACRAJIAkACSAJMAlACVAJYAlACWAJcAmACZAJoAmACaAJsAnACdAJ4AnACeAJ8AoAChAKIAoACiAKMApAClAKYApACmAKcAqACpAKoAqACqAKsArACtAK4ArACuAK8AsACxALIAsACyALMAtAC1ALYAtAC2ALcAuAC5ALoAuAC6ALsAvAC9AL4AvAC+AL8AwADBAMIAwADCAMMAxADFAMYAxADGAMcAyADJAMoAyADKAMsAzADNAM4AzADOAM8A0ADRANIA0ADSANMA1ADVANYA1ADWANcA2ADZANoA2ADaANsA3ADdAN4A3ADeAN8A4ADhAOIA4ADiAOMA5ADlAOYA5ADmAOcA6ADpAOoA6ADqAOsA7ADtAO4A7ADuAO8A8ADxAPIA8ADyAPMA9AD1APYA9AD2APcA+AD5APoA+AD6APsA/AD9AP4A/AD+AP8AAAEBAQIBAAECAQMBBAEFAQYBBAEGAQcBCAEJAQoBCAEKAQsBDAENAQ4BDAEOAQ8BEAERARIBEAESARMBFAEVARYBFAEWARcBGAEZARoBGAEaARsBHAEdAR4BHAEeAR8BIAEhASIBIAEiASMBJAElASYBJAEmAScBKAEpASoBKAEqASsBLAEtAS4BLAEuAS8BMAExATIBMAEyATMBNAE1ATYBNAE2ATcBOAE5AToBOAE6ATsBPAE9AT4BPAE+AT8BQAFBAUIBQAFCAUMBRAFFAUYBRAFGAUcBSAFJAUoBSAFKAUsBTAFNAU4BTAFOAU8BUAFRAVIBUAFSAVMBVAFVAVYBVAFWAVcBWAFZAVoBWAFaAVsBXAFdAV4BXAFeAV8BYAFhAWIBYAFiAWMBZAFlAWYBZAFmAWcB"),
-"material": ExtResource("9_ioo17"),
+"material": ExtResource("5_71s8c"),
 "name": "Orange/texture_08",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -41,7 +41,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 576,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcAGAAZABoAGAAaABsAHAAdAB4AHAAeAB8AIAAhACIAIAAiACMAJAAlACYAJAAmACcAKAApACoAKAAqACsALAAtAC4ALAAuAC8AMAAxADIAMAAyADMANAA1ADYANAA2ADcAOAA5ADoAOAA6ADsAPAA9AD4APAA+AD8AQABBAEIAQABCAEMARABFAEYARABGAEcASABJAEoASABKAEsATABNAE4ATABOAE8AUABRAFIAUABSAFMAVABVAFYAVABWAFcAWABZAFoAWABaAFsAXABdAF4AXABeAF8AYABhAGIAYABiAGMAZABlAGYAZABmAGcAaABpAGoAaABqAGsAbABtAG4AbABuAG8AcABxAHIAcAByAHMAdAB1AHYAdAB2AHcAeAB5AHoAeAB6AHsAfAB9AH4AfAB+AH8AgACBAIIAgACCAIMAhACFAIYAhACGAIcAiACJAIoAiACKAIsAjACNAI4AjACOAI8AkACRAJIAkACSAJMAlACVAJYAlACWAJcAmACZAJoAmACaAJsAnACdAJ4AnACeAJ8AoAChAKIAoACiAKMApAClAKYApACmAKcAqACpAKoAqACqAKsArACtAK4ArACuAK8AsACxALIAsACyALMAtAC1ALYAtAC2ALcAuAC5ALoAuAC6ALsAvAC9AL4AvAC+AL8AwADBAMIAwADCAMMAxADFAMYAxADGAMcAyADJAMoAyADKAMsAzADNAM4AzADOAM8A0ADRANIA0ADSANMA1ADVANYA1ADWANcA2ADZANoA2ADaANsA3ADdAN4A3ADeAN8A4ADhAOIA4ADiAOMA5ADlAOYA5ADmAOcA6ADpAOoA6ADqAOsA7ADtAO4A7ADuAO8A8ADxAPIA8ADyAPMA9AD1APYA9AD2APcA+AD5APoA+AD6APsA/AD9AP4A/AD+AP8AAAEBAQIBAAECAQMBBAEFAQYBBAEGAQcBCAEJAQoBCAEKAQsBDAENAQ4BDAEOAQ8BEAERARIBEAESARMBFAEVARYBFAEWARcBGAEZARoBGAEaARsBHAEdAR4BHAEeAR8BIAEhASIBIAEiASMBJAElASYBJAEmAScBKAEpASoBKAEqASsBLAEtAS4BLAEuAS8BMAExATIBMAEyATMBNAE1ATYBNAE2ATcBOAE5AToBOAE6ATsBPAE9AT4BPAE+AT8BQAFBAUIBQAFCAUMBRAFFAUYBRAFGAUcBSAFJAUoBSAFKAUsBTAFNAU4BTAFOAU8BUAFRAVIBUAFSAVMBVAFVAVYBVAFWAVcBWAFZAVoBWAFaAVsBXAFdAV4BXAFeAV8BYAFhAWIBYAFiAWMBZAFlAWYBZAFmAWcBaAFpAWoBaAFqAWsBbAFtAW4BbAFuAW8BcAFxAXIBcAFyAXMBdAF1AXYBdAF2AXcBeAF5AXoBeAF6AXsBfAF9AX4BfAF+AX8B"),
-"material": ExtResource("7_ioo17"),
+"material": ExtResource("6_qvtff"),
 "name": "Light/texture_06",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -53,7 +53,7 @@ _surfaces = [{
 "format": 34359742487,
 "index_count": 108,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcAGAAZABoAGAAaABsAHAAdAB4AHAAeAB8AIAAhACIAIAAiACMAJAAlACYAJAAmACcAKAApACoAKAAqACsALAAtAC4ALAAuAC8AMAAxADIAMAAyADMANAA1ADYANAA2ADcAOAA5ADoAOAA6ADsAPAA9AD4APAA+AD8AQABBAEIAQABCAEMARABFAEYARABGAEcA"),
-"material": ExtResource("8_ioo17"),
+"material": ExtResource("7_1rdhq"),
 "name": "Dark/texture_07",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -172,16 +172,16 @@ sky_mode = 1
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1658192083]
 environment = SubResource("Environment_aqk2v")
 
-[node name="Target" parent="." unique_id=225967718 instance=ExtResource("4_aqk2v")]
+[node name="Target" parent="." unique_id=225967718 instance=ExtResource("1_hvno2")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, 2, -5)
 
-[node name="Entity" parent="." unique_id=1792205180 instance=ExtResource("5_036b0")]
+[node name="Entity" parent="." unique_id=1792205180 instance=ExtResource("2_r7jf0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.875263, 1, -2)
 
 [node name="Map" type="Node3D" parent="." unique_id=29924878]
-script = ExtResource("6_pkg7o")
+script = ExtResource("3_16ps5")
 local_map_file = "uid://dgx35mp780vbv"
-map_settings = ExtResource("7_gbfbk")
+map_settings = ExtResource("4_g2b07")
 metadata/_custom_type_script = "uid://cwu5cf7a0awcd"
 
 [node name="entity_0_worldspawn" type="StaticBody3D" parent="Map" unique_id=431110165]
@@ -293,10 +293,10 @@ shape = SubResource("ConvexPolygonShape3D_7qk3m")
 [node name="entity_0_brush_33_collision_shape" type="CollisionShape3D" parent="Map/entity_0_worldspawn" unique_id=1001406761]
 shape = SubResource("ConvexPolygonShape3D_xpnt2")
 
-[node name="entity_1_SpecialPickup" parent="Map" unique_id=219741615 instance=ExtResource("9_wse8f")]
+[node name="entity_1_SpecialPickup" parent="Map" unique_id=219741615 instance=ExtResource("8_mihfq")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 2.8551126, 11.25)
 
-[node name="entity_2_SpecialPickup" parent="Map" unique_id=412678234 instance=ExtResource("9_wse8f")]
+[node name="entity_2_SpecialPickup" parent="Map" unique_id=412678234 instance=ExtResource("8_mihfq")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 2.8551126, -11.25)
 
 [node name="SpawnPoints" type="Node3D" parent="." unique_id=2108562532]
