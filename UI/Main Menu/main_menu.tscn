@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bbdyaukilqsqr"]
 
 [ext_resource type="Script" uid="uid://dis2wtdohujjq" path="res://UI/Main Menu/main_menu.gd" id="1_3g31d"]
+[ext_resource type="Theme" uid="uid://dffesc1lpef65" path="res://Resources/main_theme.tres" id="1_vq10u"]
 [ext_resource type="Script" uid="uid://do47qleu3ylvd" path="res://UI/Main Menu/lobby_menu.gd" id="2_v04x6"]
 [ext_resource type="Script" uid="uid://bh40x3odvnh64" path="res://UI/Main Menu/survivor_list.gd" id="3_jri5q"]
 [ext_resource type="PackedScene" uid="uid://vupdm4e1fa0d" path="res://UI/Main Menu/menu_player_name.tscn" id="3_mqkp3"]
@@ -12,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_vq10u")
 script = ExtResource("1_3g31d")
 
 [node name="Connection" type="VBoxContainer" parent="." unique_id=2010914824]

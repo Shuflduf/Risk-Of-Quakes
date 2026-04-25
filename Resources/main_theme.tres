@@ -1,0 +1,10 @@
+[gd_resource type="Theme" format=3 uid="uid://dffesc1lpef65"]
+
+[ext_resource type="FontFile" uid="uid://ctg25ssf78mhc" path="res://Assets/rzpix.ttf" id="1_rpoj5"]
+
+[resource]
+Button/fonts/font = ExtResource("1_rpoj5")
+Label/fonts/font = ExtResource("1_rpoj5")
+LineEdit/fonts/font = ExtResource("1_rpoj5")
+ProgressBar/fonts/font = ExtResource("1_rpoj5")
+TabBar/fonts/font = ExtResource("1_rpoj5")
