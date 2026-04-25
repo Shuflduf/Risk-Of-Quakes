@@ -18,9 +18,14 @@ func _ready() -> void:
 
 
 func _on_player_connected(_peer_id: int, _player_info: Dictionary):
+	#Lobby.current_state = current_state
 	show()
 	connection_panel.hide()
 	update_players_list()
+	
+	prints(multiplayer.get_unique_id(), Lobby.current_state, Lobby.GameState.CHOOSING_SURVIVORS)
+	if Lobby.current_state == Lobby.GameState.CHOOSING_SURVIVORS:
+		survivor_list.show()
 
 
 func _on_player_disconnected(_peer_id: int):

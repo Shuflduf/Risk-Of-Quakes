@@ -84,13 +84,14 @@ func player_loaded():
 # When a peer connects, send them my player info.
 # This allows transfer of all desired data for each player, not only the unique ID.
 func _on_player_connected(id):
-	_register_player.rpc_id(id, player_info)
+	_register_player.rpc_id(id, player_info, current_state)
 
 
 @rpc("any_peer")
-func _register_player(new_player_info):
+func _register_player(new_player_info, current_server_state: GameState):
 	var new_player_id = multiplayer.get_remote_sender_id()
 	players[new_player_id] = new_player_info
+	current_state = current_server_state
 	player_connected.emit(new_player_id, new_player_info)
 
 
