@@ -26,6 +26,11 @@ func spawn_player(survivor: String, peer_id: int, spawn_pos: Node3D):
 	new_player.name = "player_%d" % peer_id
 	add_child(new_player)
 
+func new_player_connected(peer_id: int):
+	var survivor = Lobby.players[peer_id]["survivor"]
+	var spawn_pos = get_tree().get_nodes_in_group(&"Spawn Point").pick_random()
+	spawn_player(survivor, peer_id, spawn_pos)
+
 #@rpc("any_peer")
 #func request_spawn_state():
 #print("doiskd")

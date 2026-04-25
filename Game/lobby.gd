@@ -137,6 +137,12 @@ func select_survivor(survivor: String):
 			all_survivors_selected.emit()
 			load_game.rpc(GAME_SCENE)
 
+@rpc("any_peer", "call_local")
+func join_game_late(survivor: String):
+	var peer_id = multiplayer.get_remote_sender_id()
+	players[peer_id]["survivor"] = survivor
+	prints(multiplayer.get_unique_id(), survivor)
+	$/root/Game.new_player_connected(multiplayer.get_remote_sender_id())
 
 func sync_leaderboard():
 	leaderboard_updated.emit()

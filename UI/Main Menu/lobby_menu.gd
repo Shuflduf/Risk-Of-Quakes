@@ -13,18 +13,16 @@ func _ready() -> void:
 	Lobby.server_disconnected.connect(_on_server_disconnected)
 	Lobby.survivor_selection_started.connect(_on_survivor_selection_started)
 	Lobby.all_survivors_selected.connect(_on_all_survivors_selected)
-	Lobby.player_survivor_selected.connect(_on_player_survivor_selected)
-	survivor_list.survivor_selected.connect(Lobby.select_survivor.rpc)
+	Lobby.player_survivor_selected.connect(_on_other_player_survivor_selected)
+	survivor_list.survivor_selected.connect(_on_survivor_selected)
 
 
 func _on_player_connected(_peer_id: int, _player_info: Dictionary):
-	#Lobby.current_state = current_state
 	show()
 	connection_panel.hide()
 	update_players_list()
 	
-	prints(multiplayer.get_unique_id(), Lobby.current_state, Lobby.GameState.CHOOSING_SURVIVORS)
-	if Lobby.current_state == Lobby.GameState.CHOOSING_SURVIVORS:
+	if Lobby.current_state != Lobby.GameState.WAITING_FOR_PLAYERS:
 		survivor_list.show()
 
 
@@ -45,10 +43,15 @@ func _on_all_survivors_selected():
 	pass
 
 
-func _on_player_survivor_selected(peer_id: int, _survivor: String):
+func _on_other_player_survivor_selected(peer_id: int, _survivor: String):
 	var names = player_list.get_children()
 	names[names.find_custom(func(v): return v.text == Lobby.players[peer_id]["name"])].selected = true
 
+func _on_survivor_selected(survivor: String):
+	if Lobby.current_state == Lobby.GameState.CHOOSING_SURVIVORS:
+		Lobby.select_survivor.rpc(survivor)
+	elif Lobby.current_state == Lobby.GameState.IN_GAME:
+		Lobby.join_game_late.rpc(survivor)
 
 func update_players_list():
 	for label in player_list.get_children():
