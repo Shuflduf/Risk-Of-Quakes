@@ -11,6 +11,7 @@ func _ready() -> void:
 	if Lobby.error_message:
 		error_label.text = Lobby.error_message
 
+
 func _on_host_pressed() -> void:
 	Lobby.player_info["name"] = username.text
 	var err = Lobby.create_game()

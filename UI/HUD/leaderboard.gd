@@ -19,14 +19,13 @@ var entries: Array[LeaderboardEntry] = []
 func rebuild():
 	for column in [username_container, survivor_container, kills_container, deaths_container]:
 		clear_column(column)
-	
+
 	for data in data_columns:
 		populate_column(data)
 
 
 func clear_column(column: VBoxContainer):
 	for child in column.get_children():
-		
 		if child.name == &"Header":
 			continue
 

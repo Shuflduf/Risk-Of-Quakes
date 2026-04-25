@@ -21,7 +21,7 @@ func _on_player_connected(_peer_id: int, _player_info: Dictionary):
 	show()
 	connection_panel.hide()
 	update_players_list()
-	
+
 	if Lobby.current_state != Lobby.GameState.WAITING_FOR_PLAYERS:
 		survivor_list.show()
 
@@ -47,11 +47,13 @@ func _on_other_player_survivor_selected(peer_id: int, _survivor: String):
 	var names = player_list.get_children()
 	names[names.find_custom(func(v): return v.text == Lobby.players[peer_id]["name"])].selected = true
 
+
 func _on_survivor_selected(survivor: String):
 	if Lobby.current_state == Lobby.GameState.CHOOSING_SURVIVORS:
 		Lobby.select_survivor.rpc(survivor)
 	elif Lobby.current_state == Lobby.GameState.IN_GAME:
 		Lobby.join_game_late.rpc(survivor)
+
 
 func update_players_list():
 	for label in player_list.get_children():

@@ -94,7 +94,7 @@ func _on_health_changed(new_health: int):
 func die():
 	if is_dead:
 		return
-	
+
 	hitbox.set_deferred(&"monitorable", false)
 	player.hide()
 	is_dead = true

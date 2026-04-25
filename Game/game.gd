@@ -33,9 +33,9 @@ func spawn_peer(peer_id: int):
 	var spawn_pos = get_tree().get_nodes_in_group(&"Spawn Point").pick_random()
 	spawn_player(survivor, peer_id, spawn_pos)
 
+
 func peer_name(peer_id):
 	return "player_%d" % peer_id
-
 
 #@rpc("any_peer")
 #func request_spawn_state():

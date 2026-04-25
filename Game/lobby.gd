@@ -16,7 +16,7 @@ signal player_disconnected(peer_id: int)
 signal server_disconnected
 
 const PORT = 7000
-const DEFAULT_SERVER_IP = "127.0.0.1" 
+const DEFAULT_SERVER_IP = "127.0.0.1"
 const MAX_CONNECTIONS = 20
 const GAME_SCENE = "res://Game/game.tscn"
 const MAIN_MENU_SCENE = "res://UI/Main Menu/main_menu.tscn"
@@ -26,6 +26,7 @@ var error_message = ""
 var player_info = {"name": "Name", "survivor": "Survivor", "kills": 0, "deaths": 0}
 var players_loaded = 0
 var current_state: GameState = GameState.WAITING_FOR_PLAYERS
+
 
 func _ready():
 	multiplayer.peer_connected.connect(_on_player_connected)
@@ -77,7 +78,6 @@ func player_loaded():
 		players_loaded += 1
 		if players_loaded == players.size():
 			$/root/Game.start_game.rpc()
-			
 
 			#start_game.rpc()
 			#players_loaded = 0
@@ -139,6 +139,7 @@ func select_survivor(survivor: String):
 			all_survivors_selected.emit()
 			load_game.rpc(GAME_SCENE)
 
+
 @rpc("any_peer", "call_local")
 func join_game_late(survivor: String):
 	var peer_id = multiplayer.get_remote_sender_id()
@@ -146,6 +147,7 @@ func join_game_late(survivor: String):
 	prints(multiplayer.get_unique_id(), survivor)
 	if peer_id == multiplayer.get_unique_id():
 		load_game(GAME_SCENE)
+
 
 func sync_leaderboard():
 	leaderboard_updated.emit()

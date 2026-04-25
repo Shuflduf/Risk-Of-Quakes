@@ -16,3 +16,4 @@ properties/3/replication_mode = 1
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" unique_id=689391796]
 replication_config = SubResource("SceneReplicationConfig_w7d7t")
+visibility_update_mode = 1

@@ -25,6 +25,7 @@ func _input(event: InputEvent) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		leaderboard.hide()
 
+
 func show_skill_info(skill_slot: Skill.SkillSlot):
 	var skill_info = registered_skills[skill_slot].active_skill_info
 	skill_info_container.show()
@@ -97,8 +98,6 @@ func reconstruct_leaderboard():
 		#prints(new_entry.username, new_entry.deaths)
 		leaderboard.entries.append(new_entry)
 	leaderboard.rebuild()
-
-	
 
 #func enable_skill(slot: Skill.SkillSlot):
 #registered_skills[slot].enable()
