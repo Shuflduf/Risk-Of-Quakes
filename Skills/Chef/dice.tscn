@@ -12,7 +12,7 @@
 script = ExtResource("2_jmdqv")
 skill_name = "Dice"
 cooldown = 0.5
-img = ExtResource("4_gikgv")
+icon = ExtResource("4_gikgv")
 metadata/_custom_type_script = "uid://j2byq4temsrs"
 
 [node name="Dice" type="Node3D" unique_id=479791051]

@@ -11,8 +11,8 @@ var enabled = true
 func create(info: SkillInfo):
 	tooltip_text = info.skill_name
 	timer.wait_time = info.cooldown
-	if info.img:
-		skill_icon.texture = info.img
+	if info.icon:
+		skill_icon.texture = info.icon
 
 
 func _process(_delta: float) -> void:
@@ -38,3 +38,8 @@ func enable():
 	enabled = true
 	# could be a very bad idea
 	timer.stop()
+
+
+func change_icon(new_icon: Texture2D):
+	if new_icon:
+		skill_icon.texture = new_icon

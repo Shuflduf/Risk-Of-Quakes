@@ -31,6 +31,9 @@ func _ready() -> void:
 			target_skill.enabled_changed.connect(
 				func(): hud.toggle_skill(target_skill.enabled, slot)
 			)
+			target_skill.icon_changed.connect(
+				func(new_icon): hud.change_icon(new_icon, slot)
+			)
 		health.health_changed.connect(hud.update_health)
 		health.health_changed.connect(_on_health_changed)
 

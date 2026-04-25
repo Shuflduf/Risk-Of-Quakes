@@ -5,8 +5,12 @@ extends Node
 # signal used
 
 signal enabled_changed
+
 @warning_ignore("unused_signal")
 signal cooldown_started
+
+@warning_ignore("unused_signal")
+signal icon_changed(new_icon: Texture2D)
 
 enum SkillSlot {
 	PRIMARY,

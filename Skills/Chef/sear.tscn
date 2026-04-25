@@ -10,7 +10,7 @@
 script = ExtResource("2_0j1if")
 skill_name = "Sear"
 cooldown = 4.0
-img = ExtResource("3_ba8l5")
+icon = ExtResource("3_ba8l5")
 metadata/_custom_type_script = "uid://j2byq4temsrs"
 
 [sub_resource type="Gradient" id="Gradient_tsylo"]

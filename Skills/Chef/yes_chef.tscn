@@ -8,7 +8,7 @@
 script = ExtResource("2_swmme")
 skill_name = "Yes CHEF!"
 cooldown = 5.0
-img = ExtResource("2_moxnh")
+icon = ExtResource("2_moxnh")
 metadata/_custom_type_script = "uid://j2byq4temsrs"
 
 [node name="YesChef" type="Node" unique_id=531542428]

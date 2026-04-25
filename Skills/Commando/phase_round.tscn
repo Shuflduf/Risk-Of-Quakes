@@ -9,7 +9,7 @@
 script = ExtResource("3_n0vt0")
 skill_name = "Phase Round"
 cooldown = 4.0
-img = ExtResource("3_te262")
+icon = ExtResource("3_te262")
 description = "big gun"
 metadata/_custom_type_script = "uid://j2byq4temsrs"
 

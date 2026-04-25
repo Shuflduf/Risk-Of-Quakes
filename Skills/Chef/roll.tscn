@@ -9,7 +9,7 @@
 script = ExtResource("2_phdxp")
 skill_name = "Roll"
 cooldown = 4.0
-img = ExtResource("3_d2qei")
+icon = ExtResource("3_d2qei")
 metadata/_custom_type_script = "uid://j2byq4temsrs"
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_phdxp"]

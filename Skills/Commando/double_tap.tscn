@@ -10,7 +10,7 @@
 script = ExtResource("2_58ufm")
 skill_name = "Double Tap"
 cooldown = 0.3
-img = ExtResource("2_7wb11")
+icon = ExtResource("2_7wb11")
 description = "gun"
 metadata/_custom_type_script = "uid://j2byq4temsrs"
 

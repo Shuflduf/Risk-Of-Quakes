@@ -9,7 +9,7 @@
 script = ExtResource("3_jkhal")
 skill_name = "Frag Grenade"
 cooldown = 6.0
-img = ExtResource("3_4aovt")
+icon = ExtResource("3_4aovt")
 description = "bomb"
 metadata/_custom_type_script = "uid://j2byq4temsrs"
 

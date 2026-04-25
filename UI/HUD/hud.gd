@@ -22,6 +22,9 @@ func respawn(respawn_seconds: float):
 	remaining_respawn_time = respawn_seconds
 
 
+func change_icon(new_icon: Texture2D, slot: Skill.SkillSlot):
+	registered_skills[slot].change_icon(new_icon)
+
 func update_health(health: int):
 	health_bar.value = health
 	health_label.text = "%d / %d" % [health, 100]
