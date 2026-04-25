@@ -23,7 +23,7 @@ var players = {}
 # before the connection is made. It will be passed to every other peer.
 # For example, the value of "name" can be set to something the player
 # entered in a UI scene.
-var player_info = {"name": "Name"}
+var player_info = {"name": "Name", "survivor": "Survivor", "kills": 0, "deaths": 0}
 
 var players_loaded = 0
 
@@ -125,7 +125,7 @@ func select_survivor(survivor: String):
 
 	if multiplayer.is_server():
 		var ready_players = players.values().reduce(
-			func(accum, v): return accum + (1 if v.has("survivor") else 0), 0
+			func(accum, v): return accum + (1 if v["survivor"] != "Survivor" else 0), 0
 		)
 		if ready_players == players.size():
 			all_survivors_selected.emit()

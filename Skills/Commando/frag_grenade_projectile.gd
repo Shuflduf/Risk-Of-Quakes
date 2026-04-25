@@ -3,6 +3,7 @@ extends RigidBody3D
 var player_owner: CharacterBody3D
 var damage = 0
 
+
 func _on_body_entered(_body: Object) -> void:
 	linear_velocity /= 2.0
 
@@ -16,7 +17,6 @@ func _on_explode_timer_timeout() -> void:
 
 		var splash_radius = 120.0
 		var knockback = 7.0 * (1.0 - distance / splash_radius)
-
 
 		hitbox.knockback(direction_away * knockback)
 

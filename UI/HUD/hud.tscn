@@ -4,6 +4,8 @@
 [ext_resource type="Theme" uid="uid://dffesc1lpef65" path="res://Resources/main_theme.tres" id="1_qdh7y"]
 [ext_resource type="PackedScene" uid="uid://dikfcgyf224xy" path="res://UI/HUD/skill_ui.tscn" id="2_te8l2"]
 [ext_resource type="Texture2D" uid="uid://yp751p4hbjrl" path="res://Assets/References/ror2.png" id="2_xkess"]
+[ext_resource type="Script" uid="uid://comsbnfye7mpu" path="res://UI/HUD/leaderboard.gd" id="5_dhie7"]
+[ext_resource type="FontFile" uid="uid://ctg25ssf78mhc" path="res://Assets/rzpix.ttf" id="5_radol"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdh7y"]
 bg_color = Color(0.12156863, 0.12156863, 0.1764706, 1)
@@ -13,6 +15,13 @@ bg_color = Color(0.23137255, 0.20784314, 0.25882354, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dhie7"]
 bg_color = Color(0.5254902, 0.8156863, 0.4, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_dhie7"]
+base_font = ExtResource("5_radol")
+variation_embolden = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_s83ig"]
+font = SubResource("FontVariation_dhie7")
 
 [node name="HUD" type="Control" unique_id=545074785]
 layout_mode = 3
@@ -160,3 +169,98 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Respawning in 5 seconds"
 horizontal_alignment = 1
+
+[node name="Leaderboard" type="PanelContainer" parent="." unique_id=1182501602]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_dhie7")
+
+[node name="MarginContainer" type="MarginContainer" parent="Leaderboard" unique_id=911919183]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Leaderboard/MarginContainer" unique_id=2097814065]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="UsernameContainer" type="VBoxContainer" parent="Leaderboard/MarginContainer/HBoxContainer" unique_id=1586729084]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Header" type="Label" parent="Leaderboard/MarginContainer/HBoxContainer/UsernameContainer" unique_id=1617850325]
+layout_mode = 2
+text = "Username"
+label_settings = SubResource("LabelSettings_s83ig")
+
+[node name="Label3" type="Label" parent="Leaderboard/MarginContainer/HBoxContainer/UsernameContainer" unique_id=1680039621]
+layout_mode = 2
+text = "Shuflduf"
+
+[node name="Label2" type="Label" parent="Leaderboard/MarginContainer/HBoxContainer/UsernameContainer" unique_id=1979841913]
+layout_mode = 2
+text = "Freak"
+
+[node name="SurvivorContainer" type="VBoxContainer" parent="Leaderboard/MarginContainer/HBoxContainer" unique_id=1592017815]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Header" type="Label" parent="Leaderboard/MarginContainer/HBoxContainer/SurvivorContainer" unique_id=841880859]
+layout_mode = 2
+text = "Survivor"
+label_settings = SubResource("LabelSettings_s83ig")
+
+[node name="Label3" type="Label" parent="Leaderboard/MarginContainer/HBoxContainer/SurvivorContainer" unique_id=1764062473]
+layout_mode = 2
+text = "Commando"
+
+[node name="Label2" type="Label" parent="Leaderboard/MarginContainer/HBoxContainer/SurvivorContainer" unique_id=1985043635]
+layout_mode = 2
+text = "Chef"
+
+[node name="KillsContainer" type="VBoxContainer" parent="Leaderboard/MarginContainer/HBoxContainer" unique_id=791576363]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Header" type="Label" parent="Leaderboard/MarginContainer/HBoxContainer/KillsContainer" unique_id=744205594]
+layout_mode = 2
+text = "Kills"
+label_settings = SubResource("LabelSettings_s83ig")
+
+[node name="Label" type="Label" parent="Leaderboard/MarginContainer/HBoxContainer/KillsContainer" unique_id=1724903002]
+layout_mode = 2
+text = "8"
+
+[node name="Label2" type="Label" parent="Leaderboard/MarginContainer/HBoxContainer/KillsContainer" unique_id=1624232261]
+layout_mode = 2
+text = "2"
+
+[node name="DeathsContainer" type="VBoxContainer" parent="Leaderboard/MarginContainer/HBoxContainer" unique_id=759842332]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Header" type="Label" parent="Leaderboard/MarginContainer/HBoxContainer/DeathsContainer" unique_id=320404658]
+layout_mode = 2
+text = "Deaths"
+label_settings = SubResource("LabelSettings_s83ig")
+
+[node name="Label" type="Label" parent="Leaderboard/MarginContainer/HBoxContainer/DeathsContainer" unique_id=1160900768]
+layout_mode = 2
+text = "2"
+
+[node name="Label2" type="Label" parent="Leaderboard/MarginContainer/HBoxContainer/DeathsContainer" unique_id=969265596]
+layout_mode = 2
+text = "8"

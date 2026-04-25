@@ -8,6 +8,7 @@ var active_skill_info: SkillInfo
 @onready var countdown: Label = $Countdown
 @onready var skill_icon: TextureRect = $SkillIcon
 
+
 func create(info: SkillInfo):
 	active_skill_info = info
 	tooltip_text = info.skill_name

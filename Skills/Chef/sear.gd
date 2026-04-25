@@ -9,7 +9,6 @@ signal used(activated: bool, boosted: bool)
 @export var base_damage = 2
 @export var boost_damage = 4
 
-
 var cooldown = 0.0
 var damage_cooldown = 0.0
 var active = false

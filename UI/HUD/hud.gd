@@ -14,6 +14,7 @@ var remaining_respawn_time = 0.0
 @onready var skill_info_container: PanelContainer = %SkillInfoContainer
 @onready var skill_title: Label = %SkillTitle
 @onready var skill_description: RichTextLabel = %SkillDescription
+@onready var leaderboard: Leaderboard = %Leaderboard
 
 
 func show_skill_info(skill_slot: Skill.SkillSlot):
@@ -21,14 +22,16 @@ func show_skill_info(skill_slot: Skill.SkillSlot):
 	skill_info_container.show()
 	skill_title.text = skill_info.skill_name
 	skill_description.text = skill_info.description
-	
+
+
 func hide_skill_info():
 	skill_info_container.hide()
+
 
 func respawn(respawn_seconds: float):
 	if death_container.visible:
 		return
-		
+
 	death_container.show()
 	death_message.text = DeathMessages.MESSAGES.pick_random()
 	remaining_respawn_time = respawn_seconds
@@ -36,6 +39,7 @@ func respawn(respawn_seconds: float):
 
 func change_skill_info(new_info: SkillInfo, slot: Skill.SkillSlot):
 	registered_skills[slot].create(new_info)
+
 
 func update_health(health: int):
 	health_bar.value = health
@@ -64,6 +68,7 @@ func toggle_skill(on: bool, slot: Skill.SkillSlot):
 	else:
 		registered_skills[slot].disable()
 
+
 func _physics_process(delta: float) -> void:
 	if remaining_respawn_time > 0.0:
 		remaining_respawn_time -= delta
@@ -71,6 +76,18 @@ func _physics_process(delta: float) -> void:
 		if remaining_respawn_time <= 0.0:
 			death_container.hide()
 
+
+func initialize_leaderboard():
+	print(Lobby.players)
+	for i in Lobby.players:
+		var player = Lobby.players[i]
+		var new_entry = Leaderboard.LeaderboardEntry.new()
+		new_entry.username = player.name
+		new_entry.survivor = player.survivor
+		new_entry.kills = player.kills
+		new_entry.deaths = player.deaths
+		leaderboard.entries.append(new_entry)
+		leaderboard.rebuild()
 #func enable_skill(slot: Skill.SkillSlot):
 #registered_skills[slot].enable()
 #print(slot)

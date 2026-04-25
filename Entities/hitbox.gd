@@ -9,7 +9,7 @@ func hit(attacker: Node3D, damage: int):
 	if health:
 		health.last_attacker = attacker
 		health.health -= damage
-		
+
 	var new_damage_text: Label3D = $BaseText.duplicate()
 	get_tree().root.add_child(new_damage_text)
 	new_damage_text.top_level = true

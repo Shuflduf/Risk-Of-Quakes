@@ -8,5 +8,7 @@ extends Node
 
 func _process(delta: float) -> void:
 	#weapon.transform = cam.transform.translated_local(offset)
-	weapon.position = weapon.position.lerp(cam.transform.translated_local(offset).origin, delta * 20.0)
+	weapon.position = weapon.position.lerp(
+		cam.transform.translated_local(offset).origin, delta * 20.0
+	)
 	weapon.rotation = weapon.rotation.lerp(cam.rotation, delta * 20.0)

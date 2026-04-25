@@ -8,10 +8,10 @@ extends Node
 @export var health: HealthSystem
 @export var hitbox: Area3D
 
+var is_dead = false
 
 @onready var player: CharacterBody3D = get_parent()
 
-var is_dead = false
 
 func _ready() -> void:
 	if !is_multiplayer_authority():
@@ -24,6 +24,7 @@ func _ready() -> void:
 		cam.current = true
 		#player.rotation.y = 0.0
 		hud.update_health(health.health)
+		hud.initialize_leaderboard()
 
 		for slot in skills.skill_list:
 			var target_skill: Skill = skills.skill_list[slot]
@@ -87,6 +88,7 @@ func _on_health_changed(new_health: int):
 	if new_health <= 0:
 		die.rpc()
 
+
 @rpc("any_peer", "call_local")
 func die():
 	hitbox.set_deferred(&"monitorable", false)
@@ -96,6 +98,7 @@ func die():
 	var killer_focus_system = cam_systems.get_node(^"KillerFocus")
 	killer_focus_system.killer = health.last_attacker
 	get_tree().create_timer(5.0).timeout.connect(respawn)
+
 
 @rpc("any_peer", "call_local")
 func respawn():
@@ -109,5 +112,3 @@ func respawn():
 	cam_systems.reset_all()
 	player.global_position = spawn_pos.position
 	player.global_rotation = spawn_pos.rotation
-	
-	
