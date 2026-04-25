@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://74qf12w4v0kl"]
 
 [ext_resource type="Script" uid="uid://segxv8kytfn5" path="res://UI/HUD/hud.gd" id="1_npsft"]
+[ext_resource type="Theme" uid="uid://dffesc1lpef65" path="res://Resources/main_theme.tres" id="1_qdh7y"]
 [ext_resource type="PackedScene" uid="uid://dikfcgyf224xy" path="res://UI/HUD/skill_ui.tscn" id="2_te8l2"]
 [ext_resource type="Texture2D" uid="uid://yp751p4hbjrl" path="res://Assets/References/ror2.png" id="2_xkess"]
 
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_qdh7y")
 script = ExtResource("1_npsft")
 skill_ui = ExtResource("2_te8l2")
 

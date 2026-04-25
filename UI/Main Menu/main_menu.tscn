@@ -30,19 +30,25 @@ grow_vertical = 2
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Connection" unique_id=1740701634]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 
 [node name="Host" type="Button" parent="Connection/VBoxContainer" unique_id=165552656]
 layout_mode = 2
 size_flags_vertical = 8
+theme_override_font_sizes/font_size = 0
 text = "Host"
 
 [node name="Connect" type="Button" parent="Connection/VBoxContainer" unique_id=1413944804]
 layout_mode = 2
 size_flags_vertical = 8
+theme_override_font_sizes/font_size = 0
 text = "Connect"
+
+[node name="HSeparator" type="HSeparator" parent="Connection/VBoxContainer" unique_id=1235516277]
+layout_mode = 2
+theme_override_constants/separation = 16
 
 [node name="Username" type="LineEdit" parent="Connection/VBoxContainer" unique_id=24275305]
 unique_name_in_owner = true

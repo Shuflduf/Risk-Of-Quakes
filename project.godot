@@ -24,6 +24,10 @@ config/icon="res://icon.svg"
 Utils="*uid://cx2gpis71ve34"
 Lobby="*uid://dljwe8wommn88"
 
+[display]
+
+window/stretch/scale=1.5
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/func_godot/plugin.cfg", "res://addons/godot_super-wakatime/plugin.cfg")

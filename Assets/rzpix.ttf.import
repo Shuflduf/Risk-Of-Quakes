@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/rzpix.ttf-0d9ba332638ede7361b0e39f478f7ad6.fo
 [params]
 
 Rendering=null
-antialiasing=1
+antialiasing=0
 generate_mipmaps=false
 disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
