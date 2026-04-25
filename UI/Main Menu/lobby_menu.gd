@@ -56,7 +56,6 @@ func update_players_list():
 
 func _on_disconnect_pressed() -> void:
 	Lobby.remove_multiplayer_peer()
-	go_back_to_connections()
 
 
 func go_back_to_connections():

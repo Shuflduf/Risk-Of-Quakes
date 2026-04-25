@@ -8,7 +8,8 @@ extends Control
 
 func _ready() -> void:
 	username.text = OS.get_cmdline_args()[2]
-
+	if Lobby.error_message:
+		error_label.text = Lobby.error_message
 
 func _on_host_pressed() -> void:
 	Lobby.player_info["name"] = username.text

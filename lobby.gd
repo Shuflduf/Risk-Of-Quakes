@@ -15,10 +15,13 @@ signal server_disconnected
 const PORT = 7000
 const DEFAULT_SERVER_IP = "127.0.0.1"  # IPv4 localhost
 const MAX_CONNECTIONS = 20
+const GAME_SCENE = "res://Game/game.tscn"
+const MAIN_MENU_SCENE = "res://UI/Main Menu/main_menu.tscn"
 
 # This will contain player info for every player,
 # with the keys being each player's unique IDs.
 var players = {}
+var error_message = ""
 
 # This is the local player info. This should be modified locally
 # before the connection is made. It will be passed to every other peer.
@@ -59,6 +62,8 @@ func create_game():
 func remove_multiplayer_peer():
 	multiplayer.multiplayer_peer = OfflineMultiplayerPeer.new()
 	players.clear()
+	error_message = "Disconnected from server."
+	get_tree().change_scene_to_file(MAIN_MENU_SCENE)
 
 
 # When the server decides to start the game from a UI scene,
@@ -108,9 +113,9 @@ func _on_connected_fail():
 
 
 func _on_server_disconnected():
-	remove_multiplayer_peer()
 	players.clear()
 	server_disconnected.emit()
+	remove_multiplayer_peer()
 
 
 @rpc("call_local")
@@ -130,7 +135,7 @@ func select_survivor(survivor: String):
 		)
 		if ready_players == players.size():
 			all_survivors_selected.emit()
-			load_game.rpc("res://Game/game.tscn")
+			load_game.rpc(GAME_SCENE)
 
 
 func sync_leaderboard():
