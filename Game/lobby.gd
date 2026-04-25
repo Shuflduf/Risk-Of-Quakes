@@ -91,7 +91,8 @@ func _on_player_connected(id):
 func _register_player(new_player_info, current_server_state: GameState):
 	var new_player_id = multiplayer.get_remote_sender_id()
 	players[new_player_id] = new_player_info
-	current_state = current_server_state
+	if not multiplayer.is_server():
+		current_state = current_server_state
 	player_connected.emit(new_player_id, new_player_info)
 
 
@@ -103,7 +104,7 @@ func _on_player_disconnected(id):
 func _on_connected_ok():
 	var peer_id = multiplayer.get_unique_id()
 	players[peer_id] = player_info
-	player_connected.emit(peer_id, player_info)
+	#player_connected.emit(peer_id, player_info)
 
 
 func _on_connected_fail():
