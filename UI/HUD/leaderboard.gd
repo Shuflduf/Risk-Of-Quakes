@@ -20,8 +20,6 @@ func rebuild():
 	for column in [username_container, survivor_container, kills_container, deaths_container]:
 		clear_column(column)
 	
-	if multiplayer.is_server():
-		print(entries.map(func(v): return v.deaths))
 	for data in data_columns:
 		populate_column(data)
 

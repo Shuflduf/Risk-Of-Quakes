@@ -17,6 +17,14 @@ var remaining_respawn_time = 0.0
 @onready var leaderboard: Leaderboard = %Leaderboard
 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed(&"show_leaderboard"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		leaderboard.show()
+	elif event.is_action_released(&"show_leaderboard"):
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		leaderboard.hide()
+
 func show_skill_info(skill_slot: Skill.SkillSlot):
 	var skill_info = registered_skills[skill_slot].active_skill_info
 	skill_info_container.show()
