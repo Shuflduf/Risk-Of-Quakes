@@ -18,6 +18,8 @@ func _ready() -> void:
 
 
 func _on_player_connected(_peer_id: int, _player_info: Dictionary):
+	show()
+	connection_panel.hide()
 	update_players_list()
 
 

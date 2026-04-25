@@ -29,6 +29,6 @@ func _on_connect_pressed() -> void:
 
 
 func transition_to_lobby():
-	connection.hide()
-	lobby_panel.show()
+	#connection.hide()
+	#lobby_panel.show()
 	%StartGame.visible = multiplayer.is_server()
