@@ -113,7 +113,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="HUD" parent="." index="8" unique_id=545074785 instance=ExtResource("10_aafxt")]
 
-[node name="PlayerController" type="Node" parent="." index="9" unique_id=884207362 node_paths=PackedStringArray("cam", "skills", "cam_systems", "hud", "skin", "health")]
+[node name="PlayerController" type="Node" parent="." index="9" unique_id=884207362 node_paths=PackedStringArray("cam", "skills", "cam_systems", "hud", "skin", "health", "hitbox")]
 script = ExtResource("12_yqxnw")
 cam = NodePath("../Camera")
 skills = NodePath("../SkillSystem")
@@ -121,6 +121,7 @@ cam_systems = NodePath("../CameraSystems")
 hud = NodePath("../HUD")
 skin = NodePath("../CommandoRig")
 health = NodePath("../Health")
+hitbox = NodePath("../Hitbox")
 
 [node name="Health" type="Node" parent="." index="10" unique_id=241449253]
 script = ExtResource("14_0q6xu")

@@ -6,6 +6,8 @@ extends Node
 @export var hud: Control
 @export var skin: Node3D
 @export var health: HealthSystem
+@export var hitbox: Area3D
+
 
 @onready var player: CharacterBody3D = get_parent()
 
@@ -87,15 +89,17 @@ func _on_health_changed(new_health: int):
 
 @rpc("any_peer", "call_local")
 func die():
+	hitbox.set_deferred(&"monitorable", false)
 	player.hide()
 	is_dead = true
-	get_tree().create_timer(5.0).timeout.connect(respawn)
 	hud.respawn(5.0)
 	var killer_focus_system = cam_systems.get_node(^"KillerFocus")
 	killer_focus_system.killer = health.last_attacker
+	get_tree().create_timer(5.0).timeout.connect(respawn)
 
 @rpc("any_peer", "call_local")
 func respawn():
+	hitbox.set_deferred(&"monitorable", true)
 	player.show()
 	is_dead = false
 	health.health = 100

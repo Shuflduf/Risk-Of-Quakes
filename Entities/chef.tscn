@@ -111,7 +111,7 @@ NodePath("LeftArm"): NodePath("Armature/Skeleton3D/shoulder_L_003/CleaverParent"
 
 [node name="HUD" parent="." index="8" unique_id=545074785 instance=ExtResource("7_uejro")]
 
-[node name="PlayerController" type="Node" parent="." index="9" unique_id=1287518945 node_paths=PackedStringArray("cam", "skills", "cam_systems", "hud", "skin", "health")]
+[node name="PlayerController" type="Node" parent="." index="9" unique_id=1287518945 node_paths=PackedStringArray("cam", "skills", "cam_systems", "hud", "skin", "health", "hitbox")]
 script = ExtResource("9_xc7ek")
 cam = NodePath("../Camera")
 skills = NodePath("../SkillSystem")
@@ -119,6 +119,7 @@ cam_systems = NodePath("../CameraSystems")
 hud = NodePath("../HUD")
 skin = NodePath("../ChefRig")
 health = NodePath("../Health")
+hitbox = NodePath("../Hitbox")
 
 [node name="Health" type="Node" parent="." index="10" unique_id=1876004003]
 script = ExtResource("13_uejro")
