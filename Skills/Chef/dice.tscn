@@ -4,16 +4,20 @@
 [ext_resource type="PackedScene" uid="uid://ddggysc5ffsoo" path="res://Skills/Chef/dice_projectile.tscn" id="2_chbxf"]
 [ext_resource type="Script" uid="uid://dfjixm86uiam3" path="res://Skills/follow_camera.gd" id="2_dgyjc"]
 [ext_resource type="Script" uid="uid://j2byq4temsrs" path="res://Classes/skill_info.gd" id="2_jmdqv"]
+[ext_resource type="Texture2D" uid="uid://bewct3isqubvx" path="res://Assets/Icons/chef_dice_boosted.png" id="2_pf2qc"]
+[ext_resource type="Texture2D" uid="uid://hsfh717pwopb" path="res://Assets/Icons/chef_dice.png" id="4_gikgv"]
 [ext_resource type="PackedScene" uid="uid://cdkf0ys4ox4lr" path="res://Characters/cleaver.tscn" id="5_chbxf"]
 
 [sub_resource type="Resource" id="Resource_chbxf"]
 script = ExtResource("2_jmdqv")
 skill_name = "Dice"
 cooldown = 0.5
+img = ExtResource("4_gikgv")
 metadata/_custom_type_script = "uid://j2byq4temsrs"
 
 [node name="Dice" type="Node3D" unique_id=479791051]
 script = ExtResource("1_dgyjc")
+alternate_icon = ExtResource("2_pf2qc")
 projectile = ExtResource("2_chbxf")
 info = SubResource("Resource_chbxf")
 

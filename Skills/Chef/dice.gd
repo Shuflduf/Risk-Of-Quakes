@@ -6,6 +6,7 @@ signal used(caught: bool, boosted: bool, can_shoot_more: bool)
 const BOOST_CLEAVERS = 48
 const BOOST_CLEAVERS_PER_ROW = 16
 
+@export var alternate_icon: Texture2D
 @export var projectile: PackedScene
 @export var throw_dist = 10.0
 @export var cleaver_count = 3

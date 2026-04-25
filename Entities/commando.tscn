@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://cb1ih1mfditg1" path="res://Camera/killer_focus.gd" id="5_ve738"]
 [ext_resource type="PackedScene" uid="uid://bqn60kr4ecdy6" path="res://Skills/Commando/phase_round.tscn" id="6_ve738"]
 [ext_resource type="PackedScene" uid="uid://c2pbtdi5r7367" path="res://Skills/Commando/tactical_slide.tscn" id="7_6v6c3"]
-[ext_resource type="PackedScene" uid="uid://bnhkfym5al36a" path="res://Skills/Commando/grenade_skill.tscn" id="8_uq5ye"]
+[ext_resource type="PackedScene" uid="uid://bnhkfym5al36a" path="res://Skills/Commando/frag_grenade_skill.tscn" id="8_uq5ye"]
 [ext_resource type="PackedScene" uid="uid://dlbv8hoavv3lp" path="res://Characters/commando_rig.tscn" id="9_gkpk8"]
 [ext_resource type="PackedScene" uid="uid://74qf12w4v0kl" path="res://UI/HUD/hud.tscn" id="10_aafxt"]
 [ext_resource type="Script" uid="uid://c7k0xr8eeyt5a" path="res://Camera/camera_system.gd" id="10_ns4yp"]

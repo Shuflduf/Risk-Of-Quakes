@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://gjm4w5a4qsec" path="res://Skills/Commando/tactical_slide.gd" id="1_b7xyd"]
 [ext_resource type="Script" uid="uid://j2byq4temsrs" path="res://Classes/skill_info.gd" id="2_2wfe4"]
+[ext_resource type="Texture2D" uid="uid://byj6r81eq66wn" path="res://Assets/Icons/commando_tactical_slide.png" id="2_sfp1g"]
 
 [sub_resource type="Curve" id="Curve_b7xyd"]
 _limits = [-2.0, 0.0, 0.0, 0.5]
@@ -12,6 +13,7 @@ point_count = 4
 script = ExtResource("2_2wfe4")
 skill_name = "Tactical Slide"
 cooldown = 4.0
+img = ExtResource("2_sfp1g")
 description = "mmnm big jump"
 metadata/_custom_type_script = "uid://j2byq4temsrs"
 

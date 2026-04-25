@@ -3,6 +3,7 @@ extends Skill
 signal revert_abilities
 signal used(activated: bool, boosted: bool)
 
+@export var alternate_icon: Texture2D
 @export var damage_freqency = 0.1
 
 var cooldown = 0.0

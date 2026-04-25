@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d1k5aq2qsihu1"]
 
 [ext_resource type="Script" uid="uid://cr8fqcdpni5fm" path="res://Skills/Commando/double_tap.gd" id="1_ryp3h"]
+[ext_resource type="Texture2D" uid="uid://bmkjovljf28gc" path="res://Assets/Icons/commando_double_tap.png" id="2_7wb11"]
 [ext_resource type="PackedScene" uid="uid://ctmmjss35lk0u" path="res://Assets/3D/gun.glb" id="2_8jxxv"]
 [ext_resource type="Script" uid="uid://j2byq4temsrs" path="res://Classes/skill_info.gd" id="2_58ufm"]
 [ext_resource type="Script" uid="uid://dfjixm86uiam3" path="res://Skills/follow_camera.gd" id="3_ms0oe"]
@@ -9,6 +10,7 @@
 script = ExtResource("2_58ufm")
 skill_name = "Double Tap"
 cooldown = 0.3
+img = ExtResource("2_7wb11")
 description = "gun"
 metadata/_custom_type_script = "uid://j2byq4temsrs"
 

@@ -2,7 +2,6 @@ extends Skill
 
 signal used
 
-@export var skill_name: String
 @export var nade_scene: PackedScene
 
 var cooldown = 0.0

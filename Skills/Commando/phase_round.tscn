@@ -3,11 +3,13 @@
 [ext_resource type="Script" uid="uid://cqfn3xa7prlil" path="res://Skills/Commando/phase_round.gd" id="1_scfu1"]
 [ext_resource type="PackedScene" uid="uid://dv0nhmu74dx4x" path="res://Skills/Commando/phase_round_projectile.tscn" id="2_ms6ia"]
 [ext_resource type="Script" uid="uid://j2byq4temsrs" path="res://Classes/skill_info.gd" id="3_n0vt0"]
+[ext_resource type="Texture2D" uid="uid://isefdckcctq5" path="res://Assets/Icons/commando_phase_round.png" id="3_te262"]
 
 [sub_resource type="Resource" id="Resource_te262"]
 script = ExtResource("3_n0vt0")
 skill_name = "Phase Round"
 cooldown = 4.0
+img = ExtResource("3_te262")
 description = "big gun"
 metadata/_custom_type_script = "uid://j2byq4temsrs"
 

@@ -5,11 +5,14 @@ var enabled = true
 @onready var timer: Timer = $Timer
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var countdown: Label = $Countdown
+@onready var skill_icon: TextureRect = $SkillIcon
 
 
 func create(info: SkillInfo):
 	tooltip_text = info.skill_name
 	timer.wait_time = info.cooldown
+	if info.img:
+		skill_icon.texture = info.img
 
 
 func _process(_delta: float) -> void:

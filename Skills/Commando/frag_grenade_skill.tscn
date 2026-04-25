@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bnhkfym5al36a"]
+
+[ext_resource type="Script" uid="uid://ct8ob7jk4oixa" path="res://Skills/Commando/frag_grenade_skill.gd" id="1_7u305"]
+[ext_resource type="PackedScene" uid="uid://cobplceq36dyx" path="res://Skills/Commando/frag_grenade_projectile.tscn" id="2_4aovt"]
+[ext_resource type="Texture2D" uid="uid://b2re8fu7efhlv" path="res://Assets/Icons/commando_frag_grenade.png" id="3_4aovt"]
+[ext_resource type="Script" uid="uid://j2byq4temsrs" path="res://Classes/skill_info.gd" id="3_jkhal"]
+
+[sub_resource type="Resource" id="Resource_qm2jv"]
+script = ExtResource("3_jkhal")
+skill_name = "Frag Grenade"
+cooldown = 6.0
+img = ExtResource("3_4aovt")
+description = "bomb"
+metadata/_custom_type_script = "uid://j2byq4temsrs"
+
+[node name="FragGrenadeSkill" type="Node" unique_id=701401869]
+script = ExtResource("1_7u305")
+nade_scene = ExtResource("2_4aovt")
+info = SubResource("Resource_qm2jv")

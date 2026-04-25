@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://dxsg7shu4na16"]
 
 [ext_resource type="Script" uid="uid://2bccfeye6lx3" path="res://Skills/Chef/yes_chef.gd" id="1_ijjir"]
+[ext_resource type="Texture2D" uid="uid://c136w4xx13yg" path="res://Assets/Icons/chef_yes_chef.png" id="2_moxnh"]
 [ext_resource type="Script" uid="uid://j2byq4temsrs" path="res://Classes/skill_info.gd" id="2_swmme"]
 
 [sub_resource type="Resource" id="Resource_moxnh"]
 script = ExtResource("2_swmme")
 skill_name = "Yes CHEF!"
 cooldown = 5.0
+img = ExtResource("2_moxnh")
 metadata/_custom_type_script = "uid://j2byq4temsrs"
 
 [node name="YesChef" type="Node" unique_id=531542428]

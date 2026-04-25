@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cobplceq36dyx"]
 
-[ext_resource type="Script" uid="uid://f0vf0t1sftbm" path="res://Skills/Commando/grenade_projectile.gd" id="1_5m32m"]
+[ext_resource type="Script" uid="uid://f0vf0t1sftbm" path="res://Skills/Commando/frag_grenade_projectile.gd" id="1_5m32m"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3qp86"]
 bounce = 0.7
