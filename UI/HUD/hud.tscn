@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://dikfcgyf224xy" path="res://UI/HUD/skill_ui.tscn" id="2_te8l2"]
 [ext_resource type="Texture2D" uid="uid://yp751p4hbjrl" path="res://Assets/References/ror2.png" id="2_xkess"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdh7y"]
+bg_color = Color(0.12156863, 0.12156863, 0.1764706, 1)
+
 [node name="HUD" type="Control" unique_id=545074785]
 layout_mode = 3
 anchors_preset = 15
@@ -56,6 +59,40 @@ theme_override_constants/margin_bottom = 20
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1259194744]
 layout_mode = 2
 size_flags_vertical = 8
+
+[node name="SkillInfoContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer" unique_id=1540479242]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_qdh7y")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/SkillInfoContainer" unique_id=252954698]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/SkillInfoContainer/MarginContainer" unique_id=82988885]
+layout_mode = 2
+
+[node name="SkillTitle" type="Label" parent="MarginContainer/VBoxContainer/SkillInfoContainer/MarginContainer/VBoxContainer" unique_id=517035349]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Double Tap"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/SkillInfoContainer/MarginContainer/VBoxContainer" unique_id=2048679374]
+layout_mode = 2
+
+[node name="SkillDescription" type="Label" parent="MarginContainer/VBoxContainer/SkillInfoContainer/MarginContainer/VBoxContainer" unique_id=42433014]
+unique_name_in_owner = true
+layout_mode = 2
+text = "ajkdsf"
+horizontal_alignment = 1
 
 [node name="SkillsContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1157584868]
 unique_name_in_owner = true
