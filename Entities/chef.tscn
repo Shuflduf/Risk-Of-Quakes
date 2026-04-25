@@ -37,13 +37,11 @@ script = ExtResource("2_k64cb")
 player = NodePath("..")
 cam = NodePath("../Camera")
 
-[node name="Mouse" type="Node" parent="CameraSystems" index="0" unique_id=1697354133 node_paths=PackedStringArray("player")]
+[node name="Mouse" type="Node" parent="CameraSystems" index="0" unique_id=1697354133]
 script = ExtResource("3_sodo0")
-player = NodePath("../..")
 
-[node name="KillerFocus" type="Node" parent="CameraSystems" index="1" unique_id=2106884318 node_paths=PackedStringArray("player")]
+[node name="KillerFocus" type="Node" parent="CameraSystems" index="1" unique_id=2106884318]
 script = ExtResource("4_6a2is")
-player = NodePath("../..")
 
 [node name="SkillSystem" parent="." index="5" unique_id=1590952291 node_paths=PackedStringArray("cam", "cam_systems", "skill_list", "player") instance=ExtResource("5_w7d7t")]
 cam = NodePath("../Camera")

@@ -72,11 +72,12 @@ func _physics_process(delta: float) -> void:
 					continue
 
 				hitbox.hit(player, 6)
-				var target_player = hitbox.player_owner
-				var target_speed = target_player.velocity.length()
-				var very_fast = target_speed > 10.0
-				var speed_mult = 0.5 if very_fast else 0.9
-				target_player.velocity *= speed_mult
+				var target_player: Node3D = hitbox.player_owner
+				if target_player is CharacterBody3D:
+					var target_speed = target_player.velocity.length()
+					var very_fast = target_speed > 10.0
+					var speed_mult = 0.5 if very_fast else 0.9
+					target_player.velocity *= speed_mult
 
 				boost_damage_cooldown = boost_damage_frequency
 
