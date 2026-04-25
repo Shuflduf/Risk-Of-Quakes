@@ -6,7 +6,7 @@ extends Node3D
 func start_game():
 	for peer_id in Lobby.players:
 		var survivor = Lobby.players[peer_id]["survivor"]
-		var spawn_pos = get_tree().get_nodes_in_group(&"Spawn Point").pick_random().position
+		var spawn_pos = get_tree().get_nodes_in_group(&"Spawn Point").pick_random()
 		spawn_player(survivor, peer_id, spawn_pos)
 
 
@@ -18,9 +18,10 @@ func _ready() -> void:
 
 
 #@rpc("any_peer", "call_local")
-func spawn_player(survivor: String, peer_id: int, spawn_pos: Vector3):
+func spawn_player(survivor: String, peer_id: int, spawn_pos: Node3D):
 	var new_player = survivors[survivor].instantiate()
-	new_player.position = spawn_pos
+	new_player.position = spawn_pos.position
+	new_player.rotation = spawn_pos.rotation
 	new_player.set_multiplayer_authority(peer_id)
 	new_player.name = "player_%d" % peer_id
 	add_child(new_player)

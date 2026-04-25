@@ -20,7 +20,7 @@ func _ready() -> void:
 		hud.hide()
 	else:
 		cam.current = true
-		player.rotation.y = 0.0
+		#player.rotation.y = 0.0
 		hud.update_health(health.health)
 
 		for slot in skills.skill_list:
@@ -86,7 +86,8 @@ func _on_health_changed(new_health: int):
 func die():
 	player.hide()
 	is_dead = true
-	get_tree().create_timer(2.0).timeout.connect(respawn)
+	get_tree().create_timer(5.0).timeout.connect(respawn)
+	hud.respawn(5.0)
 	var killer_focus_system = cam_systems.get_node(^"KillerFocus")
 	killer_focus_system.killer = health.last_attacker
 
@@ -97,7 +98,9 @@ func respawn():
 	health.health = 100
 	var killer_focus_system = cam_systems.get_node(^"KillerFocus")
 	killer_focus_system.killer = null
-	var spawn_pos = get_tree().get_nodes_in_group(&"Spawn Point").pick_random().position
-	player.global_position = spawn_pos
+	var spawn_pos = get_tree().get_nodes_in_group(&"Spawn Point").pick_random()
 	cam_systems.reset_all()
+	player.global_position = spawn_pos.position
+	player.global_rotation = spawn_pos.rotation
+	
 	
