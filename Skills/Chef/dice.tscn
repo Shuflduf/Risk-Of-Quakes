@@ -13,11 +13,14 @@ script = ExtResource("2_jmdqv")
 skill_name = "Dice"
 cooldown = 0.5
 icon = ExtResource("4_gikgv")
+description = "Throw a piercing cleaver for [b]5[/b] damage.
+Holding the attack key [i]suspends[/i] any cleavers, dealing [b]3[/b] damage periodically, and doubling damage on the way back."
 metadata/_custom_type_script = "uid://j2byq4temsrs"
 
 [node name="Dice" type="Node3D" unique_id=479791051]
 script = ExtResource("1_dgyjc")
 alternate_icon = ExtResource("2_pf2qc")
+alternate_description = "[i][b]Throw cleavers in all directions.[/b][/i]"
 projectile = ExtResource("2_chbxf")
 info = SubResource("Resource_chbxf")
 

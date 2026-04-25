@@ -24,15 +24,15 @@ func _ready() -> void:
 		hud.update_health(health.health)
 
 		for slot in skills.skill_list:
-			var target_skill = skills.skill_list[slot]
+			var target_skill: Skill = skills.skill_list[slot]
 			hud.add_skill(target_skill.info, slot)
 			hud.toggle_skill(target_skill.enabled, slot)
 			target_skill.cooldown_started.connect(func(): hud.skill_used(slot))
 			target_skill.enabled_changed.connect(
 				func(): hud.toggle_skill(target_skill.enabled, slot)
 			)
-			target_skill.icon_changed.connect(
-				func(new_icon): hud.change_icon(new_icon, slot)
+			target_skill.skill_info_changed.connect(
+				func(new_info): hud.change_skill_info(new_info, slot)
 			)
 		health.health_changed.connect(hud.update_health)
 		health.health_changed.connect(_on_health_changed)

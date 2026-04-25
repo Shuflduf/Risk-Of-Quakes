@@ -18,7 +18,10 @@ func start():
 
 	for skill in boostable_skills:
 		skill.boosted = true
-		skill.icon_changed.emit(skill.alternate_icon)
+		var new_skill_info = skill.info.duplicate()
+		new_skill_info.icon = skill.alternate_icon
+		new_skill_info.description = skill.alternate_description
+		skill.skill_info_changed.emit(new_skill_info)
 
 	cooldown = INF
 
@@ -32,7 +35,7 @@ func disable_funnies():
 	cooldown = info.cooldown
 	for skill in boostable_skills:
 		skill.boosted = false
-		skill.icon_changed.emit(skill.info.icon)
+		skill.skill_info_changed.emit(skill.info)
 
 
 func _physics_process(delta: float) -> void:

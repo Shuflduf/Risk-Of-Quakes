@@ -3,6 +3,7 @@ extends Control
 @export var skill_ui: PackedScene
 
 var registered_skills: Dictionary[Skill.SkillSlot, Node]
+var remaining_respawn_time = 0.0
 
 @onready var skills_container: HBoxContainer = %SkillsContainer
 @onready var health_bar: ProgressBar = %HealthBar
@@ -14,10 +15,9 @@ var registered_skills: Dictionary[Skill.SkillSlot, Node]
 @onready var skill_title: Label = %SkillTitle
 @onready var skill_description: RichTextLabel = %SkillDescription
 
-var remaining_respawn_time = 0.0
 
-func show_skill_info(skill_info: SkillInfo):
-	print(skill_info.skill_name)
+func show_skill_info(skill_slot: Skill.SkillSlot):
+	var skill_info = registered_skills[skill_slot].active_skill_info
 	skill_info_container.show()
 	skill_title.text = skill_info.skill_name
 	skill_description.text = skill_info.description
@@ -34,8 +34,8 @@ func respawn(respawn_seconds: float):
 	remaining_respawn_time = respawn_seconds
 
 
-func change_icon(new_icon: Texture2D, slot: Skill.SkillSlot):
-	registered_skills[slot].change_icon(new_icon)
+func change_skill_info(new_info: SkillInfo, slot: Skill.SkillSlot):
+	registered_skills[slot].create(new_info)
 
 func update_health(health: int):
 	health_bar.value = health
@@ -47,7 +47,7 @@ func add_skill(skill_info: SkillInfo, slot: Skill.SkillSlot):
 	skills_container.add_child(new_skill_ui)
 	registered_skills[slot] = new_skill_ui
 	new_skill_ui.create(skill_info)
-	new_skill_ui.mouse_entered.connect(show_skill_info.bind(skill_info))
+	new_skill_ui.mouse_entered.connect(show_skill_info.bind(slot))
 	new_skill_ui.mouse_exited.connect(hide_skill_info)
 
 	#prints(skill_info.skill_name, slot)

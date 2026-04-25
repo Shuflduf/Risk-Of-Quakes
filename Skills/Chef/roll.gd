@@ -4,6 +4,7 @@ signal revert_abilities
 signal used
 
 @export var alternate_icon: Texture2D
+@export_multiline var alternate_description: String
 @export var skill_duration = 2.0
 @export var jump_height = 8.0
 @export var knockback_strength = 10.0

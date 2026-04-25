@@ -10,7 +10,7 @@ signal enabled_changed
 signal cooldown_started
 
 @warning_ignore("unused_signal")
-signal icon_changed(new_icon: Texture2D)
+signal skill_info_changed(new_info: SkillInfo)
 
 enum SkillSlot {
 	PRIMARY,

@@ -7,6 +7,7 @@ const BOOST_CLEAVERS = 48
 const BOOST_CLEAVERS_PER_ROW = 16
 
 @export var alternate_icon: Texture2D
+@export_multiline var alternate_description: String
 @export var projectile: PackedScene
 @export var throw_dist = 10.0
 @export var cleaver_count = 3

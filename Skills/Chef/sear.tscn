@@ -11,6 +11,7 @@ script = ExtResource("2_0j1if")
 skill_name = "Sear"
 cooldown = 4.0
 icon = ExtResource("3_ba8l5")
+description = "Scorch enemies in front of you for [b]2[/b] damage every [b]0.1[/b] seconds."
 metadata/_custom_type_script = "uid://j2byq4temsrs"
 
 [sub_resource type="Gradient" id="Gradient_tsylo"]
@@ -90,6 +91,7 @@ radius = 2.1000001
 [node name="Sear" type="Node3D" unique_id=1468404354]
 script = ExtResource("1_tsylo")
 alternate_icon = ExtResource("2_xnxn5")
+alternate_description = "Scorch enemies [i]further[/i] in front of you for [b]4[/b] damage every [b]0.1[/b] seconds."
 info = SubResource("Resource_5itwv")
 
 [node name="Particles" type="GPUParticles3D" parent="." unique_id=1882408000]

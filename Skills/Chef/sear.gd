@@ -4,7 +4,11 @@ signal revert_abilities
 signal used(activated: bool, boosted: bool)
 
 @export var alternate_icon: Texture2D
+@export_multiline var alternate_description: String
 @export var damage_freqency = 0.1
+@export var base_damage = 2
+@export var boost_damage = 4
+
 
 var cooldown = 0.0
 var damage_cooldown = 0.0
@@ -45,7 +49,7 @@ func _physics_process(delta: float) -> void:
 	damage_cooldown -= delta
 	if active and damage_cooldown < 0.0:
 		var target_hurtbox = boost_hurtbox if boost_active else hurtbox
-		var damage = 5 if boost_active else 2
+		var damage = boost_damage if boost_active else base_damage
 		for hitbox in target_hurtbox.get_overlapping_areas():
 			if hitbox.player_owner != player:
 				hitbox.hit(player, damage)

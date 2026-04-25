@@ -1,14 +1,15 @@
 extends Control
 
 var enabled = true
+var active_skill_info: SkillInfo
 
 @onready var timer: Timer = $Timer
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var countdown: Label = $Countdown
 @onready var skill_icon: TextureRect = $SkillIcon
 
-
 func create(info: SkillInfo):
+	active_skill_info = info
 	tooltip_text = info.skill_name
 	timer.wait_time = info.cooldown
 	if info.icon:
@@ -38,8 +39,3 @@ func enable():
 	enabled = true
 	# could be a very bad idea
 	timer.stop()
-
-
-func change_icon(new_icon: Texture2D):
-	if new_icon:
-		skill_icon.texture = new_icon
