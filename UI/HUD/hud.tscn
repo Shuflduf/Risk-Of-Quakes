@@ -8,6 +8,12 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdh7y"]
 bg_color = Color(0.12156863, 0.12156863, 0.1764706, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_radol"]
+bg_color = Color(0.23137255, 0.20784314, 0.25882354, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dhie7"]
+bg_color = Color(0.5254902, 0.8156863, 0.4, 1)
+
 [node name="HUD" type="Control" unique_id=545074785]
 layout_mode = 3
 anchors_preset = 15
@@ -115,6 +121,8 @@ custom_minimum_size = Vector2(400, 30)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
+theme_override_styles/background = SubResource("StyleBoxFlat_radol")
+theme_override_styles/fill = SubResource("StyleBoxFlat_dhie7")
 step = 1.0
 value = 22.0
 show_percentage = false

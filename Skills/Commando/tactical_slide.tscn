@@ -15,7 +15,7 @@ skill_name = "Tactical Slide"
 cooldown = 4.0
 icon = ExtResource("2_sfp1g")
 description = "Slide on the ground for a short distance, giving a large speed boost.
-If used in the air, it adds extra vertical momentum depending on the current speed."
+If used in the air, it adds extra vertical momentum depending on the current speed and [i]redirects your momentum[/i]."
 metadata/_custom_type_script = "uid://j2byq4temsrs"
 
 [node name="TacticalSlide" type="Node" unique_id=1071647213]
