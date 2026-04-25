@@ -5,6 +5,7 @@ extends Node
 signal survivor_selection_started
 signal player_survivor_selected(peer_id: int, survivor: String)
 signal all_survivors_selected
+signal leaderboard_updated
 
 # These signals can be connected to by a UI lobby scene or the game scene.
 signal player_connected(peer_id: int, player_info: Dictionary)
@@ -130,6 +131,10 @@ func select_survivor(survivor: String):
 		if ready_players == players.size():
 			all_survivors_selected.emit()
 			load_game.rpc("res://Game/game.tscn")
+
+
+func sync_leaderboard():
+	leaderboard_updated.emit()
 
 #@rpc("call_local")
 #func start_game():

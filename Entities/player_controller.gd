@@ -24,7 +24,8 @@ func _ready() -> void:
 		cam.current = true
 		#player.rotation.y = 0.0
 		hud.update_health(health.health)
-		hud.initialize_leaderboard()
+		hud.reconstruct_leaderboard()
+		Lobby.leaderboard_updated.connect(hud.reconstruct_leaderboard)
 
 		for slot in skills.skill_list:
 			var target_skill: Skill = skills.skill_list[slot]
@@ -91,10 +92,17 @@ func _on_health_changed(new_health: int):
 
 @rpc("any_peer", "call_local")
 func die():
+	if is_dead:
+		return
+	
 	hitbox.set_deferred(&"monitorable", false)
 	player.hide()
 	is_dead = true
 	hud.respawn(5.0)
+	prints(multiplayer.get_unique_id(), multiplayer.get_remote_sender_id())
+	var multiplayer_data = Lobby.players[multiplayer.get_remote_sender_id()]
+	multiplayer_data.deaths += 1
+	Lobby.sync_leaderboard()
 	var killer_focus_system = cam_systems.get_node(^"KillerFocus")
 	killer_focus_system.killer = health.last_attacker
 	get_tree().create_timer(5.0).timeout.connect(respawn)
