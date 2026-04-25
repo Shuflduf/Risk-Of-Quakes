@@ -4,7 +4,11 @@
 [ext_resource type="Theme" uid="uid://dffesc1lpef65" path="res://Resources/main_theme.tres" id="1_vq10u"]
 [ext_resource type="Script" uid="uid://do47qleu3ylvd" path="res://UI/Main Menu/lobby_menu.gd" id="2_v04x6"]
 [ext_resource type="Script" uid="uid://bh40x3odvnh64" path="res://UI/Main Menu/survivor_list.gd" id="3_jri5q"]
+[ext_resource type="Texture2D" uid="uid://dc67fjf08uguv" path="res://Assets/logo.png" id="3_k0v0h"]
 [ext_resource type="PackedScene" uid="uid://vupdm4e1fa0d" path="res://UI/Main Menu/menu_player_name.tscn" id="3_mqkp3"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_k0v0h"]
+color = Color(0, 0, 0, 0)
 
 [node name="MainMenu" type="Control" unique_id=1731227302]
 layout_mode = 3
@@ -15,6 +19,15 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_vq10u")
 script = ExtResource("1_3g31d")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1247649051]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12156863, 0.12156863, 0.1764706, 1)
 
 [node name="Connection" type="VBoxContainer" parent="." unique_id=2010914824]
 unique_name_in_owner = true
@@ -28,6 +41,17 @@ offset_right = 43.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Connection" unique_id=1032384387]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+texture = ExtResource("3_k0v0h")
+expand_mode = 3
+
+[node name="HSeparator" type="HSeparator" parent="Connection" unique_id=963563192]
+layout_mode = 2
+theme_override_constants/separation = 64
+theme_override_styles/separator = SubResource("StyleBoxLine_k0v0h")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Connection" unique_id=1740701634]
 custom_minimum_size = Vector2(300, 0)

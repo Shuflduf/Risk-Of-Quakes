@@ -47,6 +47,10 @@ shadow_size = 1
 shadow_offset = Vector2(0, 1)
 anti_aliasing = false
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_rpoj5"]
+color = Color(0.23529412, 0.20784314, 0.34117648, 1)
+thickness = 2
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jgrfi"]
 bg_color = Color(0.24313726, 0.28235295, 0.3529412, 1)
 border_width_left = 2
@@ -88,6 +92,7 @@ Button/fonts/font = ExtResource("1_rpoj5")
 Button/styles/hover = SubResource("StyleBoxFlat_7ygoy")
 Button/styles/normal = SubResource("StyleBoxFlat_rpoj5")
 Button/styles/pressed = SubResource("StyleBoxFlat_b4loo")
+HSeparator/styles/separator = SubResource("StyleBoxLine_rpoj5")
 Label/fonts/font = ExtResource("1_rpoj5")
 LineEdit/fonts/font = ExtResource("1_rpoj5")
 LineEdit/styles/focus = SubResource("StyleBoxFlat_jgrfi")
