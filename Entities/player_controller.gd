@@ -24,7 +24,7 @@ func _ready() -> void:
 		cam.current = true
 		cam.fov = Settings.fov
 		#player.rotation.y = 0.0
-		hud.disconnected.connect(disconnect_player)
+		hud.disconnected.connect(disconnect_player.rpc)
 		hud.update_health(health.health)
 		hud.reconstruct_leaderboard()
 		Lobby.leaderboard_updated.connect(hud.reconstruct_leaderboard)
@@ -127,6 +127,10 @@ func respawn():
 	player.global_position = spawn_pos.position
 	player.global_rotation = spawn_pos.rotation
 
+@rpc("any_peer", "call_local")
 func disconnect_player():
-	Lobby.remove_multiplayer_peer()
+	if multiplayer.get_unique_id() == multiplayer.get_remote_sender_id():
+		Lobby.remove_multiplayer_peer()
+	else:
+		player.queue_free()
 	

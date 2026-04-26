@@ -30,6 +30,9 @@ func stay():
 
 func _physics_process(delta: float) -> void:
 	rotation.y += delta * 30.0
+	if !go_back_target:
+		queue_free()
+		return
 
 	match state:
 		State.GOING:
