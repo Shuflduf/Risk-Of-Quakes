@@ -14,9 +14,12 @@ const FRICTION = 4.0
 var wish_jump = false
 var wish_dir = Vector3.ZERO
 var jump_enabled = true
-
+var movement_enabled = true
 
 func _physics_process(delta: float) -> void:
+	if not movement_enabled:
+		return
+	
 	_process_movement(delta)
 	move_and_slide()
 

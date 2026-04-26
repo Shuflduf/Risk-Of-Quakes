@@ -19,6 +19,7 @@ shader_parameter/layers_count = 3
 
 [sub_resource type="Sky" id="Sky_tlwt5"]
 sky_material = SubResource("ShaderMaterial_ho6sb")
+process_mode = 2
 
 [sub_resource type="Environment" id="Environment_aqk2v"]
 background_mode = 2

@@ -1,10 +1,11 @@
-[gd_scene format=4 uid="uid://buk14403t3i1d"]
+[gd_scene format=4 uid="uid://cr8nrxje4yqqv"]
 
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_10ttv"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_f61i7"]
 [ext_resource type="Material" uid="uid://drl6isxu402wt" path="res://Maps/Textures/Light/texture_01.tres" id="3_jbuiv"]
 [ext_resource type="Material" uid="uid://cfpktuk3b33ko" path="res://Maps/Textures/Orange/texture_08.tres" id="4_erulm"]
 [ext_resource type="Material" uid="uid://cesxd8focfw5m" path="res://Maps/Textures/Dark/texture_07.tres" id="5_erulm"]
+[ext_resource type="Script" uid="uid://d8sw7e4isptl" path="res://Maps/kill_bounds.gd" id="6_basas"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_erulm"]
 _surfaces = [{
@@ -183,6 +184,9 @@ points = PackedVector3Array(10, 7, -4, 10, 6, -4, -1, 7, -4, -1, 6, -4, 10, 7, -
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ixvey"]
 points = PackedVector3Array(5, 7, 13, 5, 6, 13, -1, 7, 13, -1, 6, 13, 5, 7, -4, 5, 6, -4, -1, 7, -4, -1, 6, -4)
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_erulm"]
+plane = Plane(0, 1, 0, -8)
+
 [node name="Bulwarks" type="Node3D" unique_id=562382884]
 script = ExtResource("1_10ttv")
 local_map_file = "uid://8f6o5xnlwj6y"
@@ -332,3 +336,14 @@ shape = SubResource("ConvexPolygonShape3D_v46pd")
 
 [node name="entity_0_brush_45_collision_shape" type="CollisionShape3D" parent="entity_0_worldspawn" unique_id=449375164]
 shape = SubResource("ConvexPolygonShape3D_ixvey")
+
+[node name="KillBounds" type="Area3D" parent="." unique_id=1737985987]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource("6_basas")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KillBounds" unique_id=946532319]
+shape = SubResource("WorldBoundaryShape3D_erulm")
+
+[connection signal="area_entered" from="KillBounds" to="KillBounds" method="_on_area_entered"]
