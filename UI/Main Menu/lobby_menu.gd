@@ -55,9 +55,9 @@ func _on_survivor_selected(survivor: String):
 	if Lobby.current_state == Lobby.GameState.CHOOSING_SURVIVORS:
 		Lobby.select_survivor.rpc(survivor)
 	#elif Lobby.current_state == Lobby.GameState.IN_GAME:
-		#Lobby.error_message = "Game in progress."
-		#Lobby.remove_multiplayer_peer()
-		#go_back_to_connections()
+	#Lobby.error_message = "Game in progress."
+	#Lobby.remove_multiplayer_peer()
+	#go_back_to_connections()
 
 
 func update_players_list():

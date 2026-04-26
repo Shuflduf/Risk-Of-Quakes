@@ -5,10 +5,9 @@ signal screen_move(dist: Vector2)
 const MOUSE_SENS_MULTIPLIER = 0.002
 
 @export var third_person: bool
-@export var mouse_sens = 0.5
 @export var third_person_pos: Marker3D
 
-var actual_mouse_sens = MOUSE_SENS_MULTIPLIER * mouse_sens
+#var actual_mouse_sens = MOUSE_SENS_MULTIPLIER * mouse_sens
 
 #func _ready() -> void:
 #if is_multiplayer_authority():
@@ -33,7 +32,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED
 		and is_multiplayer_authority()
 	):
-		var mouse_movement = -event.screen_relative * actual_mouse_sens
+		var mouse_movement = -event.screen_relative * Settings.sensitivity * MOUSE_SENS_MULTIPLIER
 		manager.player.rotation.y += mouse_movement.x
 		rotation_offset.x += mouse_movement.y
 		rotation_offset.x = clamp(rotation_offset.x, -PI / 2.0, PI / 2.0)

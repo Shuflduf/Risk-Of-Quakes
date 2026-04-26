@@ -22,10 +22,13 @@ func _ready() -> void:
 		hud.hide()
 	else:
 		cam.current = true
+		cam.fov = Settings.fov
 		#player.rotation.y = 0.0
 		hud.update_health(health.health)
 		hud.reconstruct_leaderboard()
 		Lobby.leaderboard_updated.connect(hud.reconstruct_leaderboard)
+		
+		Settings.fov_updated.connect(func(new_fov: float): cam.fov = new_fov)
 
 		for slot in skills.skill_list:
 			var target_skill: Skill = skills.skill_list[slot]

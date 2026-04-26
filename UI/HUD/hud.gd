@@ -25,9 +25,10 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_released(&"show_leaderboard"):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		leaderboard.hide()
-	
+
 	if event.is_action_pressed(&"pause"):
 		pause_screen.visible = not pause_screen.visible
+
 
 func show_skill_info(skill_slot: Skill.SkillSlot):
 	var skill_info = registered_skills[skill_slot].active_skill_info
