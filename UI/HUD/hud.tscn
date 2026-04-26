@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://yp751p4hbjrl" path="res://Assets/References/ror2.png" id="2_xkess"]
 [ext_resource type="Script" uid="uid://comsbnfye7mpu" path="res://UI/HUD/leaderboard.gd" id="5_dhie7"]
 [ext_resource type="FontFile" uid="uid://ctg25ssf78mhc" path="res://Assets/rzpix.ttf" id="5_radol"]
+[ext_resource type="Script" uid="uid://d3ovy57rxpqi1" path="res://UI/HUD/settings_menu.gd" id="7_s83ig"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdh7y"]
 bg_color = Color(0.12156863, 0.12156863, 0.1764706, 1)
@@ -30,6 +31,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 theme = ExtResource("1_qdh7y")
 script = ExtResource("1_npsft")
 skill_ui = ExtResource("2_te8l2")
@@ -172,6 +174,7 @@ horizontal_alignment = 1
 
 [node name="Leaderboard" type="PanelContainer" parent="." unique_id=1182501602]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -266,6 +269,8 @@ layout_mode = 2
 text = "8"
 
 [node name="PauseScreen" type="MarginContainer" parent="." unique_id=975821785]
+unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(800, 0)
 layout_mode = 1
 anchors_preset = 13
@@ -276,6 +281,7 @@ offset_left = -281.0
 offset_right = 281.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 theme_override_constants/margin_left = 64
 theme_override_constants/margin_top = 64
 theme_override_constants/margin_right = 64
@@ -291,19 +297,21 @@ theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
+script = ExtResource("7_s83ig")
 metadata/_tab_index = 0
 
 [node name="VBox" type="VBoxContainer" parent="PauseScreen/TabContainer/Settings" unique_id=929498733]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PauseScreen/TabContainer/Settings/VBox" unique_id=1025048249]
+[node name="Sensitivity" type="HBoxContainer" parent="PauseScreen/TabContainer/Settings/VBox" unique_id=1025048249]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PauseScreen/TabContainer/Settings/VBox/HBoxContainer" unique_id=753008659]
+[node name="Label" type="Label" parent="PauseScreen/TabContainer/Settings/VBox/Sensitivity" unique_id=753008659]
 layout_mode = 2
 text = "Sensitivity"
 
-[node name="HSlider" type="HSlider" parent="PauseScreen/TabContainer/Settings/VBox/HBoxContainer" unique_id=2077581077]
+[node name="SensSlider" type="HSlider" parent="PauseScreen/TabContainer/Settings/VBox/Sensitivity" unique_id=2077581077]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 10
@@ -314,7 +322,8 @@ step = 0.05
 value = 0.30000000000000004
 exp_edit = true
 
-[node name="SpinBox" type="SpinBox" parent="PauseScreen/TabContainer/Settings/VBox/HBoxContainer" unique_id=1806616860]
+[node name="SensSpinBox" type="SpinBox" parent="PauseScreen/TabContainer/Settings/VBox/Sensitivity" unique_id=1806616860]
+unique_name_in_owner = true
 layout_mode = 2
 min_value = 0.1
 max_value = 10.0

@@ -27,7 +27,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		)
 
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if (
 		event is InputEventMouseMotion
 		and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED

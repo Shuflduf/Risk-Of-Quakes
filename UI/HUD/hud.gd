@@ -15,6 +15,7 @@ var remaining_respawn_time = 0.0
 @onready var skill_title: Label = %SkillTitle
 @onready var skill_description: RichTextLabel = %SkillDescription
 @onready var leaderboard: Leaderboard = %Leaderboard
+@onready var pause_screen: MarginContainer = %PauseScreen
 
 
 func _input(event: InputEvent) -> void:
@@ -24,7 +25,9 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_released(&"show_leaderboard"):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		leaderboard.hide()
-
+	
+	if event.is_action_pressed(&"pause"):
+		pause_screen.visible = not pause_screen.visible
 
 func show_skill_info(skill_slot: Skill.SkillSlot):
 	var skill_info = registered_skills[skill_slot].active_skill_info
@@ -78,7 +81,9 @@ func toggle_skill(on: bool, slot: Skill.SkillSlot):
 		registered_skills[slot].disable()
 
 
-func _physics_process(delta: float) -> void:
+func _process(delta: float) -> void:
+	if pause_screen.visible:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if remaining_respawn_time > 0.0:
 		remaining_respawn_time -= delta
 		respawn_label.text = "Respawning in %d" % remaining_respawn_time
