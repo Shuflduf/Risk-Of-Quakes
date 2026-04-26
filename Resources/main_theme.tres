@@ -51,6 +51,17 @@ anti_aliasing = false
 color = Color(0.23529412, 0.20784314, 0.34117648, 1)
 thickness = 2
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6kckp"]
+bg_color = Color(0.3254902, 0.3529412, 0.4117647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gp45f"]
+bg_color = Color(0.5686275, 0.95686275, 0.92156863, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vocpi"]
+border_width_top = 4
+border_width_right = 4
+border_color = Color(0.19215687, 0.21960784, 0.29803923, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jgrfi"]
 bg_color = Color(0.24313726, 0.28235295, 0.3529412, 1)
 border_width_left = 2
@@ -106,6 +117,9 @@ Button/styles/hover = SubResource("StyleBoxFlat_7ygoy")
 Button/styles/normal = SubResource("StyleBoxFlat_rpoj5")
 Button/styles/pressed = SubResource("StyleBoxFlat_b4loo")
 HSeparator/styles/separator = SubResource("StyleBoxLine_rpoj5")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_6kckp")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_gp45f")
+HSlider/styles/slider = SubResource("StyleBoxFlat_vocpi")
 Label/fonts/font = ExtResource("1_rpoj5")
 LineEdit/fonts/font = ExtResource("1_rpoj5")
 LineEdit/styles/focus = SubResource("StyleBoxFlat_jgrfi")

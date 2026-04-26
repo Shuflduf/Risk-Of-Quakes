@@ -172,7 +172,6 @@ horizontal_alignment = 1
 
 [node name="Leaderboard" type="PanelContainer" parent="." unique_id=1182501602]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -265,3 +264,59 @@ text = "2"
 [node name="Label2" type="Label" parent="Leaderboard/MarginContainer/HBoxContainer/DeathsContainer" unique_id=969265596]
 layout_mode = 2
 text = "8"
+
+[node name="PauseScreen" type="MarginContainer" parent="." unique_id=975821785]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -281.0
+offset_right = 281.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="TabContainer" type="TabContainer" parent="PauseScreen" unique_id=168992292]
+layout_mode = 2
+current_tab = 0
+
+[node name="Settings" type="MarginContainer" parent="PauseScreen/TabContainer" unique_id=288540118]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+metadata/_tab_index = 0
+
+[node name="VBox" type="VBoxContainer" parent="PauseScreen/TabContainer/Settings" unique_id=929498733]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PauseScreen/TabContainer/Settings/VBox" unique_id=1025048249]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PauseScreen/TabContainer/Settings/VBox/HBoxContainer" unique_id=753008659]
+layout_mode = 2
+text = "Sensitivity"
+
+[node name="HSlider" type="HSlider" parent="PauseScreen/TabContainer/Settings/VBox/HBoxContainer" unique_id=2077581077]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+min_value = 0.1
+max_value = 10.0
+step = 0.05
+value = 0.30000000000000004
+exp_edit = true
+
+[node name="SpinBox" type="SpinBox" parent="PauseScreen/TabContainer/Settings/VBox/HBoxContainer" unique_id=1806616860]
+layout_mode = 2
+min_value = 0.1
+max_value = 10.0
+step = 0.05
+value = 0.1
