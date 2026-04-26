@@ -20,10 +20,11 @@ const DEFAULT_SERVER_IP = "127.0.0.1"
 const MAX_CONNECTIONS = 20
 const GAME_SCENE = "res://Game/game.tscn"
 const MAIN_MENU_SCENE = "res://UI/Main Menu/main_menu.tscn"
+const BASE_PLAYER_INFO = {"name": "Name", "survivor": "Survivor", "kills": 0, "deaths": 0}
 
 var players = {}
 var error_message = ""
-var player_info = {"name": "Name", "survivor": "Survivor", "kills": 0, "deaths": 0}
+var player_info = BASE_PLAYER_INFO.duplicate()
 var players_loaded = 0
 var current_state: GameState = GameState.WAITING_FOR_PLAYERS
 
@@ -56,9 +57,11 @@ func create_game():
 
 
 func remove_multiplayer_peer():
+	players_loaded = 0
 	current_state = GameState.WAITING_FOR_PLAYERS
 	multiplayer.multiplayer_peer = OfflineMultiplayerPeer.new()
 	players.clear()
+	player_info = BASE_PLAYER_INFO.duplicate()
 	get_tree().change_scene_to_file(MAIN_MENU_SCENE)
 
 

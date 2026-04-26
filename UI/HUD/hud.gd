@@ -1,5 +1,7 @@
 extends Control
 
+signal disconnected
+
 @export var skill_ui: PackedScene
 
 var registered_skills: Dictionary[Skill.SkillSlot, Node]
@@ -108,3 +110,7 @@ func reconstruct_leaderboard():
 #func enable_skill(slot: Skill.SkillSlot):
 #registered_skills[slot].enable()
 #print(slot)
+
+
+func _on_disconnect_pressed() -> void:
+	disconnected.emit()
