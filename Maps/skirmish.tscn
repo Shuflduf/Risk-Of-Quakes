@@ -296,8 +296,14 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 2
 [node name="Marker3D" type="Marker3D" parent="SpawnPoints" unique_id=1993209901 groups=["Spawn Point"]]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.320963, 8.850966, 0)
 
-[node name="Marker3D2" type="Marker3D" parent="SpawnPoints" unique_id=1687846805]
+[node name="Marker3D2" type="Marker3D" parent="SpawnPoints" unique_id=1687846805 groups=["Spawn Point"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.900001, 0)
 
-[node name="Marker3D3" type="Marker3D" parent="SpawnPoints" unique_id=453717657]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.7, 1.3000005, 0)
+[node name="Marker3D3" type="Marker3D" parent="SpawnPoints" unique_id=453717657 groups=["Spawn Point"]]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -31.7, 1.3000005, 0)
+
+[node name="Marker3D4" type="Marker3D" parent="SpawnPoints" unique_id=1455764466 groups=["Spawn Point"]]
+transform = Transform3D(-0.7071068, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, -0.7071068, -15.299164, 0.60000056, -18.255573)
+
+[node name="Marker3D5" type="Marker3D" parent="SpawnPoints" unique_id=123056397 groups=["Spawn Point"]]
+transform = Transform3D(0.7071069, 0, 0.70710665, 0, 1, 0, -0.70710665, 0, 0.7071069, 15.299, 0.6, 18.256)

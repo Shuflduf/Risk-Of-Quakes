@@ -1,44 +1,10 @@
 [gd_scene format=3 uid="uid://bq60rtas7e3is"]
 
 [ext_resource type="PackedScene" uid="uid://ba7lx70tapam4" path="res://Entities/target.tscn" id="1_hvno2"]
-[ext_resource type="Shader" uid="uid://c6m1wnd2xwjo4" path="res://Maps/sky.gdshader" id="1_ps1nv"]
 [ext_resource type="PackedScene" uid="uid://cmcok53rej5sy" path="res://Entities/entity.tscn" id="2_r7jf0"]
 [ext_resource type="PackedScene" uid="uid://cr8nrxje4yqqv" path="res://Maps/bulwarks.tscn" id="4_ps1nv"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ho6sb"]
-shader = ExtResource("1_ps1nv")
-shader_parameter/sky_color = Color(0.11, 0.029699998, 0.08323332, 1)
-shader_parameter/star_base_color = Color(0.8, 1, 0.3, 1)
-shader_parameter/star_hue_offset = 0.6
-shader_parameter/star_intensity = 0.0400000019
-shader_parameter/star_twinkle_speed = 0.8
-shader_parameter/star_twinkle_intensity = 0.2
-shader_parameter/layer_scale = 20.0
-shader_parameter/layer_scale_step = 10.0
-shader_parameter/layers_count = 3
-
-[sub_resource type="Sky" id="Sky_ps1nv"]
-sky_material = SubResource("ShaderMaterial_ho6sb")
-process_mode = 2
-
-[sub_resource type="Environment" id="Environment_aqk2v"]
-background_mode = 2
-sky = SubResource("Sky_ps1nv")
-ambient_light_source = 2
-ambient_light_color = Color(1, 1, 1, 1)
-ambient_light_energy = 0.2
-tonemap_mode = 2
-glow_enabled = true
-
 [node name="World" type="Node3D" unique_id=2007376966]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1693467123]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-visible = false
-sky_mode = 1
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1658192083]
-environment = SubResource("Environment_aqk2v")
 
 [node name="Target" parent="." unique_id=225967718 instance=ExtResource("1_hvno2")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, 2, -5)

@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://cesxd8focfw5m" path="res://Maps/Textures/Dark/texture_07.tres" id="5_erulm"]
 [ext_resource type="Script" uid="uid://d8sw7e4isptl" path="res://Maps/kill_bounds.gd" id="6_basas"]
 [ext_resource type="LightmapGIData" uid="uid://b6gvpb7b131tl" path="res://Maps/bulwarks.lmbake" id="7_h3tap"]
+[ext_resource type="Shader" uid="uid://c6m1wnd2xwjo4" path="res://Maps/sky.gdshader" id="8_pu8oa"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_pu8oa"]
 lightmap_size_hint = Vector2i(2266, 2270)
@@ -186,6 +187,31 @@ points = PackedVector3Array(5, 7, 13, 5, 6, 13, -1, 7, 13, -1, 6, 13, 5, 7, -4, 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_erulm"]
 plane = Plane(0, 1, 0, -8)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wx8nt"]
+shader = ExtResource("8_pu8oa")
+shader_parameter/sky_color = Color(0.11, 0.029699998, 0.08323332, 1)
+shader_parameter/star_base_color = Color(0.8, 1, 0.3, 1)
+shader_parameter/star_hue_offset = 0.6
+shader_parameter/star_intensity = 0.0400000019
+shader_parameter/star_twinkle_speed = 0.8
+shader_parameter/star_twinkle_intensity = 0.2
+shader_parameter/layer_scale = 20.0
+shader_parameter/layer_scale_step = 10.0
+shader_parameter/layers_count = 3
+
+[sub_resource type="Sky" id="Sky_ps1nv"]
+sky_material = SubResource("ShaderMaterial_wx8nt")
+process_mode = 2
+
+[sub_resource type="Environment" id="Environment_kekdi"]
+background_mode = 2
+sky = SubResource("Sky_ps1nv")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.2
+tonemap_mode = 2
+glow_enabled = true
+
 [node name="Bulwarks" type="Node3D" unique_id=424054374]
 
 [node name="Bulwarks" type="Node3D" parent="." unique_id=562382884]
@@ -354,5 +380,32 @@ light_data = ExtResource("7_h3tap")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=652582207]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
+shadow_opacity = 0.8
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=787380427]
+environment = SubResource("Environment_kekdi")
+
+[node name="SpawnPoints" type="Node3D" parent="." unique_id=1994117149]
+
+[node name="Marker3D" type="Marker3D" parent="SpawnPoints" unique_id=1622781957 groups=["Spawn Point"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.320963, 8.850966, 7)
+
+[node name="Marker3D2" type="Marker3D" parent="SpawnPoints" unique_id=1358397527 groups=["Spawn Point"]]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.539966, 13.592663, -35.287804)
+
+[node name="Marker3D3" type="Marker3D" parent="SpawnPoints" unique_id=724548890 groups=["Spawn Point"]]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -42.477333, 8.576228, -27.49733)
+
+[node name="Marker3D4" type="Marker3D" parent="SpawnPoints" unique_id=685008992 groups=["Spawn Point"]]
+transform = Transform3D(0.7071068, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, 0.7071068, -37.77607, 20.049574, -1.7804704)
+
+[node name="Marker3D5" type="Marker3D" parent="SpawnPoints" unique_id=2105355835 groups=["Spawn Point"]]
+transform = Transform3D(5.9604645e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 5.9604645e-08, -43.43332, 17.049574, 25.21953)
+
+[node name="Marker3D6" type="Marker3D" parent="SpawnPoints" unique_id=606126410 groups=["Spawn Point"]]
+transform = Transform3D(5.9604645e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 5.9604645e-08, -37.43332, 9.049574, 25.21953)
+
+[node name="Marker3D7" type="Marker3D" parent="SpawnPoints" unique_id=1611776403 groups=["Spawn Point"]]
+transform = Transform3D(0.7071067, 0, -0.7071066, 0, 1, 0, 0.7071066, 0, 0.7071067, -7.8089814, 8.649574, 30.41792)
 
 [connection signal="area_entered" from="KillBounds" to="KillBounds" method="_on_area_entered"]
