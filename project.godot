@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Lobby="*uid://dljwe8wommn88"
+Settings="*uid://fwcv3enhhwpl"
 
 [display]
 

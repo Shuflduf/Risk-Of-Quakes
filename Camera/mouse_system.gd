@@ -2,10 +2,10 @@ extends CameraSystem
 
 signal screen_move(dist: Vector2)
 
-const MOUSE_SENS_MULTIPLIER = 0.001
+const MOUSE_SENS_MULTIPLIER = 0.002
 
 @export var third_person: bool
-@export var mouse_sens = 0.8
+@export var mouse_sens = 0.5
 @export var third_person_pos: Marker3D
 
 var actual_mouse_sens = MOUSE_SENS_MULTIPLIER * mouse_sens
