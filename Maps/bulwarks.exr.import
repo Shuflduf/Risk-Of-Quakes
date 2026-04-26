@@ -4,15 +4,16 @@ importer="2d_array_texture"
 type="CompressedTexture2DArray"
 uid="uid://crhuc7mw78cnr"
 path.bptc="res://.godot/imported/bulwarks.exr-36b8a20bc961e554b5ea4f7c58822aed.bptc.ctexarray"
+path.astc="res://.godot/imported/bulwarks.exr-36b8a20bc961e554b5ea4f7c58822aed.astc.ctexarray"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Maps/bulwarks.exr"
-dest_files=["res://.godot/imported/bulwarks.exr-36b8a20bc961e554b5ea4f7c58822aed.bptc.ctexarray"]
+dest_files=["res://.godot/imported/bulwarks.exr-36b8a20bc961e554b5ea4f7c58822aed.bptc.ctexarray", "res://.godot/imported/bulwarks.exr-36b8a20bc961e554b5ea4f7c58822aed.astc.ctexarray"]
 
 [params]
 

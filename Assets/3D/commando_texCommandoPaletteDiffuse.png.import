@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dsfqsjafbnbie"
 path.s3tc="res://.godot/imported/commando_texCommandoPaletteDiffuse.png-a8fbedda174ab73759a3734e3e3e2de5.s3tc.ctex"
+path.etc2="res://.godot/imported/commando_texCommandoPaletteDiffuse.png-a8fbedda174ab73759a3734e3e3e2de5.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/3D/commando_texCommandoPaletteDiffuse.png"
-dest_files=["res://.godot/imported/commando_texCommandoPaletteDiffuse.png-a8fbedda174ab73759a3734e3e3e2de5.s3tc.ctex"]
+dest_files=["res://.godot/imported/commando_texCommandoPaletteDiffuse.png-a8fbedda174ab73759a3734e3e3e2de5.s3tc.ctex", "res://.godot/imported/commando_texCommandoPaletteDiffuse.png-a8fbedda174ab73759a3734e3e3e2de5.etc2.ctex"]
 
 [params]
 

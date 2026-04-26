@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bc4hbps7rhl7v"
 path.s3tc="res://.godot/imported/chef_texChefDiffuse.png-3a4ab448907b986923655b793cb6e1b5.s3tc.ctex"
+path.etc2="res://.godot/imported/chef_texChefDiffuse.png-3a4ab448907b986923655b793cb6e1b5.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/3D/chef_texChefDiffuse.png"
-dest_files=["res://.godot/imported/chef_texChefDiffuse.png-3a4ab448907b986923655b793cb6e1b5.s3tc.ctex"]
+dest_files=["res://.godot/imported/chef_texChefDiffuse.png-3a4ab448907b986923655b793cb6e1b5.s3tc.ctex", "res://.godot/imported/chef_texChefDiffuse.png-3a4ab448907b986923655b793cb6e1b5.etc2.ctex"]
 
 [params]
 
