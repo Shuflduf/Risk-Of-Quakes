@@ -22,8 +22,11 @@ func _on_player_connected(_peer_id: int, _player_info: Dictionary):
 	connection_panel.hide()
 	update_players_list()
 
-	if Lobby.current_state != Lobby.GameState.WAITING_FOR_PLAYERS:
+	if Lobby.current_state == Lobby.GameState.CHOOSING_SURVIVORS:
 		survivor_list.show()
+	elif Lobby.current_state == Lobby.GameState.IN_GAME:
+		Lobby.error_message = "Game in progress on this network!"
+		Lobby.remove_multiplayer_peer()
 
 
 func _on_player_disconnected(_peer_id: int):
@@ -51,8 +54,10 @@ func _on_other_player_survivor_selected(peer_id: int, _survivor: String):
 func _on_survivor_selected(survivor: String):
 	if Lobby.current_state == Lobby.GameState.CHOOSING_SURVIVORS:
 		Lobby.select_survivor.rpc(survivor)
-	elif Lobby.current_state == Lobby.GameState.IN_GAME:
-		Lobby.join_game_late.rpc(survivor)
+	#elif Lobby.current_state == Lobby.GameState.IN_GAME:
+		#Lobby.error_message = "Game in progress."
+		#Lobby.remove_multiplayer_peer()
+		#go_back_to_connections()
 
 
 func update_players_list():

@@ -59,19 +59,15 @@ func remove_multiplayer_peer():
 	current_state = GameState.WAITING_FOR_PLAYERS
 	multiplayer.multiplayer_peer = OfflineMultiplayerPeer.new()
 	players.clear()
-	error_message = "Disconnected from server."
 	get_tree().change_scene_to_file(MAIN_MENU_SCENE)
 
 
-# When the server decides to start the game from a UI scene,
-# do Lobby.load_game.rpc(filepath)
 @rpc("call_local")
 func load_game(game_scene_path):
 	current_state = Lobby.GameState.IN_GAME
 	get_tree().change_scene_to_file(game_scene_path)
 
 
-# Every peer will call this when they have loaded the game scene.
 @rpc("any_peer", "call_local")
 func player_loaded():
 	if multiplayer.is_server():
@@ -110,12 +106,14 @@ func _on_connected_ok():
 
 
 func _on_connected_fail():
+	error_message = "Connection failed!"
 	remove_multiplayer_peer()
 
 
 func _on_server_disconnected():
 	players.clear()
 	server_disconnected.emit()
+	error_message = "Disconnected from server!"
 	remove_multiplayer_peer()
 
 
