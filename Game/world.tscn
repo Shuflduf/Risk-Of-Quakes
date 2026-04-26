@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ba7lx70tapam4" path="res://Entities/target.tscn" id="1_hvno2"]
 [ext_resource type="Shader" uid="uid://c6m1wnd2xwjo4" path="res://Maps/sky.gdshader" id="1_ps1nv"]
 [ext_resource type="PackedScene" uid="uid://cmcok53rej5sy" path="res://Entities/entity.tscn" id="2_r7jf0"]
-[ext_resource type="PackedScene" path="res://Maps/bulwarks.tscn" id="4_ps1nv"]
+[ext_resource type="PackedScene" uid="uid://cr8nrxje4yqqv" path="res://Maps/bulwarks.tscn" id="4_ps1nv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ho6sb"]
 shader = ExtResource("1_ps1nv")
@@ -34,6 +34,7 @@ glow_enabled = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1693467123]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+visible = false
 sky_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1658192083]
