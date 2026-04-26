@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://8f6o5xnlwj6y"
+path="res://.godot/imported/bulwarks.map-5020ad4d7a6a515dbf099c88b3282949.tres"
+
+[deps]
+
+source_file="res://Maps/Maps/bulwarks.map"
+dest_files=["res://.godot/imported/bulwarks.map-5020ad4d7a6a515dbf099c88b3282949.tres"]
+
+[params]
+
