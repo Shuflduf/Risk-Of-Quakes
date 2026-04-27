@@ -1,4 +1,3 @@
-# Risk of Quakes
 ![logo](Assets/logo.png)
 
 # Features
