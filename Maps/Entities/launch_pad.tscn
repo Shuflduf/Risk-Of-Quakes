@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://dsfvkvwwc2gad"]
+
+[ext_resource type="Script" uid="uid://86q2rtl8wnvu" path="res://Maps/Entities/launch_pad.gd" id="1_t8myp"]
+[ext_resource type="Material" uid="uid://doqaguofhasey" path="res://Maps/Textures/Prototype/purple.tres" id="2_iwf4h"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_pu8oa"]
+height = 0.2
+radius = 1.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wx8nt"]
+material = ExtResource("2_iwf4h")
+top_radius = 1.0
+bottom_radius = 1.0
+height = 0.2
+
+[sub_resource type="Curve" id="Curve_wx8nt"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2105263, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_kekdi"]
+curve = SubResource("Curve_wx8nt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kg1b3"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 20, 0)
+scale_min = 0.19999999
+scale_max = 0.19999999
+scale_curve = SubResource("CurveTexture_kekdi")
+color = Color(0.5999999, 0, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fpwuy"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_jfx2h"]
+material = SubResource("StandardMaterial3D_fpwuy")
+
+[node name="LaunchPad" type="Node3D" unique_id=1438877434]
+script = ExtResource("1_t8myp")
+
+[node name="Area" type="Area3D" parent="." unique_id=66850359]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area" unique_id=428505429]
+shape = SubResource("CylinderShape3D_pu8oa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=293769784]
+mesh = SubResource("CylinderMesh_wx8nt")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=196962723]
+cast_shadow = 0
+amount = 64
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_kg1b3")
+draw_pass_1 = SubResource("SphereMesh_jfx2h")

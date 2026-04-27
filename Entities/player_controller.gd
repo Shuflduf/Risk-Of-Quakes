@@ -54,8 +54,9 @@ func _physics_process(_delta: float) -> void:
 		skin.visible = get_viewport().get_camera_3d() != cam
 		skills.visible = !skin.visible
 		skin.set_spine_angle(-cam.rotation.x)
+		#skin.rotation.y = cam.rotation.y
 
-	if !is_multiplayer_authority() or is_dead:
+	if !is_multiplayer_authority() or is_dead or player.input_disabled():
 		return
 
 	var input_dir = Input.get_vector(&"left", &"right", &"forward", &"backward").rotated(
@@ -85,8 +86,7 @@ func _physics_process(_delta: float) -> void:
 	elif Input.is_action_just_released(&"special"):
 		skills.special(false)
 
-	if skin:
-		skin.rotation.y = cam.rotation.y
+
 
 
 func _on_health_changed(new_health: int):
@@ -101,7 +101,7 @@ func die():
 
 	hitbox.set_deferred(&"monitorable", false)
 	player.hide()
-	player.movement_enabled = false
+	player.enable_movement(false)
 	is_dead = true
 	hud.respawn(5.0)
 	prints(multiplayer.get_unique_id(), multiplayer.get_remote_sender_id())
@@ -119,7 +119,7 @@ func die():
 func respawn():
 	hitbox.set_deferred(&"monitorable", true)
 	player.show()
-	player.movement_enabled = true
+	player.enable_movement(true)
 	player.velocity = Vector3.ZERO
 	is_dead = false
 	health.health = 100
