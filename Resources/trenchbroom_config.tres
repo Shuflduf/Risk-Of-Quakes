@@ -9,7 +9,7 @@
 
 [resource]
 script = ExtResource("6_pj1yn")
-game_name = "Risk of Quakes"
+game_name = "RiskofQuakes"
 textures_root_folder = "Maps/Textures"
 fgd_file = ExtResource("4_7ard4")
 metadata/_custom_type_script = "uid://cx44c4vnq8bt5"

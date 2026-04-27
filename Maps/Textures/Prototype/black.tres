@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cesxd8focfw5m"]
+
+[ext_resource type="Texture2D" uid="uid://c056cy1n7gmmw" path="res://Maps/Textures/Prototype/black.png" id="1_jpepl"]
+
+[resource]
+albedo_texture = ExtResource("1_jpepl")
+metallic_specular = 0.0
+uv1_scale = Vector3(0.2, 0.2, 0.2)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 2

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ba7lx70tapam4" path="res://Entities/target.tscn" id="1_hvno2"]
 [ext_resource type="PackedScene" uid="uid://cmcok53rej5sy" path="res://Entities/entity.tscn" id="2_r7jf0"]
-[ext_resource type="PackedScene" uid="uid://cr8nrxje4yqqv" path="res://Maps/bulwarks.tscn" id="4_ps1nv"]
+[ext_resource type="PackedScene" uid="uid://buk14403t3i1d" path="res://Maps/bulwarks.tscn" id="4_ps1nv"]
 
 [node name="World" type="Node3D" unique_id=2007376966]
 
