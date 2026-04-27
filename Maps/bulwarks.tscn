@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Maps/kill_bounds.gd" id="6_basas"]
 [ext_resource type="LightmapGIData" uid="uid://b6gvpb7b131tl" path="res://Maps/bulwarks.lmbake" id="7_h3tap"]
 [ext_resource type="Shader" path="res://Maps/sky.gdshader" id="8_pu8oa"]
-[ext_resource type="Material" uid="uid://bxneqgn54qei0" path="res://Maps/Textures/Prototype/green.tres" id="9_wx8nt"]
+[ext_resource type="Material" uid="uid://doqaguofhasey" path="res://Maps/Textures/Prototype/purple.tres" id="9_wx8nt"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_pu8oa"]
 lightmap_size_hint = Vector2i(1838, 1834)
@@ -221,6 +221,37 @@ top_radius = 1.0
 bottom_radius = 1.0
 height = 0.2
 
+[sub_resource type="Curve" id="Curve_wx8nt"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2105263, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_kekdi"]
+curve = SubResource("Curve_wx8nt")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kg1b3"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 1, 0)
+emission_ring_height = 0.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 20, 0)
+scale_min = 0.19999999
+scale_max = 0.19999999
+scale_curve = SubResource("CurveTexture_kekdi")
+color = Color(0.5999999, 0, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fpwuy"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_jfx2h"]
+material = SubResource("StandardMaterial3D_fpwuy")
+
 [node name="Bulwarks" type="Node3D" unique_id=424054374]
 
 [node name="Bulwarks" type="Node3D" parent="." unique_id=562382884]
@@ -422,11 +453,20 @@ transform = Transform3D(0.7071067, 0, -0.7071066, 0, 1, 0, 0.7071066, 0, 0.70710
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.046452, 7.540289, -19.777777)
 
 [node name="Area3D" type="Area3D" parent="LaunchPad" unique_id=63689551]
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LaunchPad/Area3D" unique_id=9037843]
 shape = SubResource("CylinderShape3D_pu8oa")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="LaunchPad" unique_id=1658450416]
 mesh = SubResource("CylinderMesh_wx8nt")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="LaunchPad" unique_id=1676678303]
+cast_shadow = 0
+amount = 64
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_kg1b3")
+draw_pass_1 = SubResource("SphereMesh_jfx2h")
 
 [connection signal="area_entered" from="KillBounds" to="KillBounds" method="_on_area_entered"]
