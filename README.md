@@ -4,8 +4,24 @@ You can view a video demo here:
 (TODO: VIDEO)
 
 # How to Play
-1. Download the latest release from [itch.io](https://shuflduf.itch.io/risk-of-quakes)
-2. Run it (todo)
+1. Go to the Risk of Quakes [itch.io page](https://shuflduf.itch.io/risk-of-quakes) for the latest releases.
+2. Run Risk of Quakes
+  - **Windows**:
+    1. Download `RiskOfQuakes_Windows.exe`
+    2. Double-click the file to open it
+  - **macOS**:
+    1. Download `RiskOfQuakes_MacOS.zip`
+    2. Extract the zip file
+    3. Move `Risk Of Quakes.app` to your Applications folder
+    4. Double-click `Risk of Quakes.app` to run it
+    5. If you see a security warning, click "Open" to proceed
+    6. If the app doesn't start, right-click (Control-click) on it and select "Open"
+    7. If you see an issue about quarantine, open Terminal and run: `xattr -dr com.apple.quarantine "~/Applications/Risk Of Quakes.app"`
+  - **Linux**:
+    1. Download `RiskOfQuakes_Linux.x86_64`
+    2. Open the terminal in the downloads directory
+    3. Make the file executable: `chmod +x RiskOfQuakes_Linux.x86_64`
+    4. Run it: `./RiskOfQuakes_Linux.x86_64`
 3. If you don't have any friends on your local network, you can open two instances of the game
 4. Set a username
 5. **Host**: Click the `Host` button, and wait for everyone to join. Once everyone has joined, select a map and click `Start Game` to start survivor selection.
