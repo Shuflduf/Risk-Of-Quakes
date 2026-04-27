@@ -19,12 +19,12 @@ func _on_host_pressed() -> void:
 	if username.text.is_empty():
 		error_label.text = "Please set a username!"
 		return
-	
+
 	Lobby.player_info["name"] = username.text
 	Lobby.port = int(server_port.value)
 	if server_address.text:
 		Lobby.connection_address = server_address.text
-	
+
 	var err = Lobby.create_game()
 	if err:
 		if err == Error.ERR_CANT_CREATE:
@@ -38,12 +38,12 @@ func _on_connect_pressed() -> void:
 	if username.text.is_empty():
 		error_label.text = "Please set a username!"
 		return
-	
+
 	Lobby.player_info["name"] = username.text
 	Lobby.port = int(server_port.value)
 	if server_address.text:
 		Lobby.connection_address = server_address.text
-	
+
 	Lobby.join_game()
 
 	get_tree().create_timer(0.5).timeout.connect(func(): error_label.text = "Failed to join lobby!")
@@ -55,3 +55,18 @@ func toggle_server_ui():
 	#lobby_panel.show()
 	%StartGame.visible = multiplayer.is_server()
 	%MapOption.visible = %StartGame.visible
+
+
+func _on_server_address_gui_input(event: InputEvent) -> void:
+	if (
+		event is InputEventKey
+		and event.is_pressed()
+		and event.keycode == KEY_V
+		and (event.ctrl_pressed or event.command_pressed)
+	):
+		var clipboard_text = DisplayServer.clipboard_get()
+		if clipboard_text.contains(":"):
+			await get_tree().process_frame
+			server_address.text = clipboard_text.split(":")[0]
+			server_port.value = int(clipboard_text.split(":")[1])
+			#event.

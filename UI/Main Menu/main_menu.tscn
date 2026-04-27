@@ -169,6 +169,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Start Game"
 
+[node name="CopyIP" type="Button" parent="Lobby/PlayerList" unique_id=1702657895]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Copy Local IP"
+
 [node name="Disconnect" type="Button" parent="Lobby/PlayerList" unique_id=1751645165]
 layout_mode = 2
 text = "Disconnect"
@@ -205,8 +210,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "CHEF"
 
+[connection signal="gui_input" from="Connection/VBoxContainer/HBoxContainer/ServerAddress" to="." method="_on_server_address_gui_input"]
 [connection signal="pressed" from="Connection/VBoxContainer/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Connection/VBoxContainer/Connect" to="." method="_on_connect_pressed"]
 [connection signal="item_selected" from="Lobby/PlayerList/MapOption" to="Lobby" method="_on_map_option_item_selected"]
 [connection signal="pressed" from="Lobby/PlayerList/StartGame" to="Lobby" method="_on_start_game_pressed"]
+[connection signal="pressed" from="Lobby/PlayerList/CopyIP" to="Lobby" method="_on_copy_ip_pressed"]
 [connection signal="pressed" from="Lobby/PlayerList/Disconnect" to="Lobby" method="_on_disconnect_pressed"]

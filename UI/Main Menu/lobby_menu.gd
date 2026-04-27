@@ -88,3 +88,12 @@ func _on_start_game_pressed() -> void:
 
 func _on_map_option_item_selected(index: int) -> void:
 	Lobby.map_scene = Lobby.MAPS[index]
+
+
+func _on_copy_ip_pressed() -> void:
+	var local_address = ""
+	for ip in IP.get_local_addresses():
+		if ip.count(".") == 3 and not ip.begins_with("127."):
+			local_address = "%s:%d" % [ip, Lobby.port]
+
+	DisplayServer.clipboard_set(local_address)
