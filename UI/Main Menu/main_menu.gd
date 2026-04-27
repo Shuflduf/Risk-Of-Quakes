@@ -7,7 +7,6 @@ extends Control
 
 
 func _ready() -> void:
-
 	if OS.get_cmdline_args().size() > 2:
 		username.text = OS.get_cmdline_args()[2]
 	if Lobby.error_message:
@@ -18,7 +17,7 @@ func _on_host_pressed() -> void:
 	if username.text.is_empty():
 		error_label.text = "Please set a username!"
 		return
-	
+
 	Lobby.player_info["name"] = username.text
 	var err = Lobby.create_game()
 	if err:
@@ -33,10 +32,10 @@ func _on_connect_pressed() -> void:
 	if username.text.is_empty():
 		error_label.text = "Please set a username!"
 		return
-	
+
 	Lobby.player_info["name"] = username.text
 	Lobby.join_game()
-	
+
 	get_tree().create_timer(0.5).timeout.connect(func(): error_label.text = "Failed to join lobby!")
 	toggle_server_ui()
 

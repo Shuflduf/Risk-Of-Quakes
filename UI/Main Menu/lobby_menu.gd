@@ -1,6 +1,5 @@
 extends HBoxContainer
 
-
 @export var player_label: PackedScene
 
 @onready var player_list: VBoxContainer = %PlayerList
