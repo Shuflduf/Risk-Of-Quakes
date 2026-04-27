@@ -16,11 +16,7 @@ func start_game(map_scene: String):
 func _ready() -> void:
 	Lobby.player_loaded.rpc()
 
-	#if !multiplayer.is_server():
-	#request_spawn_state.rpc()
 
-
-#@rpc("any_peer", "call_local")
 func spawn_player(survivor: String, peer_id: int, spawn_pos: Node3D):
 	var new_player = survivors[survivor].instantiate()
 	new_player.position = spawn_pos.position
@@ -38,9 +34,3 @@ func spawn_peer(peer_id: int):
 
 func peer_name(peer_id):
 	return "player_%d" % peer_id
-
-#@rpc("any_peer")
-#func request_spawn_state():
-#print("doiskd")
-#for peer_id in Lobby.players:
-#spawn_player.rpc(Lobby.players[peer_id]["survivor"], peer_id, Vector3.ZERO)

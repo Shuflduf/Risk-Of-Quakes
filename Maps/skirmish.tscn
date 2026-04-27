@@ -333,5 +333,5 @@ spot_range = 12.0
 spot_angle = 70.0
 
 [node name="LightmapGI" type="LightmapGI" parent="." unique_id=1929191575]
-quality = 0
+quality = 3
 light_data = ExtResource("6_x5fq0")

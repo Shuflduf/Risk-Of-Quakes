@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://segxv8kytfn5" path="res://UI/HUD/hud.gd" id="1_npsft"]
 [ext_resource type="Theme" uid="uid://dffesc1lpef65" path="res://Resources/main_theme.tres" id="1_qdh7y"]
 [ext_resource type="PackedScene" uid="uid://dikfcgyf224xy" path="res://UI/HUD/skill_ui.tscn" id="2_te8l2"]
-[ext_resource type="Texture2D" uid="uid://yp751p4hbjrl" path="res://Assets/References/ror2.png" id="2_xkess"]
 [ext_resource type="Script" uid="uid://comsbnfye7mpu" path="res://UI/HUD/leaderboard.gd" id="5_dhie7"]
 [ext_resource type="FontFile" uid="uid://ctg25ssf78mhc" path="res://Assets/rzpix.ttf" id="5_radol"]
 [ext_resource type="Script" uid="uid://d3ovy57rxpqi1" path="res://UI/HUD/settings_menu.gd" id="7_s83ig"]
@@ -35,17 +34,6 @@ mouse_filter = 1
 theme = ExtResource("1_qdh7y")
 script = ExtResource("1_npsft")
 skill_ui = ExtResource("2_te8l2")
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=53749635]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_xkess")
-expand_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1421910340]
 layout_mode = 1
