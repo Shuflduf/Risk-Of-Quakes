@@ -29,6 +29,14 @@ You can view a video demo here:
 7. Once survivor selection has started, select your survivor.
 8. Once all players have selected their survivors, the game will load and the match will begin!
 
+# Tips
+If you've never played a game with Quake movement before, here the basics:
+- You should always be jumping. Being on the ground decelerates your character.
+- To bhop, do NOT press the W key, instead you have to alternate between pressing A and D, and move your mouse with the direction you're moving.
+  - For example, when pressing the A key, move the mouse to the left.
+- Avoid making sharp mouse movements. Instead, opt for smooth, fluid movements to maximise speed.
+- You can watch "[Okay, but how does airstrafing ACTUALLY work?](https://www.youtube.com/watch?v=gRqoXy-0d84&t=1349s)" to understand best practices needed to move good, and to learn how the movement system here works.
+
 # Features
 - [Quake movement](https://aneacsu.com/blog/2023-04-09-quake-movement-godot)
 - Several survivors
