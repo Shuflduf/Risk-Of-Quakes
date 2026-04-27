@@ -15,14 +15,14 @@ enum GameState {
 	IN_GAME,
 }
 
-const PORT = 7000
-const DEFAULT_SERVER_IP = "127.0.0.1"
 const MAX_CONNECTIONS = 20
 const GAME_SCENE = "res://Game/game.tscn"
 const MAIN_MENU_SCENE = "res://UI/Main Menu/main_menu.tscn"
 const BASE_PLAYER_INFO = {"name": "Name", "survivor": "Survivor", "kills": 0, "deaths": 0}
 const MAPS = ["res://Maps/bulwarks.tscn", "res://Maps/skirmish.tscn"]
 
+var port = 7000
+var connection_address = "127.0.0.1"
 var players = {}
 var error_message = ""
 var player_info = BASE_PLAYER_INFO.duplicate()
@@ -43,9 +43,9 @@ func _ready():
 	add_child(status_label)
 
 
-func join_game(address = DEFAULT_SERVER_IP):
+func join_game():
 	var peer = ENetMultiplayerPeer.new()
-	var error = peer.create_client(address, PORT)
+	var error = peer.create_client(connection_address, port)
 	if error:
 		return error
 
@@ -54,7 +54,7 @@ func join_game(address = DEFAULT_SERVER_IP):
 
 func create_game():
 	var peer = ENetMultiplayerPeer.new()
-	var error = peer.create_server(PORT, MAX_CONNECTIONS)
+	var error = peer.create_server(port, MAX_CONNECTIONS)
 	if error:
 		return error
 

@@ -4,6 +4,8 @@ extends Control
 @onready var connection: VBoxContainer = $Connection
 @onready var lobby_panel: HBoxContainer = $Lobby
 @onready var error_label: Label = %ErrorLabel
+@onready var server_port: SpinBox = %ServerPort
+@onready var server_address: LineEdit = %ServerAddress
 
 
 func _ready() -> void:
@@ -17,8 +19,12 @@ func _on_host_pressed() -> void:
 	if username.text.is_empty():
 		error_label.text = "Please set a username!"
 		return
-
+	
 	Lobby.player_info["name"] = username.text
+	Lobby.port = int(server_port.value)
+	if server_address.text:
+		Lobby.connection_address = server_address.text
+	
 	var err = Lobby.create_game()
 	if err:
 		if err == Error.ERR_CANT_CREATE:
@@ -32,8 +38,12 @@ func _on_connect_pressed() -> void:
 	if username.text.is_empty():
 		error_label.text = "Please set a username!"
 		return
-
+	
 	Lobby.player_info["name"] = username.text
+	Lobby.port = int(server_port.value)
+	if server_address.text:
+		Lobby.connection_address = server_address.text
+	
 	Lobby.join_game()
 
 	get_tree().create_timer(0.5).timeout.connect(func(): error_label.text = "Failed to join lobby!")
