@@ -12,4 +12,3 @@ func _ready() -> void:
 func _on_body_entered(body: Node3D):
 	if body is CharacterBody3D and target:
 		body.fly_to(target.global_position)
-		

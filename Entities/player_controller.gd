@@ -28,7 +28,7 @@ func _ready() -> void:
 		hud.update_health(health.health)
 		hud.reconstruct_leaderboard()
 		Lobby.leaderboard_updated.connect(hud.reconstruct_leaderboard)
-		
+
 		Settings.fov_updated.connect(func(new_fov: float): cam.fov = new_fov)
 
 		for slot in skills.skill_list:
@@ -58,7 +58,7 @@ func _physics_process(_delta: float) -> void:
 
 	if !is_multiplayer_authority() or is_dead:
 		return
-	
+
 	if not player.input_disabled():
 		var input_dir = Input.get_vector(&"left", &"right", &"forward", &"backward").rotated(
 			-player.rotation.y
@@ -86,8 +86,6 @@ func _physics_process(_delta: float) -> void:
 		skills.special(true)
 	elif Input.is_action_just_released(&"special"):
 		skills.special(false)
-
-
 
 
 func _on_health_changed(new_health: int):
@@ -131,10 +129,10 @@ func respawn():
 	player.global_position = spawn_pos.position
 	player.global_rotation = spawn_pos.rotation
 
+
 @rpc("any_peer", "call_local")
 func disconnect_player():
 	if multiplayer.get_unique_id() == multiplayer.get_remote_sender_id():
 		Lobby.remove_multiplayer_peer()
 	else:
 		player.queue_free()
-	

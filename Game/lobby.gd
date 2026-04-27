@@ -1,11 +1,5 @@
 extends Node
 
-enum GameState {
-	WAITING_FOR_PLAYERS,
-	CHOOSING_SURVIVORS,
-	IN_GAME,
-}
-
 signal survivor_selection_started
 signal player_survivor_selected(peer_id: int, survivor: String)
 signal all_survivors_selected
@@ -14,6 +8,12 @@ signal leaderboard_updated
 signal player_connected(peer_id: int, player_info: Dictionary)
 signal player_disconnected(peer_id: int)
 signal server_disconnected
+
+enum GameState {
+	WAITING_FOR_PLAYERS,
+	CHOOSING_SURVIVORS,
+	IN_GAME,
+}
 
 const PORT = 7000
 const DEFAULT_SERVER_IP = "127.0.0.1"

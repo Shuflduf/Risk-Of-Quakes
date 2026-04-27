@@ -14,12 +14,14 @@ var fov = 110.0:
 		fov_updated.emit(new_val)
 		save_settings()
 
+
 func _ready() -> void:
 	var settings_file_content = FileAccess.get_file_as_string(SETTINGS_PATH)
 	if settings_file_content:
 		var saved_settings = JSON.parse_string(settings_file_content)
 		sensitivity = saved_settings["sensitivity"]
 		fov = saved_settings["fov"]
+
 
 func save_settings():
 	var file = FileAccess.open(SETTINGS_PATH, FileAccess.WRITE)

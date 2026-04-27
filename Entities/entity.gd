@@ -1,13 +1,13 @@
 extends CharacterBody3D
 
+@warning_ignore("unused_signal")
+signal jumped
+
 enum MovementMode {
 	FULL,
 	NO_INPUT,
 	NONE,
 }
-
-@warning_ignore("unused_signal")
-signal jumped
 
 const MAX_VELOCITY_AIR = 0.6
 const MAX_VELOCITY_GROUND = 6.0
@@ -24,10 +24,11 @@ var jump_enabled = true
 var movement_state: MovementMode = MovementMode.FULL
 var regain_control_timer = 0.0
 
+
 func _physics_process(delta: float) -> void:
 	if movement_state == MovementMode.NONE:
 		return
-	
+
 	_process_movement(delta)
 	move_and_slide()
 
@@ -37,10 +38,8 @@ func _process_movement(delta: float):
 		regain_control_timer += delta
 		if regain_control_timer > REGAIN_CONTROL_TIME and is_on_floor():
 			movement_state = MovementMode.FULL
-	
+
 	if is_on_floor():
-		
-		
 		if wish_jump:
 			velocity.y = JUMP_IMPULSE
 			velocity = update_velocity_air(delta)
@@ -81,8 +80,9 @@ func fly_to(target_position: Vector3):
 	movement_state = MovementMode.NO_INPUT
 	wish_dir = Vector3.ZERO
 	regain_control_timer = 0.0
-	velocity = compute_initial_velocity_to_reach_point(global_position, target_position, 10.0, -get_gravity().y)
-	
+	velocity = compute_initial_velocity_to_reach_point(
+		global_position, target_position, 10.0, -get_gravity().y
+	)
 
 
 func input_disabled() -> bool:
@@ -103,19 +103,23 @@ func compute_initial_velocity_to_reach_point(
 	var gravity_acceleration_y: float = -gravity_magnitude
 
 	for iteration in 20:
-		var initial_velocity_y: float = (displacement.y - 0.5 * gravity_acceleration_y * time_to_target * time_to_target) / time_to_target
+		var initial_velocity_y: float = (
+			(displacement.y - 0.5 * gravity_acceleration_y * time_to_target * time_to_target)
+			/ time_to_target
+		)
 		var final_velocity_y: float = initial_velocity_y + gravity_acceleration_y * time_to_target
 		if final_velocity_y < 0.0:
 			var initial_velocity_horizontal: Vector3 = horizontal_displacement / time_to_target
 			return Vector3(
-				initial_velocity_horizontal.x,
-				initial_velocity_y,
-				initial_velocity_horizontal.z
+				initial_velocity_horizontal.x, initial_velocity_y, initial_velocity_horizontal.z
 			)
 
 		time_to_target *= 1.1
 
-	var initial_velocity_y_fallback: float = (displacement.y - 0.5 * gravity_acceleration_y * time_to_target * time_to_target) / time_to_target
+	var initial_velocity_y_fallback: float = (
+		(displacement.y - 0.5 * gravity_acceleration_y * time_to_target * time_to_target)
+		/ time_to_target
+	)
 	var initial_velocity_horizontal_fallback: Vector3 = horizontal_displacement / time_to_target
 	return Vector3(
 		initial_velocity_horizontal_fallback.x,

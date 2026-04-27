@@ -107,6 +107,7 @@ func reconstruct_leaderboard():
 		leaderboard.entries.append(new_entry)
 	leaderboard.rebuild()
 
+
 #func enable_skill(slot: Skill.SkillSlot):
 #registered_skills[slot].enable()
 #print(slot)
