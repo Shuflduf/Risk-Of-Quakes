@@ -346,6 +346,26 @@ max_value = 130.0
 step = 0.5
 value = 100.0
 
+[node name="WindowMode" type="HBoxContainer" parent="PauseScreen/TabContainer/Settings/VBox" unique_id=1600902400]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PauseScreen/TabContainer/Settings/VBox/WindowMode" unique_id=1743745324]
+layout_mode = 2
+text = "Window Mode"
+
+[node name="WindowModeOption" type="OptionButton" parent="PauseScreen/TabContainer/Settings/VBox/WindowMode" unique_id=1947880249]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+selected = 0
+item_count = 3
+popup/item_0/text = "Windowed"
+popup/item_0/id = 0
+popup/item_1/text = "Windowed Fullscreen"
+popup/item_1/id = 1
+popup/item_2/text = "Fullscreen"
+popup/item_2/id = 2
+
 [node name="Disconnect" type="Button" parent="PauseScreen/TabContainer/Settings/VBox" unique_id=147355334]
 layout_mode = 2
 size_flags_vertical = 10
