@@ -56,15 +56,16 @@ func _physics_process(_delta: float) -> void:
 		skin.set_spine_angle(-cam.rotation.x)
 		#skin.rotation.y = cam.rotation.y
 
-	if !is_multiplayer_authority() or is_dead or player.input_disabled():
+	if !is_multiplayer_authority() or is_dead:
 		return
-
-	var input_dir = Input.get_vector(&"left", &"right", &"forward", &"backward").rotated(
-		-player.rotation.y
-	)
-	player.wish_dir = Vector3(input_dir.x, 0.0, input_dir.y)
-	if Input.is_action_pressed(&"jump") and player.is_on_floor() and player.jump_enabled:
-		player.wish_jump = true
+	
+	if not player.input_disabled():
+		var input_dir = Input.get_vector(&"left", &"right", &"forward", &"backward").rotated(
+			-player.rotation.y
+		)
+		player.wish_dir = Vector3(input_dir.x, 0.0, input_dir.y)
+		if Input.is_action_pressed(&"jump") and player.is_on_floor() and player.jump_enabled:
+			player.wish_jump = true
 
 	if Input.is_action_just_pressed(&"primary"):
 		skills.primary(true)

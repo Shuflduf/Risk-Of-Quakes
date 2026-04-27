@@ -16,11 +16,13 @@ const GRAVITY = 15.34
 const STOP_SPEED = 1.5
 const JUMP_IMPULSE = 4
 const FRICTION = 4.0
+const REGAIN_CONTROL_TIME = 0.3
 
 var wish_jump = false
 var wish_dir = Vector3.ZERO
 var jump_enabled = true
 var movement_state: MovementMode = MovementMode.FULL
+var regain_control_timer = 0.0
 
 func _physics_process(delta: float) -> void:
 	if movement_state == MovementMode.NONE:
@@ -31,9 +33,14 @@ func _physics_process(delta: float) -> void:
 
 
 func _process_movement(delta: float):
-	if is_on_floor():
-		if movement_state == MovementMode.NO_INPUT:
+	if movement_state == MovementMode.NO_INPUT:
+		regain_control_timer += delta
+		if regain_control_timer > REGAIN_CONTROL_TIME and is_on_floor():
 			movement_state = MovementMode.FULL
+	
+	if is_on_floor():
+		
+		
 		if wish_jump:
 			velocity.y = JUMP_IMPULSE
 			velocity = update_velocity_air(delta)
@@ -73,6 +80,7 @@ func enable_movement(enable: bool):
 func fly_to(target_position: Vector3):
 	movement_state = MovementMode.NO_INPUT
 	wish_dir = Vector3.ZERO
+	regain_control_timer = 0.0
 	velocity = compute_initial_velocity_to_reach_point(global_position, target_position, 10.0, -get_gravity().y)
 	
 
