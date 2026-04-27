@@ -5,6 +5,7 @@ extends MarginContainer
 @onready var fov_slider: HSlider = %FOVSlider
 @onready var fov_spin_box: SpinBox = %FOVSpinBox
 @onready var window_mode_option: OptionButton = %WindowModeOption
+@onready var vsync_check: CheckBox = %VSyncCheck
 
 @onready var pairs = {
 	&"sensitivity": [sens_slider, sens_spin_box],
@@ -13,7 +14,9 @@ extends MarginContainer
 @onready var options = {
 	&"window_mode": window_mode_option,
 }
-
+@onready var toggles = {
+	&"vsync": vsync_check,
+}
 
 #func _process(delta: float) -> void:
 #if visible:
@@ -37,6 +40,10 @@ func _ready() -> void:
 	for setting in options:
 		var setting_controller = options[setting]
 		setting_controller.selected = Settings.get(setting)
-		setting_controller.item_selected.connect(func(index: int): 
-			print(index)
-			Settings.set(setting, index))
+		setting_controller.item_selected.connect(func(index: int): Settings.set(setting, index))
+	for setting in toggles:
+		var setting_controller = toggles[setting]
+		setting_controller.button_pressed = Settings.get(setting)
+		setting_controller.toggled.connect(
+			func(toggled_on: bool): Settings.set(setting, toggled_on)
+		)

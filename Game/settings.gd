@@ -22,16 +22,33 @@ var window_mode: DisplayServer.WindowMode = DisplayServer.WindowMode.WINDOW_MODE
 		][new_val]
 		DisplayServer.window_set_mode(window_mode)
 		save_settings()
+var vsync = true:
+	set(new_val):
+		vsync = new_val
+		DisplayServer.window_set_vsync_mode(
+			DisplayServer.VSYNC_ENABLED if vsync else DisplayServer.VSYNC_DISABLED
+		)
+		save_settings()
+
 
 func _ready() -> void:
 	var settings_file_content = FileAccess.get_file_as_string(SETTINGS_PATH)
 	if settings_file_content:
-		var saved_settings = JSON.parse_string(settings_file_content)
-		sensitivity = saved_settings["sensitivity"]
-		fov = saved_settings["fov"]
-		window_mode = saved_settings["window_mode"]
+		var saved_settings: Dictionary = JSON.parse_string(settings_file_content)
+		sensitivity = (
+			saved_settings["sensitivity"] if saved_settings.has("sensitivity") else sensitivity
+		)
+		fov = saved_settings["fov"] if saved_settings.has("fov") else fov
+		window_mode = (
+			saved_settings["window_mode"] if saved_settings.has("window_mode") else window_mode
+		)
+		vsync = saved_settings["vsync"] if saved_settings.has("vsync") else vsync
 
 
 func save_settings():
 	var file = FileAccess.open(SETTINGS_PATH, FileAccess.WRITE)
-	file.store_string(JSON.stringify({"fov": fov, "sensitivity": sensitivity, "window_mode": window_mode}))
+	file.store_string(
+		JSON.stringify(
+			{"fov": fov, "sensitivity": sensitivity, "window_mode": window_mode, "vsync": vsync}
+		)
+	)

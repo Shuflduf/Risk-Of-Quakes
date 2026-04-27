@@ -366,6 +366,19 @@ popup/item_1/id = 1
 popup/item_2/text = "Fullscreen"
 popup/item_2/id = 2
 
+[node name="VSync" type="HBoxContainer" parent="PauseScreen/TabContainer/Settings/VBox" unique_id=349396774]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PauseScreen/TabContainer/Settings/VBox/VSync" unique_id=457521259]
+layout_mode = 2
+text = "VSync"
+
+[node name="VSyncCheck" type="CheckBox" parent="PauseScreen/TabContainer/Settings/VBox/VSync" unique_id=1251651148]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Enabled"
+
 [node name="Disconnect" type="Button" parent="PauseScreen/TabContainer/Settings/VBox" unique_id=147355334]
 layout_mode = 2
 size_flags_vertical = 10
