@@ -169,6 +169,14 @@ layout_mode = 2
 size_flags_vertical = 4
 script = ExtResource("3_jri5q")
 
+[node name="SelectSurvivor" type="Label" parent="Lobby/SurvivorList" unique_id=98923481]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Select Your Survivor"
+horizontal_alignment = 1
+autowrap_mode = 2
+
 [node name="Commando" type="Button" parent="Lobby/SurvivorList" unique_id=228212333]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24

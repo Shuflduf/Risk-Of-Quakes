@@ -10,6 +10,7 @@ func start_game(map_scene: String):
 		if peer_name(peer_id) in children_names:
 			continue
 		spawn_peer(peer_id)
+	Lobby.status_label.text = ""
 
 
 func _ready() -> void:

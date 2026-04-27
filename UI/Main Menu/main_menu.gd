@@ -7,6 +7,7 @@ extends Control
 
 
 func _ready() -> void:
+
 	if OS.get_cmdline_args().size() > 2:
 		username.text = OS.get_cmdline_args()[2]
 	if Lobby.error_message:
@@ -21,7 +22,7 @@ func _on_host_pressed() -> void:
 			error_label.text = "Lobby already created on this network!"
 		return
 
-	transition_to_lobby()
+	toggle_server_ui()
 
 
 func _on_connect_pressed() -> void:
@@ -29,10 +30,10 @@ func _on_connect_pressed() -> void:
 	Lobby.join_game()
 	
 	get_tree().create_timer(0.5).timeout.connect(func(): error_label.text = "Failed to join lobby!")
-	#transition_to_lobby()
+	toggle_server_ui()
 
 
-func transition_to_lobby():
+func toggle_server_ui():
 	#connection.hide()
 	#lobby_panel.show()
 	%StartGame.visible = multiplayer.is_server()

@@ -16,9 +16,8 @@ func _ready() -> void:
 	Lobby.player_disconnected.connect(_on_player_disconnected)
 	Lobby.server_disconnected.connect(_on_server_disconnected)
 	Lobby.survivor_selection_started.connect(_on_survivor_selection_started)
-	Lobby.all_survivors_selected.connect(_on_all_survivors_selected)
+	Lobby.loading_game_started.connect(_on_loading_game_started)
 	Lobby.player_survivor_selected.connect(_on_other_player_survivor_selected)
-	Lobby.game_loading_started.connect(_on_game_loading_started)
 	survivor_list.survivor_selected.connect(_on_survivor_selected)
 
 
@@ -48,8 +47,8 @@ func _on_survivor_selection_started():
 	map_option.disabled = true
 
 
-func _on_all_survivors_selected():
-	pass
+func _on_loading_game_started():
+	loading_label.text = "Loading, please wait."
 
 
 func _on_other_player_survivor_selected(peer_id: int, _survivor: String):
@@ -90,7 +89,3 @@ func _on_start_game_pressed() -> void:
 
 func _on_map_option_item_selected(index: int) -> void:
 	Lobby.map_scene = Lobby.MAPS[index]
-
-
-func _on_game_loading_started():
-	loading_label.text = "Loading, please wait."

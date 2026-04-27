@@ -1,9 +1,8 @@
 extends Node
 
-signal game_loading_started
 signal survivor_selection_started
+signal loading_game_started
 signal player_survivor_selected(peer_id: int, survivor: String)
-signal all_survivors_selected
 signal leaderboard_updated
 
 signal player_connected(peer_id: int, player_info: Dictionary)
@@ -30,6 +29,7 @@ var player_info = BASE_PLAYER_INFO.duplicate()
 var players_loaded = 0
 var current_state: GameState = GameState.WAITING_FOR_PLAYERS
 var map_scene = MAPS[0]
+var status_label: Label
 
 func _ready():
 	multiplayer.peer_connected.connect(_on_player_connected)
@@ -37,7 +37,9 @@ func _ready():
 	multiplayer.connected_to_server.connect(_on_connected_ok)
 	multiplayer.connection_failed.connect(_on_connected_fail)
 	multiplayer.server_disconnected.connect(_on_server_disconnected)
-
+	status_label = Label.new()
+	status_label.z_index = 1000
+	add_child(status_label)
 
 func join_game(address = DEFAULT_SERVER_IP):
 	var peer = ENetMultiplayerPeer.new()
@@ -71,8 +73,10 @@ func remove_multiplayer_peer():
 
 @rpc("call_local")
 func load_game(game_scene_path):
-	game_loading_started.emit()
-	await get_tree().create_timer(0.1).timeout
+	loading_game_started.emit()
+	status_label.text = "The game is loading. Please be patient."
+	await get_tree().process_frame
+	await get_tree().process_frame
 	current_state = Lobby.GameState.IN_GAME
 	get_tree().change_scene_to_file(game_scene_path)
 
@@ -138,7 +142,6 @@ func select_survivor(survivor: String):
 			func(accum, v): return accum + (1 if v["survivor"] != "Survivor" else 0), 0
 		)
 		if ready_players == players.size():
-			all_survivors_selected.emit()
 			load_game.rpc(GAME_SCENE)
 
 
