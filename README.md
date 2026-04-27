@@ -1,9 +1,18 @@
 ![logo](Assets/logo.png)
 
-You can view a video demo here:
+You can see a video demo of this game here:
 (TODO: VIDEO)
 
-# How to Play
+# Table of Contents
+1. [Setup](#setup)
+2. [Controls](#controls)
+3. [Tips](#tips)
+4. [Features](#features)
+5. [Survivors](#survivors)
+6. [Maps](#maps)
+7. [Disclaimer](#disclaimer)
+
+# Setup
 1. Go to the Risk of Quakes [itch.io page](https://shuflduf.itch.io/risk-of-quakes) for the latest releases
 2. Download and run Risk of Quakes for your operating system
   - **Windows**:
@@ -50,7 +59,7 @@ You can view a video demo here:
 - `Esc`: Open settings
 
 # Tips
-If you've never played a game with Quake movement before, here the basics:
+If you've never played a game with Quake movement before, here are the basics:
 - You should always be jumping. Being on the ground decelerates your character.
 - To bhop, do NOT press the W key, instead you have to alternate between pressing A and D, and move your mouse with the direction you're moving.
   - For example, when pressing the A key, move the mouse to the left.
