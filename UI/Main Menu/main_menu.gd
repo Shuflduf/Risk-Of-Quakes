@@ -15,6 +15,10 @@ func _ready() -> void:
 
 
 func _on_host_pressed() -> void:
+	if username.text.is_empty():
+		error_label.text = "Please set a username!"
+		return
+	
 	Lobby.player_info["name"] = username.text
 	var err = Lobby.create_game()
 	if err:
@@ -26,6 +30,10 @@ func _on_host_pressed() -> void:
 
 
 func _on_connect_pressed() -> void:
+	if username.text.is_empty():
+		error_label.text = "Please set a username!"
+		return
+	
 	Lobby.player_info["name"] = username.text
 	Lobby.join_game()
 	

@@ -31,6 +31,7 @@ var current_state: GameState = GameState.WAITING_FOR_PLAYERS
 var map_scene = MAPS[0]
 var status_label: Label
 
+
 func _ready():
 	multiplayer.peer_connected.connect(_on_player_connected)
 	multiplayer.peer_disconnected.connect(_on_player_disconnected)
@@ -40,6 +41,7 @@ func _ready():
 	status_label = Label.new()
 	status_label.z_index = 1000
 	add_child(status_label)
+
 
 func join_game(address = DEFAULT_SERVER_IP):
 	var peer = ENetMultiplayerPeer.new()
@@ -55,7 +57,7 @@ func create_game():
 	var error = peer.create_server(PORT, MAX_CONNECTIONS)
 	if error:
 		return error
-		
+
 	multiplayer.multiplayer_peer = peer
 
 	players[1] = player_info
@@ -149,7 +151,7 @@ func select_survivor(survivor: String):
 func join_game_late(survivor: String):
 	var peer_id = multiplayer.get_remote_sender_id()
 	players[peer_id]["survivor"] = survivor
-	prints(multiplayer.get_unique_id(), survivor)
+	# prints(multiplayer.get_unique_id(), survivor)
 	if peer_id == multiplayer.get_unique_id():
 		load_game(GAME_SCENE)
 

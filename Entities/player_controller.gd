@@ -98,7 +98,7 @@ func die():
 	if is_dead:
 		return
 
-	hitbox.set_deferred(&"monitorable", false)
+	hitbox.process_mode =Node.PROCESS_MODE_DISABLED
 	player.hide()
 	player.enable_movement(false)
 	is_dead = true
@@ -116,7 +116,7 @@ func die():
 
 @rpc("any_peer", "call_local")
 func respawn():
-	hitbox.set_deferred(&"monitorable", true)
+	hitbox.process_mode =Node.PROCESS_MODE_INHERIT
 	player.show()
 	player.enable_movement(true)
 	player.velocity = Vector3.ZERO
