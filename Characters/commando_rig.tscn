@@ -49,10 +49,10 @@ script = ExtResource("2_l54ek")
 hand_handles = [NodePath("metarig/Skeleton3D/spine_004/LeftHand"), NodePath("metarig/Skeleton3D/spine_004/RightHand")]
 phase_round_handles = [NodePath("metarig/Skeleton3D/spine_004/LeftPhaseRound"), NodePath("metarig/Skeleton3D/spine_004/RightPhaseRound")]
 
-[node name="gun" parent="." index="0" unique_id=1940163367]
+[node name="gun" parent="." index="0" unique_id=557021042]
 visible = false
 
-[node name="Skeleton3D" parent="metarig" parent_id_path=PackedInt32Array(389223382) index="0" unique_id=993812809]
+[node name="Skeleton3D" parent="metarig" parent_id_path=PackedInt32Array(1994853314) index="0" unique_id=1887533262]
 bones/17/rest = Transform3D(0.9907848, -0.13544326, -0.0002260206, -0.12818585, -0.9371549, -0.32451344, 0.043741368, 0.32155234, -0.9458801, -0.098, 0.07081846, 0.025942255)
 bones/17/scale = Vector3(0.99999976, 1, 0.9999991)
 bones/18/rest = Transform3D(0.99078506, 0.13342516, -0.02329455, -0.13544318, 0.9757328, -0.17204894, -0.00022639986, 0.17361861, 0.9848129, -3.5215635e-08, 0.52957565, -4.838512e-09)
@@ -121,51 +121,49 @@ settings/1/end_bone = 8
 settings/1/use_virtual_end = false
 settings/1/extend_end_bone = false
 
-[node name="RightHand" type="Marker3D" parent="metarig/Skeleton3D/spine_004" parent_id_path=PackedInt32Array(270969133) index="2" unique_id=337246956]
+[node name="RightHand" type="Marker3D" parent="metarig/Skeleton3D/spine_004" parent_id_path=PackedInt32Array(737503416) index="2" unique_id=337246956]
 transform = Transform3D(1.0000002, -2.1316282e-13, -2.2737368e-13, 0, 1.0000005, 0, 0, -2.9802322e-08, 1.0000005, -0.20200013, 0.14000022, 0.6360001)
 
-[node name="RightPhaseRound" type="Marker3D" parent="metarig/Skeleton3D/spine_004" parent_id_path=PackedInt32Array(270969133) index="3" unique_id=1763941391]
+[node name="RightPhaseRound" type="Marker3D" parent="metarig/Skeleton3D/spine_004" parent_id_path=PackedInt32Array(737503416) index="3" unique_id=1763941391]
 transform = Transform3D(1.0000002, -1.1510792e-12, -1.364242e-12, 0, 1.0000005, 5.9604645e-08, 0, -2.9802322e-08, 1.0000005, -0.09920084, -0.055520654, 0.7537185)
 
-[node name="LeftPhaseRound" type="Marker3D" parent="metarig/Skeleton3D/spine_004" parent_id_path=PackedInt32Array(270969133) index="4" unique_id=382191136]
+[node name="LeftPhaseRound" type="Marker3D" parent="metarig/Skeleton3D/spine_004" parent_id_path=PackedInt32Array(737503416) index="4" unique_id=382191136]
 transform = Transform3D(1.0000002, -9.521273e-13, -1.1652901e-12, 0, 1.0000005, 5.9604645e-08, 0, -2.9802322e-08, 1.0000005, 0.099, -0.056, 0.754)
 
-[node name="LeftHand" type="Marker3D" parent="metarig/Skeleton3D/spine_004" parent_id_path=PackedInt32Array(270969133) index="5" unique_id=1485863900]
+[node name="LeftHand" type="Marker3D" parent="metarig/Skeleton3D/spine_004" parent_id_path=PackedInt32Array(737503416) index="5" unique_id=1485863900]
 transform = Transform3D(1.0000002, -2.1316282e-13, -3.9790393e-13, 0, 1.0000005, 5.9604645e-08, 0, -2.9802322e-08, 1.0000005, 0.20199962, 0.13998091, 0.63609856)
 
-[node name="hand_L" parent="metarig/Skeleton3D" index="3" unique_id=548591095]
+[node name="hand_L" parent="metarig/Skeleton3D" index="3" unique_id=1749839533]
 transform = Transform3D(0.95263207, 0.15630892, 0.26088297, -0.29639432, 0.28498086, 0.9115568, 0.06813785, -0.94570243, 0.317811, -0.20247152, 1.4887788, -0.6066089)
 
 [node name="gun" type="MeshInstance3D" parent="metarig/Skeleton3D/hand_L" index="0" unique_id=608241198]
 transform = Transform3D(0.043869466, -0.95293534, -0.29998276, 0.99843675, 0.031413883, 0.04622099, -0.034621976, -0.3015415, 0.95282406, 0.021544814, 0.089036524, -0.0077712536)
 mesh = SubResource("ArrayMesh_bh1ep")
-skeleton = NodePath("")
 
-[node name="forearm_L" parent="metarig/Skeleton3D" index="4" unique_id=2072356488]
+[node name="forearm_L" parent="metarig/Skeleton3D" index="4" unique_id=1501059741]
 transform = Transform3D(0.94708186, 0.110388026, 0.30141407, -0.3209348, 0.34336984, 0.882665, -0.0060608163, -0.93269026, 0.36062682, -0.23748353, 1.3798715, -0.3107856)
 
-[node name="upper_arm_L" parent="metarig/Skeleton3D" index="5" unique_id=142378616]
+[node name="upper_arm_L" parent="metarig/Skeleton3D" index="5" unique_id=499887246]
 transform = Transform3D(0.99738693, -0.0589672, 0.041738972, -0.057711285, -0.30277213, 0.9513137, -0.043458853, -0.95123667, -0.305384, -0.2169539, 1.4852829, 0.0203913)
 
-[node name="hand_R" parent="metarig/Skeleton3D" index="6" unique_id=589669961]
+[node name="hand_R" parent="metarig/Skeleton3D" index="6" unique_id=1289356834]
 transform = Transform3D(0.9526279, -0.15631914, -0.26089123, 0.29641354, 0.28509238, 0.91151553, -0.06810928, -0.9456672, 0.3179223, 0.20247033, 1.4888288, -0.60660064)
 
 [node name="gun" type="MeshInstance3D" parent="metarig/Skeleton3D/hand_R" index="5" unique_id=2010998636]
 transform = Transform3D(-0.16379327, -0.93458533, 0.31578937, 0.98327744, -0.18051007, -0.024217416, 0.07963659, 0.3065419, 0.94852203, -0.0071008205, 0.09180552, -0.0007327795)
 mesh = SubResource("ArrayMesh_bh1ep")
-skeleton = NodePath("")
 
-[node name="forearm_R" parent="metarig/Skeleton3D" index="7" unique_id=666273898]
+[node name="forearm_R" parent="metarig/Skeleton3D" index="7" unique_id=1793554909]
 transform = Transform3D(0.94707817, -0.1103983, -0.30142176, 0.32094496, 0.34348047, 0.88261807, 0.0060929507, -0.93264854, 0.36073488, 0.23748562, 1.3798864, -0.31079054)
 
-[node name="upper_arm_R" parent="metarig/Skeleton3D" index="8" unique_id=1298117229]
+[node name="upper_arm_R" parent="metarig/Skeleton3D" index="8" unique_id=319652817]
 transform = Transform3D(0.9973858, 0.058972996, -0.041756887, 0.057728246, -0.30273, 0.9513261, 0.043461435, -0.9512501, -0.30534294, 0.21695395, 1.4852831, 0.020391174)
 
-[node name="foot_R" parent="metarig/Skeleton3D" index="13" unique_id=1382684530]
+[node name="foot_R" parent="metarig/Skeleton3D" index="13" unique_id=1672916401]
 transform = Transform3D(-0.99999964, -5.1128694e-07, -4.7645028e-07, 7.4852005e-07, -0.5299987, -0.8479983, 1.938183e-07, -0.84799767, 0.529998, 0.1697275, 0.0851998, 0.01619973)
 
-[node name="shin_R" parent="metarig/Skeleton3D" index="14" unique_id=1582535615]
+[node name="shin_R" parent="metarig/Skeleton3D" index="14" unique_id=2092865032]
 transform = Transform3D(-0.99999964, 9.105861e-08, -1.6948616e-07, -3.342575e-08, -0.9953653, 0.09616456, -1.4717807e-07, 0.096164264, 0.9953644, 0.16972746, 0.5489088, -0.028600145)
 
-[node name="thigh_R" parent="metarig/Skeleton3D" index="15" unique_id=964451566]
+[node name="thigh_R" parent="metarig/Skeleton3D" index="15" unique_id=804447206]
 transform = Transform3D(-0.9907847, 0.13544324, 0.00022624942, -0.13504691, -0.9877554, -0.07810983, -0.010355983, -0.077420756, 0.9969437, 0.09799998, 1.072, 0.012400005)

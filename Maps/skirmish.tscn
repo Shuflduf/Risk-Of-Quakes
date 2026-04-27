@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_x5fq0"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_eohdr"]
 [ext_resource type="Material" uid="uid://ct1lxvbr38jkg" path="res://Maps/Textures/Prototype/orange.tres" id="3_3mibx"]
-[ext_resource type="Material" path="res://Maps/Textures/Prototype/white.tres" id="4_kx74h"]
+[ext_resource type="Material" uid="uid://b5si568ocg0or" path="res://Maps/Textures/Prototype/white.tres" id="4_kx74h"]
 [ext_resource type="Material" uid="uid://cesxd8focfw5m" path="res://Maps/Textures/Prototype/black.tres" id="5_5rewk"]
-[ext_resource type="LightmapGIData" path="res://Maps/skirmish.lmbake" id="6_x5fq0"]
+[ext_resource type="LightmapGIData" uid="uid://wtv6w1p06e6o" path="res://Maps/skirmish.lmbake" id="6_x5fq0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x5fq0"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)

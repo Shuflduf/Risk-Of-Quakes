@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="NetRadiantCustomGamePackConfig" load_steps=6 format=3 uid="uid://cv1k2e85fo2ax"]
+[gd_resource type="Resource" script_class="NetRadiantCustomGamePackConfig" format=3 uid="uid://cv1k2e85fo2ax"]
 
 [ext_resource type="Resource" uid="uid://crgpdahjaj" path="res://addons/func_godot/fgd/func_godot_fgd.tres" id="1_gct4v"]
 [ext_resource type="Script" uid="uid://dfhj3me2g5j0l" path="res://addons/func_godot/src/netradiant_custom/netradiant_custom_gamepack_config.gd" id="2_en8ro"]

@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_10ttv"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_f61i7"]
-[ext_resource type="Material" path="res://Maps/Textures/Prototype/white.tres" id="3_wx8nt"]
+[ext_resource type="Material" uid="uid://b5si568ocg0or" path="res://Maps/Textures/Prototype/white.tres" id="3_wx8nt"]
 [ext_resource type="Material" uid="uid://ct1lxvbr38jkg" path="res://Maps/Textures/Prototype/orange.tres" id="4_wx8nt"]
 [ext_resource type="Material" uid="uid://cesxd8focfw5m" path="res://Maps/Textures/Prototype/black.tres" id="5_kekdi"]
 [ext_resource type="Script" path="res://Maps/Entities/kill_bounds.gd" id="5_pu8oa"]
 [ext_resource type="LightmapGIData" uid="uid://b6gvpb7b131tl" path="res://Maps/bulwarks.lmbake" id="7_h3tap"]
 [ext_resource type="Shader" uid="uid://c6m1wnd2xwjo4" path="res://Maps/sky.gdshader" id="8_pu8oa"]
-[ext_resource type="PackedScene" path="res://Maps/Entities/launch_pad.tscn" id="9_wx8nt"]
+[ext_resource type="PackedScene" uid="uid://dsfvkvwwc2gad" path="res://Maps/Entities/launch_pad.tscn" id="9_wx8nt"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_kekdi"]
 lightmap_size_hint = Vector2i(1838, 1834)

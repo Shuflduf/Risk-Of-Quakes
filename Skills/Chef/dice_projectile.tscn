@@ -113,7 +113,6 @@ draw_pass_1 = SubResource("SphereMesh_ugf5b")
 [node name="SubMesh_0_101" type="MeshInstance3D" parent="." unique_id=938720296]
 transform = Transform3D(0.9807444, 0, -0.19529574, -0.19529574, -4.371139e-08, -0.9807444, -8.536648e-09, 1, -4.28697e-08, 0, 0.07441251, 3.2526741e-09)
 mesh = SubResource("ArrayMesh_32emr")
-skeleton = NodePath("")
 
 [connection signal="body_entered" from="Collision" to="." method="_on_collision_body_entered"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

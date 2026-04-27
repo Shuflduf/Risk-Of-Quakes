@@ -19,7 +19,6 @@ shape = SubResource("SphereShape3D_lnl80")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=961329993]
 mesh = SubResource("SphereMesh_lnl80")
-skeleton = NodePath("")
 
 [node name="Timer" type="Timer" parent="." unique_id=1627333644]
 wait_time = 5.0

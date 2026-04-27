@@ -46,6 +46,6 @@ shadow_mesh = SubResource("ArrayMesh_m10cx")
 
 [node name="Cleaver" unique_id=1685095157 instance=ExtResource("1_2gwi8")]
 
-[node name="SubMesh_0_101" parent="." index="0" unique_id=938720296]
+[node name="SubMesh_0_101" parent="." index="0" unique_id=1286750325]
 transform = Transform3D(0.9807444, 0, -0.19529574, 0, 1, 0, 0.19529574, 0, 0.9807444, 0, 0, -0.07441251)
 mesh = SubResource("ArrayMesh_ufwtn")

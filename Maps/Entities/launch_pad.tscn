@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dsfvkvwwc2gad"]
 
-[ext_resource type="Script" uid="uid://86q2rtl8wnvu" path="res://Maps/Entities/launch_pad.gd" id="1_t8myp"]
+[ext_resource type="Script" path="res://Maps/Entities/launch_pad.gd" id="1_t8myp"]
 [ext_resource type="Material" uid="uid://doqaguofhasey" path="res://Maps/Textures/Prototype/purple.tres" id="2_iwf4h"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_pu8oa"]
