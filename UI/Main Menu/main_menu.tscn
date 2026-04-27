@@ -103,7 +103,7 @@ player_label = ExtResource("3_mqkp3")
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="Lobby/PlayerList" unique_id=295813796]
+[node name="Players" type="Label" parent="Lobby/PlayerList" unique_id=295813796]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Players"
@@ -111,6 +111,16 @@ text = "Players"
 [node name="PlayerList" type="VBoxContainer" parent="Lobby/PlayerList" unique_id=1265914267]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="MapOption" type="OptionButton" parent="Lobby/PlayerList" unique_id=1981310996]
+unique_name_in_owner = true
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "Bulwark's Ambry"
+popup/item_0/id = 0
+popup/item_1/text = "Skirmish A"
+popup/item_1/id = 1
 
 [node name="StartGame" type="Button" parent="Lobby/PlayerList" unique_id=1914423849]
 unique_name_in_owner = true
@@ -120,6 +130,13 @@ text = "Start Game"
 [node name="Disconnect" type="Button" parent="Lobby/PlayerList" unique_id=1751645165]
 layout_mode = 2
 text = "Disconnect"
+
+[node name="LoadingLabel" type="Label" parent="Lobby/PlayerList" unique_id=315281602]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="SurvivorList" type="VBoxContainer" parent="Lobby" unique_id=1266944899]
 unique_name_in_owner = true
@@ -133,12 +150,13 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Commando"
 
-[node name="Chef" type="Button" parent="Lobby/SurvivorList" unique_id=1649547048]
+[node name="CHEF" type="Button" parent="Lobby/SurvivorList" unique_id=1649547048]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
-text = "Chef"
+text = "CHEF"
 
 [connection signal="pressed" from="Connection/VBoxContainer/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Connection/VBoxContainer/Connect" to="." method="_on_connect_pressed"]
+[connection signal="item_selected" from="Lobby/PlayerList/MapOption" to="Lobby" method="_on_map_option_item_selected"]
 [connection signal="pressed" from="Lobby/PlayerList/StartGame" to="Lobby" method="_on_start_game_pressed"]
 [connection signal="pressed" from="Lobby/PlayerList/Disconnect" to="Lobby" method="_on_disconnect_pressed"]

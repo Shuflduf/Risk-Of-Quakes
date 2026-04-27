@@ -1,10 +1,14 @@
 extends HBoxContainer
 
+
 @export var player_label: PackedScene
 
 @onready var player_list: VBoxContainer = %PlayerList
 @onready var connection_panel: VBoxContainer = %Connection
 @onready var survivor_list: VBoxContainer = %SurvivorList
+@onready var map_option: OptionButton = %MapOption
+@onready var start_game: Button = %StartGame
+@onready var loading_label: Label = %LoadingLabel
 
 
 func _ready() -> void:
@@ -14,6 +18,7 @@ func _ready() -> void:
 	Lobby.survivor_selection_started.connect(_on_survivor_selection_started)
 	Lobby.all_survivors_selected.connect(_on_all_survivors_selected)
 	Lobby.player_survivor_selected.connect(_on_other_player_survivor_selected)
+	Lobby.game_loading_started.connect(_on_game_loading_started)
 	survivor_list.survivor_selected.connect(_on_survivor_selected)
 
 
@@ -39,7 +44,8 @@ func _on_server_disconnected():
 
 func _on_survivor_selection_started():
 	survivor_list.show()
-	%StartGame.disabled = true
+	start_game.disabled = true
+	map_option.disabled = true
 
 
 func _on_all_survivors_selected():
@@ -80,3 +86,11 @@ func go_back_to_connections():
 
 func _on_start_game_pressed() -> void:
 	Lobby.start_survivor_selection.rpc()
+
+
+func _on_map_option_item_selected(index: int) -> void:
+	Lobby.map_scene = Lobby.MAPS[index]
+
+
+func _on_game_loading_started():
+	loading_label.text = "Loading, please wait."

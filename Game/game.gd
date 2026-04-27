@@ -3,7 +3,8 @@ extends Node3D
 @export var survivors: Dictionary[String, PackedScene]
 
 @rpc("call_local")
-func start_game():
+func start_game(map_scene: String):
+	add_child(load(map_scene).instantiate())
 	var children_names = get_children().map(func(v: Node): return String(v.name))
 	for peer_id in Lobby.players:
 		if peer_name(peer_id) in children_names:

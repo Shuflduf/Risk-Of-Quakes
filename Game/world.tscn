@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://ba7lx70tapam4" path="res://Entities/target.tscn" id="1_hvno2"]
 [ext_resource type="PackedScene" uid="uid://cmcok53rej5sy" path="res://Entities/entity.tscn" id="2_r7jf0"]
-[ext_resource type="PackedScene" uid="uid://buk14403t3i1d" path="res://Maps/bulwarks.tscn" id="4_ps1nv"]
 
 [node name="World" type="Node3D" unique_id=2007376966]
 
@@ -11,5 +10,3 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9, 2
 
 [node name="Entity" parent="." unique_id=1792205180 instance=ExtResource("2_r7jf0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.875263, 1, -2)
-
-[node name="Bulwarks" parent="." unique_id=562382884 instance=ExtResource("4_ps1nv")]

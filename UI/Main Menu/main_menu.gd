@@ -35,3 +35,4 @@ func transition_to_lobby():
 	#connection.hide()
 	#lobby_panel.show()
 	%StartGame.visible = multiplayer.is_server()
+	%MapOption.visible = %StartGame.visible

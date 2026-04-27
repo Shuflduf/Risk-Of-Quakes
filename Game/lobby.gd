@@ -1,5 +1,6 @@
 extends Node
 
+signal game_loading_started
 signal survivor_selection_started
 signal player_survivor_selected(peer_id: int, survivor: String)
 signal all_survivors_selected
@@ -21,13 +22,14 @@ const MAX_CONNECTIONS = 20
 const GAME_SCENE = "res://Game/game.tscn"
 const MAIN_MENU_SCENE = "res://UI/Main Menu/main_menu.tscn"
 const BASE_PLAYER_INFO = {"name": "Name", "survivor": "Survivor", "kills": 0, "deaths": 0}
+const MAPS = ["res://Maps/bulwarks.tscn", "res://Maps/skirmish.tscn"]
 
 var players = {}
 var error_message = ""
 var player_info = BASE_PLAYER_INFO.duplicate()
 var players_loaded = 0
 var current_state: GameState = GameState.WAITING_FOR_PLAYERS
-
+var map_scene = MAPS[0]
 
 func _ready():
 	multiplayer.peer_connected.connect(_on_player_connected)
@@ -67,6 +69,8 @@ func remove_multiplayer_peer():
 
 @rpc("call_local")
 func load_game(game_scene_path):
+	game_loading_started.emit()
+	await get_tree().create_timer(0.1).timeout
 	current_state = Lobby.GameState.IN_GAME
 	get_tree().change_scene_to_file(game_scene_path)
 
@@ -76,7 +80,9 @@ func player_loaded():
 	if multiplayer.is_server():
 		players_loaded += 1
 		if players_loaded == players.size():
-			$/root/Game.start_game.rpc()
+			#start_loading_message.rpc()
+
+			$/root/Game.start_game.rpc(map_scene)
 
 			#start_game.rpc()
 			#players_loaded = 0
