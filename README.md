@@ -1,5 +1,18 @@
 ![logo](Assets/logo.png)
 
+You can view a video demo here:
+(TODO: VIDEO)
+
+# How to Play
+1. Download the latest release from [itch.io](https://shuflduf.itch.io/risk-of-quakes)
+2. Run it (todo)
+3. If you don't have any friends on your local network, you can open two instances of the game
+4. Set a username
+5. **Host**: Click the `Host` button, and wait for everyone to join. Once everyone has joined, select a map and click `Start Game` to start survivor selection.
+6. **Player**: Click the `Connect` button and wait for the host to start survivor selection.
+7. Once survivor selection has started, select your survivor.
+8. Once all players have selected their survivors, the game will load and the match will begin!
+
 # Features
 - [Quake movement](https://aneacsu.com/blog/2023-04-09-quake-movement-godot)
 - Several survivors
@@ -50,9 +63,20 @@ CHEF has high combo potential and great time-to-kill at short ranges, at the cos
 ## Bulwark's Ambry
 The Artifact Reliquary from Risk of Rain 2, rebuilt for PvP. Featuring baked lighting and a [custom sky shader](https://godotshaders.com/shader/starry-sky/), be careful not to fall off!
 
-(baked lighting comparison)
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/7e12fac3-48c9-48a1-aded-c3657e1b9295" />
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/0835ff56-264e-47dd-9387-7051d4c26892" />
+
+<img height="300" alt="bulwarks_baked" src="https://github.com/user-attachments/assets/cc6b8a27-13c0-4e95-8838-57ab81f67a91" />
+
+*(baked lighting comparison)*
 
 ## Skirmish A
 A scaled-up version of the Skirmish A map from Valorant! It's barebones, but each box was placed intentionally for cover and for bhopping on top of when you have enough speed.
 
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/ed94b001-6f21-4b00-b685-80f4a30e75dd" />
+<img height="300" alt="image" src="https://github.com/user-attachments/assets/03e44dfd-42c7-4afd-8d42-57c457abbb69" />
+
+<img height="300" alt="skirmish_baked" src="https://github.com/user-attachments/assets/c0166f3a-589f-4b13-a17c-b3f967dc39e0" />
+
+*(baked lighting comparison)*
 
