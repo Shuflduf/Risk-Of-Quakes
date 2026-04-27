@@ -392,22 +392,22 @@ environment = SubResource("Environment_kekdi")
 [node name="Marker3D3" type="Marker3D" parent="SpawnPoints" unique_id=724548890 groups=["Spawn Point"]]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -42.477333, 8.576228, -27.49733)
 
-[node name="Marker3D" type="Marker3D" parent="SpawnPoints" unique_id=1622781957]
+[node name="Marker3D" type="Marker3D" parent="SpawnPoints" unique_id=1622781957 groups=["Spawn Point"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.320963, 8.850966, 7)
 
-[node name="Marker3D2" type="Marker3D" parent="SpawnPoints" unique_id=1358397527]
+[node name="Marker3D2" type="Marker3D" parent="SpawnPoints" unique_id=1358397527 groups=["Spawn Point"]]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.539966, 13.592663, -35.287804)
 
-[node name="Marker3D4" type="Marker3D" parent="SpawnPoints" unique_id=685008992]
+[node name="Marker3D4" type="Marker3D" parent="SpawnPoints" unique_id=685008992 groups=["Spawn Point"]]
 transform = Transform3D(0.7071068, 0, -0.7071067, 0, 1, 0, 0.7071067, 0, 0.7071068, -37.77607, 20.049574, -1.7804704)
 
-[node name="Marker3D5" type="Marker3D" parent="SpawnPoints" unique_id=2105355835]
+[node name="Marker3D5" type="Marker3D" parent="SpawnPoints" unique_id=2105355835 groups=["Spawn Point"]]
 transform = Transform3D(5.9604645e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 5.9604645e-08, -43.43332, 17.049574, 25.21953)
 
-[node name="Marker3D6" type="Marker3D" parent="SpawnPoints" unique_id=606126410]
+[node name="Marker3D6" type="Marker3D" parent="SpawnPoints" unique_id=606126410 groups=["Spawn Point"]]
 transform = Transform3D(5.9604645e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 5.9604645e-08, -37.43332, 9.049574, 25.21953)
 
-[node name="Marker3D7" type="Marker3D" parent="SpawnPoints" unique_id=1611776403]
+[node name="Marker3D7" type="Marker3D" parent="SpawnPoints" unique_id=1611776403 groups=["Spawn Point"]]
 transform = Transform3D(0.7071067, 0, -0.7071066, 0, 1, 0, 0.7071066, 0, 0.7071067, -7.8089814, 8.649574, 30.41792)
 
 [node name="LaunchPad" parent="." unique_id=1438877434 node_paths=PackedStringArray("target") instance=ExtResource("9_wx8nt")]
