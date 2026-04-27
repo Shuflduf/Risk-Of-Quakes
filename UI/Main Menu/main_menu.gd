@@ -55,6 +55,7 @@ func toggle_server_ui():
 	#lobby_panel.show()
 	%StartGame.visible = multiplayer.is_server()
 	%MapOption.visible = %StartGame.visible
+	%CopyIP.visible = %StartGame.visible
 
 
 func _on_server_address_gui_input(event: InputEvent) -> void:
@@ -69,4 +70,3 @@ func _on_server_address_gui_input(event: InputEvent) -> void:
 			await get_tree().process_frame
 			server_address.text = clipboard_text.split(":")[0]
 			server_port.value = int(clipboard_text.split(":")[1])
-			#event.

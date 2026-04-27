@@ -4,8 +4,8 @@ You can view a video demo here:
 (TODO: VIDEO)
 
 # How to Play
-1. Go to the Risk of Quakes [itch.io page](https://shuflduf.itch.io/risk-of-quakes) for the latest releases.
-2. Run Risk of Quakes
+1. Go to the Risk of Quakes [itch.io page](https://shuflduf.itch.io/risk-of-quakes) for the latest releases
+2. Download and run Risk of Quakes for your operating system
   - **Windows**:
     1. Download `RiskOfQuakes_Windows.exe`
     2. Double-click the file to open it
@@ -24,9 +24,18 @@ You can view a video demo here:
     4. Run it: `./RiskOfQuakes_Linux.x86_64`
 3. If you don't have any friends on your local network, you can open two instances of the game
 4. Set a username
-5. **Host**: Click the `Host` button, and wait for everyone to join. Once everyone has joined, select a map and click `Start Game` to start survivor selection.
-6. **Player**: Click the `Connect` button and wait for the host to start survivor selection.
-7. Once survivor selection has started, select your survivor.
+5. **Host**:
+  1. Optionally specify a port (chaning the address field does nothing)
+  1. Click the `Host` button
+  2. Click the `Copy Local IP` button to copy the server address to your clipboard
+  3. Send this address (including the port) to any player who wants to join
+  3. Wait for everyone to join
+  4. Once everyone has joined, select a map and click `Start Game` to start survivor selection
+6. **Player**:
+  1. Wait for your host to give you the server address
+  2. Paste the server address into the box for the server address (where it says`127.0.0.1` by default). The port will be autofilled from the clipboard.
+  3. Click the `Connect` button and wait for the host to start survivor selection
+7. Once survivor selection has started, select your survivor
 8. Once all players have selected their survivors, the game will load and the match will begin!
 
 # Controls
