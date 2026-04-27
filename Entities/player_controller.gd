@@ -103,7 +103,7 @@ func die():
 	player.enable_movement(false)
 	is_dead = true
 	hud.respawn(5.0)
-	prints(multiplayer.get_unique_id(), multiplayer.get_remote_sender_id())
+	#prints(multiplayer.get_unique_id(), multiplayer.get_remote_sender_id())
 	Lobby.players[multiplayer.get_remote_sender_id()].deaths += 1
 	var killer = health.last_attacker
 	if killer and killer.get_multiplayer_authority():

@@ -29,6 +29,17 @@ You can view a video demo here:
 7. Once survivor selection has started, select your survivor.
 8. Once all players have selected their survivors, the game will load and the match will begin!
 
+# Controls
+- `WASD`: Movement
+- `Space`: Jump
+- `Mouse`: Look around
+- `Left Mouse Button`: Primary Skill (the first one)
+- `Right Mouse Button`: Secondary Skill (the second one)
+- `Left Shift`: Utility Skill (the third one)
+- `R`: Special Skill (the fourth one)
+- `Tab`: Show leaderboard
+- `Esc`: Open settings
+
 # Tips
 If you've never played a game with Quake movement before, here the basics:
 - You should always be jumping. Being on the ground decelerates your character.
@@ -104,3 +115,7 @@ A scaled-up version of the Skirmish A map from Valorant! It's barebones, but eac
 
 *(baked lighting comparison)*
 
+# Disclaimer
+This is a fan-made project not affiliated with, endorsed by, or approved by Gearbox Software or Hopoo Games.
+Risk of Rain 2 models and assets are the property of Gearbox Software.
+This project is created for non-commercial fan purposes only.
