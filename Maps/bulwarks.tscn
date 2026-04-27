@@ -2,12 +2,18 @@
 
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_10ttv"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_f61i7"]
-[ext_resource type="Material" uid="uid://drl6isxu402wt" path="res://Maps/Textures/Light/texture_01.tres" id="3_jbuiv"]
-[ext_resource type="Material" uid="uid://cfpktuk3b33ko" path="res://Maps/Textures/Orange/texture_08.tres" id="4_erulm"]
-[ext_resource type="Material" uid="uid://cesxd8focfw5m" path="res://Maps/Textures/Dark/texture_07.tres" id="5_erulm"]
+[ext_resource type="Material" uid="uid://cfpktuk3b33ko" path="res://Maps/Textures/Prototype/texture_08.tres" id="4_erulm"]
+[ext_resource type="Material" uid="uid://cesxd8focfw5m" path="res://Maps/Textures/Prototype/texture_07.tres" id="5_erulm"]
 [ext_resource type="Script" uid="uid://d8sw7e4isptl" path="res://Maps/kill_bounds.gd" id="6_basas"]
 [ext_resource type="LightmapGIData" uid="uid://b6gvpb7b131tl" path="res://Maps/bulwarks.lmbake" id="7_h3tap"]
 [ext_resource type="Shader" uid="uid://c6m1wnd2xwjo4" path="res://Maps/sky.gdshader" id="8_pu8oa"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h3tap"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pu8oa"]
+albedo_texture = SubResource("CompressedTexture2D_h3tap")
+metallic_specular = 0.0
+texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_pu8oa"]
 lightmap_size_hint = Vector2i(2266, 2270)
@@ -17,7 +23,7 @@ _surfaces = [{
 "format": 34359742519,
 "index_count": 576,
 "index_data": PackedByteArray("AAABAAIAAAACAAMABAAFAAYABAAGAAcACAAJAAoACAAKAAsADAANAA4ADAAOAA8AEAARABIAEAASABMAFAAVABYAFAAWABcAGAAZABoAGAAaABsAHAAdAB4AHAAeAB8AIAAhACIAIAAiACMAJAAlACYAJAAmACcAKAApACoAKAAqACsALAAtAC4ALAAuAC8AMAAxADIAMAAyADMANAA1ADYANAA2ADcAOAA5ADoAOAA6ADsAPAA9AD4APAA+AD8AQABBAEIAQABCAEMARABFAEYARABGAEcASABJAEoASABKAEsATABNAE4ATABOAE8AUABRAFIAUABSAFMAVABVAFYAVABWAFcAWABZAFoAWABaAFsAXABdAF4AXABeAF8AYABhAGIAYABiAGMAZABlAGYAZABmAGcAaABpAGoAaABqAGsAbABtAG4AbABuAG8AcABxAHIAcAByAHMAdAB1AHYAdAB2AHcAeAB5AHoAeAB6AHsAfAB9AH4AfAB+AH8AgACBAIIAgACCAIMAhACFAIYAhACGAIcAiACJAIoAiACKAIsAjACNAI4AjACOAI8AkACRAJIAkACSAJMAlACVAJYAlACWAJcAmACZAJoAmACaAJsAnACdAJ4AnACeAJ8AoAChAKIAoACiAKMAFQCkAKUAFQClABYApgCnAKgApgCoAKkAqgCrAKwAqgCsAK0ArgCvALAArgCwALEAsgCzALQAsgC0ALUAtgC3ALgAtgC4ALkAugC7ALwAugC8AL0AvgC/AMAAvgDAAMEAwgDDAMQAwgDEAMUAxgDHAMgAxgDIAMkAygDLAMwAygDMAM0AzgDPANAAzgDQANEA0gDTANQA0gDUANUA1gDXANgA1gDYANkA2gDbANwA2gDcAN0A3gDfAOAA3gDgAOEA4gDjAOQA4gDkAOUA5gDnAOgA5gDoAOkA6gDrAOwA6gDsAO0A7gDvAPAA7gDwAPEA8gDzAPQA8gD0APUA9gD3APgA9gD4APkA+gD7APwA+gD8AP0A/gD/AAAB/gAAAQEBAgEDAQQBAgEEAQUBBgEHAQgBBgEIAQkBCgELAQwBCgEMAQ0BDgEPARABDgEQAREBEgETARQBEgEUARUBFgEXARgBFgEYARkBGgEbARwBGgEcAR0BHgEfASABHgEgASEBIgEjASQBIgEkASUBJgEnASgBJgEoASkBKgErASwBKgEsAS0BLgEvATABLgEwATEBMgEzATQBMgE0ATUBNgE3ATgBNgE4ATkBOgE7ATwBOgE8AT0BPgE/AUABPgFAAUEBQgFDAUQBQgFEAUUBRgFHAUgBRgFIAUkBMwFKAUsBMwFLATQBHwHWANkAHwHZACABTAFNAU4BTAFOAU8BUAFRAVIBUAFSAVMBVAFVAVYBVAFWAVcBWAFZAVoBWAFaAVsBXAFdAV4BXAFeAV8BYAFhAWIBYAFiAWMBOwFMAU8BOwFPATwBZAFlAWYBZAFmAWcBaAFpAWoBaAFqAWsBbAFtAW4BbAFuAW8BcAFxAXIBcAFyAXMB"),
-"material": ExtResource("3_jbuiv"),
+"material": SubResource("StandardMaterial3D_pu8oa"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 372,
@@ -211,6 +217,10 @@ ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.2
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_pu8oa"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wx8nt"]
 
 [node name="Bulwarks" type="Node3D" unique_id=424054374]
 
@@ -407,5 +417,16 @@ transform = Transform3D(5.9604645e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 5
 
 [node name="Marker3D7" type="Marker3D" parent="SpawnPoints" unique_id=1611776403 groups=["Spawn Point"]]
 transform = Transform3D(0.7071067, 0, -0.7071066, 0, 1, 0, 0.7071066, 0, 0.7071067, -7.8089814, 8.649574, 30.41792)
+
+[node name="LaunchPad" type="Node3D" parent="." unique_id=1356591111]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.046452, 8.240289, -19.777777)
+
+[node name="Area3D" type="Area3D" parent="LaunchPad" unique_id=63689551]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LaunchPad/Area3D" unique_id=9037843]
+shape = SubResource("CylinderShape3D_pu8oa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LaunchPad" unique_id=1658450416]
+mesh = SubResource("CylinderMesh_wx8nt")
 
 [connection signal="area_entered" from="KillBounds" to="KillBounds" method="_on_area_entered"]

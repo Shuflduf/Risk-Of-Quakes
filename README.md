@@ -43,8 +43,8 @@ CHEF has high combo potential and great time-to-kill at short ranges, at the cos
   - **Boosted Sear**: *Scorch enemies further in front of you for 4 damage every 0.1 seconds.*
 - **Roll**: Charge the rolling pin for 0-2 seconds to speed forward, dealing 8-16 damage when hitting an enemy.
   - **Boosted Roll**: *Charge the rolling pin for 0-2 seconds to speed forward faster while swinging cutlery, dealing 8-16 damage when hitting an enemy, and an additional 2 damage every 0.1 seconds.*
-  > [!NOTE]
-  > Boosted Roll isn't fully implemented yet, it only increases speed right now.
+> [!NOTE]
+> Boosted Roll isn't fully implemented yet, it only increases speed right now.
 - **Yes, CHEF!**: Boosts the next skill used.
 
 # Maps

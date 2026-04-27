@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_x5fq0"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="2_eohdr"]
-[ext_resource type="Material" uid="uid://cfpktuk3b33ko" path="res://Maps/Textures/Orange/texture_08.tres" id="3_dlj1o"]
-[ext_resource type="Material" uid="uid://b5si568ocg0or" path="res://Maps/Textures/Light/texture_06.tres" id="4_kx74h"]
-[ext_resource type="Material" uid="uid://cesxd8focfw5m" path="res://Maps/Textures/Dark/texture_07.tres" id="5_5rewk"]
+[ext_resource type="Material" uid="uid://cfpktuk3b33ko" path="res://Maps/Textures/Prototype/texture_08.tres" id="3_dlj1o"]
+[ext_resource type="Material" uid="uid://b5si568ocg0or" path="res://Maps/Textures/Prototype/texture_06.tres" id="4_kx74h"]
+[ext_resource type="Material" uid="uid://cesxd8focfw5m" path="res://Maps/Textures/Prototype/texture_07.tres" id="5_5rewk"]
 [ext_resource type="PackedScene" uid="uid://cvswsfmdd2rxu" path="res://Maps/Entities/special_pickup.tscn" id="6_c0c8c"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_x5fq0"]
