@@ -3,6 +3,10 @@
 [ext_resource type="FontFile" uid="uid://ctg25ssf78mhc" path="res://Assets/rzpix.ttf" id="1_rpoj5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ygoy"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
 bg_color = Color(0.20392157, 0.22745098, 0.3019608, 1)
 border_width_left = 2
 border_width_top = 2
@@ -33,6 +37,10 @@ shadow_offset = Vector2(0, 1)
 anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4loo"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
 bg_color = Color(0.13725491, 0.16470589, 0.24705882, 1)
 border_width_left = 2
 border_width_top = 2
@@ -98,6 +106,17 @@ shadow_size = 1
 shadow_offset = Vector2(0, 1)
 anti_aliasing = false
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4x8ju"]
+bg_color = Color(0.20392157, 0.22745098, 0.3019608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_42u4b"]
+bg_color = Color(0.2, 0.20392157, 0.25490198, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.28627452, 0.2901961, 0.35686275, 1)
+
 [sub_resource type="FontVariation" id="FontVariation_rpoj5"]
 base_font = ExtResource("1_rpoj5")
 variation_embolden = 1.0
@@ -124,6 +143,9 @@ Label/fonts/font = ExtResource("1_rpoj5")
 LineEdit/fonts/font = ExtResource("1_rpoj5")
 LineEdit/styles/focus = SubResource("StyleBoxFlat_jgrfi")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_jniar")
+PopupMenu/fonts/font = ExtResource("1_rpoj5")
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_4x8ju")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_42u4b")
 ProgressBar/fonts/font = ExtResource("1_rpoj5")
 RichTextLabel/fonts/bold_font = SubResource("FontVariation_rpoj5")
 RichTextLabel/fonts/bold_italics_font = SubResource("FontVariation_7ygoy")
