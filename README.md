@@ -25,16 +25,16 @@ You can view a video demo here:
 3. If you don't have any friends on your local network, you can open two instances of the game
 4. Set a username
 5. **Host**:
-  1. Optionally specify a port (chaning the address field does nothing)
-  1. Click the `Host` button
-  2. Click the `Copy Local IP` button to copy the server address to your clipboard
-  3. Send this address (including the port) to any player who wants to join
-  3. Wait for everyone to join
-  4. Once everyone has joined, select a map and click `Start Game` to start survivor selection
+    1. Optionally specify a port (chaning the address field does nothing)
+    1. Click the `Host` button
+    2. Click the `Copy Local IP` button to copy the server address to your clipboard
+    3. Send this address (including the port) to any player who wants to join
+    3. Wait for everyone to join
+    4. Once everyone has joined, select a map and click `Start Game` to start survivor selection
 6. **Player**:
-  1. Wait for your host to give you the server address
-  2. Paste the server address into the box for the server address (where it says`127.0.0.1` by default). The port will be autofilled from the clipboard.
-  3. Click the `Connect` button and wait for the host to start survivor selection
+    1. Wait for your host to give you the server address
+    2. Paste the server address into the box for the server address (where it says`127.0.0.1` by default). The port will be autofilled from the clipboard.
+    3. Click the `Connect` button and wait for the host to start survivor selection
 7. Once survivor selection has started, select your survivor
 8. Once all players have selected their survivors, the game will load and the match will begin!
 
