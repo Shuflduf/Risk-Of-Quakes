@@ -44,6 +44,7 @@ func join_game(address = DEFAULT_SERVER_IP):
 	var error = peer.create_client(address, PORT)
 	if error:
 		return error
+
 	multiplayer.multiplayer_peer = peer
 
 
@@ -52,6 +53,7 @@ func create_game():
 	var error = peer.create_server(PORT, MAX_CONNECTIONS)
 	if error:
 		return error
+		
 	multiplayer.multiplayer_peer = peer
 
 	players[1] = player_info
@@ -80,16 +82,9 @@ func player_loaded():
 	if multiplayer.is_server():
 		players_loaded += 1
 		if players_loaded == players.size():
-			#start_loading_message.rpc()
-
 			$/root/Game.start_game.rpc(map_scene)
 
-			#start_game.rpc()
-			#players_loaded = 0
 
-
-# When a peer connects, send them my player info.
-# This allows transfer of all desired data for each player, not only the unique ID.
 func _on_player_connected(id):
 	_register_player.rpc_id(id, player_info, current_state)
 

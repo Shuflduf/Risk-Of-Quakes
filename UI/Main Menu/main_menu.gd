@@ -27,8 +27,9 @@ func _on_host_pressed() -> void:
 func _on_connect_pressed() -> void:
 	Lobby.player_info["name"] = username.text
 	Lobby.join_game()
-
-	transition_to_lobby()
+	
+	get_tree().create_timer(0.5).timeout.connect(func(): error_label.text = "Failed to join lobby!")
+	#transition_to_lobby()
 
 
 func transition_to_lobby():

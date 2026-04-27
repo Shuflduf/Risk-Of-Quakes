@@ -8,7 +8,7 @@
 [node name="Game" type="Node3D" unique_id=1301038773]
 script = ExtResource("1_7raqb")
 survivors = Dictionary[String, PackedScene]({
-"Chef": ExtResource("2_1r4le"),
+"CHEF": ExtResource("2_1r4le"),
 "Commando": ExtResource("5_qmv3x")
 })
 
