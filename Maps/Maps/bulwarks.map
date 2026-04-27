@@ -1,10 +1,11 @@
-// Game: RiskOfQuakes
+// Game: Risk of Quakes
 // Format: Valve
 // entity 0
 {
 "mapversion" "220"
 "wad" ""
 "classname" "worldspawn"
+"_tb_mod" "Assets"
 // brush 0
 {
 ( -544 96 224 ) ( -544 -1216 224 ) ( -544 -1216 192 ) Light/texture_01 [ 0 -1 0 0 ] [ 0 0 -1 0 ] 0 1 1

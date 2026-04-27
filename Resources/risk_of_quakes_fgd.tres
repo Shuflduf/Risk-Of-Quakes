@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FuncGodotFGDFile" format=3 uid="uid://c2hy0pe1jrm8v"]
+
+[ext_resource type="Script" uid="uid://drlmgulwbjwqu" path="res://addons/func_godot/src/fgd/func_godot_fgd_file.gd" id="1_kdcwr"]
+[ext_resource type="Resource" uid="uid://crgpdahjaj" path="res://addons/func_godot/fgd/func_godot_fgd.tres" id="1_v82ly"]
+
+[resource]
+script = ExtResource("1_kdcwr")
+fgd_name = "RiskofQuakes"
+base_fgd_files = Array[Resource]([ExtResource("1_v82ly")])
+metadata/_custom_type_script = "uid://drlmgulwbjwqu"

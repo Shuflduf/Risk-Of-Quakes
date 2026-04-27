@@ -3,12 +3,13 @@
 [ext_resource type="Resource" uid="uid://b4xhdj0e16lop" path="res://addons/func_godot/game_config/trenchbroom/tb_face_tag_clip.tres" id="1_7ard4"]
 [ext_resource type="Resource" uid="uid://ca7377sfgj074" path="res://addons/func_godot/game_config/trenchbroom/tb_face_tag_skip.tres" id="2_wcc8j"]
 [ext_resource type="Resource" uid="uid://bkjxc54mmdhbo" path="res://addons/func_godot/game_config/trenchbroom/tb_face_tag_origin.tres" id="3_q36h5"]
-[ext_resource type="Resource" uid="uid://crgpdahjaj" path="res://addons/func_godot/fgd/func_godot_fgd.tres" id="4_3yrxu"]
+[ext_resource type="Resource" uid="uid://c2hy0pe1jrm8v" path="res://Resources/risk_of_quakes_fgd.tres" id="4_7ard4"]
 [ext_resource type="Texture2D" uid="uid://decwujsyhj0qy" path="res://addons/func_godot/icon32.png" id="5_5frey"]
 [ext_resource type="Script" uid="uid://cx44c4vnq8bt5" path="res://addons/func_godot/src/trenchbroom/trenchbroom_game_config.gd" id="6_pj1yn"]
 
 [resource]
 script = ExtResource("6_pj1yn")
 game_name = "Risk of Quakes"
-textures_root_folder = "Textures"
+textures_root_folder = "Maps/Textures"
+fgd_file = ExtResource("4_7ard4")
 metadata/_custom_type_script = "uid://cx44c4vnq8bt5"
