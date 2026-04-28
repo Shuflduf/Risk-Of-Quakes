@@ -178,7 +178,7 @@ scale_min = 0.39999998
 scale_curve = SubResource("CurveTexture_5itwv")
 color_ramp = SubResource("GradientTexture1D_5itwv")
 
-[node name="ChefRig" unique_id=2092065129 node_paths=PackedStringArray("hand_anims", "cleaver_parents", "skeleton") instance=ExtResource("1_8uqnm")]
+[node name="ChefRig" unique_id=1830355043 node_paths=PackedStringArray("hand_anims", "cleaver_parents", "skeleton") instance=ExtResource("1_8uqnm")]
 script = ExtResource("2_cf1ap")
 hand_anims = {
 NodePath("RightArm"): &"throw_right",
@@ -196,10 +196,10 @@ libraries/ = SubResource("AnimationLibrary_oogy1")
 [node name="LeftArm" type="AnimationPlayer" parent="." index="1" unique_id=1846413279]
 libraries/ = SubResource("AnimationLibrary_oogy1")
 
-[node name="Armature" parent="." index="3" unique_id=493381245]
+[node name="Armature" parent="." index="3" unique_id=341371441]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.87246644, 0)
 
-[node name="JacobianIK3D" type="JacobianIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1768876537) index="0" unique_id=1333935107]
+[node name="JacobianIK3D" type="JacobianIK3D" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(738169346) index="0" unique_id=1333935107]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, -0.87246644, 0)
 max_iterations = 100
 deterministic = true
@@ -235,7 +235,7 @@ settings/1/joints/2/limitation = null
 settings/1/joints/3/rotation_axis = 3
 settings/1/joints/3/limitation = null
 
-[node name="shoulder_R_003" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1768876537) index="1" unique_id=1423544425]
+[node name="shoulder_R_003" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(738169346) index="1" unique_id=1664473854]
 transform = Transform3D(0.37299567, 0.32644862, 0.8685076, 0.7934468, 0.3729916, -0.4809569, -0.48095372, 0.8685095, -0.11989519, -0.5581132, 0.7257959, 0.68094164)
 
 [node name="CleaverParent" type="Node3D" parent="Armature/Skeleton3D/shoulder_R_003" index="2" unique_id=563401164]
@@ -243,7 +243,7 @@ transform = Transform3D(0.37299567, 0.32644862, 0.8685076, 0.7934468, 0.3729916,
 [node name="Cleaver" parent="Armature/Skeleton3D/shoulder_R_003/CleaverParent" index="0" unique_id=1685095157 instance=ExtResource("4_oogy1")]
 transform = Transform3D(-5.9604645e-08, 0.9999999, -7.748604e-07, 1, 2.9802322e-08, -7.4505806e-08, -8.940697e-08, -7.636845e-07, -0.99999994, 0.1326403, 0.2872529, 0.0701803)
 
-[node name="shoulder_L_003" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(1768876537) index="2" unique_id=283184823]
+[node name="shoulder_L_003" parent="Armature/Skeleton3D" parent_id_path=PackedInt32Array(738169346) index="2" unique_id=322502315]
 transform = Transform3D(0.37336826, -0.32646137, -0.86834276, -0.79303104, 0.37336233, -0.4813549, 0.48135015, 0.86834526, -0.11949214, 0.558106, 0.7261272, 0.680932)
 
 [node name="CleaverParent" type="Node3D" parent="Armature/Skeleton3D/shoulder_L_003" index="2" unique_id=1141032398]
@@ -252,7 +252,7 @@ transform = Transform3D(2.0861626e-07, -1.0000001, -7.748604e-07, 1.0000001, 1.7
 [node name="Cleaver" parent="Armature/Skeleton3D/shoulder_L_003/CleaverParent" index="0" unique_id=1695446571 instance=ExtResource("4_oogy1")]
 transform = Transform3D(0.9999999, -2.0861626e-07, 6.482005e-07, 2.682209e-07, 0.9999999, 8.568168e-08, -6.556511e-07, -3.3527613e-08, 1, 1.6472726, 1.4483907, 0.08353126)
 
-[node name="Particles" type="GPUParticles3D" parent="Armature/Skeleton3D/Bone" parent_id_path=PackedInt32Array(1203475614) index="0" unique_id=840224236]
+[node name="Particles" type="GPUParticles3D" parent="Armature/Skeleton3D/Bone" parent_id_path=PackedInt32Array(804091154) index="0" unique_id=840224236]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 0.99999994, 0, 8.742278e-08, 0, -1, 0, 0.39999998, 0)
 emitting = false
 amount = 128
@@ -261,7 +261,7 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_jh11y")
 draw_pass_1 = SubResource("SphereMesh_0lu8w")
 
-[node name="BoostParticles" type="GPUParticles3D" parent="Armature/Skeleton3D/Bone" parent_id_path=PackedInt32Array(1203475614) index="1" unique_id=452535272]
+[node name="BoostParticles" type="GPUParticles3D" parent="Armature/Skeleton3D/Bone" parent_id_path=PackedInt32Array(804091154) index="1" unique_id=452535272]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 0.99999994, 0, 8.742278e-08, 0, -1, 0, 0.39999998, 0)
 emitting = false
 amount = 256
@@ -270,8 +270,8 @@ fixed_fps = 60
 process_material = SubResource("ParticleProcessMaterial_fuwgj")
 draw_pass_1 = SubResource("SphereMesh_0lu8w")
 
-[node name="RightHand" type="Marker3D" parent="Armature/Skeleton3D/Bone" parent_id_path=PackedInt32Array(1203475614) index="2" unique_id=1028244744]
+[node name="RightHand" type="Marker3D" parent="Armature/Skeleton3D/Bone" parent_id_path=PackedInt32Array(804091154) index="2" unique_id=1028244744]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.554, 0.7236681, 0.652)
 
-[node name="LeftHand" type="Marker3D" parent="Armature/Skeleton3D/Bone" parent_id_path=PackedInt32Array(1203475614) index="3" unique_id=579853555]
+[node name="LeftHand" type="Marker3D" parent="Armature/Skeleton3D/Bone" parent_id_path=PackedInt32Array(804091154) index="3" unique_id=579853555]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.554, 0.724, 0.652)
