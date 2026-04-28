@@ -132,6 +132,26 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "40 / 100"
 
+[node name="Controls" type="VBoxContainer" parent="MarginContainer" unique_id=1325723723]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="MarginContainer/Controls" unique_id=555859119]
+layout_mode = 2
+text = "ESC: Settings"
+
+[node name="Label2" type="Label" parent="MarginContainer/Controls" unique_id=1210214880]
+layout_mode = 2
+text = "TAB: Leaderboard / Unlock Mouse"
+
+[node name="Label3" type="Label" parent="MarginContainer/Controls" unique_id=191990558]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "Hover over skills to view info about them."
+autowrap_mode = 3
+
 [node name="DeathContainer" type="VBoxContainer" parent="." unique_id=1148991740]
 unique_name_in_owner = true
 visible = false
