@@ -55,6 +55,8 @@
 - `Tab`: Show leaderboard
 - `Esc`: Open settings
 
+<img height="150" src="https://github.com/user-attachments/assets/a0264490-ff5e-480b-a50a-9a1518831b30" />
+
 # Tips
 If you've never played a game with Quake movement before, here are the basics:
 - You should always be jumping. Being on the ground decelerates your character.
@@ -87,6 +89,8 @@ Commando is a well-rounded survivor, with high mobility and strong damage at med
 
 https://github.com/user-attachments/assets/41c2e5de-6a69-4048-b146-cf7222d4af16
 
+*(HUD disabled for clarity)*
+
 ### Tips
 - **Frag Grenades** are a powerful tool in increasing your momentum, at the cost of health.
 - Using **Tactical Slide** midair while not holding any movement keys automatically redirects your momentum to where you're looking. This is a powerful mobility tool.
@@ -101,6 +105,8 @@ https://github.com/user-attachments/assets/41c2e5de-6a69-4048-b146-cf7222d4af16
 CHEF has high combo potential and great time-to-kill at short ranges, at the cost of having harder to control mobility.
 
 https://github.com/user-attachments/assets/3a45e834-7f08-4c37-bb14-0ac8d9f89e35
+
+*(HUD disabled for clarity)*
 
 ### Tips
 - Suspended cleavers from **Dice** can be used to make traps, as each cleaver does 10 damage on the return trip if suspended at all.
