@@ -60,7 +60,6 @@ color = Color(0.12156863, 0.12156863, 0.1764706, 1)
 
 [node name="Connection" type="VBoxContainer" parent="." unique_id=2010914824]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -239,6 +238,7 @@ theme_override_font_sizes/font_size = 24
 text = "CHEF"
 
 [node name="Singleplayer" type="HBoxContainer" parent="." unique_id=269817657]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
