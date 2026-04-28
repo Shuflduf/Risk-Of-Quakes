@@ -9,6 +9,7 @@ extends MarginContainer
 @onready var gui_scale_slider: HSlider = %GUIScaleSlider
 @onready var gui_scale_spin_box: SpinBox = %GUIScaleSpinBox
 @onready var disconnect_button: Button = %Disconnect
+@onready var hud_enabled_check: CheckBox = %HUDEnabledCheck
 
 @onready var pairs = {
 	&"sensitivity": [sens_slider, sens_spin_box],
@@ -17,9 +18,11 @@ extends MarginContainer
 }
 @onready var options = {
 	&"window_mode": window_mode_option,
+	
 }
 @onready var toggles = {
 	&"vsync": vsync_check,
+	&"hud_enabled": hud_enabled_check
 }
 
 

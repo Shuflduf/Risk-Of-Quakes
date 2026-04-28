@@ -1,8 +1,10 @@
 extends Node
 
 signal fov_updated(new_fov: float)
+signal hud_toggled(enabled: bool)
 
 const SETTINGS_PATH = "user://settings.json"
+const ALL_SETTINGS = [&"sensitivity", &"fov", &"window_mode", &"vsync", &"gui_scale", &"hud_enabled"]
 
 var sensitivity = 0.5:
 	set(new_val):
@@ -34,8 +36,12 @@ var gui_scale = 1.0:
 		gui_scale = new_val
 		get_window().content_scale_factor = gui_scale
 		save_settings()
+var hud_enabled = true:
+	set(new_val):
+		hud_enabled = new_val
+		hud_toggled.emit(hud_enabled)
+		save_settings()
 
-const ALL_SETTINGS = [&"sensitivity", &"fov", &"window_mode", &"vsync", &"gui_scale"]
 
 func _ready() -> void:
 	var settings_file_content = FileAccess.get_file_as_string(SETTINGS_PATH)
