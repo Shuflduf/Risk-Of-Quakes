@@ -1,5 +1,7 @@
 extends Control
 
+@export var skill_input_hints: Dictionary[Skill.SkillSlot, Texture2D]
+
 var enabled = true
 var active_skill_info: SkillInfo
 
@@ -7,12 +9,14 @@ var active_skill_info: SkillInfo
 @onready var progress_bar: ProgressBar = $ProgressBar
 @onready var countdown: Label = $Countdown
 @onready var skill_icon: TextureRect = $SkillIcon
+@onready var input_hint: TextureRect = $InputHint
 
 
-func create(info: SkillInfo):
+func create(info: SkillInfo, slot: Skill.SkillSlot):
 	active_skill_info = info
 	tooltip_text = info.skill_name
 	timer.wait_time = info.cooldown
+	input_hint.texture = skill_input_hints[slot]
 	if info.icon:
 		skill_icon.texture = info.icon
 

@@ -65,7 +65,7 @@ func add_skill(skill_info: SkillInfo, slot: Skill.SkillSlot):
 	var new_skill_ui = skill_ui.instantiate()
 	skills_container.add_child(new_skill_ui)
 	registered_skills[slot] = new_skill_ui
-	new_skill_ui.create(skill_info)
+	new_skill_ui.create(skill_info, slot)
 	new_skill_ui.mouse_entered.connect(show_skill_info.bind(slot))
 	new_skill_ui.mouse_exited.connect(hide_skill_info)
 
