@@ -8,6 +8,7 @@ extends Control
 @onready var server_address: LineEdit = %ServerAddress
 @onready var settings_container: PanelContainer = $SettingsContainer
 @onready var settings_menu: MarginContainer = %Settings
+@onready var singleplayer: HBoxContainer = $Singleplayer
 
 
 func _ready() -> void:
@@ -80,3 +81,8 @@ func _on_server_address_gui_input(event: InputEvent) -> void:
 func _on_open_settings_pressed() -> void:
 	settings_container.show()
 	
+
+
+func _on_singleplayer_pressed() -> void:
+	singleplayer.show()
+	hide()

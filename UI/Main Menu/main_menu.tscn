@@ -7,8 +7,8 @@
 [ext_resource type="Script" uid="uid://bh40x3odvnh64" path="res://UI/Main Menu/survivor_list.gd" id="3_jri5q"]
 [ext_resource type="Texture2D" uid="uid://dc67fjf08uguv" path="res://Assets/logo.png" id="3_k0v0h"]
 [ext_resource type="PackedScene" uid="uid://vupdm4e1fa0d" path="res://UI/Main Menu/menu_player_name.tscn" id="3_mqkp3"]
-[ext_resource type="PackedScene" uid="uid://4dg5lx0jhyb7" path="res://UI/settings.tscn" id="8_7i25j"]
-[ext_resource type="Script" uid="uid://bx2uhqqpkbypv" path="res://UI/Main Menu/singleplayer_menu.gd" id="8_qlwe4"]
+[ext_resource type="PackedScene" path="res://UI/settings.tscn" id="8_7i25j"]
+[ext_resource type="Script" path="res://UI/Main Menu/singleplayer_menu.gd" id="8_qlwe4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7i25j"]
 shader = ExtResource("3_ajqx1")
@@ -60,7 +60,6 @@ color = Color(0.12156863, 0.12156863, 0.1764706, 1)
 
 [node name="Connection" type="VBoxContainer" parent="." unique_id=2010914824]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -239,6 +238,7 @@ theme_override_font_sizes/font_size = 24
 text = "CHEF"
 
 [node name="Singleplayer" type="HBoxContainer" parent="." unique_id=269817657]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -325,6 +325,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_7i25j")
 unique_name_in_owner = true
 layout_mode = 2
 
+[connection signal="pressed" from="Connection/VBoxContainer/Singleplayer" to="." method="_on_singleplayer_pressed"]
 [connection signal="gui_input" from="Connection/VBoxContainer/HBoxContainer/ServerAddress" to="." method="_on_server_address_gui_input"]
 [connection signal="pressed" from="Connection/VBoxContainer/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Connection/VBoxContainer/Connect" to="." method="_on_connect_pressed"]
