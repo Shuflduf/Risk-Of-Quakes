@@ -8,6 +8,7 @@ extends MarginContainer
 @onready var vsync_check: CheckBox = %VSyncCheck
 @onready var gui_scale_slider: HSlider = %GUIScaleSlider
 @onready var gui_scale_spin_box: SpinBox = %GUIScaleSpinBox
+@onready var disconnect_button: Button = %Disconnect
 
 @onready var pairs = {
 	&"sensitivity": [sens_slider, sens_spin_box],

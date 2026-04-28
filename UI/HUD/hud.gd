@@ -18,7 +18,11 @@ var remaining_respawn_time = 0.0
 @onready var skill_description: RichTextLabel = %SkillDescription
 @onready var leaderboard: Leaderboard = %Leaderboard
 @onready var pause_screen: MarginContainer = %PauseScreen
+@onready var help_text: VBoxContainer = %HelpText
+@onready var settings_menu: MarginContainer = %Settings
 
+func _ready() -> void:
+	settings_menu.disconnect_button.pressed.connect(disconnected.emit)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"show_leaderboard"):
@@ -30,6 +34,9 @@ func _input(event: InputEvent) -> void:
 
 	if event.is_action_pressed(&"pause"):
 		pause_screen.visible = not pause_screen.visible
+		
+	if event.is_action_pressed(&"hide_help_text"):
+		help_text.visible = !help_text.visible
 
 
 func show_skill_info(skill_slot: Skill.SkillSlot):

@@ -6,6 +6,8 @@ extends Control
 @onready var error_label: Label = %ErrorLabel
 @onready var server_port: SpinBox = %ServerPort
 @onready var server_address: LineEdit = %ServerAddress
+@onready var settings_container: PanelContainer = $SettingsContainer
+@onready var settings_menu: MarginContainer = %Settings
 
 
 func _ready() -> void:
@@ -13,6 +15,9 @@ func _ready() -> void:
 		username.text = OS.get_cmdline_args()[2]
 	if Lobby.error_message:
 		error_label.text = Lobby.error_message
+		
+	settings_menu.disconnect_button.text = "Close"
+	settings_menu.disconnect_button.pressed.connect(settings_container.hide)
 
 
 func _on_host_pressed() -> void:
@@ -70,3 +75,8 @@ func _on_server_address_gui_input(event: InputEvent) -> void:
 			await get_tree().process_frame
 			server_address.text = clipboard_text.split(":")[0]
 			server_port.value = int(clipboard_text.split(":")[1])
+
+
+func _on_open_settings_pressed() -> void:
+	settings_container.show()
+	

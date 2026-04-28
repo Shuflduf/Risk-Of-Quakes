@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bh40x3odvnh64" path="res://UI/Main Menu/survivor_list.gd" id="3_jri5q"]
 [ext_resource type="Texture2D" uid="uid://dc67fjf08uguv" path="res://Assets/logo.png" id="3_k0v0h"]
 [ext_resource type="PackedScene" uid="uid://vupdm4e1fa0d" path="res://UI/Main Menu/menu_player_name.tscn" id="3_mqkp3"]
+[ext_resource type="PackedScene" uid="uid://4dg5lx0jhyb7" path="res://UI/settings.tscn" id="8_7i25j"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7i25j"]
 shader = ExtResource("3_ajqx1")
@@ -23,6 +24,9 @@ shader_parameter/layers_count = 3
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_k0v0h"]
 color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7i25j"]
+bg_color = Color(0.23137255, 0.20784314, 0.25882354, 1)
 
 [node name="MainMenu" type="Control" unique_id=1731227302]
 layout_mode = 3
@@ -75,13 +79,35 @@ expand_mode = 3
 
 [node name="HSeparator" type="HSeparator" parent="Connection" unique_id=963563192]
 layout_mode = 2
-theme_override_constants/separation = 64
+theme_override_constants/separation = 32
 theme_override_styles/separator = SubResource("StyleBoxLine_k0v0h")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Connection" unique_id=1740701634]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
+
+[node name="Singleplayer" type="Button" parent="Connection/VBoxContainer" unique_id=1026998122]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 0
+text = "Singleplayer"
+
+[node name="HSeparator" type="HSeparator" parent="Connection/VBoxContainer" unique_id=1235516277]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Connection/VBoxContainer" unique_id=992361158]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Multiplayer"
+horizontal_alignment = 1
+
+[node name="Username" type="LineEdit" parent="Connection/VBoxContainer" unique_id=24275305]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Username"
+alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Connection/VBoxContainer" unique_id=1455754540]
 layout_mode = 2
@@ -113,15 +139,15 @@ size_flags_vertical = 8
 theme_override_font_sizes/font_size = 0
 text = "Connect"
 
-[node name="HSeparator" type="HSeparator" parent="Connection/VBoxContainer" unique_id=1235516277]
+[node name="HSeparator2" type="HSeparator" parent="Connection/VBoxContainer" unique_id=1306946922]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="Username" type="LineEdit" parent="Connection/VBoxContainer" unique_id=24275305]
-unique_name_in_owner = true
+[node name="OpenSettings" type="Button" parent="Connection/VBoxContainer" unique_id=452058613]
 layout_mode = 2
-placeholder_text = "Username"
-alignment = 1
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 0
+text = "Open Settings"
 
 [node name="ErrorLabel" type="Label" parent="Connection" unique_id=1853154163]
 unique_name_in_owner = true
@@ -210,9 +236,31 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "CHEF"
 
+[node name="SettingsContainer" type="PanelContainer" parent="." unique_id=37611055]
+visible = false
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -141.0
+offset_right = 250.0
+offset_bottom = 141.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_7i25j")
+
+[node name="Settings" parent="SettingsContainer" unique_id=1464714136 instance=ExtResource("8_7i25j")]
+unique_name_in_owner = true
+layout_mode = 2
+
 [connection signal="gui_input" from="Connection/VBoxContainer/HBoxContainer/ServerAddress" to="." method="_on_server_address_gui_input"]
 [connection signal="pressed" from="Connection/VBoxContainer/Host" to="." method="_on_host_pressed"]
 [connection signal="pressed" from="Connection/VBoxContainer/Connect" to="." method="_on_connect_pressed"]
+[connection signal="pressed" from="Connection/VBoxContainer/OpenSettings" to="." method="_on_open_settings_pressed"]
 [connection signal="item_selected" from="Lobby/PlayerList/MapOption" to="Lobby" method="_on_map_option_item_selected"]
 [connection signal="pressed" from="Lobby/PlayerList/StartGame" to="Lobby" method="_on_start_game_pressed"]
 [connection signal="pressed" from="Lobby/PlayerList/CopyIP" to="Lobby" method="_on_copy_ip_pressed"]

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dikfcgyf224xy" path="res://UI/HUD/skill_ui.tscn" id="2_te8l2"]
 [ext_resource type="Script" uid="uid://comsbnfye7mpu" path="res://UI/HUD/leaderboard.gd" id="5_dhie7"]
 [ext_resource type="FontFile" uid="uid://ctg25ssf78mhc" path="res://Assets/rzpix.ttf" id="5_radol"]
-[ext_resource type="Script" uid="uid://d3ovy57rxpqi1" path="res://UI/HUD/settings_menu.gd" id="7_s83ig"]
+[ext_resource type="PackedScene" uid="uid://4dg5lx0jhyb7" path="res://UI/settings.tscn" id="6_dhie7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdh7y"]
 bg_color = Color(0.12156863, 0.12156863, 0.1764706, 1)
@@ -132,24 +132,31 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "40 / 100"
 
-[node name="Controls" type="VBoxContainer" parent="MarginContainer" unique_id=1325723723]
+[node name="HelpText" type="VBoxContainer" parent="MarginContainer" unique_id=1325723723]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme_override_constants/separation = 8
 
-[node name="Label" type="Label" parent="MarginContainer/Controls" unique_id=555859119]
-layout_mode = 2
-text = "ESC: Settings"
-
-[node name="Label2" type="Label" parent="MarginContainer/Controls" unique_id=1210214880]
-layout_mode = 2
-text = "TAB: Leaderboard / Unlock Mouse"
-
-[node name="Label3" type="Label" parent="MarginContainer/Controls" unique_id=191990558]
+[node name="Label3" type="Label" parent="MarginContainer/HelpText" unique_id=191990558]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 text = "Hover over skills to view info about them."
+autowrap_mode = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HelpText" unique_id=555859119]
+layout_mode = 2
+text = "ESC: Settings"
+
+[node name="Label2" type="Label" parent="MarginContainer/HelpText" unique_id=1210214880]
+layout_mode = 2
+text = "TAB: Leaderboard / Unlock Mouse"
+
+[node name="Label4" type="Label" parent="MarginContainer/HelpText" unique_id=1610162699]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "P: Hide this text"
 autowrap_mode = 3
 
 [node name="DeathContainer" type="VBoxContainer" parent="." unique_id=1148991740]
@@ -300,139 +307,6 @@ theme_override_constants/margin_bottom = 64
 layout_mode = 2
 current_tab = 0
 
-[node name="Settings" type="MarginContainer" parent="PauseScreen/TabContainer" unique_id=288540118]
-layout_mode = 2
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 32
-script = ExtResource("7_s83ig")
-metadata/_tab_index = 0
-
-[node name="VBox" type="VBoxContainer" parent="PauseScreen/TabContainer/Settings" unique_id=929498733]
-layout_mode = 2
-
-[node name="Sensitivity" type="HBoxContainer" parent="PauseScreen/TabContainer/Settings/VBox" unique_id=1025048249]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="PauseScreen/TabContainer/Settings/VBox/Sensitivity" unique_id=753008659]
-layout_mode = 2
-text = "Sensitivity"
-
-[node name="SensSlider" type="HSlider" parent="PauseScreen/TabContainer/Settings/VBox/Sensitivity" unique_id=2077581077]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 4
-min_value = 0.1
-max_value = 10.0
-step = 0.05
-value = 0.5
-exp_edit = true
-
-[node name="SensSpinBox" type="SpinBox" parent="PauseScreen/TabContainer/Settings/VBox/Sensitivity" unique_id=1806616860]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-min_value = 0.1
-max_value = 10.0
-step = 0.05
-value = 0.5
-
-[node name="FOV" type="HBoxContainer" parent="PauseScreen/TabContainer/Settings/VBox" unique_id=1712916106]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="PauseScreen/TabContainer/Settings/VBox/FOV" unique_id=825195322]
-layout_mode = 2
-text = "FOV"
-
-[node name="FOVSlider" type="HSlider" parent="PauseScreen/TabContainer/Settings/VBox/FOV" unique_id=251491371]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 4
-min_value = 60.0
-max_value = 130.0
-step = 0.5
-value = 100.0
-
-[node name="FOVSpinBox" type="SpinBox" parent="PauseScreen/TabContainer/Settings/VBox/FOV" unique_id=1982066795]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-min_value = 60.0
-max_value = 130.0
-step = 0.5
-value = 100.0
-
-[node name="GUIScale" type="HBoxContainer" parent="PauseScreen/TabContainer/Settings/VBox" unique_id=69184547]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="PauseScreen/TabContainer/Settings/VBox/GUIScale" unique_id=1393479912]
-layout_mode = 2
-text = "GUI Scale"
-
-[node name="GUIScaleSlider" type="HSlider" parent="PauseScreen/TabContainer/Settings/VBox/GUIScale" unique_id=1127664278]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(200, 0)
-layout_mode = 2
-size_flags_horizontal = 10
-size_flags_vertical = 4
-min_value = 0.5
-max_value = 4.0
-step = 0.1
-value = 1.0
-editable = false
-
-[node name="GUIScaleSpinBox" type="SpinBox" parent="PauseScreen/TabContainer/Settings/VBox/GUIScale" unique_id=1929006521]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(80, 0)
-layout_mode = 2
-size_flags_horizontal = 10
-min_value = 0.5
-max_value = 4.0
-step = 0.1
-value = 1.0
-
-[node name="WindowMode" type="HBoxContainer" parent="PauseScreen/TabContainer/Settings/VBox" unique_id=1600902400]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="PauseScreen/TabContainer/Settings/VBox/WindowMode" unique_id=1743745324]
-layout_mode = 2
-text = "Window Mode"
-
-[node name="WindowModeOption" type="OptionButton" parent="PauseScreen/TabContainer/Settings/VBox/WindowMode" unique_id=1947880249]
+[node name="Settings" parent="PauseScreen/TabContainer" unique_id=1464714136 instance=ExtResource("6_dhie7")]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 10
-selected = 0
-item_count = 3
-popup/item_0/text = "Windowed"
-popup/item_0/id = 0
-popup/item_1/text = "Windowed Fullscreen"
-popup/item_1/id = 1
-popup/item_2/text = "Fullscreen"
-popup/item_2/id = 2
-
-[node name="VSync" type="HBoxContainer" parent="PauseScreen/TabContainer/Settings/VBox" unique_id=349396774]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="PauseScreen/TabContainer/Settings/VBox/VSync" unique_id=457521259]
-layout_mode = 2
-text = "VSync"
-
-[node name="VSyncCheck" type="CheckBox" parent="PauseScreen/TabContainer/Settings/VBox/VSync" unique_id=1251651148]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 10
-text = "Enabled"
-
-[node name="Disconnect" type="Button" parent="PauseScreen/TabContainer/Settings/VBox" unique_id=147355334]
-layout_mode = 2
-size_flags_vertical = 10
-text = "Disconnect"
-
-[connection signal="pressed" from="PauseScreen/TabContainer/Settings/VBox/Disconnect" to="." method="_on_disconnect_pressed"]
