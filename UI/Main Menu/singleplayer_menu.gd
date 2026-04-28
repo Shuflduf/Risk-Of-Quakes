@@ -2,23 +2,23 @@ extends HBoxContainer
 
 @export var player_label: PackedScene
 
-@onready var survivor_list: VBoxContainer = %SurvivorList
-@onready var map_option: OptionButton = %MapOption
-@onready var start_game: Button = %StartGame
-@onready var loading_label: Label = %LoadingLabel
+@onready var survivor_list: VBoxContainer = %SurvivorListSingleplayer
+@onready var map_option: OptionButton = %MapOptionSingleplayer
+@onready var start_game: Button = %StartGameSingleplayer
+@onready var loading_label: Label = %LoadingLabelSingleplayer
 
 
 func _ready() -> void:
-	Lobby.create_game()
-	
 	Lobby.survivor_selection_started.connect(_on_survivor_selection_started)
 	Lobby.loading_game_started.connect(_on_loading_game_started)
-	Lobby.player_survivor_selected.connect(_on_player_survivor_selected)
 	
 	survivor_list.survivor_selected.connect(_on_survivor_selected)
 
 
 func _on_survivor_selection_started():
+	if not Lobby.singleplayer:
+		return
+	
 	survivor_list.show()
 	start_game.disabled = true
 	map_option.disabled = true
@@ -28,11 +28,11 @@ func _on_loading_game_started():
 	loading_label.text = "Loading, please wait."
 
 
-func _on_player_survivor_selected(_peer_id: int, _survivor: String):
-	pass
-
-
 func _on_survivor_selected(survivor: String):
+	if not Lobby.singleplayer:
+		return
+	
+	print(Lobby.players)
 	if Lobby.current_state == Lobby.GameState.CHOOSING_SURVIVORS:
 		Lobby.select_survivor.rpc(survivor)
 

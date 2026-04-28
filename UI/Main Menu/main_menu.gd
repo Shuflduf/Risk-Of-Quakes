@@ -25,7 +25,8 @@ func _on_host_pressed() -> void:
 	if username.text.is_empty():
 		error_label.text = "Please set a username!"
 		return
-
+	
+	Lobby.singleplayer = false
 	Lobby.player_info["name"] = username.text
 	Lobby.port = int(server_port.value)
 	if server_address.text:
@@ -44,7 +45,8 @@ func _on_connect_pressed() -> void:
 	if username.text.is_empty():
 		error_label.text = "Please set a username!"
 		return
-
+	
+	Lobby.singleplayer = false
 	Lobby.player_info["name"] = username.text
 	Lobby.port = int(server_port.value)
 	if server_address.text:
@@ -84,5 +86,15 @@ func _on_open_settings_pressed() -> void:
 
 
 func _on_singleplayer_pressed() -> void:
+	Lobby.singleplayer = true
+	
+	var err = Lobby.create_game()
+	if err:
+		if err == Error.ERR_CANT_CREATE:
+			error_label.text = "Lobby already created on this network!"
+		return
+		
 	singleplayer.show()
-	hide()
+	connection.hide()
+	
+	

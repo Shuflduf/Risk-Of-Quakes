@@ -30,7 +30,7 @@ var players_loaded = 0
 var current_state: GameState = GameState.WAITING_FOR_PLAYERS
 var map_scene = MAPS[0]
 var status_label: Label
-
+var singleplayer = false
 
 func _ready():
 	multiplayer.peer_connected.connect(_on_player_connected)

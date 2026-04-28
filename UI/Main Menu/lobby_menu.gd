@@ -21,6 +21,9 @@ func _ready() -> void:
 
 
 func _on_player_connected(_peer_id: int, _player_info: Dictionary):
+	if Lobby.singleplayer:
+		return
+	
 	show()
 	connection_panel.hide()
 	update_players_list()
@@ -51,6 +54,9 @@ func _on_loading_game_started():
 
 
 func _on_other_player_survivor_selected(peer_id: int, _survivor: String):
+	if Lobby.singleplayer:
+		return
+	
 	var names = player_list.get_children()
 	names[names.find_custom(func(v): return v.text == Lobby.players[peer_id]["name"])].selected = true
 

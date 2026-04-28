@@ -7,8 +7,8 @@
 [ext_resource type="Script" uid="uid://bh40x3odvnh64" path="res://UI/Main Menu/survivor_list.gd" id="3_jri5q"]
 [ext_resource type="Texture2D" uid="uid://dc67fjf08uguv" path="res://Assets/logo.png" id="3_k0v0h"]
 [ext_resource type="PackedScene" uid="uid://vupdm4e1fa0d" path="res://UI/Main Menu/menu_player_name.tscn" id="3_mqkp3"]
-[ext_resource type="PackedScene" path="res://UI/settings.tscn" id="8_7i25j"]
-[ext_resource type="Script" path="res://UI/Main Menu/singleplayer_menu.gd" id="8_qlwe4"]
+[ext_resource type="PackedScene" uid="uid://4dg5lx0jhyb7" path="res://UI/settings.tscn" id="8_7i25j"]
+[ext_resource type="Script" uid="uid://bx2uhqqpkbypv" path="res://UI/Main Menu/singleplayer_menu.gd" id="8_qlwe4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7i25j"]
 shader = ExtResource("3_ajqx1")
@@ -253,12 +253,13 @@ script = ExtResource("8_qlwe4")
 layout_mode = 2
 alignment = 1
 
-[node name="Players" type="Label" parent="Singleplayer/Options" unique_id=1179928264]
+[node name="Options" type="Label" parent="Singleplayer/Options" unique_id=1179928264]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "Players"
+text = "Options"
 
-[node name="MapOption" type="OptionButton" parent="Singleplayer/Options" unique_id=789097105]
+[node name="MapOptionSingleplayer" type="OptionButton" parent="Singleplayer/Options" unique_id=789097105]
+unique_name_in_owner = true
 layout_mode = 2
 selected = 0
 item_count = 2
@@ -267,7 +268,8 @@ popup/item_0/id = 0
 popup/item_1/text = "Skirmish A"
 popup/item_1/id = 1
 
-[node name="StartGame" type="Button" parent="Singleplayer/Options" unique_id=7671515]
+[node name="StartGameSingleplayer" type="Button" parent="Singleplayer/Options" unique_id=7671515]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Start Game"
 
@@ -275,18 +277,21 @@ text = "Start Game"
 layout_mode = 2
 text = "Go Back"
 
-[node name="LoadingLabel" type="Label" parent="Singleplayer/Options" unique_id=594947477]
+[node name="LoadingLabelSingleplayer" type="Label" parent="Singleplayer/Options" unique_id=594947477]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="SurvivorList" type="VBoxContainer" parent="Singleplayer" unique_id=829650262]
+[node name="SurvivorListSingleplayer" type="VBoxContainer" parent="Singleplayer" unique_id=829650262]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_vertical = 4
 script = ExtResource("3_jri5q")
 
-[node name="SelectSurvivor" type="Label" parent="Singleplayer/SurvivorList" unique_id=1664796209]
+[node name="SelectSurvivor" type="Label" parent="Singleplayer/SurvivorListSingleplayer" unique_id=1664796209]
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
@@ -294,12 +299,12 @@ text = "Select Your Survivor"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Commando" type="Button" parent="Singleplayer/SurvivorList" unique_id=1013850560]
+[node name="Commando" type="Button" parent="Singleplayer/SurvivorListSingleplayer" unique_id=1013850560]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Commando"
 
-[node name="CHEF" type="Button" parent="Singleplayer/SurvivorList" unique_id=889462441]
+[node name="CHEF" type="Button" parent="Singleplayer/SurvivorListSingleplayer" unique_id=889462441]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "CHEF"
@@ -334,7 +339,7 @@ layout_mode = 2
 [connection signal="pressed" from="Lobby/PlayerList/StartGame" to="Lobby" method="_on_start_game_pressed"]
 [connection signal="pressed" from="Lobby/PlayerList/CopyIP" to="Lobby" method="_on_copy_ip_pressed"]
 [connection signal="pressed" from="Lobby/PlayerList/Disconnect" to="Lobby" method="_on_disconnect_pressed"]
-[connection signal="item_selected" from="Singleplayer/Options/MapOption" to="Singleplayer" method="_on_map_option_item_selected"]
-[connection signal="pressed" from="Singleplayer/Options/StartGame" to="Singleplayer" method="_on_start_game_pressed"]
+[connection signal="item_selected" from="Singleplayer/Options/MapOptionSingleplayer" to="Singleplayer" method="_on_map_option_item_selected"]
+[connection signal="pressed" from="Singleplayer/Options/StartGameSingleplayer" to="Singleplayer" method="_on_start_game_pressed"]
 [connection signal="pressed" from="Singleplayer/Options/GoBack" to="Singleplayer" method="_on_go_back_pressed"]
-[connection signal="survivor_selected" from="Singleplayer/SurvivorList" to="Singleplayer" method="_on_survivor_list_survivor_selected"]
+[connection signal="survivor_selected" from="Singleplayer/SurvivorListSingleplayer" to="Singleplayer" method="_on_survivor_list_survivor_selected"]
