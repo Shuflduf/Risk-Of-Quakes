@@ -25,7 +25,8 @@ var remaining_respawn_time = 0.0
 func _ready() -> void:
 	settings_menu.disconnect_button.pressed.connect(disconnected.emit)
 	Settings.hud_toggled.connect(func(enabled: bool): actual_hud.visible = enabled)
-
+	actual_hud.visible = Settings.hud_enabled
+	
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"show_leaderboard"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
