@@ -1,8 +1,5 @@
 ![logo](Assets/logo.png)
 
-You can see a video demo of this game here:
-(TODO: VIDEO)
-
 # Table of Contents
 1. [Setup](#setup)
 2. [Controls](#controls)
@@ -87,6 +84,10 @@ If you've never played a game with Quake movement before, here are the basics:
 # Survivors
 ## Commando
 Commando is a well-rounded survivor, with high mobility and strong damage at medium range.
+
+https://github.com/user-attachments/assets/41c2e5de-6a69-4048-b146-cf7222d4af16
+
+### Tips
 - **Frag Grenades** are a powerful tool in increasing your momentum, at the cost of health.
 - Using **Tactical Slide** midair while not holding any movement keys automatically redirects your momentum to where you're looking. This is a powerful mobility tool.
 
@@ -98,6 +99,10 @@ Commando is a well-rounded survivor, with high mobility and strong damage at med
 
 ## CHEF
 CHEF has high combo potential and great time-to-kill at short ranges, at the cost of having harder to control mobility.
+
+https://github.com/user-attachments/assets/3a45e834-7f08-4c37-bb14-0ac8d9f89e35
+
+### Tips
 - Suspended cleavers from **Dice** can be used to make traps, as each cleaver does 10 damage on the return trip if suspended at all.
 - Using **Boosted Dice** while inside an enemy does insane damage, and is a guaranteed kill in most cases.
 
