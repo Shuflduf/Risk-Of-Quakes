@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dc67fjf08uguv" path="res://Assets/logo.png" id="3_k0v0h"]
 [ext_resource type="PackedScene" uid="uid://vupdm4e1fa0d" path="res://UI/Main Menu/menu_player_name.tscn" id="3_mqkp3"]
 [ext_resource type="PackedScene" uid="uid://4dg5lx0jhyb7" path="res://UI/settings.tscn" id="8_7i25j"]
+[ext_resource type="Script" uid="uid://bx2uhqqpkbypv" path="res://UI/Main Menu/singleplayer_menu.gd" id="8_qlwe4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7i25j"]
 shader = ExtResource("3_ajqx1")
@@ -59,6 +60,7 @@ color = Color(0.12156863, 0.12156863, 0.1764706, 1)
 
 [node name="Connection" type="VBoxContainer" parent="." unique_id=2010914824]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -236,6 +238,72 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "CHEF"
 
+[node name="Singleplayer" type="HBoxContainer" parent="." unique_id=269817657]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 64
+alignment = 1
+script = ExtResource("8_qlwe4")
+
+[node name="Options" type="VBoxContainer" parent="Singleplayer" unique_id=1282056947]
+layout_mode = 2
+alignment = 1
+
+[node name="Players" type="Label" parent="Singleplayer/Options" unique_id=1179928264]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Players"
+
+[node name="MapOption" type="OptionButton" parent="Singleplayer/Options" unique_id=789097105]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "Bulwark's Ambry"
+popup/item_0/id = 0
+popup/item_1/text = "Skirmish A"
+popup/item_1/id = 1
+
+[node name="StartGame" type="Button" parent="Singleplayer/Options" unique_id=7671515]
+layout_mode = 2
+text = "Start Game"
+
+[node name="GoBack" type="Button" parent="Singleplayer/Options" unique_id=428043800]
+layout_mode = 2
+text = "Go Back"
+
+[node name="LoadingLabel" type="Label" parent="Singleplayer/Options" unique_id=594947477]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="SurvivorList" type="VBoxContainer" parent="Singleplayer" unique_id=829650262]
+layout_mode = 2
+size_flags_vertical = 4
+script = ExtResource("3_jri5q")
+
+[node name="SelectSurvivor" type="Label" parent="Singleplayer/SurvivorList" unique_id=1664796209]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Select Your Survivor"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Commando" type="Button" parent="Singleplayer/SurvivorList" unique_id=1013850560]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Commando"
+
+[node name="CHEF" type="Button" parent="Singleplayer/SurvivorList" unique_id=889462441]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "CHEF"
+
 [node name="SettingsContainer" type="PanelContainer" parent="." unique_id=37611055]
 visible = false
 custom_minimum_size = Vector2(500, 0)
@@ -265,3 +333,7 @@ layout_mode = 2
 [connection signal="pressed" from="Lobby/PlayerList/StartGame" to="Lobby" method="_on_start_game_pressed"]
 [connection signal="pressed" from="Lobby/PlayerList/CopyIP" to="Lobby" method="_on_copy_ip_pressed"]
 [connection signal="pressed" from="Lobby/PlayerList/Disconnect" to="Lobby" method="_on_disconnect_pressed"]
+[connection signal="item_selected" from="Singleplayer/Options/MapOption" to="Singleplayer" method="_on_map_option_item_selected"]
+[connection signal="pressed" from="Singleplayer/Options/StartGame" to="Singleplayer" method="_on_start_game_pressed"]
+[connection signal="pressed" from="Singleplayer/Options/GoBack" to="Singleplayer" method="_on_go_back_pressed"]
+[connection signal="survivor_selected" from="Singleplayer/SurvivorList" to="Singleplayer" method="_on_survivor_list_survivor_selected"]
