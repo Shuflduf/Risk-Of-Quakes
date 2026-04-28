@@ -7,7 +7,8 @@
 4. [Features](#features)
 5. [Survivors](#survivors)
 6. [Maps](#maps)
-7. [Disclaimer](#disclaimer)
+7. [Known Issues](#known-issues)
+8. [Disclaimer](#disclaimer)
 
 # Setup
 1. Go to the Risk of Quakes [itch.io page](https://shuflduf.itch.io/risk-of-quakes) for the latest releases
@@ -143,6 +144,11 @@ A scaled-up version of the Skirmish A map from Valorant! It's barebones, but eac
 <img height="300" alt="skirmish_baked" src="https://github.com/user-attachments/assets/c0166f3a-589f-4b13-a17c-b3f967dc39e0" />
 
 *(baked lighting comparison)*
+
+# Known Issues
+- Some rigs may sometimes not be visually correct. Notably Commando's main body does not line up with their armor sometimes.
+- Using **Frag Grenade** can sometimes cause a lag spike.
+- Some window managers may unload certain windows if they're not on the screen, which may cause desync when running multiple instances on one machine.
 
 # Disclaimer
 This is a fan-made project not affiliated with, endorsed by, or approved by Gearbox Software or Hopoo Games.
