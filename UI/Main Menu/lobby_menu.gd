@@ -91,9 +91,11 @@ func _on_map_option_item_selected(index: int) -> void:
 
 
 func _on_copy_ip_pressed() -> void:
+	print(IP.get_local_addresses())
 	var local_address = ""
 	for ip in IP.get_local_addresses():
-		if ip.count(".") == 3 and not ip.begins_with("127."):
+		if ip.count(".") == 3 and ip.begins_with("192.168"):
 			local_address = "%s:%d" % [ip, Lobby.port]
+			break
 
 	DisplayServer.clipboard_set(local_address)
