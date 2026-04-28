@@ -32,7 +32,6 @@ func _on_survivor_selected(survivor: String):
 	if not Lobby.singleplayer:
 		return
 	
-	print(Lobby.players)
 	if Lobby.current_state == Lobby.GameState.CHOOSING_SURVIVORS:
 		Lobby.select_survivor.rpc(survivor)
 

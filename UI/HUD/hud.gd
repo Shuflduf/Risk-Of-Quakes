@@ -60,7 +60,7 @@ func respawn(respawn_seconds: float):
 
 
 func change_skill_info(new_info: SkillInfo, slot: Skill.SkillSlot):
-	registered_skills[slot].create(new_info)
+	registered_skills[slot].create(new_info, slot)
 
 
 func update_health(health: int):

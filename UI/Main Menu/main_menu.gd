@@ -12,6 +12,8 @@ extends Control
 
 
 func _ready() -> void:
+	Lobby.map_scene = Lobby.MAPS[0]
+	
 	if OS.get_cmdline_args().size() > 2:
 		username.text = OS.get_cmdline_args()[2]
 	if Lobby.error_message:
