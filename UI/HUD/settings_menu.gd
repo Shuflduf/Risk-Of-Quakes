@@ -6,10 +6,13 @@ extends MarginContainer
 @onready var fov_spin_box: SpinBox = %FOVSpinBox
 @onready var window_mode_option: OptionButton = %WindowModeOption
 @onready var vsync_check: CheckBox = %VSyncCheck
+@onready var gui_scale_slider: HSlider = %GUIScaleSlider
+@onready var gui_scale_spin_box: SpinBox = %GUIScaleSpinBox
 
 @onready var pairs = {
 	&"sensitivity": [sens_slider, sens_spin_box],
 	&"fov": [fov_slider, fov_spin_box],
+	&"gui_scale": [gui_scale_slider, gui_scale_spin_box]
 }
 @onready var options = {
 	&"window_mode": window_mode_option,
@@ -17,9 +20,6 @@ extends MarginContainer
 @onready var toggles = {
 	&"vsync": vsync_check,
 }
-
-#func _process(delta: float) -> void:
-#if visible:
 
 
 func _ready() -> void:

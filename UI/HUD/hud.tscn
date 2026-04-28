@@ -367,6 +367,36 @@ max_value = 130.0
 step = 0.5
 value = 100.0
 
+[node name="GUIScale" type="HBoxContainer" parent="PauseScreen/TabContainer/Settings/VBox" unique_id=69184547]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PauseScreen/TabContainer/Settings/VBox/GUIScale" unique_id=1393479912]
+layout_mode = 2
+text = "GUI Scale"
+
+[node name="GUIScaleSlider" type="HSlider" parent="PauseScreen/TabContainer/Settings/VBox/GUIScale" unique_id=1127664278]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+min_value = 0.5
+max_value = 4.0
+step = 0.1
+value = 1.0
+editable = false
+
+[node name="GUIScaleSpinBox" type="SpinBox" parent="PauseScreen/TabContainer/Settings/VBox/GUIScale" unique_id=1929006521]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+min_value = 0.5
+max_value = 4.0
+step = 0.1
+value = 1.0
+
 [node name="WindowMode" type="HBoxContainer" parent="PauseScreen/TabContainer/Settings/VBox" unique_id=1600902400]
 layout_mode = 2
 
